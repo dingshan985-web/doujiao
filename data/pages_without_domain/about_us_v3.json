@@ -1,0 +1,41 @@
+{
+  "handle": "about-us",
+  "title": "About Us",
+  "sections": [
+    {
+      "heading": "<h2>The {brand} Difference</h2>",
+      "paragraphs": [
+        "<p>In a sea of online retailers, {brand} stands out for one simple reason: we actually care. We care about the quality of the products we sell. We care about the prices we charge. We care about whether your order arrives on time and in perfect condition. And we care about what happens if it doesn't. This isn't corporate marketing fluff — it's how we run our business, every single day.</p>",
+        "<p>We started {brand} because we were frustrated with the state of online shopping. Too many stores sell cheaply made products at inflated prices. Too many hide fees at checkout. Too many make returns a nightmare. And too many treat customers like transactions rather than people. We decided to do things differently. We built the kind of store we wanted to shop at — one with great products, fair prices, free shipping worldwide, and a return policy that actually works in the customer's favor.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Curated for Quality</h2>",
+      "paragraphs": [
+        "<p>Our product selection process is anything but random. Every item in our store has been hand-picked by our team of product experts. We start by identifying categories and products that people actually need and use. Then we research dozens of options, compare specifications, read customer reviews from multiple sources, and narrow down the field to the best candidates. Only after in-depth testing and evaluation do we add a product to our collection.</p>",
+        "<p>This curatorial approach means you won't find hundreds of nearly identical products in each category, all claiming to be the best. Instead, you'll find a carefully edited selection of top-quality items at different price points, so you can choose with confidence knowing that every option is a good one. We do the research so you don't have to — that's the {brand} advantage.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Built on Trust</h2>",
+      "paragraphs": [
+        "<p>Trust is the foundation of any good relationship, including the one between a store and its customers. That's why we go to great lengths to earn and keep your trust. We provide accurate product descriptions and honest photos — no deceptive angles or misleading claims. We display all prices in USD with no hidden fees or surprise charges at checkout. And we back every purchase with a 60-day free return policy, because we know that even with the best research, sometimes a product just isn't right for you.</p>",
+        "<p>Building trust also means being transparent. If we make a mistake — and we're human, so occasionally we do — we own up to it and make it right. If a product is out of stock, we tell you upfront instead of taking your order and making you wait weeks. If shipping is going to be delayed, we let you know as soon as possible. Honesty isn't always the easiest path, but it's the right one, and it's the only way we do business.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Service That Matters</h2>",
+      "paragraphs": [
+        "<p>Great products are only half the equation — great service is the other half. That's why we've built our customer service team from the ground up with a focus on empathy, knowledge, and effectiveness. Every member of our support team is trained to handle questions and issues with patience and professionalism, and they have the authority to solve problems on the spot, without needing to escalate to a manager or read from a script.</p>",
+        "<p>We also know that service doesn't stop when the order is placed. That's why we provide tracking for every shipment, so you always know where your package is. That's why we pack every order carefully to prevent damage in transit. And that's why our 60-day return policy is truly hassle-free — if you're not satisfied, just let us know and we'll make it right. No restocking fees, no return shipping costs, no hoops to jump through. Just good, honest service.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Our Values in Action</h2>",
+      "paragraphs": [
+        "<p>Every decision we make at {brand} is guided by our core values. Quality first — we will never sacrifice product quality to save a few dollars. Customer always right — if there's a problem, we find a solution, not an excuse. Fair pricing — we charge a fair price for fair value, with no artificial markups or deceptive sales tactics. Transparency — we tell it like it is, even when it's not what you want to hear. And continuous improvement — we're always looking for ways to get better, whether that's finding better products, improving our website, or speeding up delivery.</p>",
+        "<p>We believe that business can be both successful and ethical. That you don't have to choose between low prices and high quality. That customer service can be both friendly and efficient. And that shopping online should be enjoyable, not stressful. These aren't just ideals to us — they're how we operate every day, and they're what you can expect every time you shop with {brand}.</p>"
+      ]
+    }
+  ]
+}

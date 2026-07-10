@@ -1,0 +1,55 @@
+{
+  "handle": "shipping-policy",
+  "title": "Shipping Policy",
+  "sections": [
+    {
+      "heading": "<h2>Shipping Made Simple</h2>",
+      "paragraphs": [
+        "<p>Shopping at {brand} means never having to calculate shipping costs or wonder when your order will arrive. We've simplified our shipping to make it as straightforward as possible: free on every order, processed within 1-3 days, delivered in 6-12 days, all in USD pricing. No surprises, no complications, just simple shipping that works.</p>",
+        "<p>We design our entire customer experience with simplicity and transparency in mind, and shipping is no exception. You won't find multiple shipping tiers, confusing delivery options, or hidden fees at checkout. What you see is what you get: the price of the product plus zero shipping cost, delivered to your door. It's shipping the way it should be.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>From Our Warehouse to Your Door</h2>",
+      "paragraphs": [
+        "<p>The journey of your order begins as soon as you click 'Place Order.' Our fulfillment team receives your order instantly and gets to work right away. Items are carefully picked from our inventory, inspected for quality, and securely packaged to protect them during transit. This process takes 1-3 business days, with most orders being shipped out within 48 hours.</p>",
+        "<p>Once packaged, your order is handed off to our trusted shipping partners, who handle the long journey from our warehouse to your location. During transit, your package is scanned at various points, allowing you to track its progress along the way. Finally, it's delivered to your doorstep by your local postal or courier service, completing the journey we've carefully designed to be smooth and reliable from start to finish.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Free Shipping Benefits</h2>",
+      "paragraphs": [
+        "<p>Why do we offer free shipping on everything? Because we believe it's the right thing to do. Shipping is a fundamental part of online shopping, not an optional extra. When you buy something, you should be able to get it delivered without paying a premium. By offering free shipping universally, we eliminate the frustration of getting to checkout and discovering an unexpected shipping charge that inflates your total.</p>",
+        "<p>Free shipping also means you can shop with complete freedom. Order just one item if that's all you need — there's no pressure to add more to your cart to qualify for free delivery. Buy what you want, when you want it, without doing math to figure out if you've hit a minimum. It's a small thing, but it makes shopping a lot more pleasant, and that's what we're all about.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Understanding Delivery Times</h2>",
+      "paragraphs": [
+        "<p>Our standard delivery window is 6-12 business days after your order has been shipped. This range accounts for the natural variation in delivery times depending on your location. Customers closer to our fulfillment center typically receive their orders on the shorter end of the range, while those farther away or in more remote areas may take closer to 12 days. Either way, you can expect your order within this timeframe.</p>",
+        "<p>Business days are Monday through Friday, excluding public holidays in both the origin and destination countries. If there are holidays during the shipping period, this can add extra days to the delivery time. We provide a range rather than a specific date because there are many variables that can affect delivery speed, and we prefer to under-promise and over-deliver rather than the other way around.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Stay Updated with Tracking</h2>",
+      "paragraphs": [
+        "<p>We know how exciting it is to wait for a new package, and we want you to always know where your order is. That's why every shipment includes full tracking. You'll get an email with your tracking number as soon as your order leaves our warehouse, so you can follow its progress every step of the way. It's a great way to build anticipation and plan for delivery day.</p>",
+        "<p>Tracking information usually becomes available within 24-48 hours of shipment. If you check right away and don't see anything yet, be patient — it takes a little time for the carrier to process the package and update their system. Once the first scan appears, you'll see regular updates as the package makes its way to you. If tracking never updates or seems stuck, just let us know and we'll check on it for you.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Address Accuracy Matters</h2>",
+      "paragraphs": [
+        "<p>One of the most common causes of shipping delays and delivery failures is an incorrect or incomplete shipping address. Please take a moment to review your address carefully before placing your order. Make sure your full name, street address, apartment or unit number, city, postal code, and country are all correct and complete. A small mistake can cause big headaches down the line.</p>",
+        "<p>If you notice an error in your shipping address right after placing your order, contact us immediately. If we haven't shipped the order yet, we can usually update the address for you. Once the package is in the hands of the shipping carrier, however, we're unable to change the delivery address. Taking 30 seconds to double-check your address at checkout can save you days of delay and frustration later.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>We're Here to Help</h2>",
+      "paragraphs": [
+        "<p>Shipping questions? Delivery concerns? We're here for you. Our customer service team is knowledgeable about our shipping process and can help with anything from tracking inquiries to address changes to delivery issues. Just reach out with your order number and your question, and we'll get back to you as quickly as possible with answers and solutions.</p>",
+        "<p>If your order arrives damaged, is missing items, or never arrives at all, we'll make it right. We handle the logistics, file claims with carriers if necessary, and work with you to determine the best resolution — whether that's a replacement order, a partial refund, or a full refund. You shouldn't have to deal with shipping problems on your own, and with {brand}, you never will.</p>"
+      ]
+    }
+  ]
+}

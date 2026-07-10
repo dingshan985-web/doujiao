@@ -1,0 +1,76 @@
+{
+  "handle": "terms-of-purchase",
+  "title": "Terms of Purchase",
+  "sections": [
+    {
+      "heading": "<h2>Understanding Our Purchase Agreement</h2>",
+      "paragraphs": [
+        "<p>Thank you for choosing to shop with {brand}. These Terms of Purchase form a binding agreement between you and {brand} when you place an order through our website. We believe in transparency and fairness, and these terms are designed to clearly outline both your rights and our responsibilities as your seller.</p>",
+        "<p>By completing a purchase on our website, you confirm that you are at least 18 years old (or the age of majority in your jurisdiction) and that you have the legal authority to enter into a binding agreement. If you're under 18, please have a parent or guardian make the purchase on your behalf. We also encourage you to read these terms carefully before placing your order.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>How to Place an Order</h2>",
+      "paragraphs": [
+        "<p>Shopping on our website is designed to be quick and easy. Start by browsing our product catalog and adding items you'd like to purchase to your shopping cart. When you're ready to check out, click on the cart icon and follow the prompts to enter your shipping information, select your preferred payment method, and review your order before submitting it.</p>",
+        "<p>Before you finalize your order, you'll have the opportunity to review all details, including the items in your cart, the total price (which includes product cost and any applicable taxes — shipping is always free), and your shipping address. Please review this information carefully, as once an order is placed and shipped, making changes can be more difficult. Clicking the 'Place Order' button submits your order and authorizes us to charge your selected payment method.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Order Acceptance and Fulfillment</h2>",
+      "paragraphs": [
+        "<p>When you place an order, you'll receive an automated email confirming that we've received your order. Please note that this confirmation is not an acceptance of your order — it's just our way of letting you know we're processing it. We reserve the right to decline or cancel orders in certain circumstances, such as when a product is out of stock, when there's a pricing error, or when we suspect fraudulent activity.</p>",
+        "<p>Once your order has been processed and accepted, we prepare it for shipment. Our standard processing time is 1-3 business days. During busy periods like sales or holidays, processing may take slightly longer. We always work hard to get your order out the door as quickly as possible without sacrificing our quality checks. Once your order ships, you'll receive another email with your tracking information.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Pricing, Currency, and Payment</h2>",
+      "paragraphs": [
+        "<p>All prices on our website are listed in United States Dollars (USD). This is the currency you'll be charged in, regardless of where you live. Your bank or payment provider may convert the amount to your local currency, and they may charge currency conversion fees — these are beyond our control and are your responsibility.</p>",
+        "<p>We accept several payment methods to make shopping convenient for you, including major credit cards, debit cards, and other secure payment options available at checkout. All payments are processed through secure, PCI-DSS compliant payment gateways. We take your payment security seriously and use industry-standard encryption to protect your financial information. We do not store full credit card details on our servers.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Product Accuracy and Availability</h2>",
+      "paragraphs": [
+        "<p>We do our best to ensure that all product information on our website — including descriptions, images, specifications, and prices — is accurate and up to date. However, despite our efforts, errors may occasionally occur. If we discover an error in the price or description of a product you've ordered, we'll notify you and give you the option to continue with the corrected information or cancel your order for a full refund.</p>",
+        "<p>Product availability is not guaranteed. Popular items can sell out quickly, and inventory levels change constantly. If an item you ordered is out of stock or unavailable, we'll contact you promptly to discuss your options. These may include waiting for the item to come back in stock, substituting with a comparable product (with your approval), or receiving a full refund. We appreciate your understanding when inventory issues arise.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Shipping, Delivery, and Tracking</h2>",
+      "paragraphs": [
+        "<p>We're proud to offer free standard shipping on all orders, worldwide. There's no minimum purchase required to qualify for free shipping — every order ships for free. After we process and pack your order (which typically takes 1-3 business days), it's handed off to our shipping partners for delivery. Standard delivery usually takes 6-12 business days after dispatch, depending on your location.</p>",
+        "<p>You'll receive a shipping confirmation email with a tracking number as soon as your order is on its way. You can use this tracking number to monitor your package's progress. Please note that delivery timeframes are estimates and not guarantees — factors like customs clearance, weather, and carrier delays can sometimes affect delivery. If your order hasn't arrived within the expected timeframe, please reach out to our customer service team and we'll help you track it down.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Our Return and Refund Policy</h2>",
+      "paragraphs": [
+        "<p>Your satisfaction is our priority. If you're not completely happy with your purchase, you can return it within 60 days of receiving your order. Returned items must be in new, unused condition with all original tags and packaging attached. We want you to shop with confidence, knowing that if something doesn't work out, returning it is easy and risk-free.</p>",
+        "<p>Returns are completely free — we cover the cost of return shipping and there are no restocking fees. To start a return, simply contact our customer service team. We'll provide you with a pre-paid shipping label and clear instructions for returning your item. Once we receive and inspect the returned item, we'll process your refund within 5-10 business days. The refund will be issued to your original payment method.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Modifying or Canceling Orders</h2>",
+      "paragraphs": [
+        "<p>Changed your mind after placing an order? We can help, as long as your order hasn't shipped yet. Whether you need to update your shipping address, add or remove items, change sizes or colors, or cancel your order entirely, just contact us as soon as possible. The sooner you let us know, the more likely we can accommodate your request.</p>",
+        "<p>Once your order has been shipped, we can't make changes or cancel it. But don't worry — our generous 60-day return policy means you can easily return items you don't want after they arrive. Returns are free and simple, so you can shop with peace of mind knowing you're not stuck with something that doesn't work for you.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Disclaimers and Limitations</h2>",
+      "paragraphs": [
+        "<p>While we work hard to provide excellent products and service, there are some things we can't guarantee. Our website and all content, products, and services provided through it are offered on an 'as is' and 'as available' basis, without warranties of any kind, either express or implied. This includes, but is not limited to, implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>",
+        "<p>In no event shall {brand}, our directors, employees, or partners be liable for any indirect, special, incidental, consequential, or punitive damages arising from your use of our website or your purchase of our products. Our maximum aggregate liability for any claims related to your order shall not exceed the total amount you paid for the products in question. This limitation applies to the fullest extent permitted by law.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Questions and Support</h2>",
+      "paragraphs": [
+        "<p>If you have questions about these Terms of Purchase, or about anything related to ordering, paying, shipping, or returns, our customer service team is here to help. The fastest way to reach us is through the contact form on our website, or you can email us directly at our support address. We aim to respond to all inquiries within 1-2 business days.</p>",
+        "<p>When contacting us about an order, please include your order number so we can look up your purchase quickly and assist you more efficiently. Whether you have a question before you buy, need help with an existing order, or want to discuss a return, we're happy to help. Your satisfaction is what matters most to us.</p>"
+      ]
+    }
+  ]
+}

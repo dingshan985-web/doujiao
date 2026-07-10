@@ -1,0 +1,55 @@
+{
+  "handle": "refund-policy",
+  "title": "Refund Policy",
+  "sections": [
+    {
+      "heading": "<h2>Return Policy Overview</h2>",
+      "paragraphs": [
+        "<p>Thank you for shopping at {brand}. We want you to love every purchase you make, and we understand that sometimes things don't work out. That's why we offer a simple, customer-friendly return policy. This page explains everything you need to know about returning items, getting refunds, and making exchanges. If you have any questions that aren't answered here, our customer service team is just a message away.</p>",
+        "<p>In short: you can return most items within 60 days of delivery for a full refund. Returns are always free, with no restocking fees and no return shipping costs. Refunds are processed within 5-10 business days of receiving the returned item and are issued to your original payment method. That's our policy in a nutshell — read on for all the details.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>60-Day Return Period</h2>",
+      "paragraphs": [
+        "<p>You have 60 calendar days from the date your order is delivered to initiate a return. We chose 60 days because we believe you should have plenty of time to properly evaluate your purchase. Whether it's a clothing item you want to wear a few times, a gadget you want to test in different situations, or a gift you're not sure the recipient will love — 60 days gives you the flexibility to make the right decision without feeling rushed.</p>",
+        "<p>If you're approaching the 60-day mark and aren't sure yet, we recommend reaching out sooner rather than later. As long as you contact us within the 60-day window, you're covered — even if the actual return shipment takes a few more days to reach us. We're flexible and reasonable, and we'll always work with you to find a fair solution.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Free Return Shipping Explained</h2>",
+      "paragraphs": [
+        "<p>One of the things customers love most about shopping with {brand} is our free return policy. But what does 'free returns' really mean? It means that if you need to send something back, you pay absolutely nothing. No return shipping charges. No restocking fees. No hidden costs of any kind. The full amount you paid is refunded to you, 100 cents on the dollar.</p>",
+        "<p>We're able to offer free returns because we've optimized our logistics and built strong partnerships with shipping carriers. It also helps that our return rate is relatively low — a testament to the quality of our products and the accuracy of our product descriptions. When returns are rare, offering them for free is sustainable. It's a virtuous cycle: good products mean fewer returns, which means we can afford to offer free returns, which makes customers happy and confident to buy.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>The Return Process</h2>",
+      "paragraphs": [
+        "<p>Starting a return is simple and only takes a few minutes. Here's how it works: First, locate your order number from your confirmation email or account. Second, contact our customer service team with your order number and a note that you'd like to make a return. You can mention the reason if you want, but it's not required. Third, we'll send you a pre-paid shipping label and return instructions within 1-2 business days.</p>",
+        "<p>Fourth, pack the item securely in its original packaging (or any sturdy packaging if the original is no longer available). Make sure all parts, accessories, tags, and documentation that came with the product are included. Fifth, affix the shipping label to the outside of the package and remove any old labels or barcodes. Sixth, drop off the package at the designated carrier location or schedule a pickup. Finally, wait for your refund — it will be processed within 5-10 business days of us receiving the item.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Refund Processing and Timing</h2>",
+      "paragraphs": [
+        "<p>When your return arrives at our facility, it goes through a quick inspection process. Our team checks that the item is in good condition and that everything that was originally sent is included. This is usually a quick process — we're not looking for tiny flaws or reasons to deny a refund. As long as the item is in reasonably good condition and all parts are there, the refund is approved.</p>",
+        "<p>Once approved, we issue the refund within 5-10 business days to your original payment method. The exact timing depends on how busy we are, but we always aim for the faster end of the range. After we issue the refund, it may take additional time for your bank or payment provider to process it and post it to your account. Most customers see their refund within 7-14 days of the item being received by us. If you ever have concerns about the status of your refund, don't hesitate to reach out.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>What Can and Can't Be Returned</h2>",
+      "paragraphs": [
+        "<p>The vast majority of products we sell are fully returnable within 60 days. This includes clothing, accessories, home goods, electronics, beauty products (unused or gently used), and more. If it was sold by {brand} and it's not in one of the non-returnable categories below, you can send it back for a full refund.</p>",
+        "<p>Items that cannot be returned include: custom or personalized products made specifically for you, intimate apparel and swimwear (for hygiene reasons), downloadable digital products (once accessed or downloaded), and items that have been damaged or altered by the customer beyond normal wear from testing. We also reserve the right to refuse returns that appear to be fraudulent or abusive. These cases are extremely rare, and we approach every return with good faith and a customer-first attitude.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Exchanges and Replacements</h2>",
+      "paragraphs": [
+        "<p>Not quite what you wanted, but you don't necessarily want your money back? We offer exchanges and replacements too. Whether you need to swap for a different size, a different color, or even a completely different product, we can help make it happen. The exchange process is similar to a return, and it's just as customer-friendly.</p>",
+        "<p>For exchanges of the same product in a different size or color, return shipping is free and we send the replacement at no extra shipping cost. For exchanges to a different product entirely, the same applies — just pay or receive the difference in price. If the item you want to exchange for is out of stock, we'll offer alternatives or process a full refund. Whatever works best for you works best for us.</p>"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "handle": "refund-policy",
+  "title": "Refund Policy",
+  "sections": [
+    {
+      "heading": "<h2>60-Day Money-Back Guarantee</h2>",
+      "paragraphs": [
+        "<p>We're so confident in the quality of our products that we back every single one with a 60-day money-back guarantee. If you receive a product and for any reason it's not what you expected, you have 60 days from delivery to send it back for a complete refund. No questions, no arguments, no hassle — just your money back, guaranteed.</p>",
+        "<p>A guarantee is only as good as the company that stands behind it, and we take ours seriously. We don't put obstacles in your way or make you jump through hoops to get a refund. If you're not satisfied, we're not satisfied either. It's as simple as that. Our reputation is built on happy customers, and we'll do whatever it takes to make sure you're one of them.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Why 60 Days?</h2>",
+      "paragraphs": [
+        "<p>You might be wondering why we offer 60 days when most stores offer 30 or less. The answer is simple: we don't think 30 days is always enough. Life gets busy. Packages sit unopened for a week. You buy something for a trip that's still three weeks away. You want to test a product in different situations before you're sure about it. Whatever the reason, 60 days gives you breathing room.</p>",
+        "<p>We also believe that a longer return window shows confidence in our products. If we didn't think our items were worth keeping, we wouldn't offer such a generous policy. But we do think they're worth it — enough that we're willing to give you two full months to make up your mind. That's how much we believe in what we sell.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>The Cost of Returning — Nothing</h2>",
+      "paragraphs": [
+        "<p>Here's something you don't see every day: completely free returns with zero cost to you. Not free minus a restocking fee. Not free shipping to us but you pay for shipping back. Not free with a minimum purchase. Just free. Zero dollars, zero cents, zero hidden charges. That's how we think returns should work.</p>",
+        "<p>Paying to return something you're not happy with just adds insult to injury. You're already disappointed that the product didn't work out — why should you have to pay for the privilege of sending it back? We don't think you should, which is why we cover 100% of return shipping costs and never charge restocking fees. It's a small thing that makes a big difference, and it's the right thing to do.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>How to Return an Item</h2>",
+      "paragraphs": [
+        "<p>Returning an item to {brand} is easy. Start by reaching out to our customer service team with your order number — you can find this in your confirmation email or by logging into your account (if you created one). Let us know you'd like to return an item and, optionally, why you're returning it. The reason helps us improve, but it never affects whether we'll accept the return.</p>",
+        "<p>Once we receive your request, we'll get back to you within 1-2 business days with a pre-paid shipping label and simple instructions. Pack the item securely, attach the label, and send it back. We recommend keeping the tracking number for your records, just in case. Once we receive and process the item, we'll issue your refund and send you a confirmation email. That's the whole process — straightforward and customer-focused from start to finish.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Your Refund Timeline</h2>",
+      "paragraphs": [
+        "<p>Wondering when you'll get your money back? Here's the typical timeline: After we receive your returned package at our warehouse, our team inspects it and processes the refund within 5-10 business days. In most cases, it's closer to 5 than 10 — we know you're waiting, and we don't want to keep you.</p>",
+        "<p>After we issue the refund, the timeline depends on your payment provider. For credit card purchases, the refund typically appears on your statement within 3-7 business days of issuance. For debit cards, PayPal, and other payment methods, it might take a bit longer. Unfortunately, we don't control how fast banks process refunds, but we do everything we can on our end to make it fast.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Return Eligibility Guidelines</h2>",
+      "paragraphs": [
+        "<p>Most items are eligible for return within 60 days, as long as they're in reasonably good condition with all original packaging and accessories. We understand that you need to open and test a product to know if it's right for you — that's what the return window is for. Normal wear from testing and trying out the product is completely acceptable.</p>",
+        "<p>That said, there are a few exceptions. Custom or personalized items made specifically for you can't be returned. Items that have been heavily used, damaged, or modified beyond reasonable testing may not qualify for a full refund. And certain products — like intimate apparel and digital downloads — are non-returnable for hygiene and practical reasons. These exceptions are clearly noted on product pages, so you'll always know before you buy.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Exchanges Made Easy</h2>",
+      "paragraphs": [
+        "<p>Exchanges are available for most items and are just as easy as returns. If you received the wrong size, want a different color, or even want to swap for a completely different product, just let us know. We'll check availability and arrange the exchange. Return shipping is free, and we don't charge extra shipping for the replacement item on same-product variant exchanges.</p>",
+        "<p>If the item you want to exchange for costs more, you'll pay the price difference. If it costs less, we'll refund the difference. If the replacement item is out of stock, we'll offer alternatives or process a full refund instead. Our goal is to make sure you end up with a product you love, and we'll work with you to make that happen.</p>"
+      ]
+    }
+  ]
+}

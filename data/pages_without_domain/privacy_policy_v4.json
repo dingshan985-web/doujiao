@@ -1,0 +1,55 @@
+{
+  "handle": "privacy-policy",
+  "title": "Privacy Policy",
+  "sections": [
+    {
+      "heading": "<h2>Our Privacy Promise</h2>",
+      "paragraphs": [
+        "<p>At {brand}, protecting your privacy is more than just a legal requirement — it's a core value. We built our business on trust, and we know that trust starts with being transparent about how we handle your personal information. This Privacy Policy explains our data practices in clear, straightforward language, so you can make informed decisions about using our services.</p>",
+        "<p>Here's our promise: we will only collect information we actually need, we will only use it for purposes we've told you about, we will protect it with reasonable security measures, and we will give you control over your data. If we ever want to use your information in a way that's not described in this policy, we'll ask for your consent first.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>What We Collect</h2>",
+      "paragraphs": [
+        "<p>When you shop with us, we collect information that's necessary to process your order and provide you with a good experience. This includes contact information (name, email address, phone number), shipping and billing addresses, payment information (credit card number, billing address), and any other information you provide when placing an order or creating an account.</p>",
+        "<p>We also collect information automatically as you browse our website. This includes technical details about your device and browser, your IP address, the pages you visit, the products you look at, items in your shopping cart, and your overall browsing patterns. This information helps us understand how people use our site, what products are popular, and where we can make improvements.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Why We Collect It</h2>",
+      "paragraphs": [
+        "<p>The primary reason we collect personal information is to fulfill your orders and provide customer service. Without your name, address, and payment details, we couldn't process your order or ship your products. We also use your contact information to send you important updates about your order, like shipping confirmations and delivery alerts.</p>",
+        "<p>Beyond order fulfillment, we use information to: improve our website, products, and services; personalize your experience and recommend products you might like; send you marketing communications (with your consent); prevent fraud, abuse, and security breaches; comply with legal requirements; and for internal purposes like analytics, reporting, and business planning.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Who We Share With</h2>",
+      "paragraphs": [
+        "<p>We do not sell, rent, or lease your personal information to third parties for their marketing purposes. We do share information with trusted service providers who help us operate our business. These include payment processors, shipping carriers, email service providers, hosting companies, analytics platforms, and marketing tools. Each of these partners has access only to the information needed to do their job, and they're bound by confidentiality agreements.</p>",
+        "<p>There are also situations where we may be legally required to share information, such as in response to a court order, subpoena, or government investigation. We may also share information to protect our rights and property, to enforce our terms of service, to prevent fraud or illegal activity, or to protect the safety of our customers, employees, or the public.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Keeping Your Data Safe</h2>",
+      "paragraphs": [
+        "<p>We implement a comprehensive set of security measures designed to protect your personal information from unauthorized access, use, disclosure, alteration, or destruction. These measures include encryption for sensitive data in transit (using TLS/SSL) and at rest, firewalls, intrusion detection systems, regular security audits, and strict access controls so that only authorized personnel can access your data.</p>",
+        "<p>Our employees who handle personal information are trained in data protection best practices and are required to follow our privacy and security policies. Despite our best efforts, no security measures are perfect or impenetrable, and we cannot guarantee the absolute security of your information. If we ever discover a security incident that affects your personal information, we'll notify you as required by applicable law.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Your Rights Over Your Data</h2>",
+      "paragraphs": [
+        "<p>You have several rights regarding your personal information. You can access the data we hold about you, request corrections if anything is inaccurate or incomplete, request deletion of your data (subject to certain exceptions), object to or restrict certain types of processing, request a portable copy of your data, and withdraw consent where processing is based on consent.</p>",
+        "<p>To exercise these rights, please contact us using the information provided on our website. We will respond to your request as quickly as possible and in accordance with applicable law. In most cases, we'll need to verify your identity before processing your request to ensure we're giving access to the right person.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Changes to This Policy</h2>",
+      "paragraphs": [
+        "<p>We may update this Privacy Policy from time to time. When we make significant changes, we'll update the 'Last Updated' date at the top of the policy and post the revised version on our website. We may also notify you through other means, such as email or a notice on our homepage, if the changes are material.</p>",
+        "<p>Your continued use of our services after the updated policy takes effect means you accept the changes. We recommend checking this policy periodically to stay informed about our privacy practices. If you have questions or concerns about this policy or our data practices, please contact us — we're here to help.</p>"
+      ]
+    }
+  ]
+}

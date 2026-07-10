@@ -1,0 +1,55 @@
+{
+  "handle": "refund-policy",
+  "title": "Refund Policy",
+  "sections": [
+    {
+      "heading": "<h2>Our Philosophy on Returns</h2>",
+      "paragraphs": [
+        "<p>At {brand}, we think about returns a little differently than most companies. Instead of seeing returns as a cost to be minimized or an inconvenience to be discouraged, we see them as an opportunity — an opportunity to build trust, to learn how to improve, and to show our customers that we stand behind what we sell. A generous return policy isn't a liability — it's an investment in our relationship with you.</p>",
+        "<p>That's why we offer 60-day free returns on almost everything we sell. We want you to shop with the same confidence you'd have in a physical store, where you can pick things up, try them on, and take your time deciding. Buying online shouldn't mean taking a risk. With {brand}, it doesn't — because we take the risk for you.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>60 Days, Any Reason</h2>",
+      "paragraphs": [
+        "<p>60 days. That's how long you have to decide if you want to keep what you bought. And 'any reason' means exactly what it says — you can return something for literally any reason. It doesn't fit? Return it. You changed your mind? Return it. You found a better price somewhere else? Return it. You just don't like it as much as you thought you would? Return it. We don't judge, and we don't ask for a justification.</p>",
+        "<p>The 60-day window starts on the day your order is delivered. To initiate a return, just contact us before the 60 days are up. We'll take it from there. We know life is busy and things come up — if you're just past the 60-day mark and have a good reason, reach out anyway. We're humans running this business, not robots, and we'll always try to find a fair solution.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Zero Cost to You</h2>",
+      "paragraphs": [
+        "<p>How much does a return cost? Nothing. Zilch. Nada. Not a single cent. We cover 100% of the return shipping cost. We don't charge restocking fees. We don't deduct anything from your refund. What you paid is what you get back, every time. That's our promise.</p>",
+        "<p>We're able to do this because we're good at what we do — we curate our products carefully, write accurate descriptions, and use good photos, so returns are relatively rare. But when they do happen, we don't penalize the customer for it. We think that's only fair. If a product doesn't live up to expectations, that's on us, not on you. So returning it should be free. Period.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>How Returns Work</h2>",
+      "paragraphs": [
+        "<p>The return process is designed to be as simple and low-effort for you as possible. Here's what you do: 1) Find your order number. 2) Send us a message saying you'd like to return something. 3) Wait for us to send you a pre-paid label (usually within 1-2 business days). 4) Pack up the item and stick on the label. 5) Drop it off or schedule a pickup. 6) Get your refund within 5-10 business days after we receive it. That's it — six steps, and most of the work is on our end.</p>",
+        "<p>We intentionally keep the process simple because we don't believe in making returns difficult to discourage them. Some companies bury their return policies in fine print, make you fill out long forms, or require you to call and argue with someone. Not us. If you want to return something, we'll make it easy. We'd rather you have a great experience returning something than a terrible experience buying something that doesn't work out. One bad return experience can turn a customer away forever, and we never want that to happen.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Refund Timeline</h2>",
+      "paragraphs": [
+        "<p>Once we receive your returned item, how fast do you get your money back? Within 5-10 business days, that's our commitment. Our team inspects every return, but the inspection is quick — we're mostly just verifying that we received the right item and that it's in acceptable condition. This isn't an obstacle course; it's a formality.</p>",
+        "<p>After we issue the refund, the ball is in your bank's court. Different banks and payment providers process refunds at different speeds. Credit card refunds are usually the fastest, appearing on your statement within a few days. Debit cards and other methods can take a bit longer. International refunds may take additional time due to currency conversion and cross-border processing. If you ever feel like your refund is taking too long, just reach out and we'll look into it.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>What's Not Returnable</h2>",
+      "paragraphs": [
+        "<p>While almost everything we sell is returnable, there are a few exceptions — all of them based on common sense. Custom-made or personalized items can't be returned because they were made specifically for you and can't be resold. Certain intimate apparel, swimwear, and personal hygiene products can't be returned for health and safety reasons.</p>",
+        "<p>Digital products that have been downloaded or accessed aren't returnable, since you can't exactly 'give back' a digital file. And items that have been significantly used, damaged, or altered by the customer may not qualify for a full refund. These exceptions are necessary and reasonable, and we always make sure they're clearly communicated on product pages before you make a purchase. No surprises.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Questions? Reach Out</h2>",
+      "paragraphs": [
+        "<p>Still not sure about something related to returns or refunds? Don't hesitate to ask. Our customer service team is here to help, and there's no such thing as a stupid question. Whether you're wondering if a specific item is returnable, how long a refund might take, or what condition an item needs to be in — just ask.</p>",
+        "<p>You can contact our support team through the contact form on our website. We aim to respond to all inquiries within 1-2 business days, and usually faster. We're a small team that cares about every customer, and it shows in how we handle questions and issues. Shopping at {brand} means you're never just a number — you're a person, and we'll treat you like one.</p>"
+      ]
+    }
+  ]
+}

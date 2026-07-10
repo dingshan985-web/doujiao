@@ -1,0 +1,55 @@
+{
+  "handle": "shipping-policy",
+  "title": "Shipping Policy",
+  "sections": [
+    {
+      "heading": "<h2>Shipping Information</h2>",
+      "paragraphs": [
+        "<p>Thank you for shopping with {brand}. We want you to feel confident about when and how your order will arrive, so we've put together this comprehensive shipping policy to answer all your questions. If there's anything you don't find here, please don't hesitate to reach out to our customer service team — we're happy to help.</p>",
+        "<p>Here's the short version for those who want the essentials: free shipping on all orders, processing within 1-3 business days, delivery in 6-12 business days, all prices in USD. For the full details — including information on tracking, address changes, damaged shipments, and more — read on.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Order Handling Time</h2>",
+      "paragraphs": [
+        "<p>After payment is confirmed, every order goes through our fulfillment process. This includes order verification, product picking, quality inspection, and secure packaging. The entire process takes 1-3 business days to complete. Our fulfillment team works Monday through Friday to get orders out the door as quickly as possible.</p>",
+        "<p>Why does it take 1-3 days instead of being instant? Because we believe in doing it right. We check every item to make sure it's in perfect condition before sending it out. We package orders carefully to prevent damage during shipping. And during busy periods, we may have more orders than usual to process. We'd rather take a little extra time and get it right than rush and make mistakes.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Complimentary Shipping</h2>",
+      "paragraphs": [
+        "<p>That's right — all shipping is complimentary at {brand}. We cover the cost of delivering your order to you, no matter where in the world you are. There's no minimum order value to qualify, no special code to enter, and no fine print to worry about. Add whatever you want to your cart, check out, and the shipping cost is always zero dollars.</p>",
+        "<p>We're able to offer free shipping by running an efficient operation and working closely with our shipping partners to keep costs down. We pass those savings directly to you rather than charging you separately for shipping. Not only does this make your shopping experience simpler and more transparent, but it also means you'll never again abandon a cart because of unexpected shipping costs. We've all been there, and it's not fun.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Estimated Arrival</h2>",
+      "paragraphs": [
+        "<p>Once your order has been shipped, you can expect it to arrive within 6-12 business days. This estimate applies to most international destinations. The actual delivery time depends on various factors including your geographical location, local postal service efficiency, customs clearance speed, and any unforeseen circumstances like weather events or service disruptions.</p>",
+        "<p>We provide a range rather than a specific date because there are natural variations in shipping times. Two orders shipped on the same day to different addresses may arrive on different days, and that's completely normal. Most orders arrive within the 6-12 day window. If your order is taking longer than 30 business days and you haven't received it, please contact us and we'll investigate.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Tracking Your Delivery</h2>",
+      "paragraphs": [
+        "<p>Every order comes with a unique tracking number that allows you to monitor your package's journey. We'll send this number to you by email as soon as your order is dispatched. You can use the tracking number on the carrier's website to see real-time updates on your shipment's status and location.</p>",
+        "<p>Please allow up to 48 hours after receiving your tracking number for the information to be visible in the carrier's system. It takes time for packages to be scanned and processed at each stage of their journey. If you don't see any updates immediately, be patient and check back later. If there's still no movement after 5 business days, contact our support team for assistance.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Address Accuracy</h2>",
+      "paragraphs": [
+        "<p>Providing a correct and complete shipping address is essential for ensuring your order is delivered on time and to the right place. Please enter your full name, street address, apartment or unit number (if applicable), city, state or province, postal or zip code, and country. Double-check for typos or omissions before finalizing your order.</p>",
+        "<p>Should you discover an error in your shipping address after submitting your order, please contact us promptly. If your order is still being processed and hasn't been shipped, we can usually correct the address for you. Once your order is in transit, however, address changes may not be possible, and the package will be delivered to the address you originally provided.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Issues & Resolutions</h2>",
+      "paragraphs": [
+        "<p>While we do our best to ensure smooth delivery for every order, occasionally issues can occur. Whether it's a damaged package, a delayed shipment, or a lost order, we're here to help. Our customer service team is experienced in handling all types of shipping issues and will work diligently to find a satisfactory solution for you.</p>",
+        "<p>If your order arrives damaged, please contact us within 7 days with your order number and photos of the damaged packaging and items. We'll arrange for a replacement or issue a refund. If your order appears to be lost in transit (no tracking update for 10+ business days or significantly delayed beyond the estimated window), we'll file a claim with the carrier and offer you a replacement or full refund. Your satisfaction is guaranteed.</p>"
+      ]
+    }
+  ]
+}

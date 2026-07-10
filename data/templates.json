@@ -1,0 +1,74 @@
+{
+  "title_templates": [
+    "{brand} Outlet Store | {cat_adj} {cat_kw} at Discount Prices",
+    "{brand} Outlet | Premium {cat_kw} Shop - Direct Discount Pricing",
+    "{brand} Discount Store | Shop {cat_adj} {cat_kw} at Outlet Prices",
+    "{brand} Outlet Store | Quality {cat_kw} Shop with Direct Pricing",
+    "{domain} | {brand} Outlet - {cat_adj} {cat_kw} for Less",
+    "{brand} Outlet | Shop Premium {cat_kw} Without the Retail Markup",
+    "{brand} Discount Store | Curated {cat_kw} at Special Outlet Prices",
+    "{brand} Outlet Store | Your Destination for {cat_adj} {cat_kw}",
+    "{brand} Outlet | Premium {cat_kw} Collection - Direct from Source",
+    "{brand} Discount Store | Shop {cat_adj} {cat_kw} Online Today",
+    "{brand} Outlet | Quality {cat_kw} at Honest, Direct Prices",
+    "{brand} Store | Premium {cat_kw} Outlet - Discount Pricing Online"
+  ],
+  "description_templates": [
+    "Shop {brand} Outlet Store for premium {cat_kw} at direct discount prices. {benefit}. Enjoy free shipping on every order worldwide.",
+    "{brand} Outlet Store offers a curated selection of quality {cat_kw} at special outlet prices. {benefit}. Free shipping worldwide.",
+    "Discover {brand} Outlet - your trusted source for premium {cat_kw} at reduced prices. {benefit}. Shop now and save with free shipping.",
+    "At {brand} Outlet Store, we bring you quality {cat_kw} without the retail markup. {benefit}. Free worldwide shipping on every order.",
+    "{brand} Outlet Store: Premium {cat_kw} at honest, direct prices. {benefit}. Shop with confidence - free shipping worldwide.",
+    "Shop quality {cat_kw} at {brand} Outlet Store. We offer a curated range at discount prices. {benefit}. Free worldwide shipping included.",
+    "{brand} Outlet Store brings you premium {cat_kw} at fair prices. {benefit}. Trusted by thousands - free shipping on every purchase.",
+    "Browse {brand} Outlet for an unbeatable range of {cat_kw}. {benefit}. Direct from source pricing with free worldwide delivery.",
+    "{brand} Outlet - your go-to destination for quality {cat_kw} at discount prices. {benefit}. Shop with free shipping on every order.",
+    "Find premium {cat_kw} at {brand} Outlet Store. {benefit}. Honest pricing, curated selection, free shipping worldwide."
+  ],
+  "categories": {
+    "coffee": {
+      "keywords": ["coffee", "coffee beans", "brew", "roast", "ground coffee", "espresso", "latte", "instant coffee", "cold brew"],
+      "adjectives": ["premium", "artisanal", "small-batch", "handcrafted", "specialty", "gourmet", "freshly-roasted"],
+      "benefits": ["Rich flavor and aroma in every cup", "Carefully sourced from trusted growers", "Perfect for your daily coffee ritual"]
+    },
+    "apparel": {
+      "keywords": ["shirt", "t-shirt", "hoodie", "jacket", "pants", "jeans", "dress", "sweater", "apparel", "clothing"],
+      "adjectives": ["stylish", "comfortable", "premium-quality", "trendy", "versatile", "durable", "everyday"],
+      "benefits": ["Designed for everyday comfort and style", "Made with premium breathable fabrics", "Perfect for casual outings or special occasions"]
+    },
+    "beauty": {
+      "keywords": ["skincare", "cream", "serum", "lotion", "beauty", "cosmetic", "makeup", "lipstick", "mask", "moisturizer"],
+      "adjectives": ["nourishing", "gentle", "premium", "professional-grade", "rejuvenating", "dermatologist-tested"],
+      "benefits": ["Formulated with high-quality ingredients", "Gentle on the skin, effective in results", "Designed to enhance your natural radiance"]
+    },
+    "electronics": {
+      "keywords": ["earbuds", "headphone", "speaker", "smart watch", "gadget", "electronic", "camera", "charger"],
+      "adjectives": ["high-performance", "cutting-edge", "premium", "wireless", "reliable", "long-lasting"],
+      "benefits": ["Engineered with the latest technology", "Delivers exceptional performance and durability", "Designed for seamless everyday use"]
+    },
+    "fitness": {
+      "keywords": ["supplement", "protein", "vitamin", "workout", "fitness", "gym", "nutrition", "health"],
+      "adjectives": ["premium", "high-quality", "lab-tested", "effective", "science-backed", "nutritious"],
+      "benefits": ["Formulated to support your wellness goals", "Made with premium, tested ingredients", "Designed to help you perform your best"]
+    },
+    "home": {
+      "keywords": ["home decor", "candle", "blanket", "pillow", "kitchenware", "homeware", "furniture", "lamp"],
+      "adjectives": ["elegant", "cozy", "modern", "timeless", "premium", "handcrafted"],
+      "benefits": ["Designed to elevate your living space", "Made with quality materials for lasting beauty", "Adds warmth and character to any room"]
+    },
+    "outdoor": {
+      "keywords": ["outdoor", "camping", "hiking", "backpack", "tent", "gear", "sportswear"],
+      "adjectives": ["rugged", "all-weather", "durable", "adventure-ready", "premium", "lightweight"],
+      "benefits": ["Built to withstand the great outdoors", "Engineered for adventure lovers", "Your reliable companion on every journey"]
+    }
+  },
+  "avoid_words": [
+    "replica", "copy", "duplicate", "fake", "same as", "just like",
+    "knockoff", "imitation"
+  ],
+  "defaults": {
+    "keyword": "products",
+    "adjective": "premium",
+    "benefit": "Carefully curated for quality and value"
+  }
+}

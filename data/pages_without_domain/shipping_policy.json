@@ -1,0 +1,62 @@
+{
+  "handle": "shipping-policy",
+  "title": "Shipping Policy",
+  "sections": [
+    {
+      "heading": "<h2>Order Processing Time</h2>",
+      "paragraphs": [
+        "<p>At {brand}, we understand that when you place an order, you want to receive it as quickly as possible. That's why we've optimized our fulfillment process to get your order out the door fast. Every order is processed within 1-3 business days from the time your payment is confirmed. Business days are Monday through Friday, excluding holidays. Orders placed on weekends or public holidays will begin processing on the next business day.</p>",
+        "<p>Our fulfillment team works diligently to ensure every order is carefully inspected, securely packaged, and shipped out promptly. During normal periods, most orders are processed within 24-48 hours. During peak seasons or promotional events, processing may take closer to the full 3 business days due to increased order volume, but we always strive to get every order out as quickly as possible without compromising on quality control.</p>",
+        "<p>Once your order has been processed and handed off to our shipping partner, you will receive a shipping confirmation email with a tracking number. You can use this tracking number to monitor the progress of your delivery at any time. If you don't receive a shipping confirmation within 4 business days of placing your order, please check your spam folder or reach out to our customer service team for assistance.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Free Worldwide Shipping</h2>",
+      "paragraphs": [
+        "<p>We are pleased to offer free standard shipping on every single order, with no minimum purchase required and no hidden fees. Whether you're ordering a small accessory or a large item, whether you're located nearby or on the other side of the world, your shipping is on us. All prices on our website are displayed in USD and include the full cost of shipping to your door.</p>",
+        "<p>We believe that shipping costs shouldn't be a surprise at checkout or a barrier to getting the products you want. That's why we've built shipping into our pricing model from the start, so you always know exactly what you're paying upfront. No promo codes needed, no minimums to meet, no fine print — just free shipping on everything, every day, to every country we serve.</p>",
+        "<p>Our standard shipping service delivers to most countries worldwide. We partner with reliable, established shipping carriers to ensure your order arrives safely and on time. While delivery times can vary slightly depending on your specific location and local customs procedures, most customers receive their orders within the estimated delivery window. We're constantly working to expand our shipping coverage and improve delivery times for all our customers.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Delivery Times</h2>",
+      "paragraphs": [
+        "<p>After your order has been processed and shipped, standard delivery typically takes 6-12 business days to arrive at your doorstep. This estimate applies to most destinations worldwide. The actual delivery time can be influenced by several factors, including your distance from our fulfillment center, the efficiency of your local postal or courier service, and any customs processing that may be required for international shipments.</p>",
+        "<p>Please note that these are estimated delivery times, not guarantees. Most orders arrive within the 6-12 day window, but occasionally shipments may take longer due to circumstances beyond our control, such as customs delays, severe weather, natural disasters, or other unforeseen events. Rest assured that we work closely with our shipping partners to minimize delays whenever possible and to keep you informed if any issues arise with your delivery.</p>",
+        "<p>If your order has not arrived within 30 business days of the shipping date, please contact our customer service team. We will investigate the status of your shipment and work with you to find a satisfactory solution, whether that's locating the package, filing a claim with the shipping carrier, or arranging a replacement or refund. We take full responsibility for ensuring your order reaches you safely.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Package Tracking</h2>",
+      "paragraphs": [
+        "<p>Every order shipped by {brand} includes full package tracking. As soon as your order leaves our warehouse, we'll send you a shipping confirmation email with your unique tracking number and a link to track your package online. You can use this link to see real-time updates on your package's location and estimated delivery date, so you'll always know when to expect your order.</p>",
+        "<p>Please keep in mind that tracking information may not update immediately after you receive the shipping confirmation email. It can take 24-48 hours for the carrier to scan the package into their system and for tracking updates to become available. If you click the tracking link and see no information, don't worry — check back in a day or two, and the tracking details should be visible. If tracking still hasn't updated after 5 business days, please contact us and we'll look into it.</p>",
+        "<p>We recommend monitoring your tracking information regularly, especially as the estimated delivery date approaches. This allows you to plan for the delivery and ensure someone is available to receive the package if needed. If you notice any unusual activity in the tracking — such as the package being marked as delivered but you haven't received it, or it being returned to sender — please contact our customer service team immediately so we can resolve the issue promptly.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Shipping Address Accuracy</h2>",
+      "paragraphs": [
+        "<p>Please double-check your shipping address carefully before completing your order. Providing an accurate and complete shipping address is essential to ensure your order is delivered correctly and on time. Be sure to include your full name, street address, apartment or suite number if applicable, city, state or province, postal or zip code, and country. An incomplete or incorrect address can lead to delivery delays, failed deliveries, or the package being returned to us.</p>",
+        "<p>If you realize you've entered an incorrect shipping address after placing your order, please contact our customer service team as soon as possible. If the order hasn't been shipped yet, we may be able to update the address for you. Once an order has been processed and handed off to the shipping carrier, we are unable to change the delivery address, and the package will be delivered to the original address provided at checkout.</p>",
+        "<p>Please note that we are not responsible for orders delivered to incorrect addresses provided by the customer. If a package is returned to us due to an incorrect or incomplete address, we will contact you to arrange re-delivery, but additional shipping fees may apply. To avoid this, please take a moment to review your shipping address before confirming your order — it only takes a few seconds and can save a lot of hassle later.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Damaged or Lost Shipments</h2>",
+      "paragraphs": [
+        "<p>While we take great care in packaging every order to ensure it arrives in perfect condition, occasionally damage can occur during shipping. If your package arrives damaged or if any items inside appear to be broken or defective, please contact our customer service team right away. To help us resolve the issue quickly, please have your order number ready and, if possible, take photos of the damaged packaging and the damaged items before discarding anything.</p>",
+        "<p>In the rare event that your package is lost in transit and never delivered, we will work with you to make it right. If tracking shows the package as lost or if it has significantly exceeded the estimated delivery time, we will file a claim with the shipping carrier on your behalf. Depending on the situation, we will either resend the order at no additional cost to you or issue a full refund — the choice is yours.</p>",
+        "<p>Your satisfaction and peace of mind are important to us. We stand behind every order we ship and take full responsibility for ensuring it arrives safely. If anything goes wrong with your shipment, you don't have to deal with the shipping carrier yourself — that's our job. Just contact our customer service team, and we'll handle the rest, keeping you updated throughout the process until the issue is fully resolved.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Customs and Import Information</h2>",
+      "paragraphs": [
+        "<p>For international orders, please be aware that customs policies and import regulations vary by country. While we ship worldwide and handle the export side of things, any import duties, taxes, or customs fees that may be imposed by the destination country are the responsibility of the recipient. These charges are determined by your local government and are not something we have control over or can predict in advance.</p>",
+        "<p>We recommend checking with your local customs office or postal service before placing your order to understand what, if any, additional charges you may be responsible for upon delivery. This way, there won't be any surprises when your package arrives. Please note that customs processing can sometimes add additional time to the delivery process, which is why we provide an estimated delivery range rather than a specific date.</p>",
+        "<p>We value our international customers and are constantly working to make the shipping process as smooth and affordable as possible for everyone. While we can't control customs policies or eliminate import fees, we do our best to ensure that the value of our products combined with free shipping makes shopping with {brand} worthwhile no matter where in the world you live.</p>"
+      ]
+    }
+  ]
+}
