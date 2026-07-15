@@ -1,6 +1,6 @@
 {
-  "version": "1.2.8",
+  "version": "1.2.9",
   "download_url": "https://dingshan985-web.github.io/doujiao/%E8%B1%86%E8%84%9AAlteraExcel%E5%B7%A5%E5%85%B7-%E5%AE%89%E8%A3%85%E5%8C%85.exe",
   "green_download_url": "https://dingshan985-web.github.io/doujiao/update.zip",
-  "release_notes": "更新内容：\n1. 新增自动更新功能\n2. 修复菜单标题裁剪问题\n3. 更新 Contact Us 页面内容\n4. 改为绿色版覆盖更新，无需安装向导\n5. 增加下载完整性校验和失败自动重试"
+  "release_notes": "更新内容：\n1. 修复 CSV 大字段读取报错（field larger than field limit）\n2. 新增自动更新功能\n3. 修复菜单标题裁剪问题\n4. 更新 Contact Us 页面内容\n5. 改为绿色版覆盖更新，无需安装向导"
 }
