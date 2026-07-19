@@ -1,6 +1,6 @@
 {
-  "version": "1.4.1",
+  "version": "1.4.2",
   "download_url": "https://dingshan985-web.github.io/doujiao/%E8%B1%86%E8%84%9AAlteraExcel%E5%B7%A5%E5%85%B7-%E5%AE%89%E8%A3%85%E5%8C%85.exe",
   "green_download_url": "https://dingshan985-web.github.io/doujiao/update.zip",
-  "release_notes": "更新内容：\n1. 修复更新弹窗重复显示「更新内容」标题的问题\n2. 修复中文路径下更新失败的问题（改用 VBScript + 短路径）\n3. 功能大改版：文件处理 + 复制站模板处理 双标签页"
+  "release_notes": "更新内容：\n1. 复制站模板处理：加回 utils.js 替换功能（可勾选启用）\n2. 修复更新弹窗重复显示「更新内容」标题的问题\n3. 修复中文路径下更新失败的问题（改用 VBScript + 短路径）\n4. 功能大改版：文件处理 + 复制站模板处理 双标签页"
 }
