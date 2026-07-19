@@ -1,6 +1,6 @@
 {
-  "version": "1.5.1",
+  "version": "1.5.2",
   "download_url": "https://dingshan985-web.github.io/doujiao/%E8%B1%86%E8%84%9aAlteraExcel%E5%B7%A5%E5%85%B7-%E5%AE%89%E8%A3%85%E5%8C%85.exe",
   "green_download_url": "https://dingshan985-web.github.io/doujiao/update.zip",
-  "release_notes": "更新内容：\n1. 修复启动报错：缺少 _browse_utils_js 方法导致程序无法启动的问题\n2. 彻底重写更新机制，改用纯 Python 实现，不再依赖 bat 脚本\n3. 彻底解决中文路径/文件名导致的更新失败问题\n4. 修复 settings_schema.json 中顾客浏览数 default 值未同步更新的问题\n5. 快速预览销量/浏览数现在同时修改 settings_data.json 和 settings_schema.json\n\n重要提示：v1.4.1 及更早版本因更新器存在 bug，可能无法自动更新到本版本。请手动下载覆盖更新。"
+  "release_notes": "更新内容：\n1. 优化复制站模板处理界面布局，改为左右两列，去掉右侧输出面板\n2. 修复启动报错：缺少 _browse_utils_js 方法导致程序无法启动的问题\n3. 彻底重写更新机制，改用纯 Python 实现，不再依赖 bat 脚本\n4. 彻底解决中文路径/文件名导致的更新失败问题\n5. 修复 settings_schema.json 中顾客浏览数 default 值未同步更新的问题\n\n重要提示：v1.4.1 及更早版本因更新器存在 bug，可能无法自动更新到本版本。请手动下载覆盖更新。"
 }
