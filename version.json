@@ -1,6 +1,6 @@
 {
-  "version": "1.3.0",
+  "version": "1.4.0",
   "download_url": "https://dingshan985-web.github.io/doujiao/%E8%B1%86%E8%84%9AAlteraExcel%E5%B7%A5%E5%85%B7-%E5%AE%89%E8%A3%85%E5%8C%85.exe",
   "green_download_url": "https://dingshan985-web.github.io/doujiao/update.zip",
-  "release_notes": "更新内容：\n1. 新增 Utils 替换功能，支持一键替换压缩包内的 utils.js\n2. 顶部标签页切换，Excel生成 / Utils替换 双功能合一\n3. 默认读取 data/utils.js 作为替换源，也可自定义选择\n4. 保留原 Excel 生成全部功能"
+  "release_notes": "更新内容：\n1. 功能大改版：文件处理 + 复制站模板处理 双标签页\n2. 文件处理：原 Excel 生成功能，按钮改名为「开始处理」\n3. 复制站模板处理：批量处理 Shopify 主题模板\n   - product.json：自定义 Tabs + 随机销量数\n   - settings_data.json：快速预览销量/浏览数 + 热搜词\n   - footer-group.json：版权域名替换 + 底部菜单设置\n4. 只需提供产品 CSV + 主题压缩包 + 新域名，一键完成"
 }
