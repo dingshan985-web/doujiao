@@ -1,6 +1,6 @@
 {
-  "version": "1.5.5",
+  "version": "1.5.6",
   "download_url": "https://dingshan985-web.github.io/doujiao/%E8%B1%86%E8%84%9aAlteraExcel%E5%B7%A5%E5%85%B7-%E5%AE%89%E8%A3%85%E5%8C%85.exe",
   "green_download_url": "https://dingshan985-web.github.io/doujiao/update.zip",
-  "release_notes": "更新内容：\n1. 修复生成主题包时删除临时文件出现 WinError 5 拒绝访问的问题\n2. 修复标签页下划线初始不显示的问题\n3. 彻底修复自更新机制：使用临时副本执行更新，解决无法覆盖自身的问题\n4. 优化复制站模板处理界面布局，改为左右两列\n5. 修复 settings_schema.json 中顾客浏览数 default 值未同步更新的问题"
+  "release_notes": "更新内容：\n1. 修复复制站模板处理中版权域名替换可能失效的问题，支持多种版权文本格式\n2. 修复生成主题包时删除临时文件出现 WinError 5 拒绝访问的问题\n3. 修复标签页下划线初始不显示的问题\n4. 彻底修复自更新机制：使用临时副本执行更新，解决无法覆盖自身的问题\n5. 优化复制站模板处理界面布局，改为左右两列"
 }
