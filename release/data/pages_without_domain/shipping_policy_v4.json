@@ -1,0 +1,55 @@
+{
+  "handle": "shipping-policy",
+  "title": "Shipping Policy",
+  "sections": [
+    {
+      "heading": "<h2>Fast, Free, Reliable Shipping</h2>",
+      "paragraphs": [
+        "<p>When you shop at {brand}, you get more than just great products at fair prices — you also get shipping that's fast, free, and reliable. We consider excellent shipping to be an essential part of the customer experience, not an optional extra. That's why we invest in reliable carriers, efficient fulfillment processes, and careful packaging to make sure your order arrives safely and on time, every time.</p>",
+        "<p>Our standard shipping is free for all orders, with no minimum purchase required. Orders are processed within 1-3 business days and delivered within 6-12 business days. All prices are listed in USD and include delivery to your door. Simple, transparent, and dependable — that's the {brand} shipping promise.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>How We Process Orders</h2>",
+      "paragraphs": [
+        "<p>Order processing is the first step in getting your purchase to you, and we take it seriously. As soon as your payment is confirmed, our system sends your order to our fulfillment team. From there, trained staff locate each item in our inventory, verify that it meets our quality standards, carefully package it to prevent damage during transit, and prepare it for pickup by our shipping partner.</p>",
+        "<p>This entire process typically takes 1-3 business days to complete. The exact timing depends on when you place your order, the size and complexity of your order, and our current order volume. We always prioritize getting orders out quickly, but we never rush at the expense of accuracy or quality. It's better to take an extra day to get it right than to ship the wrong item or a damaged one.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Why Shipping Is Free</h2>",
+      "paragraphs": [
+        "<p>You might be wondering — how can we afford to offer free shipping on everything? The answer is simple: we plan for it. Instead of treating shipping as an add-on cost that surprises customers at checkout, we factor it into our overall pricing strategy. This allows us to offer competitive prices while still covering the cost of delivery. It's a more honest and customer-friendly way of doing business.</p>",
+        "<p>We also work hard to keep our shipping costs low through smart logistics, efficient packaging, and strong partnerships with our shipping carriers. The more efficient we are, the more we can pass those savings on to you in the form of free shipping. It's a win-win — you get convenient, no-surprise pricing, and we get happy customers who come back again and again.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Estimated Delivery Schedule</h2>",
+      "paragraphs": [
+        "<p>Once your order leaves our warehouse, it typically takes 6-12 business days to arrive. The exact day your package shows up at your door depends on several factors, including your location, the efficiency of your local delivery network, and whether any customs processing is required for international orders. Most orders fall somewhere in the middle of this range.</p>",
+        "<p>To give you a better idea of what to expect: orders to nearby destinations often arrive in 6-8 business days, while orders traveling longer distances or going through more complex customs procedures may take 10-12 days. Rest assured that regardless of how long it takes, we're monitoring your shipment and are here to help if anything goes wrong. We'll also send you tracking information so you can follow your order's progress yourself.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Tracking Your Shipment</h2>",
+      "paragraphs": [
+        "<p>All orders come with a tracking number that's emailed to you as soon as your order ships. With this number, you can check the status of your delivery at any time, day or night. See when your package was shipped, where it currently is, and when it's expected to arrive. It's all part of our commitment to transparency and keeping you informed.</p>",
+        "<p>After receiving your tracking email, please allow up to 48 hours for the carrier's system to update with the initial scan. This is normal and doesn't mean your order hasn't shipped — it just means the carrier hasn't processed and scanned it into their tracking system yet. After the first scan, you should see regular updates as your package moves through the delivery network toward its final destination.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Shipping Address Tips</h2>",
+      "paragraphs": [
+        "<p>Making sure your shipping address is correct is one of the most important things you can do to ensure smooth delivery. An incorrect address can cause your order to be delayed, misdelivered, or even returned to us. To avoid these issues, please enter your complete and accurate shipping address during checkout, including any apartment, suite, or unit numbers.</p>",
+        "<p>If you realize you made a mistake in your shipping address after placing your order, contact our customer service team immediately. If we catch it before the order ships, we can usually correct the address with no problem. But once the order is in the shipping carrier's hands, changing the address becomes much more difficult and may not be possible. So please — double-check your address, and save yourself the hassle.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>When Issues Arise</h2>",
+      "paragraphs": [
+        "<p>Despite our best efforts, shipping problems can occasionally happen. Packages get delayed, damaged, or even lost in transit. If you experience any issue with your delivery, please know that we're here to help make it right. You don't have to navigate the shipping carrier's customer service or file claims on your own — that's our job. Just reach out to us, and we'll handle everything.</p>",
+        "<p>For damaged items: contact us within 7 days with photos of the packaging and the damaged product. We'll arrange a replacement or a refund, whichever you prefer. For lost packages: if tracking shows the package is lost or if it hasn't arrived within 30 business days of shipment, we'll send a replacement or issue a full refund. Your satisfaction is our top priority, and we stand behind every order we ship.</p>"
+      ]
+    }
+  ]
+}

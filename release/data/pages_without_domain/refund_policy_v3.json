@@ -1,0 +1,55 @@
+{
+  "handle": "refund-policy",
+  "title": "Refund Policy",
+  "sections": [
+    {
+      "heading": "<h2>Hassle-Free Returns</h2>",
+      "paragraphs": [
+        "<p>Returning a product shouldn't be a hassle. Unfortunately, at many online stores, it is — confusing return policies, hidden fees, complicated procedures, and slow refunds. Not at {brand}. We've designed our return process to be as simple and customer-friendly as possible, because we think great service continues long after the sale is made.</p>",
+        "<p>Here's what you can expect from our return policy: a 60-day return window on all eligible items, completely free return shipping with no hidden costs, and refunds processed within 5-10 business days of receiving the returned item. That's the {brand} guarantee — straightforward, honest, and always on your side.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>The 60-Day Difference</h2>",
+      "paragraphs": [
+        "<p>Most online stores give you 14 or 30 days to return a product. We think that's too short. Real life is busy, and sometimes you don't have time to try something out right away. Or maybe you bought something for a specific occasion that hasn't happened yet. Whatever the reason, 30 days just isn't always enough time to properly evaluate a purchase.</p>",
+        "<p>That's why we give you 60 days — twice as long as many retailers. Two full months to use the product, test it out, and decide if it's really what you wanted. If it's not, send it back. No guilt, no pressure, no questions. We want you to be happy with your purchase, even if it takes a little longer than expected to figure out what you want.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>It Really Is Free</h2>",
+      "paragraphs": [
+        "<p>'Free returns' is a phrase you hear a lot in e-commerce these days, but it doesn't always mean the same thing. Sometimes it means free shipping only if you use the slowest method. Sometimes it means you get 'store credit' instead of your money back. And sometimes there are restocking fees that eat into your refund.</p>",
+        "<p>At {brand}, free returns means completely free. Free return shipping. Free restocking (we don't charge restocking fees). Free everything. The full amount you paid goes back to you, minus zero dollars. When we say free returns, we mean it. No asterisks, no fine print, no surprises.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Starting Your Return</h2>",
+      "paragraphs": [
+        "<p>Ready to make a return? It's easy. The first step is to get in touch with our customer service team. You can do this through our website's contact form or by replying to your order confirmation email. Just have your order number handy — that helps us find your order quickly and speed up the process.</p>",
+        "<p>After you contact us, we'll get back to you within 1-2 business days with everything you need to complete your return. This usually includes a pre-paid shipping label and step-by-step instructions. Simply pack up the item, print and attach the label, and send it back. We handle all the logistics, so you can focus on more important things.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Refund Timeline</h2>",
+      "paragraphs": [
+        "<p>Waiting for a refund can be frustrating, which is why we work hard to process returns as quickly as possible. Once your returned package arrives at our facility, our team will inspect it and process your refund within 5-10 business days. In most cases, it's on the faster end of that range — we know you want your money back sooner rather than later.</p>",
+        "<p>After we issue the refund, the timing depends on your payment provider. Credit card refunds typically take 3-7 business days to post to your account. Debit cards and other payment methods may take slightly longer. Unfortunately, we don't have control over how quickly banks process refunds, but we'll always issue yours as quickly as we can on our end.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>What About Exchanges?</h2>",
+      "paragraphs": [
+        "<p>Don't want a refund — just a different size, color, or style? No problem. We offer exchanges on most items, subject to availability. The process is similar to a return: contact us with your order number and let us know what you'd like to exchange it for. We'll check stock and get the exchange process started.</p>",
+        "<p>For exchanges, return shipping is still free — you don't pay to send the original item back, and you don't pay for the new item to be shipped to you (as long as it's the same product in a different variant, like size or color). If the new item costs more, we'll ask you to pay the difference. If it costs less, we'll refund the difference. Simple and fair.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Questions? Just Ask</h2>",
+      "paragraphs": [
+        "<p>Still have questions about our return policy? Not sure if your item is eligible? Wondering how long a refund will take? Don't hesitate to reach out. Our customer service team knows our return policy inside and out, and they're happy to answer any questions you might have, big or small.</p>",
+        "<p>We'd rather spend a few minutes answering your questions before you buy than have you be surprised after. We believe in transparency and clarity, especially when it comes to something as important as returns. So ask away — we're here to help, and we'll always give you an honest answer.</p>"
+      ]
+    }
+  ]
+}

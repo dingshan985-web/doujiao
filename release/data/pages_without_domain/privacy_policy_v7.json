@@ -1,0 +1,55 @@
+{
+  "handle": "privacy-policy",
+  "title": "Privacy Policy",
+  "sections": [
+    {
+      "heading": "<h2>Welcome to Our Privacy Policy</h2>",
+      "paragraphs": [
+        "<p>Thank you for taking the time to read {brand}'s Privacy Policy. We know privacy policies can be long and dense, but it's important that you understand our practices. We've done our best to explain things clearly and simply, without unnecessary legal jargon. This policy applies to our website, mobile apps, and all of the services we offer.</p>",
+        "<p>In short: we collect information that's necessary to run our e-commerce business, we use it to serve you and improve our services, we only share it with trusted partners who help us operate, and we give you control over your marketing preferences and your data. If you have any questions after reading this policy, please reach out to us — we're happy to explain further.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Information We Gather</h2>",
+      "paragraphs": [
+        "<p>There are two main ways we get information about you: directly from you when you provide it, and automatically as you use our services. When you place an order, create an account, sign up for our newsletter, fill out a form, or contact us, you're providing us with information. This might include your name, email address, phone number, shipping and billing addresses, payment information, and any other details you choose to share.</p>",
+        "<p>When you browse our website or use our app, we automatically collect certain information about your device and your activity. This includes your IP address, browser type, device model, operating system, the pages you visit, the products you view, your shopping cart contents, the site that referred you, and how long you spend on each page. We collect this using cookies, pixels, and other standard technologies.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Uses of Information</h2>",
+      "paragraphs": [
+        "<p>We use information for many purposes. The most obvious is to fulfill your orders — we need your address to ship products and your payment info to charge you. We also use contact information to communicate with you about your orders, to send shipping confirmations and delivery updates, and to respond to customer service inquiries. These are essential communications that come with being a customer.</p>",
+        "<p>Other uses include improving our website and the shopping experience, personalizing recommendations and content, sending promotional emails to those who opt in, analyzing how people use our site, preventing fraud and security threats, protecting our legal rights, complying with applicable laws and regulations, and for other legitimate business purposes. We don't use your information for purposes that are incompatible with what we've told you.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Third-Party Sharing</h2>",
+      "paragraphs": [
+        "<p>Let's get straight to the point: we do not sell your personal information. We do, however, share it with third-party service providers who help us run our business. These include payment processors (to handle transactions), shipping companies (to deliver your orders), email service providers (to send you emails), hosting providers (to run our website), analytics tools (to understand usage), and marketing platforms (to manage advertising).</p>",
+        "<p>All of these service providers are contractually required to keep your information confidential and to use it only for the purposes we've specified. Beyond service providers, we may share information in legal circumstances — when required by law, court order, or government request — or to protect the rights, property, or safety of ourselves, our customers, or others. In a business sale or merger, customer information would typically be one of the transferred assets.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Security Practices</h2>",
+      "paragraphs": [
+        "<p>We take reasonable steps to protect your personal information from unauthorized access, use, disclosure, alteration, or destruction. Our security measures include SSL/TLS encryption for data in transit, secure data storage with encryption, firewalls and intrusion detection, regular security audits, employee privacy training, and access controls that limit data access to those who need it.</p>",
+        "<p>While we're committed to protecting your information, no security system is perfect. The nature of the internet means there's always some risk, and we can't guarantee that your information will never be accessed, disclosed, altered, or destroyed by breach of any of our safeguards. If we discover a security breach that affects your personal information, we'll notify you as required by law.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Your Privacy Choices</h2>",
+      "paragraphs": [
+        "<p>You have options when it comes to your personal information. You can access and update most of your account information through your account settings on our website. If you'd like us to delete your account or personal data, you can make a request through customer support, and we'll respond in accordance with applicable law. Note that we may need to keep some information for legal, security, or operational reasons.</p>",
+        "<p>You can control whether you receive marketing emails from us by using the unsubscribe link in any promotional email or by contacting us. After you unsubscribe, we'll stop sending you marketing messages, though you may still receive transactional emails related to your orders or account. You can also control cookies through your browser settings, though disabling cookies may affect some features of our website.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Policy Changes</h2>",
+      "paragraphs": [
+        "<p>We may update this Privacy Policy from time to time as our business evolves or as laws change. When we do, we'll post the new version on this page and update the effective date. If we make changes that significantly affect your rights, we'll make reasonable efforts to notify you more directly — for example, by email or through a notice on our website.</p>",
+        "<p>By continuing to use our services after changes take effect, you agree to the updated policy. If you don't agree with the new policy, you should stop using our services. We appreciate you taking the time to understand our privacy practices and for trusting us with your information.</p>"
+      ]
+    }
+  ]
+}

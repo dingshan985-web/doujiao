@@ -1,0 +1,55 @@
+{
+  "handle": "shipping-policy",
+  "title": "Shipping Policy",
+  "sections": [
+    {
+      "heading": "<h2>A Better Shipping Experience</h2>",
+      "paragraphs": [
+        "<p>At {brand}, we're constantly working to improve every aspect of the shopping experience, and shipping is no exception. We've invested time and resources into building a shipping process that's fast, reliable, and customer-friendly. From the moment you place your order to the day it arrives at your door, we want every step to be smooth and stress-free.</p>",
+        "<p>What does this mean for you? It means free shipping on every order with no strings attached. It means orders are processed quickly — within 1-3 business days. It means delivery in 6-12 business days worldwide. It means full tracking so you always know where your package is. And it means that if anything goes wrong, we take responsibility and make it right. That's the {brand} shipping difference.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Processing & Fulfillment</h2>",
+      "paragraphs": [
+        "<p>Order fulfillment is where it all starts. Our dedicated fulfillment team works tirelessly to ensure every order is picked, packed, and shipped accurately and efficiently. Each item is inspected before packaging to make sure it meets our quality standards. Orders are carefully packaged using appropriate materials to protect your items during transit, whether they're small and fragile or large and sturdy.</p>",
+        "<p>Most orders are processed and shipped within 1-2 business days, but during particularly busy periods it can take up to 3 business days. We believe in being upfront about processing times rather than making unrealistic promises we can't keep. We'd always rather under-promise and over-deliver than the other way around. Rest assured, we're working as fast as we can to get your order out the door.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Free Shipping for Everyone</h2>",
+      "paragraphs": [
+        "<p>Free shipping isn't a promotion at {brand} — it's our standard way of doing business. Every order, every product, every customer, every country — all shipping is free. No minimum purchase, no limited-time offer, no coupon code required. Just free shipping, always and forever. We believe this is how online shopping should work.</p>",
+        "<p>Why do we do this? Because we think shipping costs are a nuisance that shouldn't stand between you and the products you want. Because we hate getting to checkout and seeing unexpected fees added on. Because we want our pricing to be simple and transparent. And because we've found that offering free shipping makes for happier customers, and happy customers are the best kind to have. It's really that simple.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Delivery Timeframes</h2>",
+      "paragraphs": [
+        "<p>Once shipped, your order should arrive within 6-12 business days. This is our standard delivery estimate for all international destinations. The exact timing varies based on where you're located, but the vast majority of orders arrive within this window. We use established shipping partners with proven track records to ensure your order is handled professionally from pickup to delivery.</p>",
+        "<p>Please note that business days do not include weekends or public holidays in the destination country. Also, customs processing for international shipments can sometimes add additional time, especially during peak periods. We factor these considerations into our delivery estimate, which is why we provide a range rather than a specific date. If your order is taking longer than expected, please reach out and we'll check on it for you.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Track Your Order</h2>",
+      "paragraphs": [
+        "<p>Keep tabs on your order every step of the way with our full tracking service. As soon as your order ships, you'll receive an email with your tracking number and a direct link to track your package online. You can see when it leaves our warehouse, when it arrives in your country, when it's out for delivery, and when it's been delivered — all from the comfort of your home.</p>",
+        "<p>Remember that tracking can take 24-48 hours to update after you receive the shipping notification. This is completely normal and just means the carrier hasn't scanned the package into their system yet. If you're eager to track your order but see no information, try again in a day. If there's still nothing after 5 days, contact our support team and we'll investigate.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Double-Check Your Address</h2>",
+      "paragraphs": [
+        "<p>Here's a simple tip that can save you a lot of hassle: double-check your shipping address before placing your order. An incorrect or incomplete address is one of the most common reasons for delivery delays and failures. Make sure all the fields are filled in correctly — name, street address, apartment number, city, postal code, and country.</p>",
+        "<p>If you spot an error right after ordering, let us know immediately. As long as your order hasn't shipped yet, we can usually update the address without any problem. But once it's in the hands of the shipping carrier, making changes becomes difficult and sometimes impossible. So take that extra 30 seconds to review your address — your future self will thank you.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Our Guarantee</h2>",
+      "paragraphs": [
+        "<p>We stand behind every order we ship. If your package arrives damaged, if items are missing, or if your order never arrives at all, we'll make it right. That's our guarantee. You don't have to argue with shipping carriers or fill out complicated claim forms. Just contact our customer service team, tell us what the problem is, and we'll take it from there.</p>",
+        "<p>Depending on the situation, we may offer a replacement order, a partial refund, or a full refund — whatever makes the most sense and whatever you prefer. Our goal is to resolve the issue quickly and to your complete satisfaction. We know that trust is earned, and we work hard every day to earn yours by being reliable, honest, and fair in everything we do.</p>"
+      ]
+    }
+  ]
+}

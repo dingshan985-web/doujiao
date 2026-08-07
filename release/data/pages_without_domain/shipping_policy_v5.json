@@ -1,0 +1,55 @@
+{
+  "handle": "shipping-policy",
+  "title": "Shipping Policy",
+  "sections": [
+    {
+      "heading": "<h2>Shipping at {brand}</h2>",
+      "paragraphs": [
+        "<p>Welcome to the {brand} shipping information hub. Here you'll find everything you need to know about how we handle order processing, delivery times, tracking, and more. We've designed our shipping to be simple, transparent, and worry-free, so you can focus on choosing the products you love instead of stressing about how and when they'll arrive.</p>",
+        "<p>In a nutshell: all orders ship free, worldwide. Processing takes 1-3 business days. Delivery takes 6-12 business days. All prices are in USD and include shipping. That's it — no catches, no conditions, no fine print. Just great products delivered to your door at the price you see.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Order Processing</h2>",
+      "paragraphs": [
+        "<p>After you place your order and your payment is confirmed, our fulfillment team swings into action. They pick each item from our inventory, do a quick quality check to make sure everything is in good shape, and carefully pack your order to protect it during shipping. This process takes 1-3 business days, with most orders being shipped out within two days or less.</p>",
+        "<p>Our warehouse operates Monday through Friday. Orders placed on weekends or holidays will be processed starting the next business day. If there's a problem with your order — maybe an item is out of stock or we need to verify something — we'll contact you right away to let you know. We believe in proactive communication, not leaving you wondering what's happening with your purchase.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Free Worldwide Delivery</h2>",
+      "paragraphs": [
+        "<p>One of the things we're most proud of is our ability to offer free shipping to customers all around the world. No matter where you live — whether it's a bustling city or a small town — as long as we can ship there, your shipping is free. We believe that everyone deserves access to quality products at fair prices, and free shipping is a big part of making that a reality.</p>",
+        "<p>Free worldwide shipping also means no surprises at checkout. The price you see on the product page is the price you pay, period. You won't get to the final step of checkout and discover unexpected shipping costs that make your total higher than expected. We hate that when it happens to us, so we don't do it to our customers. What you see is what you get, and what you get includes shipping to your door.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>How Long Delivery Takes</h2>",
+      "paragraphs": [
+        "<p>Standard delivery time is 6-12 business days from the date your order is shipped. This is an estimate, not a guarantee, and the actual delivery time can vary. Factors that can affect delivery speed include your distance from our warehouse, the efficiency of your local postal system, customs clearance procedures for international orders, and any unforeseen events like severe weather or service disruptions.</p>",
+        "<p>While we can't promise an exact delivery date, we can promise that we'll do everything in our power to get your order to you as quickly as possible. We work with reliable shipping partners, optimize our fulfillment processes, and monitor shipments to catch and resolve any issues early. If your order is taking longer than expected, we'll look into it and keep you updated.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Package Tracking</h2>",
+      "paragraphs": [
+        "<p>Every order includes a tracking number so you can keep tabs on your package during its journey. You'll receive this number by email as soon as your order is shipped. Simply click the link or enter the number on the carrier's website to see up-to-date information about where your package is and when it's expected to arrive.</p>",
+        "<p>Tracking information may not be immediately available after you receive the shipping confirmation. It can take up to 48 hours for the carrier to scan the package and update their system. If you check right away and see no information, don't panic — give it a day or two and check again. If after 5 business days there's still no tracking update, please contact us and we'll investigate.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Correct Shipping Address</h2>",
+      "paragraphs": [
+        "<p>Please provide a complete and accurate shipping address to ensure your order is delivered without delay. Include your full name (first and last), your street address with house/building number, apartment or suite number if applicable, city, state/province/region, postal/zip code, and country. Missing or incorrect information is a leading cause of delivery problems.</p>",
+        "<p>If you realize you've entered the wrong address after placing an order, contact us immediately. If the order hasn't shipped yet, we can update the address at no extra cost. If it has already shipped, we may not be able to change the destination, and the package will be delivered to the address originally provided. Taking a moment to verify your address at checkout really can save a lot of trouble.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Shipping Problems & Solutions</h2>",
+      "paragraphs": [
+        "<p>No shipping system is perfect, and occasionally problems arise. If your order arrives damaged, is missing items, or doesn't arrive at all, we want to know about it right away. Our customer service team is trained to handle all shipping issues efficiently and fairly, and we'll work with you to find the best possible solution.</p>",
+        "<p>For damaged or defective items: contact us within 7 days of delivery with your order number and photos of the damage. We'll arrange a return, replacement, or refund — your choice. For lost packages: if your order hasn't arrived within 30 business days and tracking shows it's lost or stuck, we'll offer a full refund or a replacement order, whichever you prefer. We stand behind every shipment and take full responsibility for safe delivery.</p>"
+      ]
+    }
+  ]
+}

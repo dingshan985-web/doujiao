@@ -1,0 +1,55 @@
+{
+  "handle": "refund-policy",
+  "title": "Refund Policy",
+  "sections": [
+    {
+      "heading": "<h2>Your Satisfaction Is Our Priority</h2>",
+      "paragraphs": [
+        "<p>At {brand}, customer satisfaction isn't just a buzzword — it's the foundation of our business. We measure our success not by how many products we sell, but by how many customers come back. That's why we offer such a generous return policy. We want you to be thrilled with every purchase, and if you're not, we want to make it right.</p>",
+        "<p>Our return policy is built on trust. We trust our products enough to offer a 60-day money-back guarantee, and we trust our customers enough to offer free returns with no questions asked. This mutual trust is what makes shopping at {brand} different from shopping at other online stores. We're not just here to make a sale — we're here to build a relationship.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>60 Days to Decide</h2>",
+      "paragraphs": [
+        "<p>Take your time. You have 60 full days from the delivery date to decide if you want to keep your purchase. That's two whole months to use the product, test it out, see how it fits into your life, and make sure it's everything you hoped it would be. We believe that's only fair — after all, when you shop online, you don't have the luxury of trying something on or testing it out before you buy.</p>",
+        "<p>During those 60 days, you can return the product for any reason. Literally, any reason. It doesn't fit? Return it. You changed your mind? Return it. You found something you like better? Return it. You don't even need a reason — if you're not satisfied, we're not satisfied. That's the {brand} promise.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Completely Free Returns</h2>",
+      "paragraphs": [
+        "<p>How much does it cost to return something to {brand}? Zero. Nada. Nothing. Returns are 100% free, always and forever. We cover the cost of return shipping, we don't charge restocking fees, and we refund the full purchase price to your original payment method. There are no hidden costs, no deductions, no fine print.</p>",
+        "<p>Why do we offer completely free returns? Because we believe that the risk of buying online should be on us, not on you. When you walk into a physical store, you can take your time browsing, try things on, and make sure you're making the right choice. Online shopping should be no different. By offering free returns, we're saying: we believe in our products, and we'll take the risk so you don't have to.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Simple Return Process</h2>",
+      "paragraphs": [
+        "<p>We've streamlined our return process to make it as easy as possible. There are three simple steps: first, contact us with your order number to let us know you'd like to make a return. Second, we'll send you a pre-paid shipping label to attach to your package. Third, drop off the package at the designated location or schedule a pickup. That's all there is to it.</p>",
+        "<p>We don't require complicated forms, multiple photos, or lengthy explanations. While we always appreciate feedback about why you're returning something — it helps us improve — it's never a requirement. Your return will be approved regardless of the reason, as long as it's within the 60-day window and the item is in reasonable condition.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Fast Refunds</h2>",
+      "paragraphs": [
+        "<p>We know waiting for a refund can be frustrating, which is why we process them as quickly as possible. Once your returned item arrives at our warehouse, we'll inspect it and issue your refund within 5-10 business days. Most refunds are processed even faster than that — we know you want your money back, and we want to give it to you as soon as we can.</p>",
+        "<p>The refund is issued to the same payment method you used to make the purchase. After we issue the refund, it may take a few additional days for the funds to appear in your account, depending on your bank or payment provider. If you ever have questions about the status of your refund, just reach out to our customer service team and we'll look into it for you.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>What's Returnable</h2>",
+      "paragraphs": [
+        "<p>Almost everything we sell is eligible for return within 60 days. This includes all standard products that are in their original condition with all tags, packaging, and accessories included. We understand that you'll need to open the package and try the product to know if it's right for you — that's completely expected and perfectly fine.</p>",
+        "<p>There are a few categories of products that can't be returned, for practical reasons. These include custom or personalized items made specifically for you, intimate apparel and certain personal care products for hygiene reasons, and downloadable digital goods that can't be returned once accessed. If a product is non-returnable, it will be clearly stated on the product page before you make your purchase.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Easy Exchanges</h2>",
+      "paragraphs": [
+        "<p>Prefer an exchange over a refund? We've got you covered. Whether you need a different size, a different color, or a completely different product, we can help with exchanges. The process is similar to a return: just contact us with your order number and let us know what you'd like to exchange for. We'll check availability and walk you through the next steps.</p>",
+        "<p>Exchanges are just as customer-friendly as returns. Return shipping is free, and we don't charge additional shipping to send the new item to you (for same-product exchanges of different variants like size or color). If the new item costs more, you'll just pay the difference. If it costs less, we'll refund the difference. It's that simple.</p>"
+      ]
+    }
+  ]
+}

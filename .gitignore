@@ -1,0 +1,10 @@
+__pycache__/
+build/
+dist/
+*.exe
+*.zip
+!installer_data.zip
+*.pkg
+*.pyz
+*.toc
+*.pyc

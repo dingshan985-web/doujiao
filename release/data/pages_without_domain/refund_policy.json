@@ -1,0 +1,62 @@
+{
+  "handle": "refund-policy",
+  "title": "Refund Policy",
+  "sections": [
+    {
+      "heading": "<h2>Our 60-Day Satisfaction Guarantee</h2>",
+      "paragraphs": [
+        "<p>At {brand}, we want every customer to be completely satisfied with their purchase. That's why we offer a comprehensive 60-day return policy on all products. If for any reason you're not happy with your order — whether it doesn't meet your expectations, it's not the right fit, or you simply changed your mind — you can return it within 60 days of delivery for a full refund. No questions asked, no fine print, no hoops to jump through.</p>",
+        "<p>We believe that a great return policy is a sign of confidence in the products we sell. When you shop at {brand}, you can do so with complete peace of mind, knowing that if something isn't right, we'll make it right. Our 60-day window gives you plenty of time to try out your purchase, use it in real-world conditions, and decide if it's truly what you wanted. If it's not, returning it is easy and completely free.</p>",
+        "<p>Best of all, returns are always free at {brand}. You never have to worry about paying return shipping costs or restocking fees. If you need to send something back, we'll provide you with a prepaid return label or arrange a pickup at no cost to you. The entire return process is designed to be simple, fast, and hassle-free — because we believe great customer service shouldn't end at checkout.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Eligibility for Returns</h2>",
+      "paragraphs": [
+        "<p>To be eligible for a return, items must be returned within 60 days of the delivery date. We accept returns for virtually any reason — wrong size, changed your mind, doesn't work as expected, or you simply don't like it. The only requirement is that the item is in reasonably good condition with all original packaging, tags, and accessories included. Normal wear and tear from trying the item out is perfectly fine — we know you can't tell if you like something without using it.</p>",
+        "<p>Most items in our store are eligible for return, including all standard products in their original condition. Please note that a small number of items — such as personalized or custom-made products, intimate apparel for hygiene reasons, and downloadable digital goods — may not be eligible for return. If an item has special return conditions, this will be clearly stated on the product page before you make your purchase.</p>",
+        "<p>If you're unsure whether an item is eligible for return, just ask. Our customer service team is happy to answer any questions you have about our return policy before or after your purchase. We'd rather spend a minute explaining the policy than have a customer be surprised later. Transparency is important to us, and that includes being clear about what can and cannot be returned.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>How to Initiate a Return</h2>",
+      "paragraphs": [
+        "<p>Starting a return is easy. Simply contact our customer service team with your order number and let us know you'd like to make a return. You can reach us by email through our website's contact form. We'll need your order number and a brief reason for the return (this just helps us improve our products and service — it doesn't affect your eligibility for a refund).</p>",
+        "<p>Once we receive your return request, our team will review it and get back to you within 1-2 business days with next steps. In most cases, we'll provide you with a prepaid return shipping label that you can print out and attach to your package. Simply pack up the item securely, affix the label, and drop it off at the designated shipping location or schedule a pickup — whichever is more convenient for you.</p>",
+        "<p>We aim to make the return process as effortless as possible. You won't need to fill out complicated forms, argue with customer service, or jump through bureaucratic hoops. Just let us know you want to return something, and we'll guide you through each step. If you have any questions or run into any issues during the return process, our team is always here to help.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Free Return Shipping</h2>",
+      "paragraphs": [
+        "<p>Yes, you read that correctly — return shipping is always free at {brand}. We cover the full cost of sending items back, so you never have to worry about losing money just because a product didn't work out. Whether you're returning a small accessory or a large item, the return shipping is on us. It's all part of our commitment to making shopping risk-free for our customers.</p>",
+        "<p>Why do we offer free returns? Because we think it's the right thing to do. When you buy something online, you can't hold it in your hands, try it on, or test it out before purchasing. That uncertainty should be our risk to take, not yours. By offering free returns, we're saying: we're confident in the quality of our products, and if you're not satisfied, we'll make it right at no cost to you.</p>",
+        "<p>To make the return process even more convenient, we provide pre-paid shipping labels for most returns. All you need to do is print the label, attach it to your package, and drop it off. No need to visit the post office during business hours, no need to pay for shipping out of pocket and wait for reimbursement. Just easy, free returns, every time.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Refund Processing Time</h2>",
+      "paragraphs": [
+        "<p>Once we receive your returned item and inspect it to ensure everything is in order, we'll process your refund within 5-10 business days. The refund will be issued to your original payment method — the same credit card, debit card, or payment account you used to make the purchase. This is usually the fastest and most secure way to get your money back.</p>",
+        "<p>Please keep in mind that the 5-10 business day timeframe is how long it takes us to process the refund on our end. Once we issue the refund, it may take additional time for the funds to appear in your account, depending on your bank or payment provider's processing schedule. Most banks take 3-7 business days to process refunds, but some may take longer, especially for international transactions.</p>",
+        "<p>If it's been more than 15 business days since we confirmed your refund and you still haven't received the funds, please contact our customer service team. We'll look into the status of the refund and help you track it down. While refunds are usually straightforward, occasionally issues can arise — and when they do, we'll work with you and your payment provider to resolve them as quickly as possible.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>What Happens After You Return</h2>",
+      "paragraphs": [
+        "<p>When your returned package arrives at our warehouse, our team will inspect the item to confirm its condition and verify that everything that was originally sent is included in the return. This inspection is usually quick — we just want to make sure the item is in resellable condition and that nothing is missing. As long as everything checks out, your refund will be processed within the 5-10 business day window.</p>",
+        "<p>Please note that we may refuse a refund if an item is returned damaged due to improper packaging, is missing parts or accessories that were included with the original purchase, or shows signs of excessive use or damage beyond what would be expected from normal trial use. In such cases, we'll contact you to discuss the situation and find a fair solution. These situations are rare, but we want to be upfront about them.</p>",
+        "<p>After your refund has been processed, you'll receive a confirmation email letting you know that the refund has been issued. This email will include the refund amount, the payment method it was issued to, and an estimated timeframe for when the funds should appear in your account. If you have any questions about your refund, you can always reply to that email or contact our customer service team directly.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Exchanges and Replacements</h2>",
+      "paragraphs": [
+        "<p>In addition to full refunds, we also offer exchanges and replacements when available. If you received the wrong item, a defective product, or simply want to exchange for a different size or color, just let us know. We'll work with you to arrange an exchange as quickly and conveniently as possible, subject to product availability.</p>",
+        "<p>For exchanges due to our error — such as receiving the wrong item or a defective product — we cover all shipping costs, both for the return of the incorrect item and for sending the replacement. For exchanges of undamaged items for a different size, color, or style, the process is just as easy, and return shipping is still free. We just ask that the original item be in new and unused condition with all original packaging.</p>",
+        "<p>If the item you want to exchange for is out of stock, we'll let you know right away and offer alternative options, including a full refund if preferred. We want to make sure you end up with a product you love, even if it means trying a few different options. Our exchange process is designed to be flexible and customer-friendly, just like everything else we do.</p>"
+      ]
+    }
+  ]
+}

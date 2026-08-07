@@ -1,0 +1,41 @@
+{
+  "handle": "about-us",
+  "title": "About Us",
+  "sections": [
+    {
+      "heading": "<h2>Our Brand Promise</h2>",
+      "paragraphs": [
+        "<p>Welcome to {brand}. We're not the biggest online store, and that's okay — because we'd rather be the best. The best at curating quality products. The best at offering fair, honest pricing. The best at providing customer service that actually makes you feel valued. And the best at standing behind what we sell with policies that put the customer first. That's our promise to you, and it guides everything we do.</p>",
+        "<p>What does this promise look like in practice? It means free shipping on every order, worldwide, with no minimum purchase. It means processing every order within 1-3 business days and delivering in 6-12 days. It means a 60-day free return policy — because we want you to be completely satisfied, and if you're not, we don't think you should have to pay for the privilege of returning something. It means clear pricing in USD with no hidden fees. It means accurate product descriptions and honest photos. And it means real people answering your questions and solving your problems.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Quality You Can Feel</h2>",
+      "paragraphs": [
+        "<p>There's a difference between a product that looks good in pictures and one that feels good in person. At {brand}, we focus on the latter. We believe that quality is something you experience — the weight of a well-made tool, the softness of quality fabric, the satisfying click of a well-designed mechanism, the durability that means something will last for years, not weeks. That's the kind of quality we look for in every product we carry.</p>",
+        "<p>Achieving that level of quality takes work. It means not just looking at product specs and sample photos, but actually getting our hands on products and testing them. It means feeling the materials, checking the construction, using them in real-world conditions, and comparing them side by side with other options. It means working with suppliers who take pride in their craftsmanship and are as committed to quality as we are. It's more work, sure, but it's what makes shopping at {brand} different — and better.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Honest Pricing, Always</h2>",
+      "paragraphs": [
+        "<p>We don't play pricing games. We don't artificially inflate prices just so we can have fake sales. We don't hide fees in the checkout process. We don't charge different prices based on where you live or what device you're using. What you see is what you get — straightforward, honest prices in USD, with free shipping included. Always.</p>",
+        "<p>We're able to offer great prices because we run an efficient business. We work directly with manufacturers to eliminate middleman markups. We keep our overhead low by focusing on what matters and cutting what doesn't. And we price our products fairly — not as high as the market will bear, but at a level that gives us a reasonable margin while giving you great value. We believe that when you treat customers fairly, they come back. And that's a much better way to build a business than trying to squeeze every last dollar out of every transaction.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Customer Service, the Way It Should Be</h2>",
+      "paragraphs": [
+        "<p>Have you ever contacted customer service and felt like the person on the other end just didn't care? Like they were reading from a script and just wanted to get you off the phone? We've all been there, and it's frustrating. That's why we've built our customer service team differently — with people who actually care about helping, who have the knowledge to answer your questions, and who have the authority to solve your problems on the spot.</p>",
+        "<p>Our customer service team isn't measured by how quickly they can end a call or close a ticket — they're measured by whether the customer's problem is actually solved. We give them the freedom and the resources to do what's right, even if it costs us a little more in the short term. Because we know that great customer service builds loyalty, and loyalty is what makes a business last. When you reach out to us, you'll get real help from real people. That's not just a promise — it's how we operate.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Thank You for Being Here</h2>",
+      "paragraphs": [
+        "<p>We know you have options when it comes to online shopping, and we truly appreciate you taking the time to visit {brand}. Whether you end up buying something or not, we're glad you stopped by. We work hard every day to build a store that we can be proud of and that our customers love, and we hope that comes through in everything we do.</p>",
+        "<p>If you do decide to make a purchase, welcome to the {brand} community. We think you'll be pleased with the quality of our products, the speed of our shipping, and the level of our service. And if you ever have any questions, concerns, or feedback — good or bad — we want to hear it. Your input helps us get better, and that benefits everyone. Thank you again, and happy shopping.</p>"
+      ]
+    }
+  ]
+}
