@@ -1,6 +1,9 @@
-# Ignore everything except release/
-/*
-!/.gitignore
-!/release/
-!/release/**
-release/data/shopify模板/
+__pycache__/
+build/
+dist/
+*.spec
+*.py
+*.pyc
+*.pkg
+*.pyz
+*.toc
