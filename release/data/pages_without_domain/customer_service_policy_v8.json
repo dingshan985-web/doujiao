@@ -1,0 +1,55 @@
+{
+  "handle": "customer-service-policy",
+  "title": "Customer Service Policy",
+  "sections": [
+    {
+      "heading": "<h2>Service That Makes a Difference</h2>",
+      "paragraphs": [
+        "<p>Anyone can sell products online — but not everyone does it with the level of service and care that you'll find at {brand}. We believe that how we treat our customers matters just as much as the quality of the products we sell. That's why we've built our customer service team to be helpful, responsive, and genuinely caring. When you shop with us, you're not just a sale — you're a valued customer whose satisfaction matters deeply.</p>",
+        "<p>Our approach to customer service is simple: do the right thing, every time. That means being honest and transparent, even when the news isn't great. It means taking ownership of problems instead of making excuses. It means going the extra mile to find a solution, even if it takes a little extra time and effort. That's the kind of service we'd want to receive, and it's the kind of service we're committed to giving you.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>How to Get in Touch</h2>",
+      "paragraphs": [
+        "<p>Contacting our customer service team is quick and easy. Simply visit our website and fill out the contact form with your name, email, and message. Alternatively, you can email us directly at the support address listed on our contact page. Both channels go to the same dedicated team, so use whichever is more convenient for you.</p>",
+        "<p>To help us provide the fastest and most accurate assistance possible, we recommend including your order number if your inquiry relates to a specific order, along with as much detail as you can about what you need help with. That said, we understand that you might not have all the information right away. Even if your message is brief, we'll work with you to gather the necessary details and find a solution. Just reaching out is the most important step.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>What We Can Help With</h2>",
+      "paragraphs": [
+        "<p>Our customer service team is equipped to assist with a wide range of needs. Here are some of the things we regularly help customers with: answering product questions and providing recommendations to help you find the perfect item; assisting with order placement, changes, and cancellations before your order ships; providing order status updates and tracking information; processing returns, exchanges, and refunds; handling billing inquiries and payment issues; helping with account management and technical difficulties; and receiving and responding to your feedback and suggestions.</p>",
+        "<p>This list isn't exhaustive — it's just a sample of the kinds of support we provide. If you have a question or need that isn't listed here, please don't hesitate to contact us anyway. We've encountered all kinds of situations over the years, and there's a good chance we can help. And if we can't help directly, we'll do our best to point you toward someone who can. We're here to serve you, in whatever way you need.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Order Assistance and Tracking</h2>",
+      "paragraphs": [
+        "<p>Have questions about your order? We're here to help. Whether you want to confirm that your order was placed successfully, need to update your shipping address, forgot to use a coupon code and want to apply it, or are wondering when your order will ship — just reach out. As long as your order hasn't been dispatched, we can usually make changes or provide the information you need quickly.</p>",
+        "<p>For orders that have already been shipped, we can provide tracking details and delivery estimates. If your order is delayed or if there appears to be a problem with delivery, we'll work with our shipping partners to investigate and resolve the issue as quickly as possible. We know how exciting it is to receive a new package, and we want to make sure yours arrives safely and on time.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Return and Refund Support</h2>",
+      "paragraphs": [
+        "<p>Making a return should be simple, and with {brand}, it is. Our customer service team will walk you through the entire process, making sure you have everything you need to send the item back. We'll provide a pre-paid return shipping label (so returns are always free for you), clear instructions for packaging, and answers to any questions you might have along the way.</p>",
+        "<p>After we receive your return, we inspect the item and process your refund within 5-10 business days. You'll receive an email to confirm when the refund has been issued to your original payment method. If you ever have questions about the status of your return or refund — whether it's taking longer than expected, you want to confirm we received it, or anything else — just ask. We're happy to check and update you anytime.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Response Time and Availability</h2>",
+      "paragraphs": [
+        "<p>Quick, helpful responses are one of the things our customers love most about shopping with {brand}. We strive to answer all customer inquiries within 1-2 business days, and we often beat that target. We know your time is valuable, and we don't want you waiting around for answers when you have questions or problems that need solving.</p>",
+        "<p>Our customer service team is in the office Monday through Friday during standard business hours. While we try to check messages outside of these hours when we can, we generally respond to evening, weekend, and holiday messages on the next business day. During busy periods like major sales or the holiday season, we may have a higher volume of messages than usual, which could cause slightly longer response times. But we always work as fast as we can to get back to everyone.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>We're Listening</h2>",
+      "paragraphs": [
+        "<p>One of the best parts of our job is hearing from customers. Whether you're reaching out with a question, a problem, a compliment, or a suggestion, we're always glad to hear from you. Your feedback — good and bad — helps us understand what we're doing well and where we can improve. It shapes our product selection, our website design, our policies, and how we interact with every customer.</p>",
+        "<p>We never want to stop learning and growing, and our customers are our best teachers. If there's something we could do better, something new you'd like to see us offer, or even just something you love about shopping with {brand}, please share it. We read every message, think seriously about every suggestion, and appreciate every compliment. Thank you for being part of our journey and helping us get better every day.</p>"
+      ]
+    }
+  ]
+}

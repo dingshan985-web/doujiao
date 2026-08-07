@@ -1,0 +1,90 @@
+{
+  "handle": "terms-of-use",
+  "title": "Terms of Use",
+  "sections": [
+    {
+      "heading": "<h2>Introduction</h2>",
+      "paragraphs": [
+        "<p>Thanks for visiting {brand}. This page contains the Terms of Use that govern your access to and use of our website. We've written these terms to be as clear and straightforward as possible, while still covering the legal essentials. By using our website, you agree to follow these terms, so please take a moment to review them.</p>",
+        "<p>These terms aren't set in stone forever. We may need to update them from time to time — for example, when we add new features to our website, change our policies, or respond to new legal requirements. When we make changes, we'll post the updated version here and change the 'Last Updated' date at the top. If you keep using our website after that, you're agreeing to the new terms.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Using Our Website</h2>",
+      "paragraphs": [
+        "<p>Our website is here for you to shop, browse, and learn about our products. We give you permission to use it for your personal, non-commercial needs. That means you can look around, add items to your cart, make purchases, and enjoy all the features we offer for your own personal use.</p>",
+        "<p>With that permission comes a few responsibilities. Please don't use our website for anything illegal. Don't try to hack into our systems or cause harm to our website or other users. Don't copy our content for your own commercial use. Don't use automated tools to scrape our data or artificially inflate product demand. Basically, just use our website the way it's intended to be used, and we'll all get along great.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Your Account</h2>",
+      "paragraphs": [
+        "<p>Creating an account on our website is optional, but it does make shopping easier — you can save your shipping info, track orders more easily, and speed up checkout. If you do create an account, please provide accurate information and keep it up to date. It helps us serve you better.</p>",
+        "<p>Your account is yours alone. Please keep your password secure and don't share it with anyone else. You're responsible for everything that happens while someone is logged into your account, so protecting your login details is important. If you ever think your account might have been compromised, let us know right away and we'll help you secure it.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Content Ownership</h2>",
+      "paragraphs": [
+        "<p>Everything you see on our website — the {brand} logo, product photos, descriptions, website design, blog posts if we have them — is our property or the property of our partners. These things are protected by copyright and trademark laws, which means you can't just take them and use them however you want.</p>",
+        "<p>Personal use is fine — browse, save items to your wishlist, screenshot things if it helps you shop — but please don't repost our content elsewhere, use it for your own business, or claim it as your own. If you're interested in using any of our content for something specific, just ask. We're always happy to have a conversation about it.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Product Information</h2>",
+      "paragraphs": [
+        "<p>We try our best to make sure everything on our product pages is accurate — descriptions, photos, prices, sizes, everything. But we're only human, and mistakes do happen. A typo, a wrong price, a photo that makes a color look slightly different than it does in person — these things can occur despite our best efforts.</p>",
+        "<p>If there's a significant error in a product's listing that affects your order, we'll let you know as soon as we can and give you some options: keep the order with the corrected information, pick something else, or get a full refund. Prices and availability can also change without notice. We appreciate your flexibility and understanding when these things happen.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Reviews and Customer Content</h2>",
+      "paragraphs": [
+        "<p>We really value customer reviews and feedback. They help other shoppers make decisions, and they help us improve. If you leave a review or share a photo of your purchase, thank you! And just so you know, we might feature your review or photo on our website or social media to help other customers.</p>",
+        "<p>When you share content with us, we ask that it's honest, respectful, and doesn't violate anyone else's rights. We reserve the right to remove content that's inappropriate, misleading, or violates these terms, but we don't remove reviews just because they're negative. Constructive criticism helps us grow, and we appreciate you taking the time to share your honest opinion.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Links to Other Sites</h2>",
+      "paragraphs": [
+        "<p>Sometimes our website might link to other websites — for things like payment processing, shipping tracking, or our social media pages. These links are there for your convenience, but once you leave our website, you're on someone else's site and their rules apply.</p>",
+        "<p>We can't control what's on other websites, and we're not responsible for their content, policies, or practices. We recommend that you always check the terms of use and privacy policy of any new website you visit. If you have issues with a third-party site, you'll need to reach out to them directly — they're the ones who can help with their own services.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Disclaimer of Warranties</h2>",
+      "paragraphs": [
+        "<p>Okay, time for some legal language — but we'll keep it as plain as possible. Our website and everything on it are provided 'as is.' That means we don't make any guarantees — to the extent the law allows — that everything will be perfect, always available, completely error-free, or meet every single expectation you might have.</p>",
+        "<p>We work really hard to make {brand} awesome, but we're not infallible. Things go wrong sometimes — servers go down, glitches happen, products might not always be exactly as they appear on screen. To the fullest extent permitted by law, we disclaim all warranties, both express and implied. That said, if you ever have a problem with your order, please contact customer service — we genuinely want to help.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Limitation of Liability</h2>",
+      "paragraphs": [
+        "<p>Here's another important legal point. We're not responsible — to the extent allowed by law — for any indirect, special, or consequential damages that might come from using our website or products. That includes things like lost profits, lost data, business losses, and similar kinds of damages.</p>",
+        "<p>Our total liability for any issue related to your order or your use of our website is capped at the amount you actually paid for the specific product or service involved. This is pretty standard for e-commerce sites, but it's still important to know. Some jurisdictions don't allow these limitations, so they might not apply fully to you depending on where you live.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Indemnification</h2>",
+      "paragraphs": [
+        "<p>If your actions on our website cause us problems — if you break these terms, post content that gets us in trouble, or do something that damages our systems — you agree to take responsibility for the consequences. That means covering any costs, damages, or legal fees that come up because of what you did.</p>",
+        "<p>We think of it as being a good neighbor. We take care of our website and our side of things, and we ask you to take care of yours. When everyone does their part, it creates a better experience for all of us.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Law and Disputes</h2>",
+      "paragraphs": [
+        "<p>These Terms of Use are governed by the laws of the place where our business is based. If there's ever a legal dispute, those are the laws that will apply. But before things get to that point, we'd much rather work things out directly with you. If you have an issue, please reach out first — communication can solve almost anything.</p>",
+        "<p>If a dispute does need to be resolved more formally, it will be handled by the courts that have jurisdiction over our business. Any claims need to be made within about a year of when the issue happened, or they're no longer valid. If any part of these terms is found to be unenforceable, the rest of the terms still apply as fully as possible.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Contact Us</h2>",
+      "paragraphs": [
+        "<p>If you have questions about these Terms of Use, or about anything else related to {brand}, our customer service team is happy to help. You can reach us through the contact form on our website or by email at our support address. We usually get back to people within 1-2 business days.</p>",
+        "<p>Thanks for reading through our terms, and thank you for being a {brand} customer. We appreciate you taking the time to understand how things work around here. If there's anything we can do to make your experience better, please let us know — we're all ears.</p>"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "handle": "terms-of-use",
+  "title": "Terms of Use",
+  "sections": [
+    {
+      "heading": "<h2>Welcome to Our Terms of Service</h2>",
+      "paragraphs": [
+        "<p>Greetings and welcome to {brand}. These Terms of Use — also sometimes called Terms of Service — describe the conditions under which you may access and use our website. By visiting, browsing, or making a purchase on our website, you indicate your acceptance of these terms. If you do not agree with these terms, please refrain from using our website.</p>",
+        "<p>We may modify these Terms of Use periodically to reflect changes to our website, our business practices, or applicable law. Any modifications will be effective immediately upon posting on this page, along with an updated 'Last Updated' date. Your continued use of our website following the posting of modifications constitutes your acceptance of the revised terms.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Website Access and Use</h2>",
+      "paragraphs": [
+        "<p>Subject to these Terms of Use, we grant you a limited, personal, non-exclusive, non-transferable license to access and use our website for your personal, non-commercial use. This includes the right to view product information, create an account, make purchases, and use other features intended for consumers.</p>",
+        "<p>You agree not to engage in any of the following prohibited activities: using our website for any unlawful purpose; attempting to compromise the security or integrity of our systems; transmitting malware, viruses, or other harmful code; using automated means — bots, scrapers, crawlers — to access our website for unauthorized purposes; interfering with other users' access to or enjoyment of our website; or reproducing, copying, or distributing our content for commercial purposes.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>User Accounts and Security</h2>",
+      "paragraphs": [
+        "<p>You may choose to register for a user account on our website to access additional features like order tracking, faster checkout, and saved payment information. If you register, you agree to provide accurate, complete, and current information during the registration process and to update such information as necessary to keep it accurate and current.</p>",
+        "<p>You are responsible for safeguarding your account credentials — your username and password — and for all activities that occur under your account. You agree to notify us immediately of any unauthorized use of your account or any other security breach. We reserve the right to terminate or suspend your account at any time, for any reason, in our sole discretion, without prior notice or liability.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Intellectual Property Rights</h2>",
+      "paragraphs": [
+        "<p>All content and materials available on our website — including but not limited to text, graphics, logos, icons, images, audio clips, digital downloads, data compilations, software, product descriptions, and the overall design and layout of the website — are owned by {brand} or our licensors and are protected by copyright, trademark, and other intellectual property laws.</p>",
+        "<p>You may not copy, reproduce, distribute, publicly display or perform, create derivative works from, or otherwise commercially exploit any of the content on our website without our prior written consent. The {brand} name, logo, and other trademarks, service marks, and trade names used on our website are the property of {brand}. Nothing on our website should be construed as granting any license or right to use any of our intellectual property without our express written permission.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Product Descriptions and Pricing</h2>",
+      "paragraphs": [
+        "<p>We endeavor to present our products accurately on our website, including descriptions, images, specifications, and pricing. However, we do not warrant that product descriptions, images, pricing, or other content on our website is entirely accurate, complete, reliable, current, or error-free. From time to time, there may be information on our website that contains typographical errors, inaccuracies, or omissions.</p>",
+        "<p>We reserve the right to correct any errors, inaccuracies, or omissions, and to change or update information — including product descriptions, availability, and pricing — at any time without prior notice. In the event that a product is listed at an incorrect price or with incorrect information due to an error, we shall have the right, at our discretion, to either contact you for instructions or cancel your order and notify you of such cancellation.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>User-Generated Content</h2>",
+      "paragraphs": [
+        "<p>Our website may allow users to post reviews, comments, photos, and other content — collectively referred to as user-generated content. By submitting user-generated content to our website or our social media channels, you grant {brand} a worldwide, non-exclusive, royalty-free, perpetual, irrevocable, and fully sublicensable right to use, reproduce, modify, adapt, publish, translate, create derivative works from, distribute, and display such content.</p>",
+        "<p>You represent and warrant that: you own or have the necessary rights to the content you submit; the content is accurate and not misleading; use of the content you supply does not violate these Terms of Use or any applicable law; and the content will not cause injury to any person or entity. We reserve the right, but have no obligation, to monitor, edit, or remove any user-generated content that we deem, in our sole discretion, to be inappropriate, offensive, or in violation of these terms.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Third-Party Links and Resources</h2>",
+      "paragraphs": [
+        "<p>Our website may contain links to third-party websites, services, or resources that are not owned or controlled by {brand}. These links are provided solely as a convenience to you and do not constitute an endorsement, approval, or recommendation by us of the third-party content or services.</p>",
+        "<p>We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites or services. You acknowledge and agree that {brand} shall not be liable for any damage or loss arising from your use of or reliance on any third-party content, goods, or services available through such websites or resources. We encourage you to review the terms and policies of any third-party websites you visit.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Disclaimer of Representations and Warranties</h2>",
+      "paragraphs": [
+        "<p>To the fullest extent permitted by applicable law, {brand} provides our website, all content, and all products and services on an 'as is' and 'as available' basis, without any representations, warranties, or conditions of any kind, whether express, implied, or statutory. This includes, but is not limited to, implied warranties of merchantability, fitness for a particular purpose, title, non-infringement, and any warranties arising from a course of dealing or usage of trade.</p>",
+        "<p>We make no representation or warranty that our website will be uninterrupted, secure, error-free, or free of viruses or other harmful components. We do not warrant that the information on our website — including product descriptions and pricing — is accurate, complete, reliable, current, or error-free. Your use of our website and any products purchased through it is at your sole risk.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Limitation of Liability</h2>",
+      "paragraphs": [
+        "<p>To the maximum extent permitted by applicable law, in no event shall {brand} — including our directors, officers, employees, agents, and affiliates — be liable for any indirect, special, incidental, consequential, or punitive damages, including without limitation damages for loss of profits, revenue, data, use, goodwill, or other intangible losses, arising out of or in any way connected with the access to, use of, or inability to use our website or products.</p>",
+        "<p>Our total cumulative liability for all claims relating to these Terms of Use, our website, or any products purchased through our website shall not exceed the total amount actually paid by you to {brand} for the specific product or service giving rise to the claim. This limitation applies regardless of the legal theory on which the claim is based — contract, tort, strict liability, or otherwise.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Indemnification Agreement</h2>",
+      "paragraphs": [
+        "<p>You agree to defend, indemnify, and hold harmless {brand}, our subsidiaries, affiliates, partners, and each of our respective officers, directors, employees, and agents from and against any and all claims, actions, suits, proceedings, damages, obligations, losses, liabilities, costs, and expenses — including reasonable attorneys' fees — arising from or related to your use of our website, your violation of these Terms of Use, or your violation of any rights of another.</p>",
+        "<p>We reserve the right, at our own expense, to assume the exclusive defense and control of any matter for which you are required to indemnify us. In such event, you agree to fully cooperate with us in asserting any available defenses. Your indemnification obligations survive the termination of these Terms of Use and any termination of your access to our website.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Governing Law and Disputes</h2>",
+      "paragraphs": [
+        "<p>These Terms of Use and all matters arising out of or relating to them, your use of our website, or the purchase of products through our website shall be governed by and construed in accordance with the laws of the jurisdiction in which {brand} is based, without giving effect to any conflict of laws principles.</p>",
+        "<p>Any dispute or claim arising out of or relating to these terms or your use of our website shall first be resolved through direct, good-faith negotiation. If the parties are unable to resolve the dispute informally, the dispute shall be submitted to the courts having competent jurisdiction over {brand}'s business. Any cause of action must be brought within one year of the date it arose, after which time it is barred.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>How to Contact Us</h2>",
+      "paragraphs": [
+        "<p>If you have any questions, concerns, or comments about these Terms of Use, our website, or our products and services, please don't hesitate to reach out to our customer support team. You can contact us through the form on our website or by email at the support address listed on our contact page. We strive to respond to all inquiries within 1-2 business days.</p>",
+        "<p>Thank you for taking the time to read and understand our Terms of Use. We believe in being transparent about how our website works and what you can expect from us. At {brand}, we're dedicated to providing an excellent shopping experience, and we appreciate your trust and support.</p>"
+      ]
+    }
+  ]
+}
