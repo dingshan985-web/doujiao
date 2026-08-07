@@ -2,6 +2,7 @@ __pycache__/
 build/
 dist/
 *.exe
+!release/*.exe
 *.zip
 !installer_data.zip
 !release/update.zip
