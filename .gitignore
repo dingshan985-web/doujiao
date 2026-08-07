@@ -4,6 +4,8 @@ dist/
 *.exe
 *.zip
 !installer_data.zip
+!release/update.zip
+!update.zip
 *.pkg
 *.pyz
 *.toc

@@ -1,6 +1,6 @@
 {
-  "version": "1.5.7",
-  "download_url": "https://dingshan985-web.github.io/doujiao/%E8%B1%86%E8%84%9aAlteraExcel%E5%B7%A5%E5%85%B7-%E5%AE%89%E8%A3%85%E5%8C%85.exe",
+  "version": "1.5.8",
+  "download_url": "https://dingshan985-web.github.io/doujiao/%E8%B1%86%E8%84%9AAlteraExcel%E5%B7%A5%E5%85%B7-%E5%AE%89%E8%A3%85%E5%8C%85.exe",
   "green_download_url": "https://dingshan985-web.github.io/doujiao/update.zip",
-  "release_notes": "更新内容：\n1. 调整数据拆分大小限制：从 15MB 改为 14MB，每个分片目标 12MB，防止超出限制\n2. 修复复制站模板处理中版权域名替换可能失效的问题，支持多种版权文本格式\n3. 修复生成主题包时删除临时文件出现 WinError 5 拒绝访问的问题\n4. 修复标签页下划线初始不显示的问题\n5. 彻底修复自更新机制：使用临时副本执行更新"
+  "release_notes": "更新内容：\n1. 新增条款页面生成功能，支持生成带域名的Altera可导入xlsx文件\n2. 修复菜单层级生成中连词/介词阻断合理分层的问题\n3. 更新release/豆脚AlteraExcel工具.exe"
 }
