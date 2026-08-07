@@ -1,6 +1,0 @@
-{
-  "version": "1.5.8",
-  "download_url": "https://dingshan985-web.github.io/doujiao/%E8%B1%86%E8%84%9AAlteraExcel%E5%B7%A5%E5%85%B7-%E5%AE%89%E8%A3%85%E5%8C%85.exe",
-  "green_download_url": "https://dingshan985-web.github.io/doujiao/update.zip",
-  "release_notes": "更新内容：\n1. 新增条款页面生成功能，支持生成带域名的Altera可导入xlsx文件\n2. 修复菜单层级生成中连词/介词阻断合理分层的问题\n3. 更新release/豆脚AlteraExcel工具.exe"
-}

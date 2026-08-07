@@ -1,13 +1,5 @@
-__pycache__/
-build/
-dist/
-*.exe
-!release/*.exe
-*.zip
-!installer_data.zip
-!release/update.zip
-!update.zip
-*.pkg
-*.pyz
-*.toc
-*.pyc
+# Ignore everything except release/
+/*
+!/.gitignore
+!/release/
+!/release/**
