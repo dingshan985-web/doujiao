@@ -1,7 +1,12 @@
-# 忽略所有文件
+# 忽略所有文件（除了明确放行的发布文件）
 *
-# 但不忽略 release 文件夹
-!release/
-!release/**
-# 不忽略 .gitignore 自身
+
+# ========= 发布文件白名单：直接放根目录（对应你的截图结构）=========
 !.gitignore
+!version.json
+!favicon.png
+!update.zip
+!豆脚AlteraExcel工具.exe
+!豆脚AlteraExcel工具-安装包.exe
+!data/
+!data/**
