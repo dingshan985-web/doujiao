@@ -1,6 +1,0 @@
-{
-  "version": "1.5.9",
-  "download_url": "https://dingshan985-web.github.io/doujiao/%E8%B1%86%E8%84%9AAlteraExcel%E5%B7%A5%E5%85%B7-%E5%AE%89%E8%A3%85%E5%8C%85.exe",
-  "green_download_url": "https://dingshan985-web.github.io/doujiao/update.zip",
-  "release_notes": "更新内容：\n1. 条款页面生成：每条条款从带域名的 JSON 模板中随机选择版本（同文件处理 random.choice 逻辑），控制台输出本次选中的版本文件名\n2. 输出结构：在用户选择的保存根目录下，自动创建以域名命名的子文件夹，Excel 文件（<品牌>_terms.xlsx）放在该子文件夹内\n3. Pages 工作表：统一使用 write_dict_rows_auto_split 写入，工作表 title、列格式、样式与文件处理完全一致"
-}
