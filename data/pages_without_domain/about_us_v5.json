@@ -1,0 +1,41 @@
+{
+  "handle": "about-us",
+  "title": "About Us",
+  "sections": [
+    {
+      "heading": "<h2>Our Story</h2>",
+      "paragraphs": [
+        "<p>The story of {brand} is a story of passion, persistence, and a refusal to settle for 'good enough.' It started with a simple frustration: shopping online was often more hassle than it was worth. Products would arrive and look nothing like the photos. Shipping costs would double the price. Returning something was like pulling teeth. We thought — surely there's a better way. And so {brand} was born.</p>",
+        "<p>In the early days, we operated out of a small workspace, packing orders ourselves and answering customer emails late into the night. Every product was one we'd personally tested and believed in. Every customer interaction was an opportunity to prove that online shopping could be different — better, easier, more trustworthy. Word spread, and more and more people discovered that shopping at {brand} was a different kind of experience.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>What We Believe</h2>",
+      "paragraphs": [
+        "<p>At {brand}, our beliefs shape everything we do. We believe that quality matters — that products should be well-made, durable, and worth the price. We believe that honesty matters — that customers deserve straight answers and transparent pricing, not fine print and hidden fees. We believe that service matters — that when someone has a question or a problem, they deserve to be helped quickly and effectively by someone who actually cares.</p>",
+        "<p>We also believe that shopping should be enjoyable, not stressful. That's why we offer free shipping on every single order, with no minimums and no fine print. That's why all our prices are in USD, so you always know exactly what you're paying. And that's why we offer a 60-day free return policy — because we know that sometimes, no matter how good the product description is, you can't be sure until you hold it in your hands. We want you to shop with confidence.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>How We Choose Products</h2>",
+      "paragraphs": [
+        "<p>If you're wondering why our store carries certain products and not others, the answer is simple: every product must earn its place. Our selection process is rigorous and thorough. It starts with research — identifying customer needs, tracking market trends, and discovering innovative new products. But research alone isn't enough. We test products ourselves, evaluate their build quality and performance, and compare them against competing options.</p>",
+        "<p>We also look beyond the product itself to the people who make it. We seek out suppliers and manufacturers who share our commitment to quality and ethical business practices. We build long-term partnerships rather than jumping from one supplier to another chasing the lowest cost. This not only ensures consistent quality but also allows us to work together on improvements, exclusive designs, and better pricing for our customers.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Putting Customers First</h2>",
+      "paragraphs": [
+        "<p>Customer first is more than a slogan at {brand} - it's the guiding principle behind every decision we make. When we're choosing which products to carry, we ask: would our customers benefit from this? When we set prices, we ask: is this a fair value for our customers? When we write our policies - from shipping to returns - we ask: would we be happy with this as a customer? If the answer is no, we go back to the drawing board.</p>",
+        "<p>This customer-first approach is why our shipping is free worldwide, why our returns are free within 60 days, and why our customer service team has the authority to solve problems on the spot. It's why we provide detailed product information and accurate photos instead of relying on marketing hype. And it's why we actually read customer feedback and use it to make improvements — because you know better than anyone what you need, and we're listening.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Thank You</h2>",
+      "paragraphs": [
+        "<p>We wouldn't be here without our customers, and we never forget that. Every order, every review, every message — they all matter to us. We're grateful for the trust you place in us, and we work hard every day to live up to it. Whether you're here to buy something specific or just browsing, we hope you enjoy your visit and find something you love.</p>",
+        "<p>If you ever have questions, feedback, or just want to say hello, we'd love to hear from you. We read every message and take every comment seriously. After all, {brand} isn't just our store — it's a community of people who appreciate quality, value, and good service. Thank you for being part of our story. We're excited to keep growing and improving, and we're glad to have you along for the journey.</p>"
+      ]
+    }
+  ]
+}
