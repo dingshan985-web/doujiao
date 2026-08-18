@@ -1,0 +1,55 @@
+{
+  "handle": "refund-policy",
+  "title": "Refund Policy",
+  "sections": [
+    {
+      "heading": "<h2>Our Return Promise</h2>",
+      "paragraphs": [
+        "<p>Shopping online should be enjoyable, not stressful. That's why we back every purchase with our 60-day satisfaction guarantee. If for any reason you're not completely happy with your order, just send it back within 60 days for a full refund. It's that simple. No hoops, no hassle, no arguments.</p>",
+        "<p>This promise is our way of saying we believe in the quality of our products, and we believe in treating our customers right. We'd rather issue a refund than have an unhappy customer. We want you to love every purchase you make at {brand}, and if you don't, we'll do whatever it takes to make it right.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>How the 60-Day Window Works</h2>",
+      "paragraphs": [
+        "<p>Your 60-day return window starts on the day your order is delivered. That gives you two full months to try out the product, use it as intended, and decide if it's a keeper. We think 60 days is the right amount of time — long enough to properly evaluate a purchase, but not so long that we can't resell returned items as new.</p>",
+        "<p>To make a return, just contact us before the 60-day window expires. As long as we hear from you within 60 days of delivery, you're good — even if the item doesn't arrive back at our warehouse until after day 60. What matters is that you initiate the return within the window. We're reasonable people, and we try to apply our policy reasonably.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Free — Really Free</h2>",
+      "paragraphs": [
+        "<p>Let's talk about free returns for a moment, because not all 'free returns' are created equal. Some stores charge restocking fees. Some only refund the product cost, not the original shipping. Some make you pay for return shipping and then 'reimburse' you later, which is a hassle. Not us.</p>",
+        "<p>When we say free returns at {brand}, we mean it. You pay zero dollars to return something. We provide a pre-paid shipping label, so you don't have to spend any money upfront. We refund 100% of your purchase price, no restocking fees, no deductions. The only thing you invest is the few minutes it takes to request the return and pack up the item. That's our idea of truly free returns.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Step-by-Step Return Guide</h2>",
+      "paragraphs": [
+        "<p>Making a return is straightforward. Here's exactly what to do: Step 1: Gather your order number (you can find it in your confirmation email). Step 2: Contact our customer service team via our website's contact form or reply to your order email. Let us know you'd like to make a return and include your order number. Step 3: Within 1-2 business days, we'll send you a return shipping label and instructions.</p>",
+        "<p>Step 4: Pack up the item in its original packaging (or any secure packaging if the original isn't available). Step 5: Attach the shipping label to the outside of the package. Step 6: Drop off the package at the specified location or schedule a pickup. Step 7: We receive and inspect the item, then process your refund within 5-10 business days. That's all — seven simple steps, and most of them are our job, not yours.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Refund Processing Details</h2>",
+      "paragraphs": [
+        "<p>After we receive your returned item, our team will do a quick inspection to make sure everything is in order. As long as the item is in reasonable condition and everything that came with it is there, we'll process your refund. The inspection usually takes just a few minutes — we're not trying to find reasons not to refund you.</p>",
+        "<p>Once processed, the refund goes back to your original payment method. How long it takes to show up in your account depends on who you bank with and what payment method you used. Credit card refunds typically take 3-7 business days after we issue them. Debit cards and other payment methods may take slightly longer. We'll send you an email confirmation when the refund is issued, so you'll know it's on its way.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Items That Can't Be Returned</h2>",
+      "paragraphs": [
+        "<p>While we accept returns on most items, there are a few exceptions — all for practical, common-sense reasons. Custom or personalized products made specifically for you can't be returned because we can't sell them to anyone else. Intimate apparel, swimwear, and certain personal care items can't be returned for hygiene reasons — we're sure you understand.</p>",
+        "<p>Downloadable digital products, once accessed, are also non-refundable. And items that have been used beyond reasonable testing, damaged by the customer, or are missing parts or accessories may not be eligible for a full refund. These cases are rare, and we always approach them with fairness and good judgment. When in doubt, just ask — we're happy to clarify whether a specific item is returnable.</p>"
+      ]
+    },
+    {
+      "heading": "<h2>Need Help? We're Here</h2>",
+      "paragraphs": [
+        "<p>Have questions about our return policy? Not sure how to start a return? Confused about the refund process? Don't worry — we're here to help. Our customer service team knows our return policy inside and out, and they're always happy to answer questions, walk you through the process, or just chat about whether returning an item is the right choice.</p>",
+        "<p>You can reach our customer service team through the contact form on our website. We strive to respond to all inquiries within 1-2 business days. No automated phone trees, no scripted responses — just real people who want to help. Whether you're a first-time customer or a long-time shopper, we'll give you the same friendly, helpful service. That's the {brand} way.</p>"
+      ]
+    }
+  ]
+}

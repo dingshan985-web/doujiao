@@ -1,0 +1,6 @@
+{
+  "version": "1.6.2",
+  "download_url": "https://dingshan985-web.github.io/doujiao/%E8%B1%86%E8%84%9AAlteraExcel%E5%B7%A5%E5%85%B7-%E5%AE%89%E8%A3%85%E5%8C%85.exe",
+  "green_download_url": "https://dingshan985-web.github.io/doujiao/update.zip",
+  "release_notes": "v1.6.2 菜单输出修复（v1.6.1打包过程中使用了旧的临时源码快照导致菜单结构不输出，本版本用已验证的正确源码重新打包）：\n1. 菜单生成逻辑完全恢复v1.6.0介词修复版行为：\n   · A列ID = 100000000001（同菜单所有行相同，正确归组）\n   · Menu Item: ID = 纯数字seq_ids（跨菜单全局连续递增，父子引用精确无碰撞）\n   · Menu Item: Parent Title = 短名父标题（即时父级display_title，介词不再阻断父子匹配）\n   · Menu级/菜单项级Command统一为 MERGE（不再触发USR001默认菜单删不掉报错、无REPLACE警告）\n2. 保留之前的更新检查增强：UTF-8 BOM自动兼容(utf-8-sig解码) + 强制TLS1.2协商 + 5次SSL断链重试 + 断链提示换网络/手动覆盖。\n3. 验证：Mens→Clothing与Womens→Clothing两个同名菜单项父关联分别独立指向ID=3(Mens)和ID=9(Womens)，结构100%正确，可放心导入。"
+}
