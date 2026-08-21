@@ -1,6 +1,6 @@
 {
-  "version": "1.7.2",
+  "version": "1.7.3",
   "download_url": "https://dingshan985-web.github.io/doujiao/%E8%B1%86%E8%84%9AAlteraExcel%E5%B7%A5%E5%85%B7-%E5%AE%89%E8%A3%85%E5%8C%85.exe",
   "green_download_url": "https://dingshan985-web.github.io/doujiao/update.zip",
-  "release_notes": "v1.7.2 更新：\n1. 主题包 footer 版权栏新增 show_shop_name 开关：开启时显示 “Copyright 2026©” + 真实店铺名（shop.name），关闭时显示版权文字内容。\n2. 继承自 v1.7.1 的菜单拆分修复：菜单（Menu）不再按 99 行拆分；Smart Collection 超 100 行拆分时菜单单独输出 menu.csv 单文件，未超过则写入主 Excel 的 Menu sheet。"
+  "release_notes": "v1.7.3 更新：\n1. 复制站模板处理（标签页二）现已与「文件处理」一致：在替换 footer 版权域名的同时，注入 show_shop_name 开关——开启时版权栏显示 “Copyright 2026©” + 真实店铺名（shop.name）。\n2. 继承自 v1.7.2：主题包 footer 版权栏 show_shop_name 开关；继承自 v1.7.1：菜单（Menu）不再按 99 行拆分，Smart Collection 超 100 行拆分时菜单单独输出 menu.csv。"
 }
