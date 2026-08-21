@@ -1,6 +1,6 @@
 {
-  "version": "1.7.3",
+  "version": "1.7.4",
   "download_url": "https://dingshan985-web.github.io/doujiao/%E8%B1%86%E8%84%9AAlteraExcel%E5%B7%A5%E5%85%B7-%E5%AE%89%E8%A3%85%E5%8C%85.exe",
   "green_download_url": "https://dingshan985-web.github.io/doujiao/update.zip",
-  "release_notes": "v1.7.3 更新：\n1. 复制站模板处理（标签页二）现已与「文件处理」一致：在替换 footer 版权域名的同时，注入 show_shop_name 开关——开启时版权栏显示 “Copyright 2026©” + 真实店铺名（shop.name）。\n2. 继承自 v1.7.2：主题包 footer 版权栏 show_shop_name 开关；继承自 v1.7.1：菜单（Menu）不再按 99 行拆分，Smart Collection 超 100 行拆分时菜单单独输出 menu.csv。"
+  "release_notes": "v1.7.4 更新：\n1. 修复 footer 店铺名（Copyright 2026©店铺名）颜色不跟随「文字颜色」选项的问题——注入时改用 <p> 包裹，使其与版权文字走同一着色链路（--text-color / copyright_content_color），改选项时店铺名同步变色。\n2. 文件处理与复制站模板处理均已应用该修复。"
 }
