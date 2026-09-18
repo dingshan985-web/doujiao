@@ -1,0 +1,62 @@
+<!-- blocks/_collection_heading.liquid -->
+<div class="{% if block.settings.one_line == false %}hdt-flex-col{% else %}hdt-justify-between md:hdt-align-center{% endif %} hdt-text-{{ block.settings.alignment }} hdt-sections-heading" style="--row-gap: {{ block.settings.row_gap }}px;--margin-bottom: {{ block.settings.margin_bottom }}px;">
+  {%- content_for 'blocks' -%}
+</div>
+{% schema %}
+  {
+    "name": "区块标题",
+    "class": "hdt-collection-heading",
+    "blocks": [
+      {
+        "type": "heading"
+      },
+      {
+        "type": "text"
+      },
+      {
+        "type": "_heading_slider_button"
+      }
+    ],
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "one_line",
+        "label": "行布局",
+        "default": false,
+       /* "info": "仅在桌面端生效"*/
+      },
+      {
+        "type": "text_alignment",
+        "id": "alignment",
+        "label": "t:settings_schema.global.settings.text_alignment.label",
+        "default": "center",
+        "info": "行布局下不生效",
+        "visible_if": "{{ block.settings.one_line == false }}"
+      },
+      {
+        "type": "header",
+        "content": "间距"
+      },
+      {
+        "type": "range",
+        "id": "row_gap",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "项目间距",
+        "default": 15
+      },
+      {
+        "type": "range",
+        "id": "margin_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "底部外边距",
+        "default": 30
+      },
+    ],
+  }
+{% endschema %}

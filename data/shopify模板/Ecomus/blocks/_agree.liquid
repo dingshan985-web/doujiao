@@ -1,0 +1,27 @@
+{%- comment -%}
+  Cart terms checkbox intentionally disabled.
+  Checkout no longer requires agreement confirmation.
+{%- endcomment -%}
+{% schema %}
+  {
+    "name": "t:sections.mini-cart.blocks.agree.name",
+    "tag":null,
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "t:sections.mini-cart.blocks.agree.settings.paragraph.content"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "content",
+        "label": "t:sections.mini-cart.blocks.agree.settings.content.label",
+        "default": "I agree with the terms and conditions"
+      }
+    ],
+    "presets": [
+      {
+        "name": "t:sections.mini-cart.blocks.agree.name"
+      }
+    ]
+  }
+{% endschema %}

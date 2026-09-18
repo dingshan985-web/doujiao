@@ -1,0 +1,272 @@
+{% assign product_form_id = 'product-form-' | append: section.id %}
+{% assign base_price = product.selected_or_first_available_variant.price %}
+<div class="tiered-quantity-selector" {{ block.shopify_attributes }}>
+  <style>
+            .tiered-quantity-options {
+              --columns_row: {{ block.settings.columns_block }}%;
+              --selected-bg-color: {{ block.settings.selected_button_bg_color }};
+              --selected-dot-color: {{ block.settings.selected_button_dot_color }};
+              --savings-text-color: {{ block.settings.savings_text_color }};
+              --savings-bg-color: {{ block.settings.savings_bg_color }};
+              --border-radius: {{ block.settings.border_radius }}rem;
+              --option-bottom-spacing: {{ block.settings.option_bottom_spacing }}rem;
+              --option-height-spacing: {{ block.settings.option_height_spacing }}rem;
+              --compare-price-font-size: {{ block.settings.compare_price_font_size }}rem;
+              --final-price-font-size: {{ block.settings.final_price_font_size }}rem;
+              --per-unit-font-size: {{ block.settings.per_unit_font_size }}rem;
+              --label-font-size: {{ block.settings.label_font_size }}rem;
+              --text-color-unselected: {{ block.settings.text_color_unselected }};
+              --back-color-unselected: {{ block.settings.back_color_unselected }};
+              --border-color-unselected: {{ block.settings.border_color_unselected }};
+              --border-color-hover-unselected: {{ block.settings.border-color-hover-unselected }};
+              --border-color-selected: {{ block.settings.selected_button_border_color }};
+              --buttons_border_thickness: {{ block.settings.buttons_border_thickness }}rem;
+              --text-color-selected: {{ block.settings.text_color_selected }};
+              --savings-label-font-size: {{ block.settings.savings_label_font_size }}rem;
+
+              --badge-bg-color: {{ block.settings.badge_bg_color }};
+              --badge-font-size: {{ block.settings.badge_font_size }}rem;
+              --badge-font-color: {{ block.settings.badge_font_color }};
+
+              --title-color: {{ block.settings.title_color }};
+              --title-font-size: {{ block.settings.title_font_size }}rem;
+              --title_line_color: {{ block.settings.title_line_color }};
+              --compare-font-color: {{ block.settings.compare_font_color }};
+            }
+          .tiered-option-title {
+              --title-color: {{ block.settings.title_color }};
+              --title-font-size: {{ block.settings.title_font_size }}rem;
+              --sub-title-color: {{ block.settings.subtitle_color }};
+              --sub-title-font-size: {{ block.settings.subtitle_font_size }}rem;
+              --title-line-color: {{ block.settings.title_line_color }};
+              --title-text-align: {{ block.settings.title_text_align }};
+              --buttons_border_thickness: {{ block.settings.buttons_border_thickness }}rem;
+              --border-color-unselected: {{ block.settings.border_color_unselected }};
+              --border-radius: {{ block.settings.border_radius }}rem;
+              --title-background: {{ block.settings.title_bg_color }};
+            }
+          {% if block.settings.hide_checkbox %}
+            .tiered-option:before {
+            display: none;
+            }
+          {% endif %}
+          {% if block.settings.hide_checkbox and block.settings.quantity_style == 'vertical' %}
+              .tiered-option {
+            padding-top: 1em !important;
+            }
+          {% endif %}
+        {% if block.settings.hide_checkbox and block.settings.quantity_style != 'vertical' %}
+              .tiered-option {
+            padding-left: 2em !important;
+            }
+          {% endif %}
+
+           {% if block.settings.show_head_border and block.settings.quantity_style == 'horizontal-nogap' %}
+            .tiered-option-wrapper-span {
+              padding: 10px;
+              background: var(--title-background);
+              border: var(--buttons_border_thickness) solid var(--border-color-unselected);
+              border-top-left-radius: var(--border-radius);
+              border-top-right-radius: var(--border-radius);
+              margin-bottom: calc(-1 * var(--buttons_border_thickness));
+          }
+            .tiered-option-wrapper:first-of-type .tiered-option {
+              border-top-left-radius: 0 !important;
+              border-top-right-radius: 0 !important;
+            }
+            .tiered-quantity-options {
+              margin-top: 0 !important;
+            }
+          {% endif %}
+  </style>
+
+  {% if block.settings.quantity_style == 'horizontal' %}
+    {{ 'tiered-quantity-horizontal.css' | asset_url | stylesheet_tag }}
+  {% elsif block.settings.quantity_style == 'horizontal-nogap' %}
+    {{ 'tiered-quantity-no-gap.css' | asset_url | stylesheet_tag }}
+  {% else %}
+    {{ 'tiered-quantity.css' | asset_url | stylesheet_tag }}
+  {% endif %}
+  <!-- Hidden quantity input -->
+  <input type="hidden" name="quantity" id="Quantity-{{ section.id }}" value="1" form="{{ product_form_id }}">
+
+  {% assign show_zero_percent_savings = block.settings.show_zero_percent_savings %}
+  {% assign show_savings_labels = block.settings.show_savings_labels %}
+  {% assign show_strikethrough = block.settings.show_strikethrough %}
+  {% assign show_per_unit = block.settings.show_per_unit %}
+  {% assign show_total_pricing = block.settings.show_total_pricing %}
+
+  {% assign show_quantity_label = block.settings.show_quantity_label %}
+  {% assign quantity_label_text = block.settings.quantity_title_text %}
+
+  {% if show_quantity_label %}
+    <div class="tiered-option-title tiered-option-wrapper-title {% unless block.settings.hide_lines %}tiered-option-wrapper-span{% endunless %}">
+      {% unless block.settings.hide_lines %}<span></span>{% endunless %}
+      <div class="tiered-texts">
+        <div class="tiered-heading">{{ quantity_label_text }}</div>
+        <div class="tiered-sub-heading">{{ block.settings.quantity_subtitle_text }}</div>
+      </div>
+      {% unless block.settings.hide_lines %}<span></span>{% endunless %}
+    </div>
+  {% endif %}
+
+  <div class="tiered-quantity-options" data-quantity-input-id="Quantity-{{ section.id }}">
+    {% assign option_numbers = '1,2,3,4,5,6' | split: ',' %}
+    {% for i in option_numbers %}
+      {% assign label_key = 'option_' | append: i | append: '_label' %}
+      {% assign per_unit_key = 'option_' | append: i | append: '_unit_label' %}
+      {% assign quantity_key = 'option_' | append: i | append: '_quantity' %}
+      {% assign discount_pct_key = 'option_' | append: i | append: '_discount_percentage' %}
+      {% assign badge_enable_key = 'option_' | append: i | append: '_badge_enable' %}
+      {% assign badge_text_key = 'option_' | append: i | append: '_badge_text' %}
+      {% assign save_text_key = 'option_' | append: i | append: '_save_text' %}
+
+      {% assign label = block.settings[label_key] %}
+      {% assign per_unit_label = block.settings[per_unit_key] %}
+      {% assign quantity = block.settings[quantity_key] | plus: 0 %}
+      {% assign discount_pct = block.settings[discount_pct_key] | plus: 0 | append: '%' %}
+      {% assign discount_number = block.settings[discount_pct_key] | plus: 0 %}
+      {% assign badge_enable = block.settings[badge_enable_key] %}
+      {% assign badge_text = block.settings[badge_text_key] %}
+      {% assign save_text = block.settings[save_text_key] %}
+
+      {% if label != blank and quantity > 0 %}
+        {% assign compare_total_cents = quantity | times: product.selected_or_first_available_variant.price %}
+        {% assign discount_multiplier = 100 | minus: discount_number %}
+        {% assign final_price_cents = compare_total_cents | times: discount_multiplier | divided_by: 100 %}
+        {% assign per_unit_cents = final_price_cents | divided_by: quantity %}
+
+        {% capture compare_price_formatted %}{{ compare_total_cents | money }}{% endcapture %}
+        {% capture final_price_formatted %}{{ final_price_cents | money }}{% endcapture %}
+        {% capture per_unit_price_formatted %}{{ per_unit_cents | money }}{% endcapture %}
+
+        {% assign show_compare = false %}
+        {% unless discount_number == 0 %}
+          {% if show_strikethrough %}
+            {% assign show_compare = true %}
+          {% endif %}
+        {% endunless %}
+
+        {% comment %}
+        {% assign show_discount = false %}
+        {% if show_savings_labels %}
+          {% if discount_pct > 0 %}
+            {% assign show_discount = true %}
+          {% elsif discount_pct == 0 and show_zero_percent_savings %}
+            {% assign show_discount = true %}
+          {% endif %}
+        {% endif %}
+      {% endcomment %}
+
+        <div class="tiered-option-wrapper">
+          {% if badge_enable and block.settings.quantity_style == 'vertical' %}
+            <style>
+              .tiered-quantity-options {
+                margin-top: 2.8rem;
+              }
+            </style>
+            <div class="{{ block.settings.badge_style }}">{{ badge_text }}</div>
+          {% elsif badge_enable and block.settings.quantity_style != 'vertical' %}
+            <div class="{{ block.settings.badge_style }}">{{ badge_text }}</div>
+          {% endif %}
+          <button
+            type="button"
+            class="tiered-option{% if forloop.index == block.settings.preselected %} tiered-option--active{% endif %}"
+            data-quantity="{{ quantity }}"
+          >
+            <div class="tiered-option__content{% if block.settings.quantity_style != 'vertical' %} tiered-option__horizontal{% endif %}">
+              <div class="tiered-option-flex">
+                <div style="display: flex;align-items: center;gap: 1rem;">
+                  <span class="tiered-option__label">{{ label }}</span>
+                  {% if block.settings.quantity_style != 'vertical' and save_text != blank %}
+                    <div class="tiered-option__discount-area">
+                      {{ save_text | replace: '(%)', discount_pct | replace: '($)', per_unit_price_formatted }}
+                    </div>
+                  {% endif %}
+                </div>
+                {% if show_per_unit and block.settings.quantity_style != 'vertical' %}
+                  <div class="tiered-option__per-unit">
+                    {{ per_unit_label | replace: '(%)', discount_pct | replace: '($)', per_unit_price_formatted }}
+                  </div>
+                {% endif %}
+              </div>
+              <div class="tiered-option__prices">
+                {% if show_compare %}
+                  <span class="tiered-option__compare-price">{{ compare_price_formatted }}</span>
+                {% endif %}
+                {% if show_total_pricing %}
+                  <span class="tiered-option__final-price">{{ final_price_formatted }}</span>
+                {% endif %}
+                {% if show_per_unit and block.settings.quantity_style == 'vertical' %}
+                  <div class="tiered-option__per-unit">
+                    <div class="tiered-option__per-unit">
+                      {{ per_unit_label | replace: '(%)', discount_pct | replace: '($)', per_unit_price_formatted }}
+                    </div>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+            {% if block.settings.quantity_style == 'vertical' and save_text != blank %}
+              <div class="tiered-option__discount-area">
+                {{ save_text | replace: '(%)', discount_pct | replace: '($)', per_unit_price_formatted }}
+              </div>
+            {% endif %}
+          </button>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+   document.addEventListener('DOMContentLoaded', function () {
+    function initializeTieredOptions() {
+      var container = document.querySelector('.tiered-quantity-options[data-quantity-input-id="Quantity-{{ section.id }}"]');
+      if (!container) return;
+      var quantityInput = document.getElementById(container.dataset.quantityInputId);
+      var buttons = container.querySelectorAll('.tiered-option');
+
+      // Get the active option from block settings
+      var activeOptionIndex = parseInt('{{ block.settings.preselected }}', 10) - 1; // Convert to zero-based index
+      if (!isNaN(activeOptionIndex) && activeOptionIndex >= 0 && activeOptionIndex < buttons.length) {
+        var activeButton = buttons[activeOptionIndex];
+        activeButton.classList.add('tiered-option--active');
+        activeButton.style.background = getComputedStyle(activeButton).getPropertyValue('--selected-bg-color') || '#000';
+        activeButton.style.color = 'var(--text-color-selected)';
+        var qty = parseInt(activeButton.getAttribute('data-quantity'), 10);
+        if (quantityInput && !isNaN(qty)) {
+          quantityInput.value = qty;
+          quantityInput.dispatchEvent(new Event('change'));
+        }
+      }
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          buttons.forEach(b => {
+            b.classList.remove('tiered-option--active');
+            b.style.background = 'var(--back-color-unselected)';
+            b.style.color = 'var(--text-color-unselected)';
+          });
+          this.classList.add('tiered-option--active');
+          this.style.background = getComputedStyle(this).getPropertyValue('--selected-bg-color') || '#000';
+          this.style.color = 'var(--text-color-selected)';
+          var qty = parseInt(this.getAttribute('data-quantity'), 10);
+          if (quantityInput && !isNaN(qty)) {
+            quantityInput.value = qty;
+            quantityInput.dispatchEvent(new Event('change'));
+          }
+        });
+      });
+    }
+
+    // Initialize options on load
+    initializeTieredOptions();
+
+    // Listen for theme editor events to reload the script
+    document.addEventListener('shopify:section:load', initializeTieredOptions);
+    document.addEventListener('shopify:section:unload', function () {
+      var container = document.querySelector('.tiered-quantity-options[data-quantity-input-id="Quantity-{{ section.id }}"]');
+      if (container) container.innerHTML = ''; // Clear to ensure reinitialization
+    });
+  });
+</script>

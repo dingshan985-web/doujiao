@@ -1,0 +1,175 @@
+{{ 'lumin-tab.css' | asset_url | stylesheet_tag }}
+<style>
+     ul.lumin-tab-{{ block.id }} {
+       justify-content: {{ block.settings.tab_font_align }};
+      {% if block.settings.show_border %} border-bottom: .1rem solid rgba(var(--color-foreground), .08);{% endif %}
+       padding-inline-start:0px;
+      margin-top: 0;
+         }
+
+    .lumin-tab-{{block.id}} h4 {
+      font-size: {{block.settings.tab_font}}px;
+    }
+
+    .lumin-tab-content-{{ block.id }} {
+                text-align: {{ block.settings.tab_content_align }};
+          }
+
+  @media only screen and (max-width: 576px){
+     .lumin-tab-{{block.id}} h4 {
+      font-size: {{block.settings.tab_font_mb}}px;
+    }
+     ul.lumin-tab-{{ block.id }} {
+    justify-content: {{ block.settings.tab_font_mb_align }};
+    }
+   .lumin-tab-content-{{ block.id }} {
+     text-align: {{ block.settings.tab_content_align_mb }};
+      }
+    }
+</style>
+{% assign scheme1 = settings.color_schemes | first %}
+
+{%- liquid
+  assign desc_1 = product.description | default: '' | strip_html | strip
+  assign show_tab_1 = false
+  if block.settings.description
+    if desc_1 != blank
+      assign show_tab_1 = true
+    endif
+  else
+    assign content_1 = block.settings.tab_content | default: '' | strip_html | strip
+    if content_1 != blank
+      assign show_tab_1 = true
+    endif
+  endif
+
+  assign desc_2 = product.description | default: '' | strip_html | strip
+  assign show_tab_2 = false
+  if block.settings.tab_2
+    if block.settings.description_2
+      if desc_2 != blank
+        assign show_tab_2 = true
+      endif
+    else
+      assign content_2 = block.settings.tab_content_2 | default: '' | strip_html | strip
+      if content_2 != blank
+        assign show_tab_2 = true
+      endif
+    endif
+  endif
+
+  assign show_tab_3 = false
+  if block.settings.tab_3
+    assign content_3 = block.settings.tab_content_3 | default: '' | strip_html | strip
+    if content_3 != blank
+      assign show_tab_3 = true
+    endif
+  endif
+
+  assign active_tab = 1
+  unless show_tab_1
+    if show_tab_2
+      assign active_tab = 2
+    elsif show_tab_3
+      assign active_tab = 3
+    endif
+  endunless
+-%}
+
+<div
+  class="section-{{ block.id }}-padding gradient color-{{ block.settings.tabs_color_scheme }} content-container"
+  style="{% if block.settings.tabs_color_scheme != scheme1 %}padding: 1rem 2rem;{% endif %}"
+>
+  <ul class="lumin-tab-{{block.id}} custom--tabs" {{ block.shopify_attributes }}>
+    {% if show_tab_1 %}
+      <li class="tab__list{% if active_tab == 1 %} active{% endif %}{% if block.settings.large-hide %} large-up-hide{% endif %}{% if block.settings.small-hide %} small-hide{% endif %}">
+        <h4
+          class="custom-tab{% if active_tab == 1 %} active{% endif %}"
+          data-content-id="content--{{ block.id }}"
+        >
+          {{ block.settings.heading_1 }}
+        </h4>
+      </li>
+    {% endif %}
+    {% if show_tab_2 %}
+      <li class="tab__list{% if active_tab == 2 %} active{% endif %}{% if block.settings.large-hide-2 %} large-up-hide{% endif %}{% if block.settings.small-hide-2 %} small-hide{% endif %}">
+        <h4
+          class="custom-tab{% if active_tab == 2 %} active{% endif %}"
+          data-content-id="content-2--{{ block.id }}"
+        >
+          {{ block.settings.heading_2 }}
+        </h4>
+      </li>
+    {% endif %}
+    {% if show_tab_3 %}
+      <li class="tab__list{% if active_tab == 3 %} active{% endif %}{% if block.settings.large-hide-3 %} large-up-hide{% endif %}{% if block.settings.small-hide-3 %} small-hide{% endif %}">
+        <h4
+          class="custom-tab{% if active_tab == 3 %} active{% endif %}"
+          data-content-id="content-3--{{ block.id }}"
+        >
+          {{ block.settings.heading_3 }}
+        </h4>
+      </li>
+    {% endif %}
+  </ul>
+
+  {% if show_tab_1 %}
+    <div
+      id="content--{{ block.id }}"
+      class="custom__tab-content lumin-tab-content-{{ block.id }}{% if active_tab == 1 %} active{% endif %}{% if block.settings.large-hide %} large-up-hide{% endif %}{% if block.settings.small-hide %} small-hide{% endif %}"
+      {{ block.shopify_attributes }}
+    >
+      {% if block.settings.description %}
+        {{ product.description }}
+      {% else %}
+        {{ block.settings.tab_content }}
+      {% endif %}
+    </div>
+  {% endif %}
+  {% if show_tab_2 %}
+    <div
+      id="content-2--{{ block.id }}"
+      class="custom__tab-content lumin-tab-content-{{ block.id }}{% if active_tab == 2 %} active{% endif %}{% if block.settings.large-hide-2 %} large-up-hide{% endif %}{% if block.settings.small-hide-2 %} small-hide{% endif %}"
+      {{ block.shopify_attributes }}
+    >
+      {% if block.settings.description_2 %}
+        {{ product.description }}
+      {% else %}
+        {{ block.settings.tab_content_2 }}
+      {% endif %}
+    </div>
+  {% endif %}
+  {% if show_tab_3 %}
+    <div
+      id="content-3--{{ block.id }}"
+      class="custom__tab-content lumin-tab-content-{{ block.id }}{% if active_tab == 3 %} active{% endif %}{% if block.settings.large-hide-3 %} large-up-hide{% endif %}{% if block.settings.small-hide-3 %} small-hide{% endif %}"
+      {{ block.shopify_attributes }}
+    >
+      {{ block.settings.tab_content_3 }}
+    </div>
+  {% endif %}
+</div>
+
+<script>
+  tabs = document.querySelectorAll('.custom-tab');
+  tabContents = document.querySelectorAll('.custom__tab-content');
+
+  tabs.forEach(function(tab){
+      tab.addEventListener('click',function(){
+
+          contentId = this.dataset.contentId;
+          content = document.getElementById(contentId);
+
+          tabContents.forEach(function(content){
+              content.classList.remove('active');
+          });
+
+          tabs.forEach(function(tab){
+              tab.classList.remove('active');
+          });
+
+          this.classList.add('active');
+          content.classList.add('active');
+      });
+  });
+</script>

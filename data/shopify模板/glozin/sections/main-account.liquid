@@ -1,0 +1,152 @@
+{{ 'my-account.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign st = section.settings
+  assign container = st.container
+-%}
+
+<section class="bls__section bls__page-account mt-40">
+  <div class="{{ container }} section-full">
+    <div class="flex flex-wrap gap" style="--col-gap: 30px;--col-width: 25%;">
+      <div class="w-full col-sm-w-custom">
+        <div class="account-dashboard border rounded-5 sticky top-30">
+          {% render 'customer-nav' %}
+        </div>
+      </div>
+      <div class="col-sm-remaining mb-20 w-full">
+        <div class="mb-30">
+          <span>
+            {{- 'customer.account.welcome' | t }}
+            <strong>{{ customer.name }}</strong>!</span
+          >
+          <span
+            >({{ 'customer.account.no' | t }}
+            <strong>{{ customer.name }}</strong>
+            <a href="{{ routes.account_logout_url }}" class="underline">{{ 'customer.log_out' | t }}</a>)</span
+          >
+        </div>
+        <div class="bls__order-history mb-30">
+          <h3 class="mb-15">{{ 'customer.orders.title' | t }}</h3>
+          {% paginate customer.orders by 10 %}
+            {%- if customer.orders.size > 0 -%}
+              <table class="table-history-order">
+                <thead>
+                  <tr>
+                    <th>{{ 'customer.orders.order_number' | t }}</th>
+                    <th>{{ 'customer.orders.date' | t }}</th>
+                    <th>{{ 'customer.orders.payment_status' | t }}</th>
+                    <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
+                    <th>{{ 'customer.orders.total' | t }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {%- for order in customer.orders -%}
+                    <tr>
+                      <td>
+                        <a href="{{ order.customer_url }}">{{ order.name }}</a>
+                      </td>
+                      <td>{{ order.created_at | date: '%b %d, %Y' }}</td>
+                      <td>{{ order.financial_status_label }}</td>
+                      <td>{{ order.fulfillment_status_label }}</td>
+                      <td>{{ order.total_price | money }}</td>
+                    </tr>
+                  {%- endfor -%}
+                </tbody>
+              </table>
+            {%- else -%}
+              <div class="no-order">
+                <span class="icon-done"></span>
+                <a class="no-underline" href="{{ routes.collections_url }}">{{ 'customer.orders.make' | t }}</a>
+                {{ 'customer.orders.none' | t }}
+              </div>
+            {% endif %}
+          {% endpaginate %}
+        </div>
+        <div class="bls__account-details mb-15">
+          <h3 class="mb-15">{{ 'customer.account.details' | t }}</h3>
+          <div class="account-details mb-30">
+            <div class="account-name">
+              <span>{{ 'customer.addresses.name' | t }}</span>
+              <span>{{ customer.name }}</span>
+            </div>
+            <div class="account-email">
+              <span>{{ 'customer.addresses.email' | t }}</span>
+              <span>{{ customer.email }}</span>
+            </div>
+            {%- if customer.phone != blank -%}
+              <div class="">
+                <span>{{ 'customer.addresses.phone' | t }}</span>
+                <span>{{ customer.phone }}</span>
+              </div>
+            {% endif %}
+            {%- if customer.country != blank -%}
+              <div class="">
+                <span>{{ 'customer.addresses.country' | t }}</span>
+                <span>{{ customer.country }}</span>
+              </div>
+            {% endif %}
+          </div>
+          <a href="{{ routes.account_addresses_url }}" class="btn btn-primary no-underline inline-block">
+            {{- 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "账户",
+  "settings": [
+    {
+      "type": "header",
+      "content": "常规"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "布局",
+      "default": "container",
+      "options": [
+        {
+          "value": "container",
+          "label": "默认"
+        },
+        {
+          "value": "container-fluid",
+          "label": "流式容器"
+        },
+        {
+          "label": "拉伸宽度",
+          "value": "strecth-width"
+        },
+        {
+          "value": "full-width",
+          "label": "全宽"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "pagination",
+      "label": "分页",
+      "default": "default",
+      "options": [
+        {
+          "value": "default",
+          "label": "默认"
+        },
+        {
+          "value": "load_more",
+          "label": "加载更多"
+        },
+        {
+          "value": "infinit_scrolling",
+          "label": "无限滚动"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

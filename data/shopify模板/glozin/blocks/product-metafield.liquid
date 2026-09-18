@@ -1,0 +1,72 @@
+{% liquid
+  assign block_st = block.settings
+  assign product = closest.product
+  assign mf_raw = block_st.product_tab_key_metafield | strip_html | strip
+  assign meta_ref = blank
+  if mf_raw != blank and product != blank
+    if mf_raw contains '.'
+      assign ns = mf_raw | split: '.' | first
+      assign key_part = mf_raw | split: '.' | last
+      assign meta_ref = product.metafields[ns][key_part]
+    elsif product.metafields.c_f[mf_raw] != blank
+      assign meta_ref = product.metafields.c_f[mf_raw]
+    elsif product.metafields.custom[mf_raw] != blank
+      assign meta_ref = product.metafields.custom[mf_raw]
+    endif
+  endif
+  assign product_description_ref = blank
+  if block_st.use_product_description and product != blank and product.description != blank
+    assign description_stripped = product.description | strip_html | strip
+    if description_stripped != blank
+      assign product_description_ref = product.description
+    endif
+  endif
+%}
+{%- if meta_ref != blank or product_description_ref != blank -%}
+  <style>
+    .product-metafield-block .product-metafield-title { display:flex; align-items:center; gap:10px; padding-right:45px; }
+    .product-metafield-block .product-metafield-title svg { flex:0 0 auto; width:20px; height:20px; }
+    .product-metafield-block .product-metafield-icon { display:inline-flex; width:20px; height:20px; align-items:center; justify-content:center; font-size:18px; line-height:1; flex:0 0 20px; }
+    .product-metafield-block .collapsible-content { padding-bottom:1px; }
+  </style>
+  <collapsible-block tabindex="0" class="product-metafield-block bls-toggle relative text-start block{% if block_st.open %} active{% endif %}" {{ block.shopify_attributes }} style="{% if block_st.display_top_border %}border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border);{% endif %}">
+    <h3 class="product-metafield-title h6 my-0 pointer py-17 relative collapsible-heading heading-letter-spacing" style="font-size:{{ block_st.title_size }}px;">
+      {%- case block_st.icon -%}
+        {%- when 'check_mark' -%}<span class="product-metafield-icon" aria-hidden="true">✓</span>
+        {%- when 'question_mark' -%}<span class="product-metafield-icon" aria-hidden="true">?</span>
+        {%- when 'star' -%}<span class="product-metafield-icon" aria-hidden="true">★</span>
+        {%- when 'heart' -%}<span class="product-metafield-icon" aria-hidden="true">♥</span>
+        {%- when 'price_tag' -%}<span class="product-metafield-icon" aria-hidden="true">◇</span>
+        {%- when 'truck' -%}{% render 'icon_svg_list', icon: 'truck', custom_width: 20 %}
+        {%- when 'leaf' -%}{% render 'icon_svg_list', icon: 'leaf', custom_width: 20 %}
+      {%- endcase -%}
+      {{ block_st.title | escape }}
+      <span class="open-children-toggle absolute inset-0 flex flex-end pointer"><span class="icon_plus-animation"></span></span>
+    </h3>
+    <div class="collapsible-content overflow-hidden mb-12"{% unless block_st.open %} style="display:none;"{% endunless %}>
+      <div class="rte">
+        {%- if meta_ref != blank -%}
+          {{ meta_ref }}
+        {%- else -%}
+          {{ product_description_ref }}
+        {%- endif -%}
+      </div>
+    </div>
+  </collapsible-block>
+{%- endif -%}
+{% schema %}
+{
+  "name": "t:blocks.product.product_metafield.name",
+  "tag": null,
+  "settings": [
+    {"type":"text","id":"title","label":"t:sections.main-product.blocks.product_metafield.settings.title","default":"产品元字段"},
+    {"type":"range","id":"title_size","label":"t:sections.main-product.blocks.product_metafield.settings.title_size","min":12,"max":40,"step":1,"unit":"px","default":20},
+    {"type":"text","id":"product_tab_key_metafield","label":"t:sections.main-product.blocks.product_metafield.settings.metafield","info":"t:sections.main-product.blocks.product_metafield.settings.metafield_info","default":"custom.description"},
+    {"type":"checkbox","id":"use_product_description","label":"t:sections.main-product.blocks.product_metafield.settings.use_product_description","default":false},
+    {"type":"checkbox","id":"open","label":"t:sections.main-product.blocks.product_metafield.settings.open","default":true},
+    {"type":"checkbox","id":"display_top_border","label":"t:sections.main-product.blocks.product_metafield.settings.border","default":true},
+    {"type":"select","id":"icon","label":"t:sections.main-product.blocks.product_metafield.settings.icon","options":[{"label":"t:sections.main-product.blocks.product_metafield.settings.options.none","value":"none"},{"label":"t:sections.main-product.blocks.product_metafield.settings.options.check_mark","value":"check_mark"},{"label":"t:sections.main-product.blocks.product_metafield.settings.options.question_mark","value":"question_mark"},{"label":"t:sections.main-product.blocks.product_metafield.settings.options.star","value":"star"},{"label":"t:sections.main-product.blocks.product_metafield.settings.options.heart","value":"heart"},{"label":"t:sections.main-product.blocks.product_metafield.settings.options.price_tag","value":"price_tag"},{"label":"t:sections.main-product.blocks.product_metafield.settings.options.truck","value":"truck"},{"label":"t:sections.main-product.blocks.product_metafield.settings.options.leaf","value":"leaf"}],"default":"none"}
+  ],
+  "presets": [{"name":"t:blocks.product.product_metafield.name"}]
+}
+{% endschema %}

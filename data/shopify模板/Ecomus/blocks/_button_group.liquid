@@ -1,0 +1,73 @@
+<div class="hdt-group-button-block hdt-button-group hdt-flex hdt-flex-block  hdt-justify-{{ block.settings.alignment }} hdt-align-center" id="block-{{ block.id }}" {{ block.shopify_attributes }} style="gap: var(--spacing-{{ block.settings.spacing }});">{% content_for 'blocks' %}</div>
+
+{% schema %}
+{
+  "name": "按钮组",
+  "tag": null,
+  "settings": [
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "对齐方式",
+      "options": [
+        {
+          "value": "start",
+          "label": "左"
+        },
+        {
+          "value": "center",
+          "label": "居中"
+        },
+        {
+          "value": "end",
+          "label": "右"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "spacing",
+      "label": "间距",
+      "options": [
+        {
+          "value": "1",
+          "label": "10px"
+        },
+        {
+          "value": "2",
+          "label": "20px"
+        },
+        {
+          "value": "3",
+          "label": "30px"
+        },
+        {
+          "value": "4",
+          "label": "40px"
+        },
+        {
+          "value": "5",
+          "label": "50px"
+        },
+      ],
+      "default": "2"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "button"
+    }
+  ],
+  "presets": [
+    {
+      "name": "按钮组",
+      "blocks": [
+        {
+          "type": "button"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

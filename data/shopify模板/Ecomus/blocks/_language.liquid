@@ -1,0 +1,21 @@
+{%- if localization.available_countries.size > 1 -%}
+  {%- render 'hdt_language',id: block.id color_scheme: settings.color_scheme_dialog -%}
+{%- endif -%}
+{% schema %}
+  {
+    "name": "语言选择器",
+    "class": "hdt-currency",
+    "settings": [
+      {
+        "type": "header",
+        "content": "语言选择器",
+        "info": "t:sections.footer.settings.language_selector.info"
+      }
+    ],
+    "presets":[
+      {
+        "name":"语言选择器"
+      }
+    ]
+  }
+{% endschema %}

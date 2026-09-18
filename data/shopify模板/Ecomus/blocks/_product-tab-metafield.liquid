@@ -1,0 +1,29 @@
+{%- liquid
+  unless product
+    assign product = section.settings.product
+  endunless
+  assign mf_source = block.settings.product_custom_source
+  assign mf_raw = block.settings.product_tab_key_metafield
+  assign mf_key = mf_raw | strip_html | strip
+  assign meta_ref = false
+  if mf_source == 'dynamic'
+    assign meta_ref = mf_raw
+  elsif mf_key contains '.'
+    assign ns = mf_key | split: '.' | first
+    assign key_part = mf_key | split: '.' | last
+    assign meta_ref = product.metafields[ns][key_part]
+  else
+    if product.metafields.c_f[mf_key] != blank
+      assign meta_ref = product.metafields.c_f[mf_key]
+    elsif product.metafields.custom[mf_key] != blank
+      assign meta_ref = product.metafields.custom[mf_key]
+    endif
+  endif
+-%}
+{%- unless block.settings.title == blank or meta_ref == blank -%}
+  <!--item-title><button aria-current="{%- if block.settings.open %}true{% else %}false{% endif %}" class="hdt-s-text hdt-relative hdt-font-semibold">{{ block.settings.title | escape }}</button>-->
+  <div class="hdt-tab-item-content hdt-rte" tab-item {%- if block.settings.open %} tab-selected{% endif %} data-type="{{ block.type }}" {{ block.shopify_attributes }}>{{ meta_ref }}</div>
+{%- endunless -%}
+{% schema %}
+{"name":"产品元字段","tag":null,"settings":[{"type":"text","id":"title","label":"标题","default":"产品元字段"},{"type":"select","id":"product_custom_source","label":"内容来源","options":[{"label":"动态源","value":"dynamic"},{"label":"手动填写 key","value":"key_text"}],"default":"dynamic"},{"type":"text","id":"product_tab_key_metafield","label":"元字段","info":"动态源模式下选择产品元字段；手动填写模式下输入 key，例如 custom.specs"},{"type":"checkbox","id":"open","label":"默认展开","default":true}],"presets":[{"name":"产品元字段"}]}
+{% endschema %}

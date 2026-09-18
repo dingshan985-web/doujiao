@@ -1,0 +1,433 @@
+{{ 'section-comparison-table.css' | asset_url | stylesheet_tag }}
+{{ 'component-rte.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<style>
+  .cls-1-{{ section.id }}{
+    fill:var(--active-checkmark);
+  }
+</style>
+
+<div class="gradient color-{{ section.settings.color_scheme }} content-for-grouping">
+  <div class="page-width section-{{ section.id }}-padding">
+    <div class="content-and-comparison-table{% if section.settings.layout == 'table_first' %} content-and-comparison-table--table-first{% endif %}{% if section.settings.title == blank and section.settings.text == blank %} content-and-comparison-table--no-content{% endif %}"
+        style="--table-corner-radius: {{ section.settings.table_corner_radius | divided_by: 10.0 }}rem;
+              --table-text-alignment: {{ section.settings.table_text_alignment }};
+              --table-border-width: {{ section.settings.table_border_thickness | divided_by: 10.0 }}rem;
+              --table-border-opacity: {{ section.settings.table_border_opacity | divided_by: 100.0 }};
+              --table-shadow-opacity: {{ section.settings.table_shadow_opacity | divided_by: 100.0 }};
+              --table-shadow-visible: {% if section.settings.table_shadow_opacity > 0 %}1{% else %}0{% endif %};
+              --table-shadow-horizontal-offset: {{ section.settings.table_shadow_horizontal_offset | divided_by: 10.0 }}rem;
+              --table-shadow-vertical-offset: {{ section.settings.table_shadow_vertical_offset | divided_by: 10.0 }}rem;
+              --table-shadow-blur-radius: {{ section.settings.table_shadow_blur | divided_by: 10.0 }}rem;
+              --active-checkmark: {{ section.settings.checkmark_active_color }};
+              --active-color: {{ section.settings.active_color.red }},{{ section.settings.active_color.green }},{{ section.settings.active_color.blue }};
+              --active-text-color: {{ section.settings.active_text_color }};
+              --active-border-color: {{ section.settings.active_border_color.red }}, {{ section.settings.active_border_color.green }}, {{ section.settings.active_border_color.blue }};
+              --mobile-logo-width: {{ section.settings.mobile_logo_width }}px;">
+      <div class="content-container center">
+        {%- unless section.settings.title == blank -%}
+          <h2 class="title {{ section.settings.heading_size }}">
+            {{ section.settings.title | escape | replace: '[', '<span class="lumin-text__fancy1">' | replace: ']', '</span>' | replace: '((', '<span class="lumin-text__fancy2">' | replace: '))', '</span>' }}
+          </h2>
+        {%- endunless -%}
+        {%- unless section.settings.text == blank -%}
+          {{ section.settings.text | replace: '[', '<span class="lumin-text__fancy1">' | replace: ']', '</span>' | replace: '((', '<span class="lumin-text__fancy2">' | replace: '))', '</span>' }}
+        {%- endunless -%}
+        {%- if section.settings.button_label != blank -%}
+          <a
+            {% if section.settings.link %}
+              href="{{ section.settings.link }}"
+            {% else %}
+              role="link" aria-disabled="true"
+            {% endif %}
+            class="button mb-1em {% if section.settings.button_style_secondary %}button--secondary{% else %}button--primary{% endif %}"
+          >
+            {{- section.settings.button_label | escape -}}
+          </a>
+        {%- endif -%}
+      </div>
+      <div class="comparison-table-container">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>&nbsp</th>
+              <th align="center" class="comparison-table__logo active-table-logo">
+                {%- if section.settings.logo != blank -%}
+                  {%- assign logo_width = section.settings.logo_width -%}
+                  {%- assign logo_height = logo_width | divided_by: section.settings.logo.aspect_ratio -%}
+                  {{
+                    section.settings.logo
+                    | image_url: width: 200
+                    | image_tag:
+                      width: logo_width,
+                      height: logo_height,
+                      alt: shop.name
+                  }}
+                {%- else -%}
+                  {% if section.settings.us_label == blank %}
+                    {{ shop.name }}
+                  {% else %}
+                    {{ section.settings.us_label }}
+                  {% endif %}
+                {%- endif -%}
+              </th>
+              <th class="comparison-table__others" align="center">{{ section.settings.others_label }}</th>
+            </tr>
+          </thead>
+          <tbody 
+               {%- for block in section.blocks -%}
+              <tr>
+                <td align="center" class="comparison-table__row-name gradient color-{{ section.settings.benefit_color_scheme }}">
+                  <h3>{{ block.settings.benefit }}</h3>
+                </td>
+                <td align="center" class="color-{{ section.settings.icon_cells_color_scheme }} active-table-content">
+                  {%- if block.settings.us -%}
+                    <svg
+                      class="comparison-table__checkmark"
+                      id="Layer_3"
+                      data-name="Layer 3"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 25.45 25.43"
+                    >
+                      <defs></defs><polygon class="cls-1-{{ section.id }}" points="25.45 0 24.06 0 9.5 15.27 2.12 10.24 0 12.55 9.28 25.43 25.45 2.48 25.45 0"/>
+                    </svg>
+                  {%- else -%}
+                    <div class="comparison-table__x"><span></span><span></span></div>
+                  {%- endif -%}
+                </td>
+                <td align="center" class="color-{{ section.settings.icon_cells_color_scheme }}">
+                  {%- if block.settings.others -%}
+                    <svg
+                      class="comparison-table__checkmark"
+                      id="Layer_3"
+                      data-name="Layer 3"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 25.45 25.43"
+                    >
+                      <defs></defs><polygon class="cls-1-{{ section.id }}" points="25.45 0 24.06 0 9.5 15.27 2.12 10.24 0 12.55 9.28 25.43 25.45 2.48 25.45 0"/>
+                    </svg>
+                  {%- else -%}
+                    <div class="comparison-table__x"><span></span><span></span></div>
+                  {%- endif -%}
+                </td>
+              </tr>
+            {%- endfor -%}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+    "name": "对比表格",
+    "disabled_on": {
+    "groups": ["header", "footer", "custom.popup"]
+    },
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "default": "Comparison table",
+            "label": "标题"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "小"
+            },
+            {
+              "value": "h1",
+              "label": "中"
+            },
+            {
+              "value": "h0",
+              "label": "大"
+            }
+          ],
+          "default": "h1",
+          "label": "标题大小"
+        },
+        {
+            "type": "richtext",
+            "id": "text",
+            "default": "<p>Talk about how and why is your brand better than the others.</p>",
+            "label": "文本"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "按钮标签",
+          "info": "将标签留空可隐藏按钮。"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "按钮链接"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_style_secondary",
+          "label": "使用轮廓按钮样式",
+          "default": false
+        },
+        {
+            "type": "select",
+            "id": "layout",
+            "options": [
+                {
+                    "value": "table_first",
+                    "label": "表格第一列"
+                },
+                {
+                    "value": "table_second",
+                    "label": "表格第二列"
+                }
+            ],
+            "default": "table_second",
+            "label": "桌面端表格位置"
+        },
+            {
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "label": "配色方案",
+            "default": "background-1"
+            },
+        {
+          "type": "header",
+          "content": "表格"
+        },
+        {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Logo"
+        },
+        {
+          "type": "range",
+          "id": "logo_width",
+          "min": 25,
+          "max": 150,
+          "step": 5,
+          "unit": "px",
+          "label": "桌面端 Logo 宽度",
+          "default": 90
+        },
+        {
+          "type": "range",
+          "id": "mobile_logo_width",
+          "min": 25,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "移动端 Logo 宽度",
+          "default": 60
+        },
+        {
+          "type": "text",
+          "id": "us_label",
+          "label": "我方自定义标签",
+          "info": "未选择 Logo 图片时显示。"
+        },
+        {
+          "type": "text",
+          "id": "others_label",
+          "label": "竞争对手标签",
+          "default": "Others"
+        },
+      {
+            "type": "color_scheme",
+            "id": "benefit_color_scheme",
+            "label": "配色方案",
+            "default": "background-1"
+            },
+          {
+            "type": "color_scheme",
+            "id": "icon_cells_color_scheme",
+            "label": "配色方案",
+            "default": "background-1"
+            },
+         {
+          "type": "color",
+          "id": "checkmark_color",
+          "default": "#53AF01",
+          "label": "勾选标记颜色"
+        },
+       {
+          "type": "color",
+          "id": "checkmark_active_color",
+          "default": "#53AF01",
+          "label": "激活勾选标记颜色"
+        },
+      {
+          "type": "color",
+          "id": "active_color",
+          "default": "#212121",
+          "label": "激活背景"
+        },
+      {
+          "type": "color",
+          "id": "active_text_color",
+          "default": "#ffffff",
+          "label": "激活文本颜色"
+        },
+      {
+          "type": "color",
+          "id": "active_border_color",
+          "default": "#212121",
+          "label": "激活边框颜色"
+        },
+      {
+        "type": "header",
+        "content": "边框"
+      },
+      {
+        "type": "range",
+        "id": "table_corner_radius",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "圆角半径",
+        "default": 8
+      },
+      {
+        "type": "header",
+        "content": "阴影"
+      },
+      {
+        "type": "range",
+        "id": "table_shadow_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "不透明度",
+        "default": 15
+      },
+      {
+        "type": "range",
+        "id": "table_shadow_horizontal_offset",
+        "min": -12,
+        "max": 12,
+        "step": 1,
+        "unit": "px",
+        "label": "水平偏移",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "table_shadow_vertical_offset",
+        "min": -12,
+        "max": 12,
+        "step": 1,
+        "unit": "px",
+        "label": "垂直偏移",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "table_shadow_blur",
+        "min": 0,
+        "max": 20,
+        "step": 5,
+        "unit": "px",
+        "label": "模糊",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "table_border_thickness",
+        "min": 0,
+        "max": 12,
+        "step": 1,
+        "unit": "px",
+        "label": "展开",
+        "default": 1
+      },
+       
+        {
+        "type": "header",
+        "content": "分区填充"
+        },
+        {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "顶部填充",
+        "default": 36
+        },
+        {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "底部填充",
+        "default": 36
+        }
+    ],
+    "blocks": [
+        {
+            "type": "row",
+            "name": "表格行",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "benefit",
+                    "default": "Benefit",
+                    "label": "权益"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "us",
+                    "default": true,
+                    "label": "我方"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "others",
+                    "default": false,
+                    "label": "其他"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "对比表格",
+            "blocks": [
+                {
+                "type": "row"
+                },
+                {
+                "type": "row"
+                },
+                {
+                "type": "row"
+                }
+            ]
+        }
+    ],
+}
+{% endschema %}

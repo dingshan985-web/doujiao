@@ -1,0 +1,168 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
+
+<div class="page-width">
+  <h1
+    class="title title--primary inline-richtext{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+    {% if section.settings.title_center %}
+      style="text-align: center;"
+    {% endif %}
+  >
+    {{ section.settings.title }}
+  </h1>
+  {%- liquid
+    case section.settings.sort
+      when 'products_high', 'products_low'
+        assign collections = collections | sort: 'all_products_count'
+      when 'date', 'date_reversed'
+        assign collections = collections | sort: 'published_at'
+    endcase
+
+    if section.settings.sort == 'products_high' or section.settings.sort == 'date_reversed' or section.settings.sort == 'alphabetical_reversed'
+      assign collections = collections | reverse
+    endif
+
+    assign moduloResult = 28 | modulo: section.settings.columns_desktop
+    assign paginate_by = 30
+    if moduloResult == 0
+      assign paginate_by = 28
+    endif
+  -%}
+  {%- paginate collections by paginate_by -%}
+    <ul
+      class="collection-list grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
+      role="list"
+    >
+      
+      {% assign hidden_collections = settings.hide_collections | downcase | replace: ' ', '-' | split: ',' %}
+      
+      {% for collection in collections %}
+        {% unless hidden_collections contains collection.handle %}
+          <li
+            class="collection-list__item grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            {% if settings.animations_reveal_on_scroll %}
+              data-cascade
+              style="--animation-order: {{ forloop.index }};"
+            {% endif %}
+          >
+            {% render 'card-collection',
+              card_collection: collection,
+              media_aspect_ratio: section.settings.image_ratio,
+              columns: 3
+            %}
+          </li>
+        {% endunless %}
+      {%- endfor -%}
+    </ul>
+    {% render 'pagination', paginate: paginate %}
+  {%- endpaginate -%}
+</div>
+{% schema %}
+{
+  "name": "产品系列列表页面",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "标题",
+      "default": "Collections"
+    },
+    {
+      "type": "checkbox",
+      "id": "title_center",
+      "label": "居中",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "sort",
+      "options": [
+        {
+          "value": "alphabetical",
+          "label": "按字母顺序排序，A-Z"
+        },
+        {
+          "value": "alphabetical_reversed",
+          "label": "按字母顺序排序，Z-A"
+        },
+        {
+          "value": "date_reversed",
+          "label": "日期从近到早"
+        },
+        {
+          "value": "date",
+          "label": "日期从早到近"
+        },
+        {
+          "value": "products_high",
+          "label": "产品数量，从高到低"
+        },
+        {
+          "value": "products_low",
+          "label": "产品数量，从低到高"
+        }
+      ],
+      "default": "alphabetical",
+      "label": "产品系列排序依据："
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "适应图片"
+        },
+        {
+          "value": "portrait",
+          "label": "纵向"
+        },
+        {
+          "value": "square",
+          "label": "方形"
+        }
+      ],
+      "default": "adapt",
+      "label": "图片比",
+      "info": "通过编辑产品集合来添加图片。[详细了解](https://help.shopify.com/manual/products/collections)"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 3,
+      "label": "台式设备上的列数"
+    },
+    {
+      "type": "checkbox",
+      "id": "subtitle_center",
+      "label": "居中",
+      "default": false
+    },
+
+    {
+      "type": "header",
+      "content": "移动设备布局"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "options": [
+        {
+          "value": "1",
+          "label": "1 列"
+        },
+        {
+          "value": "2",
+          "label": "2 列"
+        }
+      ],
+      "default": "2",
+      "label": "移动设备上的列数"
+    }
+  ]
+}
+{% endschema %}

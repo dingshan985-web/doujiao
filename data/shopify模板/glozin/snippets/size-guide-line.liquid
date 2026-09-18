@@ -1,0 +1,52 @@
+{%- comment -%}
+  Size guide line, rendered below the variant picker.
+  Reusable: {% render 'size-guide-line', product: product, block: block %}
+  Content sources (first match wins):
+    1. product.metafields.custom.size_chart_html  -> rich-text metafield, outputs raw HTML (paste your HTML here)
+    2. product.metafields.custom.size_chart       -> if rich-text metafield output raw HTML, else treated as a page handle
+    3. block.settings.size_guide_page            -> page picker, outputs page.content
+{%- endcomment -%}
+{%- if block.settings.show_size_guide -%}
+  {%- liquid
+    assign product_collections = product.collections
+    assign collection_size_chart = ''
+    for productCollection in product_collections
+      if productCollection.metafields.custom.size_chart != blank
+        assign collection_size_chart = productCollection.metafields.custom.size_chart
+      endif
+    endfor
+    assign size_chart_html_mf = product.metafields.custom.size_chart_html
+  -%}
+  {% if block.settings.size_guide_page != blank
+    or product.metafields.custom.size_chart != blank
+    or collection_size_chart != ''
+    or size_chart_html_mf != blank
+  %}
+    <div
+      class="product-size-guide-line w-full inline-flex align-center mb-20"
+      style="margin-top: 15px;"
+    >
+      <product-addons
+        data-text-header="{{ 'general.product.size_guide' | t }}"
+        data-custom-class="size_chart"
+        class="product-addons__ask-question pointer underline hover-heading-color transition skeleton-loading"
+      >
+        {{ block.settings.size_guide_label }}
+        <div class="product-addons__content ask-question__content hidden">
+          {%- if size_chart_html_mf != blank -%}
+            {{ size_chart_html_mf }}
+          {%- elsif product.metafields.custom.size_chart != blank -%}
+            {%- assign size_chart_mf = product.metafields.custom.size_chart -%}
+            {%- if size_chart_mf.type contains 'rich_text' -%}
+              {{ size_chart_mf }}
+            {%- else -%}
+              {{ pages[size_chart_mf].content }}
+            {%- endif -%}
+          {%- else -%}
+            {{ block.settings.size_guide_page.content }}
+          {%- endif -%}
+        </div>
+      </product-addons>
+    </div>
+  {% endif %}
+{%- endif -%}

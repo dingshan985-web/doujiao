@@ -1,0 +1,126 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.name_group.system",
+  "type": "custom.system",
+  "sections": {
+    "cart-drawer": {
+      "type": "cart-drawer",
+      "blocks": {
+        "subtotal_8UtWWn": {
+          "type": "subtotal",
+          "settings": {}
+        },
+        "tax_mEDMCP": {
+          "type": "tax",
+          "settings": {}
+        },
+        "btn_cart_checkout_fVQqmY": {
+          "type": "btn_cart_checkout",
+          "settings": {
+            "enable_btn_cart": true,
+            "btn_style_cart": "outline",
+            "btn_fw_cart": "normal",
+            "btn_icon_cart": "none",
+            "enable_btn_checkout": true,
+            "btn_style_checkout": "solid",
+            "btn_fw_checkout": "normal",
+            "btn_icon_checkout": "none"
+          }
+        }
+      },
+      "block_order": [
+        "subtotal_8UtWWn",
+        "tax_mEDMCP",
+        "btn_cart_checkout_fVQqmY"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "show_free_shipping_bar": true,
+        "show_cart_note": true,
+        "show_gift_wrap": true,
+        "show_shipping_estimator": true,
+        "heading": "You may also like",
+        "product_list": [
+          "analogue-resin-strap-a",
+          "boxy-t-shirt",
+          "cotton-jersey-top",
+          "drawstring-detail-sports-tank-top",
+          "jersey-thong-body-1"
+        ],
+        "replaces_products_selected": true
+      }
+    },
+    "toolbar-mobile": {
+      "type": "toolbar-mobile",
+      "blocks": {
+        "shop_jQccrN": {
+          "type": "shop",
+          "settings": {
+            "title": "Shop",
+            "collection_list": [],
+            "menu_categories": "browes-all-categories",
+            "link": ""
+          }
+        },
+        "wishlist_FLDXnV": {
+          "type": "wishlist",
+          "settings": {
+            "title": "Wishlist"
+          }
+        },
+        "cart_qEaYLM": {
+          "type": "cart",
+          "settings": {
+            "title": "Cart"
+          }
+        },
+        "account_KBmadz": {
+          "type": "account",
+          "settings": {
+            "title": "Account"
+          }
+        },
+        "search_wxK4Le": {
+          "type": "search",
+          "settings": {
+            "title": "Search"
+          }
+        }
+      },
+      "block_order": [
+        "shop_jQccrN",
+        "wishlist_FLDXnV",
+        "cart_qEaYLM",
+        "account_KBmadz",
+        "search_wxK4Le"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "show_txt": true
+      }
+    },
+    "back_top_nzhYNt": {
+      "type": "back_top",
+      "settings": {
+        "enable_hidden_mobile": false,
+        "backtop_des": "1",
+        "enable_progress_bar": true,
+        "border_cl": "#f5f5f5",
+        "border_cl_active": "#000000"
+      }
+    }
+  },
+  "order": [
+    "cart-drawer",
+    "toolbar-mobile",
+    "back_top_nzhYNt"
+  ]
+}

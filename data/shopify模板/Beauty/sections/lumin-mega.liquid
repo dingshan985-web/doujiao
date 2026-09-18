@@ -1,0 +1,4061 @@
+{{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+        padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+
+      }
+
+      @media screen and (min-width: 750px) {
+        .section-{{ section.id }}-padding {
+          padding-top: {{ section.settings.padding_top }}px;
+          padding-bottom: {{ section.settings.padding_bottom }}px;
+        }
+      }
+      .section-{{ section.id }}-margin {
+        margin-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px;
+        margin-bottom: {{ section.settings.margin_bottom | times: 0.75 | round: 0 }}px;
+      }
+
+      @media screen and (min-width: 750px) {
+        .section-{{ section.id }}-margin {
+          margin-top: {{ section.settings.margin_top }}px;
+          margin-bottom: {{ section.settings.margin_bottom }}px;
+        }
+      }
+      .lm-image-{{section.id}} .image-with-text__content .lm-image-mega {
+        width: 100% !important;
+        margin: var(--grid-desktop-horizontal-spacing) 0 0;
+    }
+     @media screen and (max-width: 749px) {
+      .lm-image-mega .image-with-text__content {
+        width: 100%;
+        margin: var(--grid-desktop-horizontal-spacing) 0 0;
+        padding: 3rem calc(2rem / var(--font-body-scale)) 3rem;
+  }
+     }
+{%- endstyle -%}
+<style></style>
+{% if section.settings['full-width'] %}
+  <style>
+    .lm-image-{{section.id}} { border-radius:0 !important;}.lm-image-{{section.id}}>* { border-radius:0 !important;}
+  </style>
+{% endif %}
+{% assign scheme1 = settings.color_schemes | first %}
+<section id="LM--{{ section.id }}" class="LM--{{ section.id }} lumin-section__main lumin-section__section">
+  <div class="color-{{ section.settings.color_scheme_main }} gradient">
+    <div class="lm-image-mega image-with-text image-with-text--{{ section.settings.content_layout }}{% unless section.settings.full-width  %} page-width{% endunless %} isolate{% if settings.text_boxes_border_thickness > 0 and settings.text_boxes_border_opacity > 0 and settings.media_border_thickness > 0 and settings.media_border_opacity > 0 %} collapse-borders{% endif %}{% unless section.settings.color_scheme == scheme1 and settings.media_border_thickness > 0 and settings.text_boxes_shadow_opacity == 0 and settings.text_boxes_border_thickness == 0 or settings.text_boxes_border_opacity == 0 %} collapse-corners{% endunless %} section-{{ section.id }}-padding section-{{ section.id }}-margin{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <div class="image-with-text__grid grid grid--gapless grid--1-col grid--{% if section.settings.desktop_image_width == 'medium' %}2-col-tablet{% else %}3-col-tablet{% endif %}{% if section.settings.layout == 'text_first' %} image-with-text__grid--reverse{% endif %}">
+        <div class="image-with-text__media-item image-with-text__media-item--{{ section.settings.desktop_image_width }} image-with-text__media-item--{{ section.settings.desktop_content_position }} grid__item">
+          <div
+            class="lm-image-{{section.id}} image-with-text__media image-with-text__media--{{ section.settings.height }} gradient color-{{ section.settings.color_scheme }} global-media-settings {% if section.settings.image != blank %}media{% else %}image-with-text__media--placeholder placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}"
+            {% if section.settings.height == 'adapt' and section.settings.image != blank %}
+              style="padding-bottom: {{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;"
+            {% endif %}
+          >
+            {%- if section.settings.image != blank -%}
+              {%- if section.settings.image_behavior == 'ambient' or section.settings.image_behavior == 'zoom-in' -%}
+                {%- assign widths = '198, 432, 642, 900, 1284, 1800' -%}
+                {%- capture sizes -%}
+              (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 1.6667 }}px,
+              (min-width: 750px) calc((100vw - 130px) / 1.667), calc((100vw - 50px) / 1.667)
+            {%- endcapture -%}
+              {%- else -%}
+                {%- assign widths = '165, 360, 535, 750, 1070, 1500' -%}
+                {%- capture sizes -%}
+              (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px,
+              (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)
+            {%- endcapture -%}
+              {%- endif -%}
+              {{
+                section.settings.image
+                | image_url: width: 1500
+                | image_tag: loading: 'lazy', sizes: sizes, widths: widths
+              }}
+            {%- else -%}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
+          </div>
+        </div>
+        <div class="image-with-text__text-item grid__item">
+          <div
+            id="ImageWithText--{{ section.id }}"
+            class="lm-image-{{section.id}} image-with-text__content image-with-text__content--{{ section.settings.desktop_content_position }} image-with-text__content--desktop-{{ section.settings.desktop_content_alignment }} image-with-text__content--mobile-{{ section.settings.mobile_content_alignment }} image-with-text__content--{{ section.settings.height }} gradient color-{{ section.settings.color_scheme }} content-container"
+          >
+            {%- for block in section.blocks -%}
+              {%- assign previous_block_index = forloop.index0 | minus: 1 -%}
+              {%- assign previous_block = section.blocks[previous_block_index] -%}
+              {%- assign next_block = section.blocks[forloop.index] -%}
+              {% case block.type %}
+                {%- when 'heading' -%}
+                  <h2
+                    class="image-with-text__heading inline-richtext {{ block.settings.heading_size }}"
+                    {{ block.shopify_attributes }}
+                  >
+                    {{
+                      block.settings.heading
+                      | replace: '[', '<span class="lumin-text__fancy1">'
+                      | replace: ']', '</span>'
+                      | replace: '((', '<span class="lumin-text__fancy2">'
+                      | replace: '))', '</span>'
+                    }}
+                  </h2>
+                {%- when 'caption' -%}
+                  <p
+                    class="image-with-text__text image-with-text__text--caption {{ block.settings.text_style }} {{ block.settings.text_style }}--{{ block.settings.text_size }} {{ block.settings.text_style }}"
+                    {{ block.shopify_attributes }}
+                  >
+                    {{ block.settings.caption | escape }}
+                  </p>
+                {%- when 'feature' -%}
+                  {% render 'list-feature-block', block: block %}
+                {%- when 'text' -%}
+                  <div class="image-with-text__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
+                    {{
+                      block.settings.text
+                      | replace: '[', '<span class="lumin-text__fancy1">'
+                      | replace: ']', '</span>'
+                      | replace: '((', '<span class="lumin-text__fancy2">'
+                      | replace: '))', '</span>'
+                    }}
+                  </div>
+                {%- when 'testimonial-images' -%}
+                  {% render 'testimonial-image-bar-block', block: block %}
+                {% when 'feature_range' %}
+                  {%- if previous_block.type != 'feature_range' and next_block.type == 'feature_range' -%}
+                    <div class="product-info__promo-list">
+                  {%- endif -%}
+
+                  {% render 'feature-range-block', block: block %}
+                  {%- if forloop.last
+                    or previous_block.type == 'feature_range'
+                    and next_block.type != 'feature_range'
+                  -%}
+                    </div>
+                  {%- endif -%}
+
+                {%- when 'button' -%}
+                  {%- if block.settings.button_label != blank -%}
+                    <a
+                      {% if block.settings.button_link == blank %}
+                        role="link" aria-disabled="true"
+                      {% else %}
+                        href="{{ block.settings.button_link }}"
+                      {% endif %}
+                      class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
+                      style="margin-top: 3rem;"
+                      {{ block.shopify_attributes }}
+                    >
+                      {{ block.settings.button_label | escape }}
+                    </a>
+                  {%- endif -%}
+                {%- when 'icons' -%}
+                  <div
+                    id="LM--{{ block.id }}"
+                    class="lumin-section-block lumin-section__block-id-{{ block.id }} lumin-section__block--{{ block.type }}"
+                    {{ block.shopify_attributes }}
+                  >
+                    {% render 'icons-block', block: block %}
+                  </div>
+                {%- when 'collapsible_content' -%}
+                  <div
+                    id="LM--{{ block.id }}"
+                    class="lumin-section-block lumin-section__block-id-{{ block.id }} lumin-section__block--{{ block.type }}"
+                    {{ block.shopify_attributes }}
+                  >
+                    {% render 'collapsible-row-block', block: block, section: section %}
+                  </div>
+                {%- when 'countdown_timer' -%}
+                  <div
+                    id="LM--{{ block.id }}"
+                    class="lumin-section-block lumin-section__block-id-{{ block.id }} lumin-section__block--{{ block.type }}"
+                    {{ block.shopify_attributes }}
+                  >
+                    {% render 'countdown-timer-block', block: block, section: section %}
+                  </div>
+                {%- when 'newsletter' -%}
+                  <div
+                    id="LM--{{ block.id }}"
+                    class="lumin-section-block lumin-section__block-id-{{ block.id }} lumin-section__block--{{ block.type }}"
+                    {{ block.shopify_attributes }}
+                  >
+                    {% render 'newsletter-block', block: block, section: section %}
+                  </div>
+                {%- when 'fancy_heading' -%}
+                  <div
+                    id="LM--{{ block.id }}"
+                    class="lumin-section-block lumin-section__block-id-{{ block.id }}"
+                    {{ block.shopify_attributes }}
+                  >
+                    {% render 'fancy-heading-block', block: block, section: section %}
+                  </div>
+                {%- when 'text_columns' -%}
+                  <div
+                    id="LM--{{ block.id }}"
+                    class="lumin-section-block lumin-section__block-id-{{ block.id }} lumin-section__block--{{ block.type }}"
+                    {{ block.shopify_attributes }}
+                  >
+                    {% render 'text-columns-block', block: block, section: section %}
+                  </div>
+                {%- when 'image' -%}
+                  <div
+                    id="LM--{{ block.id }}"
+                    class="lumin-section-block lumin-section__block-id-{{ block.id }}"
+                    {{ block.shopify_attributes }}
+                  >
+                    {% render 'image-block', block: block, section: section %}
+                  </div>
+                {%- when 'video' -%}
+                  {% render 'video-block', block: block, section: section %}
+                {%- when 'divider' -%}
+                  <div
+                    class="lumin-section-block lumin-section__block-id-{{ block.id }}"
+                    style="margin:0;"
+                    {{ block.shopify_attributes }}
+                  >
+                    {% render 'spacer-divider-block', block: block, section: section %}
+                  </div>
+                {%- when 'percent' -%}
+                  {% render 'percent-block', block: block %}
+                {% when 'add-to-cart-button' %}
+                  <style>
+                    .buybutton {
+                      padding: 1.5rem 4rem;
+                    }
+                  </style>
+                  <button
+                    class="buybutton buybutton-{{ block.id }} button {% if block.settings.button_style_secondary %} button--secondary{% endif %}{% if block.settings.button_full %} button--full-width{% endif %}"
+                    style="display: flex;flex-direction: column;{% unless block.settings.custom_text_small == blank %}gap: 3px;height: auto;{% endunless %}"
+                  >
+                    <span>
+                      {{-
+                        block.settings.custom_text
+                        | replace: '[', '<span class="lumin-text__fancy1">'
+                        | replace: ']', '</span>'
+                        | replace: '((', '<span class="lumin-text__fancy2">'
+                        | replace: '))', '</span>'
+                      -}}
+                    </span>
+                    <span style="font-size: 74%;">
+                      {{-
+                        block.settings.custom_text_small
+                        | replace: '[', '<span class="lumin-text__fancy1">'
+                        | replace: ']', '</span>'
+                        | replace: '((', '<span class="lumin-text__fancy2">'
+                        | replace: '))', '</span>'
+                      -}}
+                    </span>
+                  </button>
+                  <script>
+               document.querySelector('.buybutton-{{ block.id }}').onclick = clickBuyButton;
+                  
+                  function clickBuyButton(e) {
+                      // Get the current quantity value
+                      let quantity = 1; // Default quantity value
+                  
+                      // Check if a tiered option is active and retrieve its quantity value
+                      const activeTieredOption = document.querySelector('.tiered-option');
+                      if (activeTieredOption && activeTieredOption.dataset.quantity) {
+                          quantity = parseInt(activeTieredOption.dataset.quantity, 10);
+                      } else {
+                          // If no active tiered option, fallback to the quantity input field
+                          const quantityInput = document.querySelector('.product-form__quantity');
+                          if (quantityInput) {
+                              quantity = parseInt(quantityInput.value, 10) || 1;
+                          } else {
+                              // If the quantity input doesn't exist, create a hidden input with a default quantity value
+                              document.querySelector('.product-form__buttons').insertAdjacentHTML('beforebegin', `
+                                  <input class="product-form__quantity" type="hidden" name="quantity" value="${quantity}">
+                              `);
+                          }
+                      }
+                  
+                      // Update the quantity input value to match the selected quantity
+                      const hiddenQuantityInput = document.querySelector('.product-form__quantity');
+                      if (hiddenQuantityInput) {
+                          hiddenQuantityInput.value = quantity;
+                      }
+                  
+                      // Click the submit button
+                      document.querySelector('.product-form__submit').click();
+                  }
+                  </script>
+              {%- endcase -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Lumin 超级菜单",
+  "class": "section",
+   "disabled_on": {
+  "groups": ["header", "footer", "custom.popup"]
+   },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme_main",
+      "label": "配色方案",
+      "default": "background-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "full-width",
+      "label": "全宽",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "图片"
+    },
+    {
+      "type": "select",
+      "id": "height",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "适应图片"
+        },
+        {
+          "value": "small",
+          "label": "小"
+        },
+        {
+          "value": "medium",
+          "label": "中"
+        },
+        {
+          "value": "large",
+          "label": "大"
+        }
+      ],
+      "default": "adapt",
+      "label": "图片高度"
+    },
+    {
+      "type": "select",
+      "id": "desktop_image_width",
+      "options": [
+        {
+          "value": "small",
+          "label": "小"
+        },
+        {
+          "value": "medium",
+          "label": "中"
+        },
+        {
+          "value": "large",
+          "label": "大"
+        }
+      ],
+      "default": "medium",
+      "label": "台式设备图片宽度",
+      "info": "图片会针对移动设备进行自动优化。"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "image_first",
+          "label": "图片优先"
+        },
+        {
+          "value": "text_first",
+          "label": "第二张图片"
+        }
+      ],
+      "default": "image_first",
+      "label": "台式设备图片放置",
+      "info": "图片优先是默认的移动布局。"
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_position",
+      "options": [
+        {
+          "value": "top",
+          "label": "顶部"
+        },
+        {
+          "value": "middle",
+          "label": "中间"
+        },
+        {
+          "value": "bottom",
+          "label": "底部"
+        }
+      ],
+      "default": "top",
+      "label": "台式设备内容位置"
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "左"
+        },
+        {
+          "value": "center",
+          "label": "居中"
+        },
+        {
+          "value": "right",
+          "label": "右"
+        }
+      ],
+      "default": "left",
+      "label": "台式设备内容对齐方式"
+    },
+    {
+      "type": "select",
+      "id": "content_layout",
+      "options": [
+        {
+          "value": "no-overlap",
+          "label": "无重叠"
+        },
+        {
+          "value": "overlap",
+          "label": "重叠"
+        }
+      ],
+      "default": "no-overlap",
+      "label": "内容布局"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "配色方案",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "动画"
+    },
+    {
+      "type": "select",
+      "id": "image_behavior",
+      "options": [
+        {
+          "value": "none",
+          "label": "无"
+        },
+        {
+          "value": "ambient",
+          "label": "环境移动"
+        },
+        {
+          "value": "zoom-in",
+          "label": "滚动时放大"
+        }
+      ],
+      "default": "none",
+      "label": "图片行为"
+    },
+    {
+      "type": "header",
+      "content": "移动端布局"
+    },
+    {
+      "type": "select",
+      "id": "mobile_content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "左"
+        },
+        {
+          "value": "center",
+          "label": "居中"
+        },
+        {
+          "value": "right",
+          "label": "右"
+        }
+      ],
+      "default": "left",
+      "label": "移动设备内容对齐方式"
+    },
+    {
+      "type": "header",
+      "content": "分区填充"
+    },
+     {
+    "type": "range",
+    "id": "margin_top",
+    "min": 0,
+    "max": 100,
+    "step": 4,
+    "unit": "px",
+    "label": "上外边距",
+    "default": 36
+  },
+  {
+    "type": "range",
+    "id": "margin_bottom",
+    "min": 0,
+    "max": 100,
+    "step": 4,
+    "unit": "px",
+    "label": "下外边距",
+    "default": 36
+  },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "顶部填充",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "底部填充",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "标题",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Image with text",
+          "label": "标题"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "小"
+            },
+            {
+              "value": "h1",
+              "label": "中"
+            },
+            {
+              "value": "h0",
+              "label": "大"
+            }
+          ],
+          "default": "h1",
+          "label": "标题大小"
+        }
+      ]
+    },
+    {
+      "type": "feature",
+      "name": "功能列表",
+      "settings": [
+             {
+              "type": "image_picker",
+              "id": "icon",
+              "label": "图片"
+            },
+               {
+          "type": "range",
+          "id": "icon_size",
+          "label": "特色图片大小",
+          "min":       20,
+          "max":        100,
+          "step":       2,
+          "unit":       "px",
+
+          "default": 50
+          },
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "List Feature",
+          "label": "标题"
+        },
+        {
+          "type": "range",
+          "id": "heading_size_alt",
+          "min": 6,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "标题大小",
+          "default": 20
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>focus on your chosen product</p>",
+          "label": "内容"
+        }
+      ]
+    },
+      {
+      "type": "percent",
+      "name": "百分比列表",
+      "settings": [
+            {
+          "type": "range",
+          "id": "icon_size",
+          "label": "圆形大小",
+          "min":       20,
+          "max":        100,
+          "step":       2,
+          "unit":       "px",
+          "default": 70
+          },
+        {
+          "type": "range",
+          "id": "circle_width",
+          "label": "圆形宽度",
+          "min":       1,
+          "max":        10,
+          "step":       1,
+          "default": 4
+          },
+          {
+        "type": "color",
+        "id": "percent_bg",
+        "label": "圆形背景",
+        "default": "#191919"
+      },
+        {   "type": "color",
+        "id": "percent_border",
+        "label": "圆形边框",
+        "default": "#f2f2f2"
+      },
+      {
+      "type": "range",
+      "id": "circle_value_1",
+      "label": "圆形数值",
+      "min":       10,
+      "max":        100,
+      "step":       1,
+      "unit":       "%",
+
+      "default": 92
+      },
+        {
+          "type": "range",
+          "id": "percent_text",
+          "min": 6,
+          "max": 20,
+          "step": 1,
+          "unit": "px",
+          "label": "百分比文本大小",
+          "default": 10
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Percent List",
+          "label": "标题"
+        },
+        {
+          "type": "range",
+          "id": "heading_size_alt",
+          "min": 6,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "标题大小",
+          "default": 20
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>focus on your chosen product</p>",
+          "label": "内容"
+        }
+      ]
+    },
+    {
+      "type": "caption",
+      "name": "字幕",
+      "settings": [
+        {
+          "type": "text",
+          "id": "caption",
+          "default": "Add a tagline",
+          "label": "文本"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "subtitle",
+              "label": "副标题"
+            },
+            {
+              "value": "caption-with-letter-spacing",
+              "label": "大写"
+            }
+          ],
+          "default": "caption-with-letter-spacing",
+          "label": "文本样式"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "options": [
+            {
+              "value": "small",
+              "label": "小"
+            },
+            {
+              "value": "medium",
+              "label": "中"
+            },
+            {
+              "value": "large",
+              "label": "大"
+            }
+          ],
+          "default": "medium",
+          "label": "文本大小"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "文本",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+          "label": "内容"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "body",
+              "label": "正文"
+            },
+            {
+              "value": "subtitle",
+              "label": "副标题"
+            }
+          ],
+          "default": "body",
+          "label": "文本样式"
+        }
+      ]
+    },
+     {
+      "type": "testimonial-images",
+      "name": "评价图片",
+      "settings": [
+              {
+          "type": "range",
+          "id": "image_size",
+          "label": "图片横条大小",
+          "min":       0.5,
+          "max":        2,
+          "step":       0.1,
+          "default": 1
+          },
+        {
+          "type": "range",
+          "id": "image_space",
+          "label": "图片间距",
+          "min":       -30,
+          "max":        10,
+          "step":       1,
+          "default": -18
+          },
+             {
+              "type": "image_picker",
+              "id": "image",
+              "label": "图片"
+            },
+        {
+          "type": "checkbox",
+          "id": "hide_img_2",
+          "label": "隐藏图片2",
+          "default": false
+        },
+        {
+              "type": "image_picker",
+              "id": "image_2",
+              "label": "图片"
+            },
+        {
+          "type": "checkbox",
+          "id": "hide_img_3",
+          "label": "隐藏图片3",
+          "default": false
+        },
+         {
+              "type": "image_picker",
+              "id": "image_3",
+              "label": "图片"
+            },
+        {
+          "type": "checkbox",
+          "id": "hide_img_4",
+          "label": "隐藏图片4",
+          "default": false
+        },
+         {
+              "type": "image_picker",
+              "id": "image_4",
+              "label": "图片"
+            },
+        {
+          "type": "checkbox",
+          "id": "hide_img_5",
+          "label": "隐藏图片5",
+          "default": false
+        },
+        {
+              "type": "image_picker",
+              "id": "image_5",
+              "label": "图片"
+            },
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>★★★★★ Excellent 4.8</p>",
+          "label": "内容"
+        },
+           {
+          "type": "range",
+          "id": "text_size",
+          "label": "文本大小",
+          "min":       8,
+          "max":        30,
+          "step":       1,
+          "default": 13
+          },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "body",
+              "label": "正文"
+            },
+            {
+              "value": "subtitle",
+              "label": "副标题"
+            }
+          ],
+          "default": "body",
+          "label": "文本样式"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "按钮",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "Button label",
+          "label": "按钮标签",
+          "info": "将标签留空以隐藏按钮。"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "按钮链接"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_style_secondary",
+          "default": false,
+          "label": "使用轮廓按钮样式"
+        }
+      ]
+    },
+    {
+      "type": "countdown_timer",
+      "name": "倒计时",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "style_option",
+          "label": "样式选项",
+          "default": "style_1",
+          "options": [
+            {
+              "value": "style_1",
+              "label": "样式1"
+            },
+            {
+              "value": "style_2",
+              "label": "样式2"
+            },
+            {
+              "value": "style_3",
+              "label": "样式3"
+            },
+            {
+              "value": "style_4",
+              "label": "样式4"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "block_alignment",
+          "label": "区块对齐",
+          "default": "default",
+          "options": [
+            {
+              "value": "left",
+              "label": "左"
+            },
+            {
+              "value": "center",
+              "label": "居中"
+            },
+            {
+              "value": "right",
+              "label": "右"
+            },
+            {
+              "value": "default",
+              "label": "默认"
+            }
+          ]
+        },
+        {
+          "type": "range",
+          "id": "block_size",
+          "label": "计时器大小",
+          "min":       0.3,
+          "max":        1.5,
+          "step":       0.1,
+          "default": 1
+          },
+        {
+          "type": "select",
+          "id": "timezone",
+          "label": "时区",
+          "default": "-05:00 ~ (GMT-05:00) Eastern Time (US & Canada)",
+          "options": [
+            {
+              "value": "-11:00 ~ (GMT-11:00) International Date Line West",
+              "label": "（GMT-11:00）国际日期变更线以西"
+            },
+            {
+              "value": "-11:00 ~ (GMT-11:00) Midway Island",
+              "label": "（GMT-11:00）中途岛"
+            },
+            {
+              "value": "-11:00 ~ (GMT-11:00) American Samoa",
+              "label": "（GMT-11:00）美属萨摩亚"
+            },
+            {
+              "value": "-10:00 ~ (GMT-10:00) Hawaii",
+              "label": "（GMT-10:00）夏威夷"
+            },
+            {
+              "value": "-09:00 ~ (GMT-09:00) Alaska",
+              "label": "（GMT-09:00）阿拉斯加"
+            },
+            {
+              "value": "-08:00 ~ (GMT-08:00) Pacific Time (US & Canada)",
+              "label": "（GMT-08:00）太平洋时间（美国和加拿大）"
+            },
+            {
+              "value": "-08:00 ~ (GMT-08:00) Tijuana",
+              "label": "（GMT-08:00）蒂华纳"
+            },
+            {
+              "value": "-07:00 ~ (GMT-07:00) Mountain Time (US & Canada)",
+              "label": "（GMT-07:00）山地时间（美国和加拿大）"
+            },
+            {
+              "value": "-07:00 ~ (GMT-07:00) Arizona",
+              "label": "（GMT-07:00）亚利桑那"
+            },
+            {
+              "value": "-07:00 ~ (GMT-07:00) Chihuahua",
+              "label": "（GMT-07:00）奇瓦瓦"
+            },
+            {
+              "value": "-06:00 ~ (GMT-06:00) Central Time (US & Canada)",
+              "label": "（GMT-06:00）中部时间（美国和加拿大）"
+            },
+            {
+              "value": "-06:00 ~ (GMT-06:00) Saskatchewan",
+              "label": "（GMT-06:00）萨斯喀彻温"
+            },
+            {
+              "value": "-06:00 ~ (GMT-06:00) Monterrey",
+              "label": "（GMT-06:00）蒙特雷"
+            },
+            {
+              "value": "-05:00 ~ (GMT-05:00) Eastern Time (US & Canada)",
+              "label": "（GMT-05:00）东部时间（美国和加拿大）"
+            },
+            {
+              "value": "-05:00 ~ (GMT-05:00) Indiana (East)",
+              "label": "（GMT-05:00）印第安纳（东部）"
+            },
+            {
+              "value": "-05:00 ~ (GMT-05:00) Bogota",
+              "label": "（GMT-05:00）波哥大"
+            },
+            {
+              "value": "-05:00 ~ (GMT-05:00) Lima",
+              "label": "（GMT-05:00）利马"
+            },
+            {
+              "value": "-05:00 ~ (GMT-05:00) Quito",
+              "label": "（GMT-05:00）基多"
+            },
+            {
+              "value": "-04:00 ~ (GMT-04:00) Atlantic Time (Canada)",
+              "label": "（GMT-04:00）大西洋时间（加拿大）"
+            },
+            {
+              "value": "-04:30 ~ (GMT-04:30) Caracas",
+              "label": "（GMT-04:30）加拉加斯"
+            },
+            {
+              "value": "-04:00 ~ (GMT-04:00) La Paz",
+              "label": "（GMT-04:00）拉巴斯"
+            },
+            {
+              "value": "-04:00 ~ (GMT-04:00) Santiago",
+              "label": "（GMT-04:00）圣地亚哥"
+            },
+            {
+              "value": "-03:30 ~ (GMT-03:30) Newfoundland",
+              "label": "（GMT-03:30）纽芬兰"
+            },
+            {
+              "value": "-03:00 ~ (GMT-03:00) Brasilia",
+              "label": "（GMT-03:00）巴西利亚"
+            },
+            {
+              "value": "-03:00 ~ (GMT-03:00) Buenos Aires",
+              "label": "（GMT-03:00）布宜诺斯艾利斯"
+            },
+            {
+              "value": "-04:00 ~ (GMT-04:00) Georgetown",
+              "label": "（GMT-04:00）乔治敦"
+            },
+            {
+              "value": "-03:00 ~ (GMT-03:00) Greenland",
+              "label": "（GMT-03:00）格陵兰"
+            },
+            {
+              "value": "-01:00 ~ (GMT-01:00) Azores",
+              "label": "（GMT-01:00）亚速尔群岛"
+            },
+            {
+              "value": "-01:00 ~ (GMT-01:00) Cape Verde Is.",
+              "label": "（GMT-01:00）佛得角群岛"
+            },
+            {
+              "value": "+00:00 ~ (GMT+00:00) Dublin",
+              "label": "（GMT+00:00）都柏林"
+            },
+            {
+              "value": "+00:00 ~ (GMT+00:00) Edinburgh",
+              "label": "（GMT+00:00）爱丁堡"
+            },
+            {
+              "value": "+00:00 ~ (GMT+00:00) Lisbon",
+              "label": "（GMT+00:00）里斯本"
+            },
+            {
+              "value": "+00:00 ~ (GMT+00:00) Casablanca",
+              "label": "（GMT+00:00）卡萨布兰卡"
+            },
+            {
+              "value": "+00:00 ~ (GMT+00:00) Monrovia",
+              "label": "（GMT+00:00）蒙罗维亚"
+            },
+            {
+              "value": "+00:00 ~ (GMT+00:00) UTC",
+              "label": "（GMT+00:00）协调世界时（UTC）"
+            },
+            {
+              "value": "+01:00 ~ (GMT+01:00) Belgrade",
+              "label": "（GMT+01:00）贝尔格莱德"
+            },
+            {
+              "value": "+01:00 ~ (GMT+01:00) Bratislava",
+              "label": "（GMT+01:00）布拉迪斯拉发"
+            },
+            {
+              "value": "+01:00 ~ (GMT+01:00) Budapest",
+              "label": "（GMT+01:00）布达佩斯"
+            },
+            {
+              "value": "+01:00 ~ (GMT+01:00) Ljubljana",
+              "label": "（GMT+01:00）卢布尔雅那"
+            },
+            {
+              "value": "+01:00 ~ (GMT+01:00) Prague",
+              "label": "（GMT+01:00）布拉格"
+            },
+            {
+              "value": "+01:00 ~ (GMT+01:00) Sarajevo",
+              "label": "（GMT+01:00）萨拉热窝"
+            },
+            {
+              "value": "+01:00 ~ (GMT+01:00) Skopje",
+              "label": "（GMT+01:00）斯科普里"
+            },
+            {
+              "value": "+01:00 ~ (GMT+01:00) Warsaw",
+              "label": "（GMT+01:00）华沙"
+            },
+            {
+              "value": "+01:00 ~ (GMT+01:00) Zagreb",
+              "label": "（GMT+01:00）萨格勒布"
+            },
+            {
+              "value": "+01:00 ~ (GMT+01:00) Brussels",
+              "label": "（GMT+01:00）布鲁塞尔"
+            },
+            {
+              "value": "+01:00 ~ (GMT+01:00) Copenhagen",
+              "label": "（GMT+01:00）哥本哈根"
+            },
+            {
+              "value": "+01:00 ~ (GMT+01:00) Madrid",
+              "label": "（GMT+01:00）马德里"
+            },
+            {
+              "value": "+01:00 ~ (GMT+01:00) Paris",
+              "label": "（GMT+01:00）巴黎"
+            },
+            {
+              "value": "+01:00 ~ (GMT+01:00) Amsterdam",
+              "label": "（GMT+01:00）阿姆斯特丹"
+            },
+            {
+              "value": "+01:00 ~ (GMT+01:00) Berlin",
+              "label": "（GMT+01:00）柏林"
+            },
+            {
+              "value": "+01:00 ~ (GMT+01:00) Bern",
+              "label": "（GMT+01:00）伯尔尼"
+            },
+            {
+              "value": "+01:00 ~ (GMT+01:00) Rome",
+              "label": "（GMT+01:00）罗马"
+            },
+            {
+              "value": "+01:00 ~ (GMT+01:00) Stockholm",
+              "label": "（GMT+01:00）斯德哥尔摩"
+            },
+            {
+              "value": "+01:00 ~ (GMT+01:00) Vienna",
+              "label": "（GMT+01:00）维也纳"
+            },
+            {
+              "value": "+01:00 ~ (GMT+01:00) West Central Africa",
+              "label": "（GMT+01:00）中西非"
+            },
+            {
+              "value": "+02:00 ~ (GMT+02:00) Bucharest",
+              "label": "（GMT+02:00）布加勒斯特"
+            },
+            {
+              "value": "+02:00 ~ (GMT+02:00) Cairo",
+              "label": "（GMT+02:00）开罗"
+            },
+            {
+              "value": "+02:00 ~ (GMT+02:00) Helsinki",
+              "label": "（GMT+02:00）赫尔辛基"
+            },
+            {
+              "value": "+02:00 ~ (GMT+02:00) Kyiv",
+              "label": "（GMT+02:00）基辅"
+            },
+            {
+              "value": "+02:00 ~ (GMT+02:00) Riga",
+              "label": "（GMT+02:00）里加"
+            },
+            {
+              "value": "+02:00 ~ (GMT+02:00) Sofia",
+              "label": "（GMT+02:00）索菲亚"
+            },
+            {
+              "value": "+02:00 ~ (GMT+02:00) Tallinn",
+              "label": "（GMT+02:00）塔林"
+            },
+            {
+              "value": "+02:00 ~ (GMT+02:00) Vilnius",
+              "label": "（GMT+02:00）维尔纽斯"
+            },
+            {
+              "value": "+02:00 ~ (GMT+02:00) Athens",
+              "label": "（GMT+02:00）雅典"
+            },
+            {
+              "value": "+02:00 ~ (GMT+02:00) Istanbul",
+              "label": "（GMT+02:00）伊斯坦布尔"
+            },
+            {
+              "value": "+03:00 ~ (GMT+03:00) Minsk",
+              "label": "（GMT+03:00）明斯克"
+            },
+            {
+              "value": "+02:00 ~ (GMT+02:00) Jerusalem",
+              "label": "（GMT+02:00）耶路撒冷"
+            },
+            {
+              "value": "+02:00 ~ (GMT+02:00) Harare",
+              "label": "（GMT+02:00）哈拉雷"
+            },
+            {
+              "value": "+02:00 ~ (GMT+02:00) Pretoria",
+              "label": "（GMT+02:00）比勒陀利亚"
+            },
+            {
+              "value": "+04:00 ~ (GMT+04:00) Moscow",
+              "label": "（GMT+04:00）莫斯科"
+            },
+            {
+              "value": "+04:00 ~ (GMT+04:00) Volgograd",
+              "label": "（GMT+04:00）伏尔加格勒"
+            },
+            {
+              "value": "+03:00 ~ (GMT+03:00) Kuwait",
+              "label": "（GMT+03:00）科威特"
+            },
+            {
+              "value": "+03:00 ~ (GMT+03:00) Riyadh",
+              "label": "（GMT+03:00）利雅得"
+            },
+            {
+              "value": "+03:00 ~ (GMT+03:00) Nairobi",
+              "label": "（GMT+03:00）内罗毕"
+            },
+            {
+              "value": "+03:00 ~ (GMT+03:00) Baghdad",
+              "label": "（GMT+03:00）巴格达"
+            },
+            {
+              "value": "+03:30 ~ (GMT+03:30) Tehran",
+              "label": "（GMT+03:30）德黑兰"
+            },
+            {
+              "value": "+04:00 ~ (GMT+04:00) Abu Dhabi",
+              "label": "（GMT+04:00）阿布扎比"
+            },
+            {
+              "value": "+04:00 ~ (GMT+04:00) Muscat",
+              "label": "（GMT+04:00）马斯喀特"
+            },
+            {
+              "value": "+04:00 ~ (GMT+04:00) Baku",
+              "label": "（GMT+04:00）巴库"
+            },
+            {
+              "value": "+04:00 ~ (GMT+04:00) Tbilisi",
+              "label": "（GMT+04:00）第比利斯"
+            },
+            {
+              "value": "+04:00 ~ (GMT+04:00) Yerevan",
+              "label": "（GMT+04:00）埃里温"
+            },
+            {
+              "value": "+04:30 ~ (GMT+04:30) Kabul",
+              "label": "（GMT+04:30）喀布尔"
+            },
+            {
+              "value": "+06:00 ~ (GMT+06:00) Ekaterinburg",
+              "label": "（GMT+06:00）叶卡捷琳堡"
+            },
+            {
+              "value": "+05:00 ~ (GMT+05:00) Islamabad",
+              "label": "（GMT+05:00）伊斯兰堡"
+            },
+            {
+              "value": "+05:00 ~ (GMT+05:00) Karachi",
+              "label": "（GMT+05:00）卡拉奇"
+            },
+            {
+              "value": "+05:00 ~ (GMT+05:00) Tashkent",
+              "label": "（GMT+05:00）塔什干"
+            },
+            {
+              "value": "+05:30 ~ (GMT+05:30) Chennai",
+              "label": "（GMT+05:30）金奈"
+            },
+            {
+              "value": "+05:30 ~ (GMT+05:30) Kolkata",
+              "label": "（GMT+05:30）加尔各答"
+            },
+            {
+              "value": "+05:45 ~ (GMT+05:45) Kathmandu",
+              "label": "（GMT+05:45）加德满都"
+            },
+            {
+              "value": "+06:00 ~ (GMT+06:00) Astana",
+              "label": "（GMT+06:00）阿斯塔纳"
+            },
+            {
+              "value": "+06:00 ~ (GMT+06:00) Dhaka",
+              "label": "（GMT+06:00）达卡"
+            },
+            {
+              "value": "+05:30 ~ (GMT+05:30) Sri Jayawardenepura",
+              "label": "（GMT+05:30）斯里贾亚瓦德纳普拉"
+            },
+            {
+              "value": "+06:00 ~ (GMT+06:00) Almaty",
+              "label": "（GMT+06:00）阿拉木图"
+            },
+            {
+              "value": "+07:00 ~ (GMT+07:00) Novosibirsk",
+              "label": "（GMT+07:00）新西伯利亚"
+            },
+            {
+              "value": "+06:30 ~ (GMT+06:30) Rangoon",
+              "label": "（GMT+06:30）仰光"
+            },
+            {
+              "value": "+07:00 ~ (GMT+07:00) Bangkok",
+              "label": "（GMT+07:00）曼谷"
+            },
+            {
+              "value": "+07:00 ~ (GMT+07:00) Hanoi",
+              "label": "（GMT+07:00）河内"
+            },
+            {
+              "value": "+07:00 ~ (GMT+07:00) Jakarta",
+              "label": "（GMT+07:00）雅加达"
+            },
+            {
+              "value": "+08:00 ~ (GMT+08:00) Krasnoyarsk",
+              "label": "（GMT+08:00）克拉斯诺亚尔斯克"
+            },
+            {
+              "value": "+08:00 ~ (GMT+08:00) Beijing",
+              "label": "（GMT+08:00）北京"
+            },
+            {
+              "value": "+08:00 ~ (GMT+08:00) Chongqing",
+              "label": "（GMT+08:00）重庆"
+            },
+            {
+              "value": "+08:00 ~ (GMT+08:00) Hong Kong",
+              "label": "（GMT+08:00）香港"
+            },
+            {
+              "value": "+08:00 ~ (GMT+08:00) Urumqi",
+              "label": "（GMT+08:00）乌鲁木齐"
+            },
+            {
+              "value": "+08:00 ~ (GMT+08:00) Kuala Lumpur",
+              "label": "（GMT+08:00）吉隆坡"
+            },
+            {
+              "value": "+08:00 ~ (GMT+08:00) Singapore",
+              "label": "（GMT+08:00）新加坡"
+            },
+            {
+              "value": "+08:00 ~ (GMT+08:00) Taipei",
+              "label": "（GMT+08:00）台北"
+            },
+            {
+              "value": "+08:00 ~ (GMT+08:00) Perth",
+              "label": "（GMT+08:00）珀斯"
+            },
+            {
+              "value": "+09:00 ~ (GMT+09:00) Irkutsk",
+              "label": "（GMT+09:00）伊尔库茨克"
+            },
+            {
+              "value": "+08:00 ~ (GMT+08:00) Ulaan Bataar",
+              "label": "（GMT+08:00）乌兰巴托"
+            },
+            {
+              "value": "+09:00 ~ (GMT+09:00) Seoul",
+              "label": "（GMT+09:00）首尔"
+            },
+            {
+              "value": "+09:00 ~ (GMT+09:00) Osaka",
+              "label": "（GMT+09:00）大阪"
+            },
+            {
+              "value": "+10:00 ~ (GMT+10:00) Yakutsk",
+              "label": "（GMT+10:00）雅库茨克"
+            },
+            {
+              "value": "+09:30 ~ (GMT+09:30) Darwin",
+              "label": "（GMT+09:30）达尔文"
+            },
+            {
+              "value": "+09:30 ~ (GMT+09:30) Adelaide",
+              "label": "（GMT+09:30）阿德莱德"
+            },
+            {
+              "value": "+10:00 ~ (GMT+10:00) Canberra",
+              "label": "（GMT+10:00）堪培拉"
+            },
+            {
+              "value": "+10:00 ~ (GMT+10:00) Melbourne",
+              "label": "（GMT+10:00）墨尔本"
+            },
+            {
+              "value": "+10:00 ~ (GMT+10:00) Sydney",
+              "label": "（GMT+10:00）悉尼"
+            },
+            {
+              "value": "+10:00 ~ (GMT+10:00) Brisbane",
+              "label": "（GMT+10:00）布里斯班"
+            },
+            {
+              "value": "+10:00 ~ (GMT+10:00) Hobart",
+              "label": "（GMT+10:00）霍巴特"
+            },
+            {
+              "value": "+11:00 ~ (GMT+11:00) Vladivostok",
+              "label": "（GMT+11:00）符拉迪沃斯托克"
+            },
+            {
+              "value": "+10:00 ~ (GMT+10:00) Guam",
+              "label": "（GMT+10:00）关岛"
+            },
+            {
+              "value": "+10:00 ~ (GMT+10:00) Port Moresby",
+              "label": "（GMT+10:00）莫尔兹比港"
+            },
+            {
+              "value": "+12:00 ~ (GMT+12:00) Magadan",
+              "label": "（GMT+12:00）马加丹"
+            },
+            {
+              "value": "+12:00 ~ (GMT+12:00) Solomon Is.",
+              "label": "（GMT+12:00）所罗门群岛"
+            },
+            {
+              "value": "+12:00 ~ (GMT+12:00) Fiji",
+              "label": "（GMT+12:00）斐济"
+            },
+            {
+              "value": "+12:00 ~ (GMT+12:00) Kamchatka",
+              "label": "（GMT+12:00）堪察加"
+            },
+            {
+              "value": "+12:00 ~ (GMT+12:00) Marshall Is.",
+              "label": "（GMT+12:00）马绍尔群岛"
+            },
+            {
+              "value": "+12:00 ~ (GMT+12:00) Auckland",
+              "label": "（GMT+12:00）奥克兰"
+            },
+            {
+              "value": "+13:00 ~ (GMT+13:00) Nuku'alofa",
+              "label": "（GMT+13:00）努库阿洛法"
+            },
+            {
+              "value": "+13:00 ~ (GMT+13:00) Tokelau Is.",
+              "label": "（GMT+13:00）托克劳群岛"
+            },
+            {
+              "value": "+13:00 ~ (GMT+13:00) Samoa",
+              "label": "（GMT+13:00）萨摩亚"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "计时器文本"
+        },
+        {
+          "type": "text",
+          "id": "timer_day",
+          "label": "天",
+          "default": "Days"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_days",
+          "label": "隐藏天数",
+          "default":false
+        },
+        {
+          "type": "text",
+          "id": "timer_hrs",
+          "label": "小时",
+          "default": "Hours"
+        },
+        {
+          "type": "text",
+          "id": "timer_min",
+          "label": "分钟",
+          "default": "Minutes"
+        },
+        {
+          "type": "text",
+          "id": "timer_sec",
+          "label": "秒",
+          "default": "Seconds"
+        },
+        {
+          "type": "header",
+          "content": "开始"
+        },
+        {
+          "type": "select",
+          "id": "start_month",
+          "label": "月",
+          "default": "January",
+          "options": [
+            {
+              "value": "January",
+              "label": "一月"
+            },
+            {
+              "value": "February",
+              "label": "二月"
+            },
+            {
+              "value": "March",
+              "label": "三月"
+            },
+            {
+              "value": "April",
+              "label": "四月"
+            },
+            {
+              "value": "May",
+              "label": "五月"
+            },
+            {
+              "value": "June",
+              "label": "六月"
+            },
+            {
+              "value": "July",
+              "label": "七月"
+            },
+            {
+              "value": "August",
+              "label": "八月"
+            },
+            {
+              "value": "September",
+              "label": "九月"
+            },
+            {
+              "value": "October",
+              "label": "十月"
+            },
+            {
+              "value": "November",
+              "label": "十一月"
+            },
+            {
+              "value": "December",
+              "label": "十二月"
+            }
+          ]
+        },
+        {
+          "type": "range",
+          "id": "start_day",
+          "label": "天",
+          "min": 1,
+          "max": 31,
+          "step": 1,
+          "default": 1
+        },
+        {
+          "type": "text",
+          "id": "start_year",
+          "label": "年",
+          "default": "2025"
+        },
+        {
+          "type": "select",
+          "id": "start_time",
+          "label": "开始时间",
+          "default": "23:30:00",
+          "options": [
+            {
+              "value": "00:00:00",
+              "label": "12:00 上午 (0:00)"
+            },
+            {
+              "value": "00:30:00",
+              "label": "12:30 上午 (0:30)"
+            },
+            {
+              "value": "01:00:00",
+              "label": "1:00 上午 (1:00)"
+            },
+            {
+              "value": "01:30:00",
+              "label": "1:30 上午 (1:30)"
+            },
+            {
+              "value": "02:00:00",
+              "label": "2:00 上午 (2:00)"
+            },
+            {
+              "value": "02:30:00",
+              "label": "2:30 上午 (2:30)"
+            },
+            {
+              "value": "03:00:00",
+              "label": "3:00 上午 (3:00)"
+            },
+            {
+              "value": "03:30:00",
+              "label": "3:30 上午 (3:30)"
+            },
+            {
+              "value": "04:00:00",
+              "label": "4:00 上午 (4:00)"
+            },
+            {
+              "value": "04:30:00",
+              "label": "4:30 上午 (4:30)"
+            },
+            {
+              "value": "05:00:00",
+              "label": "5:00 上午 (5:00)"
+            },
+            {
+              "value": "05:30:00",
+              "label": "5:30 上午 (5:30)"
+            },
+            {
+              "value": "06:00:00",
+              "label": "6:00 上午 (6:00)"
+            },
+            {
+              "value": "06:30:00",
+              "label": "6:30 上午 (6:30)"
+            },
+            {
+              "value": "07:00:00",
+              "label": "7:00 上午 (7:00)"
+            },
+            {
+              "value": "07:30:00",
+              "label": "7:30 上午 (7:30)"
+            },
+            {
+              "value": "08:00:00",
+              "label": "8:00 上午 (8:00)"
+            },
+            {
+              "value": "08:30:00",
+              "label": "8:30 上午 (8:30)"
+            },
+            {
+              "value": "09:00:00",
+              "label": "9:00 上午 (9:00)"
+            },
+            {
+              "value": "09:30:00",
+              "label": "9:30 上午 (9:30)"
+            },
+            {
+              "value": "10:00:00",
+              "label": "10:00 上午 (10:00)"
+            },
+            {
+              "value": "10:30:00",
+              "label": "10:30 上午 (10:30)"
+            },
+            {
+              "value": "11:00:00",
+              "label": "11:00 上午 (11:00)"
+            },
+            {
+              "value": "11:30:00",
+              "label": "11:30 上午 (11:30)"
+            },
+            {
+              "value": "12:00:00",
+              "label": "12:00 下午 (12:00)"
+            },
+            {
+              "value": "12:30:00",
+              "label": "12:30 下午 (12:30)"
+            },
+            {
+              "value": "13:00:00",
+              "label": "1:00 下午 (13:00)"
+            },
+            {
+              "value": "13:30:00",
+              "label": "1:30 下午 (13:30)"
+            },
+            {
+              "value": "14:00:00",
+              "label": "2:00 下午 (14:00)"
+            },
+            {
+              "value": "14:30:00",
+              "label": "2:30 下午 (14:30)"
+            },
+            {
+              "value": "15:00:00",
+              "label": "3:00 下午 (15:00)"
+            },
+            {
+              "value": "15:30:00",
+              "label": "3:30 下午 (15:30)"
+            },
+            {
+              "value": "16:00:00",
+              "label": "4:00 下午 (16:00)"
+            },
+            {
+              "value": "16:30:00",
+              "label": "4:30 下午 (16:30)"
+            },
+            {
+              "value": "17:00:00",
+              "label": "5:00 下午 (17:00)"
+            },
+            {
+              "value": "17:30:00",
+              "label": "5:30 下午 (17:30)"
+            },
+            {
+              "value": "18:00:00",
+              "label": "6:00 下午 (18:00)"
+            },
+            {
+              "value": "18:30:00",
+              "label": "6:30 下午 (18:30)"
+            },
+            {
+              "value": "19:00:00",
+              "label": "7:00 下午 (19:00)"
+            },
+            {
+              "value": "19:30:00",
+              "label": "7:30 下午 (19:30)"
+            },
+            {
+              "value": "20:00:00",
+              "label": "8:00 下午 (20:00)"
+            },
+            {
+              "value": "20:30:00",
+              "label": "8:30 下午 (20:30)"
+            },
+            {
+              "value": "21:00:00",
+              "label": "9:00 下午 (21:00)"
+            },
+            {
+              "value": "21:30:00",
+              "label": "9:30 下午 (21:30)"
+            },
+            {
+              "value": "22:00:00",
+              "label": "10:00 下午 (22:00)"
+            },
+            {
+              "value": "22:30:00",
+              "label": "10:30 下午 (22:30)"
+            },
+            {
+              "value": "23:00:00",
+              "label": "11:00 下午 (23:00)"
+            },
+            {
+              "value": "23:30:00",
+              "label": "11:30 下午 (23:30)"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "结束"
+        },
+        {
+          "type": "select",
+          "id": "end_month",
+          "label": "月",
+          "default": "December",
+          "options": [
+            {
+              "value": "January",
+              "label": "一月"
+            },
+            {
+              "value": "February",
+              "label": "二月"
+            },
+            {
+              "value": "March",
+              "label": "三月"
+            },
+            {
+              "value": "April",
+              "label": "四月"
+            },
+            {
+              "value": "May",
+              "label": "五月"
+            },
+            {
+              "value": "June",
+              "label": "六月"
+            },
+            {
+              "value": "July",
+              "label": "七月"
+            },
+            {
+              "value": "August",
+              "label": "八月"
+            },
+            {
+              "value": "September",
+              "label": "九月"
+            },
+            {
+              "value": "October",
+              "label": "十月"
+            },
+            {
+              "value": "November",
+              "label": "十一月"
+            },
+            {
+              "value": "December",
+              "label": "十二月"
+            }
+          ]
+        },
+        {
+          "type": "range",
+          "id": "end_day",
+          "label": "天",
+          "min": 1,
+          "max": 31,
+          "step": 1,
+          "default": 1
+        },
+        {
+          "type": "text",
+          "id": "end_year",
+          "label": "年",
+          "default": "2026"
+        },
+        {
+          "type": "select",
+          "id": "end_time",
+          "label": "结束时间",
+          "default": "23:30:00",
+          "options": [
+            {
+              "value": "00:00:00",
+              "label": "12:00 上午 (0:00)"
+            },
+            {
+              "value": "00:30:00",
+              "label": "12:30 上午 (0:30)"
+            },
+            {
+              "value": "01:00:00",
+              "label": "1:00 上午 (1:00)"
+            },
+            {
+              "value": "01:30:00",
+              "label": "1:30 上午 (1:30)"
+            },
+            {
+              "value": "02:00:00",
+              "label": "2:00 上午 (2:00)"
+            },
+            {
+              "value": "02:30:00",
+              "label": "2:30 上午 (2:30)"
+            },
+            {
+              "value": "03:00:00",
+              "label": "3:00 上午 (3:00)"
+            },
+            {
+              "value": "03:30:00",
+              "label": "3:30 上午 (3:30)"
+            },
+            {
+              "value": "04:00:00",
+              "label": "4:00 上午 (4:00)"
+            },
+            {
+              "value": "04:30:00",
+              "label": "4:30 上午 (4:30)"
+            },
+            {
+              "value": "05:00:00",
+              "label": "5:00 上午 (5:00)"
+            },
+            {
+              "value": "05:30:00",
+              "label": "5:30 上午 (5:30)"
+            },
+            {
+              "value": "06:00:00",
+              "label": "6:00 上午 (6:00)"
+            },
+            {
+              "value": "06:30:00",
+              "label": "6:30 上午 (6:30)"
+            },
+            {
+              "value": "07:00:00",
+              "label": "7:00 上午 (7:00)"
+            },
+            {
+              "value": "07:30:00",
+              "label": "7:30 上午 (7:30)"
+            },
+            {
+              "value": "08:00:00",
+              "label": "8:00 上午 (8:00)"
+            },
+            {
+              "value": "08:30:00",
+              "label": "8:30 上午 (8:30)"
+            },
+            {
+              "value": "09:00:00",
+              "label": "9:00 上午 (9:00)"
+            },
+            {
+              "value": "09:30:00",
+              "label": "9:30 上午 (9:30)"
+            },
+            {
+              "value": "10:00:00",
+              "label": "10:00 上午 (10:00)"
+            },
+            {
+              "value": "10:30:00",
+              "label": "10:30 上午 (10:30)"
+            },
+            {
+              "value": "11:00:00",
+              "label": "11:00 上午 (11:00)"
+            },
+            {
+              "value": "11:30:00",
+              "label": "11:30 上午 (11:30)"
+            },
+            {
+              "value": "12:00:00",
+              "label": "12:00 下午 (12:00)"
+            },
+            {
+              "value": "12:30:00",
+              "label": "12:30 下午 (12:30)"
+            },
+            {
+              "value": "13:00:00",
+              "label": "1:00 下午 (13:00)"
+            },
+            {
+              "value": "13:30:00",
+              "label": "1:30 下午 (13:30)"
+            },
+            {
+              "value": "14:00:00",
+              "label": "2:00 下午 (14:00)"
+            },
+            {
+              "value": "14:30:00",
+              "label": "2:30 下午 (14:30)"
+            },
+            {
+              "value": "15:00:00",
+              "label": "3:00 下午 (15:00)"
+            },
+            {
+              "value": "15:30:00",
+              "label": "3:30 下午 (15:30)"
+            },
+            {
+              "value": "16:00:00",
+              "label": "4:00 下午 (16:00)"
+            },
+            {
+              "value": "16:30:00",
+              "label": "4:30 下午 (16:30)"
+            },
+            {
+              "value": "17:00:00",
+              "label": "5:00 下午 (17:00)"
+            },
+            {
+              "value": "17:30:00",
+              "label": "5:30 下午 (17:30)"
+            },
+            {
+              "value": "18:00:00",
+              "label": "6:00 下午 (18:00)"
+            },
+            {
+              "value": "18:30:00",
+              "label": "6:30 下午 (18:30)"
+            },
+            {
+              "value": "19:00:00",
+              "label": "7:00 下午 (19:00)"
+            },
+            {
+              "value": "19:30:00",
+              "label": "7:30 下午 (19:30)"
+            },
+            {
+              "value": "20:00:00",
+              "label": "8:00 下午 (20:00)"
+            },
+            {
+              "value": "20:30:00",
+              "label": "8:30 下午 (20:30)"
+            },
+            {
+              "value": "21:00:00",
+              "label": "9:00 下午 (21:00)"
+            },
+            {
+              "value": "21:30:00",
+              "label": "9:30 下午 (21:30)"
+            },
+            {
+              "value": "22:00:00",
+              "label": "10:00 下午 (22:00)"
+            },
+            {
+              "value": "22:30:00",
+              "label": "10:30 下午 (22:30)"
+            },
+            {
+              "value": "23:00:00",
+              "label": "11:00 下午 (23:00)"
+            },
+            {
+              "value": "23:30:00",
+              "label": "11:30 下午 (23:30)"
+            }
+          ]
+        }
+      ]
+    },
+     {
+      "type": "feature_range",
+      "name": "功能区间",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "标题",
+          "default": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "low_range_label",
+          "label": "低区间标签",
+          "default": "Mild"
+        },
+        {
+          "type": "text",
+          "id": "high_range_label",
+          "label": "高区间标签",
+          "default": "Spicy"
+        },
+        {
+          "type": "range",
+          "id": "level",
+          "label": "层级",
+          "default": 5,
+          "min": 0,
+          "max": 10,
+          "step": 0.1
+        },
+        {
+          "type": "header",
+          "content": "设计"
+        },
+        {
+          "type": "color",
+          "id": "line_color",
+          "label": "线条",
+          "default": "#283144"
+        },
+        {
+          "type": "color",
+          "id": "dot_color",
+          "label": "圆点",
+          "default": "#283144"
+        },
+        {
+          "type": "range",
+          "id": "line_size",
+          "label": "线条大小",
+          "default": 1,
+          "min": 1,
+          "max": 8
+        },
+        {
+          "type": "range",
+          "id": "dot_size",
+          "label": "圆点大小",
+          "default": 18,
+          "min": 10,
+          "max": 40
+        }
+      ]
+    },
+    {
+      "type": "collapsible_content",
+      "name": "折叠内容",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "标题",
+          "default": "Shipping information"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "折叠内容",
+          "default": "<p>Lorem ipsum dolor.</p>"
+        },
+        {
+          "type": "select",
+          "id": "icon_style",
+          "label": "图标样式",
+          "options": [
+            {
+              "value": "plus_minus",
+              "label": "加减号"
+            },
+            {
+              "value": "plus_minus_square",
+              "label": "加减按钮"
+            },
+            {
+              "value": "caret",
+              "label": "箭头"
+            }
+          ],
+          "default": "plus_minus_square"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_open",
+          "label": "默认展开",
+          "default": false
+        }
+      ]
+    },
+     {
+      "type": "newsletter",
+      "name": "订阅表单",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "注册的客户将在 Shopify 中自动创建账户。[查看客户](/admin/customers?query=&accepts_marketing=1)"
+        },
+        {
+          "type": "select",
+          "id": "layout",
+          "label": "布局",
+          "options": [
+            {
+              "value": "stacked",
+              "label": "堆叠"
+            },
+            {
+              "value": "compact",
+              "label": "紧凑"
+            }
+          ],
+          "default": "compact"
+        },
+        {
+          "type": "text",
+          "id": "email_label",
+          "label": "邮箱标签",
+          "default": "Email address"
+        },
+        {
+          "type": "text",
+          "id": "submit_label",
+          "label": "提交按钮标签",
+          "default": "Submit"
+        },
+        {
+          "type": "header",
+          "content": "名字"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_first_name",
+          "label": "显示名字",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "first_name_label",
+          "label": "名字标签",
+          "default": "First name"
+        },
+        {
+          "type": "header",
+          "content": "姓氏"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_last_name",
+          "label": "显示姓氏",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "last_name_label",
+          "label": "姓氏标签",
+          "default": "Last name"
+        },
+        {
+          "type": "header",
+          "content": "设计"
+        },
+        {
+          "type": "color",
+          "id": "button_label_color",
+          "label": "按钮标签",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "button_background_color",
+          "label": "按钮背景",
+          "default": "#283144"
+        },
+        {
+          "type": "range",
+          "id": "button_radius",
+          "label": "按钮边框圆角",
+          "min": 0,
+          "max": 50,
+          "default": 0,
+          "unit": "px"
+        }
+      ]
+    },
+      {
+      "type": "image",
+      "name": "图片",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "inset_image",
+          "label": "图片"
+        },
+        {
+          "type": "range",
+          "id": "inset_image_size",
+          "label": "图片大小",
+          "default": 10,
+          "min": 5,
+          "max": 100,
+          "step": 5,
+          "unit": "%"
+        },
+        {
+        "type": "range",
+        "id": "inset_image_radius",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "圆角半径",
+        "default": 0
+      },
+        {
+          "type": "select",
+          "id": "image_alignment",
+          "label": "图片对齐",
+          "default": "default",
+          "options": [
+            {
+              "value": "left",
+              "label": "左"
+            },
+            {
+              "value": "center",
+              "label": "居中"
+            },
+            {
+              "value": "right",
+              "label": "右"
+            },
+            {
+              "value": "default",
+              "label": "默认"
+            }
+          ]
+        }
+      ]
+    },
+        {
+      "type": "video",
+      "name": "视频",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "视频"
+        },
+        {
+          "type": "checkbox",
+          "id": "autoplay",
+          "label": "自动播放",
+          "info": "视频将被静音。",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "loop",
+          "label": "循环视频",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "show_controls",
+          "label": "显示控制按钮",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "fancy_heading",
+      "name": "花式标题",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "标题",
+          "default": "[Attention-grabbing] headline"
+        },
+        {
+          "type": "color",
+          "id": "block_heading_color",
+          "label": "标题颜色"
+        },
+         {
+          "type": "range",
+          "id": "block_heading_size",
+          "min": 8,
+          "max": 100,
+          "label": "基础字号",
+          "unit": "px",
+          "default": 34
+        },
+        {
+          "type": "header",
+          "content": "花式文本"
+        },
+        {
+          "type": "paragraph",
+          "content": "在要定位的文本周围使用方括号 []。"
+        },
+        {
+          "type": "color",
+          "id": "highlight_text_color",
+          "label": "文本",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "highlight_background_color",
+          "label": "背景",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "highlight_heading_size",
+          "min": 8,
+          "max": 100,
+          "label": "文本大小",
+          "info": "为方括号内的文本设置自定义大小。",
+          "unit": "px",
+          "default": 34
+        },
+        {
+          "type": "checkbox",
+          "id": "highlight_enable_custom_font",
+          "label": "为选中文本启用自定义字体",
+          "default": false
+        },
+        {
+          "type": "font_picker",
+          "id": "highlight_custom_font",
+          "label": "自定义字体",
+          "default": "abel_n4"
+        },
+        {
+          "type": "header",
+          "content": "高级"
+        },
+        {
+          "type": "select",
+          "id": "heading_level",
+          "label": "标题级别",
+          "options": [
+            {
+              "value": "h1",
+              "label": "H1"
+            },
+            {
+              "value": "h2",
+              "label": "H2"
+            },
+            {
+              "value": "h3",
+              "label": "H3"
+            },
+            {
+              "value": "h4",
+              "label": "H4"
+            },
+            {
+              "value": "h5",
+              "label": "H5"
+            },
+            {
+              "value": "h6",
+              "label": "H6"
+            }
+          ],
+          "default": "h2",
+          "info": "最重要的标题为 1 级（<h1>），最不重要的为 6 级（<h6>）。每个页面只使用一个 h1。"
+        },
+        {
+          "type": "html",
+          "id": "custom_css",
+          "label": "CSS",
+          "info": "使用 .lumin-section__fancy 类定位方括号内的文本"
+        }
+      ]
+    },
+     {
+      "type": "text_columns",
+      "name": "文本列",
+      "settings": [
+        {
+          "type": "range",
+          "id": "gap",
+          "min": 0,
+          "max": 40,
+          "label": "间距",
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "select",
+          "id": "text_alignment",
+          "label": "文本对齐",
+          "default": "center",
+          "options": [
+            {
+              "value": "left",
+              "label": "左"
+            },
+            {
+              "value": "center",
+              "label": "居中"
+            },
+            {
+              "value": "right",
+              "label": "右"
+            },
+            {
+              "value": "justify",
+              "label": "两端对齐"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "列1"
+        },
+        {
+          "type": "text",
+          "id": "heading_1",
+          "label": "标题"
+        },
+        {
+          "type": "richtext",
+          "id": "column_1",
+          "label": "文本",
+          "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nibh enim, ornare at consequat sed, placerat quis libero. Curabitur id nulla ut nunc aliquam sodales.</p>"
+        },
+        {
+          "type": "header",
+          "content": "列2"
+        },
+        {
+          "type": "text",
+          "id": "heading_2",
+          "label": "标题"
+        },
+        {
+          "type": "richtext",
+          "id": "column_2",
+          "label": "文本",
+          "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nibh enim, ornare at consequat sed, placerat quis libero. Curabitur id nulla ut nunc aliquam sodales.</p>"
+        }
+      ]
+    },
+    {
+      "type": "divider",
+      "name": "分隔线",
+      "settings": [
+        {
+          "type": "range",
+          "id": "base_width",
+          "label": "宽度",
+          "min": 20,
+          "max": 100,
+          "step": 5,
+          "default": 50,
+          "unit": "%"
+        },
+        {
+          "type": "range",
+          "id": "thickness",
+          "label": "粗细",
+          "min": 0,
+          "max": 10,
+          "default": 1,
+          "unit": "px"
+        },
+        {
+          "type": "select",
+          "id": "style",
+          "label": "样式",
+          "default": "solid",
+          "options": [
+            {
+              "value": "solid",
+              "label": "实线"
+            },
+            {
+              "value": "dotted",
+              "label": "虚线"
+            },
+            {
+              "value": "dashed",
+              "label": "虚线"
+            },
+            {
+              "value": "double",
+              "label": "双线"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "设计"
+        },
+        {
+          "type": "color",
+          "id": "divider_color",
+          "label": "颜色",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "header",
+          "content": "布局"
+        },
+        {
+          "type": "range",
+          "id": "padding_top",
+          "label": "上内边距",
+          "min": 0,
+          "max": 100,
+          "default": 40,
+          "step": 5,
+          "unit": "px"
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "label": "下内边距",
+          "min": 0,
+          "max": 100,
+          "default": 40,
+          "step": 5,
+          "unit": "px"
+        }
+      ]
+    },
+    {
+      "type": "icons",
+      "name": "图标",
+      "settings": [
+         {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "顶部填充",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "底部填充",
+      "default": 12
+    },
+        {
+          "type": "range",
+          "id": "gap",
+          "min": 0,
+          "max": 24,
+          "label": "间距",
+          "unit": "px",
+          "default": 20
+        },
+        {
+          "type": "range",
+          "id": "image_size",
+          "min": 10,
+          "max": 100,
+          "label": "图标大小",
+          "default": 25,
+          "unit": "px"
+        },
+        {
+          "type": "range",
+          "id": "icon_width",
+          "label": "区块宽度",
+          "default": 25,
+          "min": 10,
+          "max": 100,
+          "unit": "%"
+        },
+        {
+          "type": "select",
+          "id": "icon_layout",
+          "label": "图标布局",
+          "default": "top",
+          "options": [
+            {
+              "value": "top",
+              "label": "顶部"
+            },
+            {
+              "value": "left",
+              "label": "左"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "icon_alignment",
+          "label": "图标对齐",
+          "default": "default",
+          "options": [
+            {
+              "value": "left",
+              "label": "左"
+            },
+            {
+              "value": "center",
+              "label": "居中"
+            },
+            {
+              "value": "right",
+              "label": "右"
+            },
+            {
+              "value": "default",
+              "label": "默认"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "移动端"
+        },
+        {
+          "type": "range",
+          "id": "mobile_image_width",
+          "label": "图标宽度",
+          "default": 25,
+          "min": 10,
+          "max": 100,
+          "unit": "px"
+        },
+        {
+          "type": "range",
+          "id": "mobile_icon_width",
+          "label": "区块宽度",
+          "default": 25,
+          "min": 10,
+          "max": 100,
+          "unit": "%"
+        },
+        {
+          "type": "select",
+          "id": "mobile_icon_layout",
+          "label": "图标布局",
+          "default": "top",
+          "options": [
+            {
+              "value": "top",
+              "label": "顶部"
+            },
+            {
+              "value": "left",
+              "label": "左"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "图标1"
+        },
+          {
+          "type": "select",
+          "id": "icon_old_1",
+           "options": [
+            {
+              "value": "none",
+              "label": "无"
+            },
+            {
+              "value": "apple",
+              "label": "苹果"
+            },
+            {
+              "value": "banana",
+              "label": "香蕉"
+            },
+            {
+              "value": "bottle",
+              "label": "瓶子"
+            },
+            {
+              "value": "box",
+              "label": "箱子"
+            },
+            {
+              "value": "carrot",
+              "label": "胡萝卜"
+            },
+            {
+              "value": "chat_bubble",
+              "label": "聊天泡泡"
+            },
+            {
+              "value": "check_mark",
+              "label": "复选标记"
+            },
+            {
+              "value": "clipboard",
+              "label": "剪贴板"
+            },
+            {
+              "value": "dairy",
+              "label": "乳制品"
+            },
+            {
+              "value": "dairy_free",
+              "label": "不食乳制品"
+            },
+            {
+              "value": "dryer",
+              "label": "吹风机"
+            },
+            {
+              "value": "eye",
+              "label": "眼睛"
+            },
+            {
+              "value": "fire",
+              "label": "火"
+            },
+            {
+              "value": "gluten_free",
+              "label": "无麸质"
+            },
+            {
+              "value": "heart",
+              "label": "心形"
+            },
+            {
+              "value": "iron",
+              "label": "铁"
+            },
+            {
+              "value": "leaf",
+              "label": "树叶"
+            },
+            {
+              "value": "leather",
+              "label": "皮革"
+            },
+            {
+              "value": "lightning_bolt",
+              "label": "闪电束"
+            },
+            {
+              "value": "lipstick",
+              "label": "口红"
+            },
+            {
+              "value": "lock",
+              "label": "锁"
+            },
+            {
+              "value": "map_pin",
+              "label": "图钉"
+            },
+            {
+              "value": "nut_free",
+              "label": "不含坚果"
+            },
+            {
+              "value": "pants",
+              "label": "裤装"
+            },
+            {
+              "value": "paw_print",
+              "label": "爪印"
+            },
+            {
+              "value": "pepper",
+              "label": "胡椒粉"
+            },
+            {
+              "value": "perfume",
+              "label": "香水"
+            },
+            {
+              "value": "plane",
+              "label": "飞机"
+            },
+            {
+              "value": "plant",
+              "label": "绿植"
+            },
+            {
+              "value": "price_tag",
+              "label": "价格标签"
+            },
+            {
+              "value": "question_mark",
+              "label": "问号"
+            },
+            {
+              "value": "recycle",
+              "label": "回收利用"
+            },
+            {
+              "value": "return",
+              "label": "退货"
+            },
+            {
+              "value": "ruler",
+              "label": "直尺"
+            },
+            {
+              "value": "serving_dish",
+              "label": "餐盘"
+            },
+            {
+              "value": "shirt",
+              "label": "衬衫"
+            },
+            {
+              "value": "shoe",
+              "label": "鞋"
+            },
+            {
+              "value": "silhouette",
+              "label": "剪影"
+            },
+            {
+              "value": "snowflake",
+              "label": "雪花"
+            },
+            {
+              "value": "star",
+              "label": "星星"
+            },
+            {
+              "value": "stopwatch",
+              "label": "秒表"
+            },
+            {
+              "value": "truck",
+              "label": "卡车"
+            },
+            {
+              "value": "washing",
+              "label": "洗涤剂"
+            }
+          ],
+          "default": "truck",
+          "label": "图标"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_1",
+          "label": "图标1"
+        },
+        {
+          "type": "text",
+          "id": "heading_1",
+          "label": "标题1",
+          "default": "Heading"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text_1",
+          "label": "文本1"
+        },
+        {
+          "type": "url",
+          "id": "link_1",
+          "label": "链接1"
+        },
+        {
+          "type": "header",
+          "content": "图标2"
+        },
+          {
+          "type": "select",
+          "id": "icon_old_2",
+           "options": [
+            {
+              "value": "none",
+              "label": "无"
+            },
+            {
+              "value": "apple",
+              "label": "苹果"
+            },
+            {
+              "value": "banana",
+              "label": "香蕉"
+            },
+            {
+              "value": "bottle",
+              "label": "瓶子"
+            },
+            {
+              "value": "box",
+              "label": "箱子"
+            },
+            {
+              "value": "carrot",
+              "label": "胡萝卜"
+            },
+            {
+              "value": "chat_bubble",
+              "label": "聊天泡泡"
+            },
+            {
+              "value": "check_mark",
+              "label": "复选标记"
+            },
+            {
+              "value": "clipboard",
+              "label": "剪贴板"
+            },
+            {
+              "value": "dairy",
+              "label": "乳制品"
+            },
+            {
+              "value": "dairy_free",
+              "label": "不食乳制品"
+            },
+            {
+              "value": "dryer",
+              "label": "吹风机"
+            },
+            {
+              "value": "eye",
+              "label": "眼睛"
+            },
+            {
+              "value": "fire",
+              "label": "火"
+            },
+            {
+              "value": "gluten_free",
+              "label": "无麸质"
+            },
+            {
+              "value": "heart",
+              "label": "心形"
+            },
+            {
+              "value": "iron",
+              "label": "铁"
+            },
+            {
+              "value": "leaf",
+              "label": "树叶"
+            },
+            {
+              "value": "leather",
+              "label": "皮革"
+            },
+            {
+              "value": "lightning_bolt",
+              "label": "闪电束"
+            },
+            {
+              "value": "lipstick",
+              "label": "口红"
+            },
+            {
+              "value": "lock",
+              "label": "锁"
+            },
+            {
+              "value": "map_pin",
+              "label": "图钉"
+            },
+            {
+              "value": "nut_free",
+              "label": "不含坚果"
+            },
+            {
+              "value": "pants",
+              "label": "裤装"
+            },
+            {
+              "value": "paw_print",
+              "label": "爪印"
+            },
+            {
+              "value": "pepper",
+              "label": "胡椒粉"
+            },
+            {
+              "value": "perfume",
+              "label": "香水"
+            },
+            {
+              "value": "plane",
+              "label": "飞机"
+            },
+            {
+              "value": "plant",
+              "label": "绿植"
+            },
+            {
+              "value": "price_tag",
+              "label": "价格标签"
+            },
+            {
+              "value": "question_mark",
+              "label": "问号"
+            },
+            {
+              "value": "recycle",
+              "label": "回收利用"
+            },
+            {
+              "value": "return",
+              "label": "退货"
+            },
+            {
+              "value": "ruler",
+              "label": "直尺"
+            },
+            {
+              "value": "serving_dish",
+              "label": "餐盘"
+            },
+            {
+              "value": "shirt",
+              "label": "衬衫"
+            },
+            {
+              "value": "shoe",
+              "label": "鞋"
+            },
+            {
+              "value": "silhouette",
+              "label": "剪影"
+            },
+            {
+              "value": "snowflake",
+              "label": "雪花"
+            },
+            {
+              "value": "star",
+              "label": "星星"
+            },
+            {
+              "value": "stopwatch",
+              "label": "秒表"
+            },
+            {
+              "value": "truck",
+              "label": "卡车"
+            },
+            {
+              "value": "washing",
+              "label": "洗涤剂"
+            }
+          ],
+          "default": "plant",
+          "label": "图标"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_2",
+          "label": "图标2"
+        },
+        {
+          "type": "text",
+          "id": "heading_2",
+          "label": "标题2",
+          "default": "Heading"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text_2",
+          "label": "文本2"
+        },
+        {
+          "type": "url",
+          "id": "link_2",
+          "label": "链接2"
+        },
+        {
+          "type": "header",
+          "content": "图标3"
+        },
+          {
+          "type": "select",
+          "id": "icon_old_3",
+           "options": [
+            {
+              "value": "none",
+              "label": "无"
+            },
+            {
+              "value": "apple",
+              "label": "苹果"
+            },
+            {
+              "value": "banana",
+              "label": "香蕉"
+            },
+            {
+              "value": "bottle",
+              "label": "瓶子"
+            },
+            {
+              "value": "box",
+              "label": "箱子"
+            },
+            {
+              "value": "carrot",
+              "label": "胡萝卜"
+            },
+            {
+              "value": "chat_bubble",
+              "label": "聊天泡泡"
+            },
+            {
+              "value": "check_mark",
+              "label": "复选标记"
+            },
+            {
+              "value": "clipboard",
+              "label": "剪贴板"
+            },
+            {
+              "value": "dairy",
+              "label": "乳制品"
+            },
+            {
+              "value": "dairy_free",
+              "label": "不食乳制品"
+            },
+            {
+              "value": "dryer",
+              "label": "吹风机"
+            },
+            {
+              "value": "eye",
+              "label": "眼睛"
+            },
+            {
+              "value": "fire",
+              "label": "火"
+            },
+            {
+              "value": "gluten_free",
+              "label": "无麸质"
+            },
+            {
+              "value": "heart",
+              "label": "心形"
+            },
+            {
+              "value": "iron",
+              "label": "铁"
+            },
+            {
+              "value": "leaf",
+              "label": "树叶"
+            },
+            {
+              "value": "leather",
+              "label": "皮革"
+            },
+            {
+              "value": "lightning_bolt",
+              "label": "闪电束"
+            },
+            {
+              "value": "lipstick",
+              "label": "口红"
+            },
+            {
+              "value": "lock",
+              "label": "锁"
+            },
+            {
+              "value": "map_pin",
+              "label": "图钉"
+            },
+            {
+              "value": "nut_free",
+              "label": "不含坚果"
+            },
+            {
+              "value": "pants",
+              "label": "裤装"
+            },
+            {
+              "value": "paw_print",
+              "label": "爪印"
+            },
+            {
+              "value": "pepper",
+              "label": "胡椒粉"
+            },
+            {
+              "value": "perfume",
+              "label": "香水"
+            },
+            {
+              "value": "plane",
+              "label": "飞机"
+            },
+            {
+              "value": "plant",
+              "label": "绿植"
+            },
+            {
+              "value": "price_tag",
+              "label": "价格标签"
+            },
+            {
+              "value": "question_mark",
+              "label": "问号"
+            },
+            {
+              "value": "recycle",
+              "label": "回收利用"
+            },
+            {
+              "value": "return",
+              "label": "退货"
+            },
+            {
+              "value": "ruler",
+              "label": "直尺"
+            },
+            {
+              "value": "serving_dish",
+              "label": "餐盘"
+            },
+            {
+              "value": "shirt",
+              "label": "衬衫"
+            },
+            {
+              "value": "shoe",
+              "label": "鞋"
+            },
+            {
+              "value": "silhouette",
+              "label": "剪影"
+            },
+            {
+              "value": "snowflake",
+              "label": "雪花"
+            },
+            {
+              "value": "star",
+              "label": "星星"
+            },
+            {
+              "value": "stopwatch",
+              "label": "秒表"
+            },
+            {
+              "value": "truck",
+              "label": "卡车"
+            },
+            {
+              "value": "washing",
+              "label": "洗涤剂"
+            }
+          ],
+          "default": "star",
+          "label": "图标"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_3",
+          "label": "图标3"
+        },
+        {
+          "type": "text",
+          "id": "heading_3",
+          "label": "标题3",
+          "default": "Heading"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text_3",
+          "label": "文本3"
+        },
+        {
+          "type": "url",
+          "id": "link_3",
+          "label": "链接3"
+        },
+        {
+          "type": "header",
+          "content": "图标4"
+        },
+          {
+          "type": "select",
+          "id": "icon_old_4",
+           "options": [
+            {
+              "value": "none",
+              "label": "无"
+            },
+            {
+              "value": "apple",
+              "label": "苹果"
+            },
+            {
+              "value": "banana",
+              "label": "香蕉"
+            },
+            {
+              "value": "bottle",
+              "label": "瓶子"
+            },
+            {
+              "value": "box",
+              "label": "箱子"
+            },
+            {
+              "value": "carrot",
+              "label": "胡萝卜"
+            },
+            {
+              "value": "chat_bubble",
+              "label": "聊天泡泡"
+            },
+            {
+              "value": "check_mark",
+              "label": "复选标记"
+            },
+            {
+              "value": "clipboard",
+              "label": "剪贴板"
+            },
+            {
+              "value": "dairy",
+              "label": "乳制品"
+            },
+            {
+              "value": "dairy_free",
+              "label": "不食乳制品"
+            },
+            {
+              "value": "dryer",
+              "label": "吹风机"
+            },
+            {
+              "value": "eye",
+              "label": "眼睛"
+            },
+            {
+              "value": "fire",
+              "label": "火"
+            },
+            {
+              "value": "gluten_free",
+              "label": "无麸质"
+            },
+            {
+              "value": "heart",
+              "label": "心形"
+            },
+            {
+              "value": "iron",
+              "label": "铁"
+            },
+            {
+              "value": "leaf",
+              "label": "树叶"
+            },
+            {
+              "value": "leather",
+              "label": "皮革"
+            },
+            {
+              "value": "lightning_bolt",
+              "label": "闪电束"
+            },
+            {
+              "value": "lipstick",
+              "label": "口红"
+            },
+            {
+              "value": "lock",
+              "label": "锁"
+            },
+            {
+              "value": "map_pin",
+              "label": "图钉"
+            },
+            {
+              "value": "nut_free",
+              "label": "不含坚果"
+            },
+            {
+              "value": "pants",
+              "label": "裤装"
+            },
+            {
+              "value": "paw_print",
+              "label": "爪印"
+            },
+            {
+              "value": "pepper",
+              "label": "胡椒粉"
+            },
+            {
+              "value": "perfume",
+              "label": "香水"
+            },
+            {
+              "value": "plane",
+              "label": "飞机"
+            },
+            {
+              "value": "plant",
+              "label": "绿植"
+            },
+            {
+              "value": "price_tag",
+              "label": "价格标签"
+            },
+            {
+              "value": "question_mark",
+              "label": "问号"
+            },
+            {
+              "value": "recycle",
+              "label": "回收利用"
+            },
+            {
+              "value": "return",
+              "label": "退货"
+            },
+            {
+              "value": "ruler",
+              "label": "直尺"
+            },
+            {
+              "value": "serving_dish",
+              "label": "餐盘"
+            },
+            {
+              "value": "shirt",
+              "label": "衬衫"
+            },
+            {
+              "value": "shoe",
+              "label": "鞋"
+            },
+            {
+              "value": "silhouette",
+              "label": "剪影"
+            },
+            {
+              "value": "snowflake",
+              "label": "雪花"
+            },
+            {
+              "value": "star",
+              "label": "星星"
+            },
+            {
+              "value": "stopwatch",
+              "label": "秒表"
+            },
+            {
+              "value": "truck",
+              "label": "卡车"
+            },
+            {
+              "value": "washing",
+              "label": "洗涤剂"
+            }
+          ],
+          "default": "stopwatch",
+          "label": "图标"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_4",
+          "label": "图标4"
+        },
+        {
+          "type": "text",
+          "id": "heading_4",
+          "label": "标题4",
+          "default": "Heading"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text_4",
+          "label": "文本4"
+        },
+        {
+          "type": "url",
+          "id": "link_4",
+          "label": "链接4"
+        },
+        {
+          "type": "header",
+          "content": "图标5"
+        },
+          {
+          "type": "select",
+          "id": "icon_old_5",
+           "options": [
+            {
+              "value": "none",
+              "label": "无"
+            },
+            {
+              "value": "apple",
+              "label": "苹果"
+            },
+            {
+              "value": "banana",
+              "label": "香蕉"
+            },
+            {
+              "value": "bottle",
+              "label": "瓶子"
+            },
+            {
+              "value": "box",
+              "label": "箱子"
+            },
+            {
+              "value": "carrot",
+              "label": "胡萝卜"
+            },
+            {
+              "value": "chat_bubble",
+              "label": "聊天泡泡"
+            },
+            {
+              "value": "check_mark",
+              "label": "复选标记"
+            },
+            {
+              "value": "clipboard",
+              "label": "剪贴板"
+            },
+            {
+              "value": "dairy",
+              "label": "乳制品"
+            },
+            {
+              "value": "dairy_free",
+              "label": "不食乳制品"
+            },
+            {
+              "value": "dryer",
+              "label": "吹风机"
+            },
+            {
+              "value": "eye",
+              "label": "眼睛"
+            },
+            {
+              "value": "fire",
+              "label": "火"
+            },
+            {
+              "value": "gluten_free",
+              "label": "无麸质"
+            },
+            {
+              "value": "heart",
+              "label": "心形"
+            },
+            {
+              "value": "iron",
+              "label": "铁"
+            },
+            {
+              "value": "leaf",
+              "label": "树叶"
+            },
+            {
+              "value": "leather",
+              "label": "皮革"
+            },
+            {
+              "value": "lightning_bolt",
+              "label": "闪电束"
+            },
+            {
+              "value": "lipstick",
+              "label": "口红"
+            },
+            {
+              "value": "lock",
+              "label": "锁"
+            },
+            {
+              "value": "map_pin",
+              "label": "图钉"
+            },
+            {
+              "value": "nut_free",
+              "label": "不含坚果"
+            },
+            {
+              "value": "pants",
+              "label": "裤装"
+            },
+            {
+              "value": "paw_print",
+              "label": "爪印"
+            },
+            {
+              "value": "pepper",
+              "label": "胡椒粉"
+            },
+            {
+              "value": "perfume",
+              "label": "香水"
+            },
+            {
+              "value": "plane",
+              "label": "飞机"
+            },
+            {
+              "value": "plant",
+              "label": "绿植"
+            },
+            {
+              "value": "price_tag",
+              "label": "价格标签"
+            },
+            {
+              "value": "question_mark",
+              "label": "问号"
+            },
+            {
+              "value": "recycle",
+              "label": "回收利用"
+            },
+            {
+              "value": "return",
+              "label": "退货"
+            },
+            {
+              "value": "ruler",
+              "label": "直尺"
+            },
+            {
+              "value": "serving_dish",
+              "label": "餐盘"
+            },
+            {
+              "value": "shirt",
+              "label": "衬衫"
+            },
+            {
+              "value": "shoe",
+              "label": "鞋"
+            },
+            {
+              "value": "silhouette",
+              "label": "剪影"
+            },
+            {
+              "value": "snowflake",
+              "label": "雪花"
+            },
+            {
+              "value": "star",
+              "label": "星星"
+            },
+            {
+              "value": "stopwatch",
+              "label": "秒表"
+            },
+            {
+              "value": "truck",
+              "label": "卡车"
+            },
+            {
+              "value": "washing",
+              "label": "洗涤剂"
+            }
+          ],
+          "default": "none",
+          "label": "图标"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_5",
+          "label": "图标5"
+        },
+        {
+          "type": "text",
+          "id": "heading_5",
+          "label": "标题5"
+        },
+        {
+        "type": "inline_richtext",
+        "id": "text_5",
+        "label": "文本5"
+        },
+        {
+          "type": "url",
+          "id": "link_5",
+          "label": "链接5"
+        },
+        {
+          "type": "header",
+          "content": "图标6"
+        },
+          {
+          "type": "select",
+          "id": "icon_old_6",
+           "options": [
+            {
+              "value": "none",
+              "label": "无"
+            },
+            {
+              "value": "apple",
+              "label": "苹果"
+            },
+            {
+              "value": "banana",
+              "label": "香蕉"
+            },
+            {
+              "value": "bottle",
+              "label": "瓶子"
+            },
+            {
+              "value": "box",
+              "label": "箱子"
+            },
+            {
+              "value": "carrot",
+              "label": "胡萝卜"
+            },
+            {
+              "value": "chat_bubble",
+              "label": "聊天泡泡"
+            },
+            {
+              "value": "check_mark",
+              "label": "复选标记"
+            },
+            {
+              "value": "clipboard",
+              "label": "剪贴板"
+            },
+            {
+              "value": "dairy",
+              "label": "乳制品"
+            },
+            {
+              "value": "dairy_free",
+              "label": "不食乳制品"
+            },
+            {
+              "value": "dryer",
+              "label": "吹风机"
+            },
+            {
+              "value": "eye",
+              "label": "眼睛"
+            },
+            {
+              "value": "fire",
+              "label": "火"
+            },
+            {
+              "value": "gluten_free",
+              "label": "无麸质"
+            },
+            {
+              "value": "heart",
+              "label": "心形"
+            },
+            {
+              "value": "iron",
+              "label": "铁"
+            },
+            {
+              "value": "leaf",
+              "label": "树叶"
+            },
+            {
+              "value": "leather",
+              "label": "皮革"
+            },
+            {
+              "value": "lightning_bolt",
+              "label": "闪电束"
+            },
+            {
+              "value": "lipstick",
+              "label": "口红"
+            },
+            {
+              "value": "lock",
+              "label": "锁"
+            },
+            {
+              "value": "map_pin",
+              "label": "图钉"
+            },
+            {
+              "value": "nut_free",
+              "label": "不含坚果"
+            },
+            {
+              "value": "pants",
+              "label": "裤装"
+            },
+            {
+              "value": "paw_print",
+              "label": "爪印"
+            },
+            {
+              "value": "pepper",
+              "label": "胡椒粉"
+            },
+            {
+              "value": "perfume",
+              "label": "香水"
+            },
+            {
+              "value": "plane",
+              "label": "飞机"
+            },
+            {
+              "value": "plant",
+              "label": "绿植"
+            },
+            {
+              "value": "price_tag",
+              "label": "价格标签"
+            },
+            {
+              "value": "question_mark",
+              "label": "问号"
+            },
+            {
+              "value": "recycle",
+              "label": "回收利用"
+            },
+            {
+              "value": "return",
+              "label": "退货"
+            },
+            {
+              "value": "ruler",
+              "label": "直尺"
+            },
+            {
+              "value": "serving_dish",
+              "label": "餐盘"
+            },
+            {
+              "value": "shirt",
+              "label": "衬衫"
+            },
+            {
+              "value": "shoe",
+              "label": "鞋"
+            },
+            {
+              "value": "silhouette",
+              "label": "剪影"
+            },
+            {
+              "value": "snowflake",
+              "label": "雪花"
+            },
+            {
+              "value": "star",
+              "label": "星星"
+            },
+            {
+              "value": "stopwatch",
+              "label": "秒表"
+            },
+            {
+              "value": "truck",
+              "label": "卡车"
+            },
+            {
+              "value": "washing",
+              "label": "洗涤剂"
+            }
+          ],
+          "default": "none",
+          "label": "图标"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_6",
+          "label": "图标6"
+        },
+        {
+          "type": "text",
+          "id": "heading_6",
+          "label": "标题6"
+        },
+        {
+        "type": "inline_richtext",
+        "id": "text_6",
+        "label": "文本6"
+        },
+        {
+          "type": "url",
+          "id": "link_6",
+          "label": "链接6"
+        }
+      ]
+    },
+    { "type": "add-to-cart-button",
+      "name": "加入购物车按钮",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "⚠️ 仅在产品页生效"
+      },
+    {
+      "type": "inline_richtext",
+      "id": "custom_text",
+      "label": "按钮文本",
+      "default": "Add To Cart"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "custom_text_small",
+      "label": "小按钮文本"
+    },
+    {
+          "type": "checkbox",
+          "id": "button_style_secondary",
+          "default": false,
+          "label": "使用轮廓按钮样式"
+        },
+
+        {
+          "type": "checkbox",
+          "id": "button_full",
+          "default": false,
+          "label": "显示全宽按钮"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lumin 超级菜单",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "button"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,682 @@
+{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+
+{%- if section.settings.image_height == 'adapt' and section.settings.image != blank -%}
+  {%- style -%}
+    @media screen and (max-width: 749px) {
+      #Banner-{{ section.id }}::before,
+      #Banner-{{ section.id }} .banner__media::before,
+      #Banner-{{ section.id }}:not(.banner--mobile-bottom) .banner__content::before {
+        padding-bottom: {{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;
+        content: '';
+        display: block;
+      }
+    }
+
+    @media screen and (min-width: 750px) {
+      #Banner-{{ section.id }}::before,
+      #Banner-{{ section.id }} .banner__media::before {
+        padding-bottom: {{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;
+        content: '';
+        display: block;
+      }
+    }
+  {%- endstyle -%}
+{%- endif -%}
+
+{%- style -%}
+  #Banner-{{ section.id }}::after {
+    opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign full_width = '100vw'
+  assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+
+  if section.settings.image_behavior == 'ambient'
+    assign half_width = '60vw'
+    assign full_width = '120vw'
+    assign stacked_sizes = '(min-width: 750px) 60vw, 120vw'
+    assign widths = '450, 660, 900, 1320, 1800, 2136, 2400, 3600, 7680'
+  elsif section.settings.image_behavior == 'fixed' or section.settings.image_behavior == 'zoom-in'
+    assign half_width = '100vw'
+    assign stacked_sizes = '100vw'
+  else
+    assign half_width = '50vw'
+    assign stacked_sizes = '(min-width: 750px) 50vw, 100vw'
+  endif
+  assign fetch_priority = 'auto'
+  if section.index == 1
+    assign fetch_priority = 'high'
+  endif
+-%}
+
+<div
+  id="Banner-{{ section.id }}"
+  class="banner banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }} banner--{{ section.settings.image_height }}{% if section.settings.stack_images_on_mobile and section.settings.image != blank and section.settings.image_2 != blank %} banner--stacked{% endif %}{% if section.settings.image_height == 'adapt' and section.settings.image != blank %} banner--adapt{% endif %}{% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+>
+  {%- if section.settings.image != blank -%}
+    <div class="banner__media media{% if section.settings.image == blank and section.settings.image_2 == blank %} placeholder{% endif %}{% if section.settings.image_2 != blank %} banner__media-half{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+      {%- liquid
+        assign image_height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio
+        if section.settings.image_2 != blank
+          assign image_class = 'banner__media-image-half'
+        endif
+        if section.settings.image_2 != blank and section.settings.stack_images_on_mobile
+          assign sizes = stacked_sizes
+        elsif section.settings.image_2 != blank
+          assign sizes = half_width
+        else
+          assign sizes = full_width
+        endif
+      -%}
+      {{
+        section.settings.image
+        | image_url: width: 3840
+        | image_tag:
+          width: section.settings.image.width,
+          height: image_height,
+          class: image_class,
+          sizes: sizes,
+          widths: widths,
+          fetchpriority: fetch_priority
+      }}
+    </div>
+  {%- elsif section.settings.image_2 == blank -%}
+    <div class="banner__media media{% if section.settings.image == blank and section.settings.image_2 == blank %} placeholder{% endif %}{% if section.settings.image_2 != blank %} banner__media-half{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+      {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+    </div>
+  {%- endif -%}
+  {%- if section.settings.image_2 != blank -%}
+    <div class="banner__media media{% if section.settings.image != blank %} banner__media-half{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+      {%- liquid
+        assign image_height_2 = section.settings.image_2.width | divided_by: section.settings.image_2.aspect_ratio
+        if section.settings.image != blank
+          assign image_class_2 = 'banner__media-image-half'
+        endif
+        if section.settings.image != blank and section.settings.stack_images_on_mobile
+          assign sizes = stacked_sizes
+        elsif section.settings.image_2 != blank
+          assign sizes = half_width
+        else
+          assign sizes = full_width
+        endif
+      -%}
+      {{
+        section.settings.image_2
+        | image_url: width: 3840
+        | image_tag:
+          width: section.settings.image_2.width,
+          height: image_height_2,
+          class: image_class_2,
+          sizes: sizes,
+          widths: widths,
+          fetchpriority: fetch_priority
+      }}
+    </div>
+  {%- endif -%}
+  <div class="banner__content banner__content--{{ section.settings.desktop_content_position }} page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    <div class="banner__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'heading' -%}
+            <h2
+              class="banner__heading inline-richtext {{ block.settings.heading_size }}"
+              {{ block.shopify_attributes }}
+            >
+              {{ block.settings.heading | replace: '[', '<span class="lumin-text__fancy1">' | replace: ']', '</span>' | replace: '((', '<span class="lumin-text__fancy2">' | replace: '))', '</span>' }}
+            </h2>
+          {%- when 'text' -%}
+            <div class="banner__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
+              <p>{{ block.settings.text | replace: '[', '<span class="lumin-text__fancy1">' | replace: ']', '</span>' | replace: '((', '<span class="lumin-text__fancy2">' | replace: '))', '</span>' }}</p>
+            </div>
+            
+          {%- when 'timer' -%}
+          {% assign custom_date = block.settings.date | append: "T23:59:59" %}
+            <div>
+           <div class="timer-{{ block.id }}" id="timercount-{{ block.id }}">
+           <div class="count-{{ block.id }}" {% if block.settings.hide_days %} style="display: none;"{% endif %}><span id="days-{{ block.id }}" class="l-font-{{ block.settings.number_size }}">--</span> <span class="timer-clock">{{ block.settings.timer_days }}</span> </div>
+            <div class="count-{{ block.id }}"><span id="hours-{{ block.id }}" class="l-font-{{ block.settings.number_size }}">--</span> <span class="timer-clock">{{ block.settings.timer_hrs }}</span> </div>
+             <div class="count-{{ block.id }}"><span id="minutes-{{ block.id }}" class="l-font-{{ block.settings.number_size }}">--</span> <span class="timer-clock">{{ block.settings.timer_min }}</span> </div>
+             <div class="count-{{ block.id }}"><span id="seconds-{{ block.id }}" class="l-font-{{ block.settings.number_size }}">--</span> <span class="timer-clock">{{ block.settings.timer_sec }}</span> </div>
+           </div>
+           <div class="expired"style="font-size:{{ block.settings.message_size }}px;" id="expired-{{ block.id }}"> {{ block.settings.message | replace: '[', '<span class="lumin-text__fancy1">' | replace: ']', '</span>' | replace: '((', '<span class="lumin-text__fancy2">' | replace: '))', '</span>' }}</div>
+           </div>
+                        <script>
+                // Set the target date for the timercount (YYYY-MM-DD format)
+                  const targetDate = new Date('{{custom_date}}');
+              
+                
+                // Function to update the timercount
+                function updatetimercount() {
+                  const now = new Date();
+                  const timeDifference = targetDate - now;
+              
+                  if (timeDifference > 0) {
+                    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+              
+                    // Display the timercount
+                    document.getElementById('days-{{ block.id }}').innerHTML = `${days}`;
+                    document.getElementById('hours-{{ block.id }}').innerHTML = `${hours}`;
+                    document.getElementById('minutes-{{ block.id }}').innerHTML = `${minutes}`;
+                    document.getElementById('seconds-{{ block.id }}').innerHTML = `${seconds}`;
+                    
+                       // Update every second
+                    setTimeout(updatetimercount, 1000);
+                  } else {
+                    // If the target date has passed, hide the timercount
+                    document.getElementById("timercount-{{ block.id }}").style.display = "none";
+                      document.getElementById("expired-{{ block.id }}").style.display = "block";
+                  }
+                }
+              
+                // Initial call to start the timercount
+                updatetimercount();
+              </script>
+                        <style>  
+                          .timer-{{ block.id }} {
+                  display: flex;
+                  align-items: center;
+                  flex-direction: row;
+                  justify-content: {{ section.settings.desktop_content_alignment }};
+              }
+                
+               .expired {
+                    display:none;
+                    font-size: 20px;
+                    margin:0;
+                  }
+                .count-{{ block.id }} {
+                  display: flex;
+                  flex-direction: column;
+                  color:{{block.settings.timer_color}};
+                  {% if block.settings.head_font %} font-family: var(--font-heading-family);{% endif %}
+                  align-content: center;
+                  justify-content: center;
+                  flex-wrap: wrap;
+                  align-items: center;
+                  background-color: {{ block.settings.timer_color_bg | hex_to_rgba: block.settings.tm_bg_opacity }};
+                  min-width: 60px;
+                  backdrop-filter: drop-shadow(2px 4px 6px black);
+                  padding: 4px;
+                  border: 1px solid {{block.settings.timer_color}};
+                  border-right: none;
+                  font-size: 10px;
+                  text-transform: uppercase;
+                  letter-spacing: 1px;
+                }
+                .count-{{ block.id }}:last-child {
+                 border-right:1px solid {{block.settings.timer_color}};
+                }
+              .l-font-small {
+                  font-size: 16px;
+                  font-weight: bold;
+              }
+                .l-font-medium {
+                  font-size: 24px;
+                  font-weight: bold;
+              }
+                .l-font-large {
+                  font-size: 40px;
+                  font-weight: bold;
+              }
+              </style>
+          {%- when 'buttons' -%}
+            <div
+              class="banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}"
+              {{ block.shopify_attributes }}
+            >
+              {%- if block.settings.button_label_1 != blank -%}
+                <a
+                  {% if block.settings.button_link_1 == blank %}
+                    role="link" aria-disabled="true"
+                  {% else %}
+                    href="{{ block.settings.button_link_1 }}"
+                  {% endif %}
+                  class="button{% if block.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}"
+                >
+                  {{- block.settings.button_label_1 | escape -}}
+                </a>
+              {%- endif -%}
+              {%- if block.settings.button_label_2 != blank -%}
+                <a
+                  {% if block.settings.button_link_2 == blank %}
+                    role="link" aria-disabled="true"
+                  {% else %}
+                    href="{{ block.settings.button_link_2 }}"
+                  {% endif %}
+                  class="button{% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}"
+                >
+                  {{- block.settings.button_label_2 | escape -}}
+                </a>
+              {%- endif -%}
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "图片横幅倒计时",
+  "tag": "section",
+   "limit": 1,
+  "class": "section",
+   "disabled_on": {
+  "groups": ["header", "footer", "custom.popup"]
+   },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "第一张图片"
+    },
+    {
+      "type": "range",
+      "id": "image_overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "图片叠加不透明度",
+      "default": 0
+    },
+    {
+      "type": "select",
+      "id": "image_height",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "适应第一张图片"
+        },
+        {
+          "value": "xsmall",
+          "label": "超小"
+        },
+        {
+          "value": "small",
+          "label": "小"
+        },
+        {
+          "value": "medium",
+          "label": "中"
+        },
+        {
+          "value": "large",
+          "label": "大"
+        }
+      ],
+      "default": "xsmall",
+      "label": "横幅高度",
+      "info": "若要获得最佳效果，请使用纵横比为 3:2 的图片。[详细了解](https://help.shopify.com/manual/shopify-admin/productivity-tools/image-editor#understanding-image-aspect-ratio)"
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_position",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "左上方"
+        },
+        {
+          "value": "top-center",
+          "label": "顶部居中"
+        },
+        {
+          "value": "top-right",
+          "label": "右上方"
+        },
+        {
+          "value": "middle-left",
+          "label": "中间居左"
+        },
+        {
+          "value": "middle-center",
+          "label": "中间居中"
+        },
+        {
+          "value": "middle-right",
+          "label": "中间居右"
+        },
+        {
+          "value": "bottom-left",
+          "label": "左下方"
+        },
+        {
+          "value": "bottom-center",
+          "label": "底部居中"
+        },
+        {
+          "value": "bottom-right",
+          "label": "右下方"
+        }
+      ],
+      "default": "middle-center",
+      "label": "桌面内容位置"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_text_box",
+      "default": false,
+      "label": "在台式设备上显示容器"
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "左"
+        },
+        {
+          "value": "center",
+          "label": "居中"
+        },
+        {
+          "value": "right",
+          "label": "右"
+        }
+      ],
+      "default": "center",
+      "label": "桌面内容对齐方式"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "配色方案",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "动画"
+    },
+    {
+      "type": "select",
+      "id": "image_behavior",
+      "options": [
+        {
+          "value": "none",
+          "label": "无"
+        },
+        {
+          "value": "ambient",
+          "label": "环境移动"
+        },
+        {
+          "value": "fixed",
+          "label": "修复背景位置"
+        },
+        {
+          "value": "zoom-in",
+          "label": "滚动时放大"
+        }
+      ],
+      "default": "none",
+      "label": "图片行为"
+    },
+    {
+      "type": "header",
+      "content": "移动设备布局"
+    },
+    {
+      "type": "select",
+      "id": "mobile_content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "左"
+        },
+        {
+          "value": "center",
+          "label": "居中"
+        },
+        {
+          "value": "right",
+          "label": "右"
+        }
+      ],
+      "default": "center",
+      "label": "移动设备内容对齐方式"
+    },
+    {
+      "type": "checkbox",
+      "id": "stack_images_on_mobile",
+      "default": true,
+      "label": "在移动设备上堆叠图片"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_text_below",
+      "default": false,
+      "label": "在移动设备上显示容器"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "标题",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Image banner",
+          "label": "标题"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "小"
+            },
+            {
+              "value": "h1",
+              "label": "中"
+            },
+            {
+              "value": "h0",
+              "label": "大"
+            }
+          ],
+          "default": "h1",
+          "label": "标题大小"
+        }
+      ]
+    },
+    {
+      "type": "timer",
+      "name": "计时器",
+      "limit": 1,
+      "settings": [
+          {
+          "type": "text",
+          "id": "date",
+          "default": "2025-12-31",
+          "label": "结束日期",
+          "info": "格式：yyyy-mm-dd（每次修改后保存以生效）"
+        },
+        {
+          "type": "text",
+          "id": "timer_days",
+          "default": "Days",
+          "label": "天数文本"
+        },
+        {
+        "type": "checkbox",
+        "id": "hide_days",
+        "label": "隐藏天数",
+        "default": false
+      },
+        {
+          "type": "text",
+          "id": "timer_hrs",
+          "default": "Hours",
+          "label": "小时文本"
+        },
+        {
+          "type": "text",
+          "id": "timer_min",
+          "default": "Minutes",
+          "label": "分钟文本"
+        },
+        {
+          "type": "text",
+          "id": "timer_sec",
+          "default": "Seconds",
+          "label": "秒文本"
+        },
+        {
+          "type": "select",
+          "id": "number_size",
+          "options": [
+            {
+              "value": "small",
+              "label": "小"
+            },
+            {
+              "value": "medium",
+              "label": "中"
+            },
+            {
+              "value": "large",
+              "label": "大"
+            }
+          ],
+          "default": "medium",
+          "label": "数字大小"
+        },
+       {
+        "type": "checkbox",
+        "id": "head_font",
+        "label": "使用标题字体",
+        "default": false
+      },
+      {
+        "type": "color",
+        "id": "timer_color",
+        "label": "计时器颜色",
+        "default": "#212121"
+      },
+        {
+        "type": "color",
+        "id": "timer_color_bg",
+        "label": "计时器背景颜色",
+        "default": "#ffffff"
+      },
+          {
+          "type":      "range",
+          "id":        "tm_bg_opacity",
+          "min":       0,
+          "max":        1,
+          "step":       0.1,
+          "unit":       "lm",
+          "label":     "计时器背景不透明度",
+          "default":   0.3
+       },
+        {
+          "type": "richtext",
+          "id": "message",
+          "default": "<p>Sale is end!</p>",
+          "label": "消息",
+          "info": "倒计时归零时显示的消息。"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "文本",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "default": "Give customers details about the banner image(s) or content on the template.",
+          "label": "描述"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "body",
+              "label": "正文"
+            },
+            {
+              "value": "subtitle",
+              "label": "副标题"
+            },
+            {
+              "value": "caption-with-letter-spacing",
+              "label": "大写"
+            }
+          ],
+          "default": "body",
+          "label": "文本样式"
+        }
+      ]
+    },
+    {
+      "type": "buttons",
+      "name": "按钮",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label_1",
+          "default": "Button label",
+          "label": "第一个按钮标签",
+          "info": "将标签留空以隐藏按钮。"
+        },
+        {
+          "type": "url",
+          "id": "button_link_1",
+          "label": "第一个按钮链接"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_style_secondary_1",
+          "default": false,
+          "label": "使用轮廓按钮样式"
+        },
+        {
+          "type": "text",
+          "id": "button_label_2",
+          "default": "Button label",
+          "label": "第二个按钮标签",
+          "info": "将标签留空以隐藏按钮。"
+        },
+        {
+          "type": "url",
+          "id": "button_link_2",
+          "label": "第二个按钮链接"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_style_secondary_2",
+          "default": false,
+          "label": "使用轮廓按钮样式"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "图片横幅倒计时",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "timer"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

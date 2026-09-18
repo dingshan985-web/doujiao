@@ -1,0 +1,315 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  .section-{{ section.id }}-margin {
+    padding-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.margin_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-margin {
+      padding-top: {{ section.settings.margin_top }}px;
+      padding-bottom: {{ section.settings.margin_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<script>
+  // Function to generate a random number between a given range (min and max)
+  function getRandomNumber(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  // Function to update the random number in the HTML
+  function updateRandomNumber() {
+      var randomNumberSpan = document.getElementById("randomNumber-{{ section.id }}");
+      var randomNumber = getRandomNumber({{ section.settings.fomo_min }}, {{ section.settings.fomo_max }}); // Change the range as needed
+      randomNumberSpan.textContent = randomNumber;
+  }
+
+  // Update the random number every 3 seconds (adjust the interval as needed)
+  setInterval(updateRandomNumber, {{ section.settings.fomo_speed | append: "000" }});
+</script>
+
+<div
+  {% unless section.settings.layout == 'full_bleed' %}
+    class="page-width"
+  {% endunless %}
+>
+  <div class="gradient color-{{ section.settings.color_scheme }} lk-fomo-buy">
+    <div class="live-circle-{{section.id}} hs-pill-{{section.id}}" style="display:block;"></div>
+    <span class="message-buy">
+      {% if section.settings.fomo_text_before != blank %}{{ section.settings.fomo_text_before | replace: '[', '<span class="lumin-text__fancy1">' | replace: ']', '</span>' | replace: '((', '<span class="lumin-text__fancy2">' | replace: '))', '</span>' }}{% endif -%}
+      <span id="randomNumber-{{ section.id }}" {% if section.settings.number_bold %}style="font-weight: bold;padding:0 2px;"{% endif %}>
+        {{- section.settings.fomo_min | plus: 2 -}}
+      </span>{{ section.settings.fomo_text_after | replace: '[', '<span class="lumin-text__fancy1">' | replace: ']', '</span>' | replace: '((', '<span class="lumin-text__fancy2">' | replace: '))', '</span>' }}
+    </span>
+  </div>
+</div>
+
+<style>
+    :root { --color-pills: {{ section.settings.pill_color.red }}, {{ section.settings.pill_color.green }}, {{ section.settings.pill_color.blue }}; }
+    .lk-fomo-buy{
+        display: flex;
+        align-items: baseline;
+        justify-content: {{section.settings.text_alignment}};
+        padding: {{section.settings.padding_top}}px {{section.settings.padding_bottom}}px;
+        margin: {{section.settings.margin_top}}px auto {{section.settings.margin_bottom}}px auto;
+        width: 100%;
+        {% if section.settings.layout == 'grid' %}border-radius:{{ section.settings.fomo_border }}px;{% endif %}
+        border:1px solid {{ section.settings.fomo_border_color }};
+    }
+      .lk-fomo-buy p {
+        margin: 0;
+    }
+    .message-buy {
+        letter-spacing:0px;
+    }
+      .live-circle-{{section.id}} {
+        border-radius: 50%;
+        display: inline-block;
+        padding: 0;
+        width: 11px;
+        min-width: 11px;
+        height: 11px;
+        margin-right: 0.7rem;
+        box-shadow: 0 0 0 0 rgba(var(--color-pills), 0.7);
+        transform: scale(1);
+        animation: 1.5s infinite pulsegate;
+        transition: opacity .35s ease-in-out;
+        background-color: rgba(var(--color-pills), 1);
+    }
+    .hs-pill-{{section.id}} {
+        position: relative;
+        pointer-events: none;
+        padding: 0;
+        border-radius: 0.625rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* min-width: max-content;
+        background-color: rgba(var(--color-pills), 1);*/
+        color: rgba(var(--color-pills), 0.5);
+        border: 1px solid rgba(var(--color-background), 1);
+        z-index: 1;
+        font-weight: 500;
+        line-height: 1;
+        font-size: 1rem;
+    }
+    @keyframes pulsegate {
+      0% {
+          transform: scale(.95);
+          box-shadow: 0 0 0 0 rgba(var(--color-pills), 0.6);
+      }
+
+      70% {
+          transform: scale(1);
+          box-shadow: 0 0 0 3px rgba(236,0,140,0);
+      }
+
+      100% {
+          transform: scale(.95);
+          box-shadow: 0 0 0 0 rgba(236,0,140,0);
+      }
+  }
+</style>
+{% schema %}
+{
+  "name": "FOMO 数字",
+  "limit": 1,
+  "disabled_on": {
+  "groups": ["header", "footer", "custom.popup"]
+},
+  "settings": [
+     {
+      "type": "header",
+      "content": "区块设置"
+    },
+       {
+    "type": "select",
+    "id": "layout",
+    "options": [
+      {
+        "value": "full_bleed",
+        "label": "全宽"
+      },
+      {
+        "value": "grid",
+        "label": "网格"
+      }
+    ],
+    "default": "full_bleed",
+    "label": "布局"
+  },
+    {
+    "type": "color_scheme",
+    "id": "color_scheme",
+    "label": "配色方案",
+    "default": "background-1"
+  },
+    {
+          "type": "color",
+          "id": "pill_color",
+          "label": "圆形颜色",
+          "default": "#F05D5E"
+        },
+    
+    {
+    "type": "range",
+    "id": "fomo_border",
+    "min": 0,
+    "max": 20,
+    "step": 2,
+    "unit": "px",
+    "label": "圆角",
+    "default": 0,
+    "info": "仅在网格布局下生效"
+  },
+    {
+          "type": "color",
+          "id": "fomo_border_color",
+          "label": "边框颜色",
+          "default": "#efefef"
+        },
+       {
+        "type": "range",
+        "id": "fomo_min",
+        "label": "数字最小值",
+        "min": 1,
+        "max": 100,
+        "step": 1,
+        "info": "最小值",
+        "default": 4
+      },
+          {
+        "type": "range",
+        "id": "fomo_max",
+        "label": "数字最大值",
+        "min": 1,
+        "max": 100,
+        "step": 1,
+        "info": "最大值",
+        "default": 8
+      },
+      {
+        "type": "range",
+        "id": "fomo_speed",
+        "label": "数字速度",
+        "min": 1,
+        "max": 20,
+        "step": 1,
+        "unit": "Sec",
+        "info": "每次修改后保存主题以应用设置",
+        "default": 3
+      },
+    {
+      "type": "header",
+      "content": "文本"
+    },
+       {
+        "type": "inline_richtext",
+        "id": "fomo_text_before",
+        "label": "FOMO 文本（前）",
+        "default": "Some text"
+      },
+    {
+          "type": "checkbox",
+          "id": "number_bold",
+          "label": "数字加粗",
+          "default": false
+        },
+       {
+        "type": "inline_richtext",
+        "id": "fomo_text_after",
+        "label": "FOMO 文本（后）",
+        "default": "People viewing this product"
+      },
+       {
+          "type": "select",
+          "id": "text_alignment",
+          "options": [
+            {
+              "value": "flex-start",
+              "label": "左"
+            },
+            {
+              "value": "center",
+              "label": "居中"
+            },
+            {
+              "value": "flex-end",
+              "label": "右"
+            }
+           ],
+          "default": "center",
+          "label": "内容对齐"
+
+    },
+    {
+      "type": "header",
+      "content": "间距"
+    },
+     {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "上下内边距",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "左右内边距",
+      "default": 12
+    },
+    {
+    "type": "range",
+    "id": "margin_top",
+    "min": 0,
+    "max": 100,
+    "step": 4,
+    "unit": "px",
+    "label": "上外边距",
+    "default": 36
+  },
+  {
+    "type": "range",
+    "id": "margin_bottom",
+    "min": 0,
+    "max": 100,
+    "step": 4,
+    "unit": "px",
+    "label": "下外边距",
+    "default": 36
+  }
+  ],
+  "presets": [
+    {
+      "name": "FOMO 数字",
+      "category": "Lumin Sections"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

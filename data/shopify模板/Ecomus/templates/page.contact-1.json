@@ -1,0 +1,276 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+ {
+  "sections": {
+    "heading": {
+      "type": "main-heading",
+      "blocks": {
+        "5ecb9555-19e4-433b-8817-1ccaa3a41384": {
+          "type": "1",
+          "settings": {
+            "heading": "Contact Us",
+            "hidden_on_mobile": false,
+            "heading_size": "h3",
+            "text_color": "hdt-s-text",
+            "font_size_heading_lg": 50,
+            "font_size_heading_md": 30,
+            "font_size_heading": 24,
+            "font_weight_heading": 600,
+            "letter_spacing_heading": 0
+          }
+        }
+      },
+      "block_order": [
+        "5ecb9555-19e4-433b-8817-1ccaa3a41384"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Mask_group_5.png",
+        "color_scheme": "",
+        "spacing_hd": 0,
+        "padding_top": 80,
+        "padding_bottom": 86,
+        "padding_rate": 75
+      }
+    },
+    "main_page_BEEXVy": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "section_fullwidth": false,
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 52,
+        "padding_rate": 75
+      }
+    },
+    "map_with_text_3nqpbM": {
+      "type": "map-with-text",
+      "settings": {
+        "full_width": true,
+        "color_scheme": "",
+        "map": "<div style=\"overflow:hidden;resize:none;max-width:100%;width:1920px;height:800px;\"><div id=\"embedded-map-display\" style=\"height:100%; width:100%;max-width:100%;\"><iframe style=\"height:100%;width:100%;border:0;\" frameborder=\"0\" src=\"https://www.google.com/maps/embed/v1/place?q=London,+Vương+Quốc+Anh&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8\"></iframe></div><a class=\"my-codefor-googlemap\" href=\"https://www.bootstrapskins.com/themes\" id=\"authmaps-data\">premium bootstrap themes</a><style>#embedded-map-display img{max-height:none;max-width:none!important;background:none!important;}</style></div>",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_rate": 75
+      }
+    },
+    "form_contact_width_text_dBafcb": {
+      "type": "form_contact-width-text",
+      "blocks": {
+        "heading_Gmbrfa": {
+          "type": "heading",
+          "name": "Heading",
+          "settings": {
+            "heading": "<p>Visit Our Store</p>",
+            "hidden_br_mobile": false,
+            "hidden_on_mobile": false,
+            "heading_size": "h5",
+            "text_color": "hdt-s-text",
+            "font_size_heading_lg": 50,
+            "font_size_heading_md": 30,
+            "font_size_heading": 24,
+            "font_weight_heading": 600,
+            "letter_spacing_heading": 0
+          },
+          "blocks": {}
+        },
+        "text_7BqxXn": {
+          "type": "text",
+          "name": "Text",
+          "settings": {
+            "text": "<p><strong>Address</strong></p>",
+            "hidden_br_mobile": false,
+            "hidden_on_mobile": false,
+            "text_size": "base",
+            "text_color": "hdt-s-text",
+            "font_size_text_lg": 16,
+            "font_size_text_md": 14,
+            "font_size_text": 14,
+            "font_weight_text": 400,
+            "letter_spacing_text": 0
+          },
+          "blocks": {}
+        },
+        "text_kBkyPt": {
+          "type": "text",
+          "name": "Text",
+          "settings": {
+            "text": "<p>66 Mott St, New York, New York, Zip Code: 10006, AS</p>",
+            "hidden_br_mobile": false,
+            "hidden_on_mobile": false,
+            "text_size": "base",
+            "text_color": "hdt-text-secondary",
+            "font_size_text_lg": 16,
+            "font_size_text_md": 14,
+            "font_size_text": 14,
+            "font_weight_text": 400,
+            "letter_spacing_text": 0
+          },
+          "blocks": {}
+        },
+        "text_y7YHPq": {
+          "type": "text",
+          "name": "Text",
+          "settings": {
+            "text": "<p><strong>Phone</strong></p>",
+            "hidden_br_mobile": false,
+            "hidden_on_mobile": false,
+            "text_size": "base",
+            "text_color": "hdt-s-text",
+            "font_size_text_lg": 16,
+            "font_size_text_md": 14,
+            "font_size_text": 14,
+            "font_weight_text": 400,
+            "letter_spacing_text": 0
+          },
+          "blocks": {}
+        },
+        "text_zezNww": {
+          "type": "text",
+          "name": "Text",
+          "settings": {
+            "text": "<p>(623) 934-2400</p>",
+            "hidden_br_mobile": false,
+            "hidden_on_mobile": false,
+            "text_size": "base",
+            "text_color": "hdt-text-secondary",
+            "font_size_text_lg": 16,
+            "font_size_text_md": 14,
+            "font_size_text": 14,
+            "font_weight_text": 400,
+            "letter_spacing_text": 0
+          },
+          "blocks": {}
+        },
+        "text_aBNkyU": {
+          "type": "text",
+          "name": "Text",
+          "settings": {
+            "text": "<p><strong>Email</strong></p>",
+            "hidden_br_mobile": false,
+            "hidden_on_mobile": false,
+            "text_size": "base",
+            "text_color": "hdt-s-text",
+            "font_size_text_lg": 16,
+            "font_size_text_md": 14,
+            "font_size_text": 14,
+            "font_weight_text": 400,
+            "letter_spacing_text": 0
+          },
+          "blocks": {}
+        },
+        "text_Kd7zri": {
+          "type": "text",
+          "name": "Text",
+          "settings": {
+            "text": "<p>EComposer@example.com</p>",
+            "hidden_br_mobile": false,
+            "hidden_on_mobile": false,
+            "text_size": "base",
+            "text_color": "hdt-text-secondary",
+            "font_size_text_lg": 16,
+            "font_size_text_md": 14,
+            "font_size_text": 14,
+            "font_weight_text": 400,
+            "letter_spacing_text": 0
+          },
+          "blocks": {}
+        },
+        "text_UK4JK7": {
+          "type": "text",
+          "name": "Text",
+          "settings": {
+            "text": "<p><strong>Open Time</strong></p>",
+            "hidden_br_mobile": false,
+            "hidden_on_mobile": false,
+            "text_size": "base",
+            "text_color": "hdt-s-text",
+            "font_size_text_lg": 16,
+            "font_size_text_md": 14,
+            "font_size_text": 14,
+            "font_weight_text": 400,
+            "letter_spacing_text": 0
+          },
+          "blocks": {}
+        },
+        "text_EfiFcL": {
+          "type": "text",
+          "name": "Text",
+          "settings": {
+            "text": "<p>Our store has re-opened for shopping, </p><p>exchange Every day 11am to 7pm</p>",
+            "hidden_br_mobile": false,
+            "hidden_on_mobile": false,
+            "text_size": "base",
+            "text_color": "hdt-text-secondary",
+            "font_size_text_lg": 16,
+            "font_size_text_md": 14,
+            "font_size_text": 14,
+            "font_weight_text": 400,
+            "letter_spacing_text": 0
+          },
+          "blocks": {}
+        },
+        "spacer_qaVkc4": {
+          "type": "spacer",
+          "name": "Spacer",
+          "settings": {
+            "direction": false,
+            "space_lg": 30,
+            "space_md": 32,
+            "space": 24
+          },
+          "blocks": {}
+        },
+        "socials_Yp3hA3": {
+          "type": "_socials",
+          "name": "Social",
+          "settings": {
+            "socials_style": "simple",
+            "socials_size": "large"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading_Gmbrfa",
+        "text_7BqxXn",
+        "text_kBkyPt",
+        "text_y7YHPq",
+        "text_zezNww",
+        "text_aBNkyU",
+        "text_Kd7zri",
+        "text_UK4JK7",
+        "text_EfiFcL",
+        "spacer_qaVkc4",
+        "socials_Yp3hA3"
+      ],
+      "custom_css": [
+        ".hdt-form-with_text .hdt-group-block {display: flex; flex-direction: column;}",
+        ".hdt-row-grid--modify {padding: 0px;}",
+        ".hdt-text-warry.hdt-rte {margin-top: 15px;}"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading": "Get in Touch",
+        "sub_heading": "If you’ve got great products your making or looking to work with us then drop us a line.",
+        "btn_full": true,
+        "padding_top": 67,
+        "padding_bottom": 96,
+        "padding_rate": 75
+      }
+    }
+  },
+  "order": [
+    "heading",
+    "main_page_BEEXVy",
+    "map_with_text_3nqpbM",
+    "form_contact_width_text_dBafcb"
+  ]
+}

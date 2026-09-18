@@ -1,0 +1,40 @@
+<div class="banner__wrapper">
+  <div class="banner__inner banner-parent flex flex-wrap justify-content-center">
+    {% content_for 'blocks' %}
+  </div>
+</div>
+{% javascript %}
+  function initBannerGrid() {
+    const bannerParents = document.querySelectorAll('.banner-parent');
+    bannerParents.forEach(function (bannerParent) {
+      const bannerItems = bannerParent.querySelectorAll('.banner-item');
+      bannerParent.classList.add('grid-' + bannerItems.length);
+    });
+  }
+
+  initBannerGrid();  
+  if (Shopify.designMode || Shopify.visualPreviewMode) {
+    document.addEventListener('shopify:section:select', initBannerGrid);
+    document.addEventListener('shopify:section:deselect', initBannerGrid);
+    document.addEventListener('shopify:section:reorder', initBannerGrid);
+    document.addEventListener('shopify:block:select', initBannerGrid);
+    document.addEventListener('shopify:block:deselect', initBannerGrid);
+    document.addEventListener('shopify:section:load', initBannerGrid);
+  }
+{% endjavascript %}
+{% schema %}
+{
+  "name": "t:names.banner",
+  "tag": null,
+  "blocks": [
+    {
+      "type": "_banner-item"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.banner"
+    }
+  ]
+}
+{% endschema %}

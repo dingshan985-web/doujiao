@@ -1,0 +1,3629 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Beauty",
+    "theme_version": "14.8.0",
+    "theme_author": "LuminTheme",
+    "theme_documentation_url": "https://help.lumintheme.com/",
+    "theme_support_url": "https://help.lumintheme.com/"
+  },
+  {
+    "name": "附加设置",
+    "settings": [
+      {
+        "type": "text",
+        "id": "hide_collections",
+        "label": "隐藏商品系列",
+        "info": "用英文逗号分隔商品系列 handle（如 'collection-handle-1,collection-handle-2'），这些系列会从商品系列列表与搜索结果中隐藏。"
+      },
+      {
+        "type": "color",
+        "id": "sale_price",
+        "label": "折扣价颜色",
+        "default": "#d50000"
+      },
+      {
+        "type": "color",
+        "id": "theme_color",
+        "label": "主题强调色",
+        "info": "在移动端系统状态栏显示。"
+      },
+      {
+        "type": "header",
+        "content": "加载过渡"
+      },
+      {
+        "type": "checkbox",
+        "id": "loading_animation",
+        "label": "显示加载动画",
+        "default": true,
+        "info": "页面加载时显示动画。"
+      },
+      {
+        "type": "color",
+        "id": "load_bg",
+        "label": "加载背景",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "load_color",
+        "label": "文字颜色"
+      },
+      {
+        "type": "text",
+        "id": "load_img_alt",
+        "label": "文字",
+        "info": "未选择图片时显示。"
+      },
+      {
+        "type": "range",
+        "id": "load_font",
+        "label": "字号",
+        "min": 12,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "default": 34
+      },
+      {
+        "type": "image_picker",
+        "id": "load_img",
+        "label": "加载图片"
+      },
+      {
+        "type": "range",
+        "id": "load_width",
+        "label": "图片宽度",
+        "min": 50,
+        "max": 400,
+        "step": 5,
+        "unit": "px",
+        "default": 100
+      },
+      {
+        "type": "select",
+        "id": "load_animation_style",
+        "options": [
+          {
+            "value": "none",
+            "label": "无"
+          },
+          {
+            "value": "spin",
+            "label": "旋转"
+          },
+          {
+            "value": "bounce",
+            "label": "弹跳"
+          },
+          {
+            "value": "fill",
+            "label": "弹出"
+          },
+          {
+            "value": "pulse",
+            "label": "脉冲"
+          },
+          {
+            "value": "rotate",
+            "label": "旋转动画"
+          }
+        ],
+        "default": "bounce",
+        "label": "加载动画样式"
+      }
+    ]
+  },
+  {
+    "name": "花式文字",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "[查看教程](https://help.lumintheme.com/lumin-theme-documentation/fancy-text-settings)"
+      },
+      {
+        "type": "paragraph",
+        "content": "用方括号 [] 包裹想要应用「花式文字 1」样式的文字，用圆括号 (()) 包裹想要应用「花式文字 2」样式的文字。"
+      },
+      {
+        "type": "paragraph",
+        "content": "示例：[Text] 会应用「花式文字 1」颜色，((Text)) 会应用「花式文字 2」颜色"
+      },
+      {
+        "type": "paragraph",
+        "content": "你可以在任何标注「✨ Fancy enabled」的区块中改文字。"
+      },
+      {
+        "type": "header",
+        "content": "花式文字 1"
+      },
+      {
+        "type": "color_background",
+        "id": "highlight_background_color",
+        "label": "渐变文字",
+        "default": "linear-gradient(108deg,#0894FF,#C959DD 34%,#FF2E54 68%,#FF9004)"
+      },
+      {
+        "type": "header",
+        "content": "花式文字 2"
+      },
+      {
+        "type": "color",
+        "id": "highlight_text_color",
+        "label": "文字",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "highlight_background_color-2",
+        "label": "背景",
+        "default": "#FFFBB7"
+      },
+      {
+        "type": "range",
+        "id": "highlight_text_size",
+        "label": "基础字号",
+        "min": 50,
+        "max": 200,
+        "step": 5,
+        "unit": "%",
+        "default": 100,
+        "info": "自定义高亮文字基础字号，会受区块字号设置影响。"
+      },
+      {
+        "type": "range",
+        "id": "padding-left-fancy",
+        "label": "左右内边距",
+        "min": 0,
+        "max": 60,
+        "step": 5,
+        "unit": "px",
+        "default": 10
+      },
+      {
+        "type": "range",
+        "id": "padding-fancy",
+        "label": "上下内边距",
+        "min": 0,
+        "max": 60,
+        "step": 5,
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "border-fancy",
+        "label": "圆角",
+        "min": 0,
+        "max": 50,
+        "default": 0,
+        "step": 2,
+        "unit": "px"
+      }
+    ]
+  },
+  {
+    "name": "悬浮加入购物车",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "[查看教程](https://help.lumintheme.com/lumin-theme-documentation/sticky-add-to-cart)"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_sticky_cart_button",
+        "label": "启用「悬浮加入购物车按钮」",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_atc_slide_out",
+        "label": "滚动出视口时滑入加入购物车按钮",
+        "info": "默认加入购物车按钮滚出视口时滑入。",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "桌面端设置"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_vendor_atc",
+        "label": "t:settings_schema.cart.settings.show_vendor.label",
+        "default": false
+      },
+      {
+        "type": "select",
+        "id": "desktop_sticky_position",
+        "options": [
+          {
+            "value": "top",
+            "label": "顶部"
+          },
+          {
+            "value": "bottom",
+            "label": "底部"
+          }
+        ],
+        "default": "bottom",
+        "label": "桌面端悬浮位置"
+      },
+      {
+        "type": "range",
+        "id": "desktop_sticky_top_offset",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 0,
+        "unit": "px",
+        "label": "顶部偏移"
+      },
+      {
+        "type": "range",
+        "id": "sticky_atc_desktop_img_width",
+        "label": "桌面端图片宽度（px）",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 50,
+        "unit": "px"
+      },
+      {
+        "id": "sticky_atc_image_radius",
+        "type": "range",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "default": 4,
+        "label": "图片圆角"
+      },
+      {
+        "type": "header",
+        "content": "移动端设置"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_atc_btn",
+        "label": "仅显示购物车按钮",
+        "info": "仅显示购物车按钮，隐藏其他所有内容。",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_vendor_atc_mb",
+        "label": "t:settings_schema.cart.settings.show_vendor.label",
+        "default": false
+      },
+      {
+        "type": "select",
+        "id": "mobile_sticky_position",
+        "options": [
+          {
+            "value": "top",
+            "label": "顶部"
+          },
+          {
+            "value": "bottom",
+            "label": "底部"
+          }
+        ],
+        "default": "bottom",
+        "label": "移动端悬浮位置"
+      },
+      {
+        "type": "range",
+        "id": "mobile_sticky_top_offset",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 8,
+        "unit": "px",
+        "label": "顶部偏移"
+      },
+      {
+        "type": "range",
+        "id": "sticky_atc_mobile_img_width",
+        "min": 20,
+        "max": 80,
+        "step": 1,
+        "default": 40,
+        "unit": "px",
+        "label": "移动端图片宽度（px）"
+      },
+      {
+        "id": "sticky_atc_mb_image_radius",
+        "type": "range",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "default": 4,
+        "label": "图片圆角"
+      },
+      {
+        "type": "header",
+        "content": "容器设置"
+      },
+      {
+        "id": "sticky_atc_box_bg",
+        "type": "color",
+        "default": "#ffffff",
+        "label": "背景颜色"
+      },
+      {
+        "type": "color_background",
+        "id": "atc_background_gradient",
+        "label": "背景渐变"
+      },
+      {
+        "id": "sticky_atc_box_border",
+        "type": "color",
+        "default": "#E6E6E6",
+        "label": "边框颜色"
+      },
+      {
+        "id": "sticky_atc_box_text",
+        "type": "color",
+        "default": "#212121",
+        "label": "文字颜色"
+      },
+      {
+        "id": "sticky_atc_price_font_color",
+        "type": "color",
+        "default": "#000000",
+        "label": "常规价颜色"
+      },
+      {
+        "id": "sticky_atc_price_sale_color",
+        "type": "color",
+        "default": "#000000",
+        "label": "折扣价颜色"
+      },
+      {
+        "id": "atc_button_background_color",
+        "type": "color",
+        "default": "#000000",
+        "label": "按钮背景颜色"
+      },
+      {
+        "id": "atc_button_text_color",
+        "type": "color",
+        "default": "#FFFFFF",
+        "label": "按钮文字"
+      },
+      {
+        "id": "atc_button_border_color",
+        "type": "color",
+        "default": "#000000",
+        "label": "按钮边框颜色"
+      },
+      {
+        "id": "sticky_atc_btn_radius",
+        "type": "range",
+        "min": 0,
+        "max": 80,
+        "step": 2,
+        "unit": "px",
+        "default": 80,
+        "label": "按钮圆角"
+      },
+      {
+        "id": "sticky_atc_box_radius",
+        "type": "range",
+        "min": 0,
+        "max": 80,
+        "step": 2,
+        "unit": "px",
+        "default": 80,
+        "label": "容器圆角"
+      },
+      {
+        "id": "sticky_atc_box_radius_mb",
+        "type": "range",
+        "min": 0,
+        "max": 80,
+        "step": 2,
+        "unit": "px",
+        "default": 80,
+        "label": "容器圆角（移动端）"
+      },
+      {
+        "type": "header",
+        "content": "格式设置"
+      },
+      {
+        "type": "select",
+        "id": "sticky_atc_title_font_style",
+        "options": [
+          {
+            "label": "常规",
+            "value": "regular"
+          },
+          {
+            "label": "粗体",
+            "value": "bold"
+          },
+          {
+            "label": "斜体",
+            "value": "italic"
+          },
+          {
+            "label": "粗体斜体",
+            "value": "bold_italic"
+          }
+        ],
+        "default": "bold",
+        "label": "商品标题字形"
+      },
+      {
+        "id": "sticky_atc_title_font_size",
+        "type": "range",
+        "min": 1,
+        "max": 2,
+        "step": 0.1,
+        "unit": "rem",
+        "default": 1.3,
+        "label": "商品标题字号"
+      },
+      {
+        "id": "sticky_atc_title_font_length",
+        "type": "range",
+        "min": 1,
+        "max": 20,
+        "step": 1,
+        "unit": "n",
+        "default": 6,
+        "label": "商品标题字数（按词算）"
+      },
+      {
+        "id": "sticky_atc_title_font_length_mb",
+        "type": "range",
+        "min": 1,
+        "max": 20,
+        "step": 1,
+        "unit": "n",
+        "default": 6,
+        "label": "商品标题字数（移动端，按词算）"
+      },
+      {
+        "id": "sticky_atc_price_font_style",
+        "type": "select",
+        "options": [
+          {
+            "label": "常规",
+            "value": "regular"
+          },
+          {
+            "label": "粗体",
+            "value": "bold"
+          },
+          {
+            "label": "斜体",
+            "value": "italic"
+          },
+          {
+            "label": "粗体斜体",
+            "value": "bold_italic"
+          }
+        ],
+        "default": "regular",
+        "label": "价格字形"
+      },
+      {
+        "id": "sticky_atc_price_font_size",
+        "type": "range",
+        "min": 1,
+        "max": 2,
+        "step": 0.1,
+        "unit": "rem",
+        "default": 1.5,
+        "label": "价格字号"
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.cart.name",
+    "settings": [
+      {
+        "type": "select",
+        "id": "cart_type",
+        "options": [
+          {
+            "value": "drawer",
+            "label": "t:settings_schema.cart.settings.cart_type.drawer.label"
+          },
+          {
+            "value": "page",
+            "label": "t:settings_schema.cart.settings.cart_type.page.label"
+          },
+          {
+            "value": "notification",
+            "label": "t:settings_schema.cart.settings.cart_type.notification.label"
+          }
+        ],
+        "default": "notification",
+        "label": "t:settings_schema.cart.settings.cart_type.label"
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.cart.settings.cart_type.page.label"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_vendor",
+        "label": "t:settings_schema.cart.settings.show_vendor.label",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_cart_note",
+        "label": "t:settings_schema.cart.settings.show_cart_note.label",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "hide_tax",
+        "default": false,
+        "label": "隐藏税与配送信息"
+      },
+      {
+        "type": "color",
+        "id": "note_bg_color",
+        "label": "背景颜色",
+        "default": "#f2f2f2"
+      },
+      {
+        "type": "range",
+        "id": "cart_note_radius",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.corner_radius.label",
+        "default": 0
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.cart.settings.cart_drawer.header"
+      },
+      {
+        "type": "paragraph",
+        "content": "在 [主题设置](/editor?context=theme&category=购物车抽屉) 中编辑购物车抽屉。"
+      }
+    ]
+  },
+  {
+    "name": "购物车抽屉",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "[查看教程](https://help.lumintheme.com/lumin-theme-documentation/cart-drawer-settings)"
+      },
+      {
+        "type": "checkbox",
+        "id": "edit_mode",
+        "label": "启用测试模式",
+        "default": false,
+        "info": "此选项默认保持抽屉打开以便更快定制，完成编辑后请取消勾选。"
+      },
+      {
+        "type": "header",
+        "content": "抽屉设置"
+      },
+      {
+        "type": "select",
+        "id": "cart_icon",
+        "options": [
+          {
+            "value": "cart",
+            "label": "购物车"
+          },
+          {
+            "value": "bag",
+            "label": "包袋 1"
+          },
+          {
+            "value": "bag-2",
+            "label": "包袋 2"
+          }
+        ],
+        "default": "cart",
+        "label": "购物车图标"
+      },
+      {
+        "type": "checkbox",
+        "id": "drawer_box",
+        "label": "抽屉显示为容器",
+        "default": false
+      },
+      {
+        "type": "select",
+        "id": "drawer_size",
+        "options": [
+          {
+            "value": "50rem",
+            "label": "大"
+          },
+          {
+            "value": "40rem",
+            "label": "中"
+          },
+          {
+            "value": "34rem",
+            "label": "小"
+          }
+        ],
+        "default": "50rem",
+        "label": "抽屉尺寸（桌面端）"
+      },
+      {
+        "type": "header",
+        "content": "页眉"
+      },
+      {
+        "type": "richtext",
+        "id": "head_message",
+        "label": "促销信息"
+      },
+      {
+        "type": "select",
+        "id": "cart_head_text_style",
+        "options": [
+          {
+            "value": "body",
+            "label": "t:sections.main-product.blocks.inventory.settings.text_style.options__1.label"
+          },
+          {
+            "value": "subtitle",
+            "label": "t:sections.main-product.blocks.inventory.settings.text_style.options__2.label"
+          },
+          {
+            "value": "uppercase",
+            "label": "t:sections.main-product.blocks.inventory.settings.text_style.options__3.label"
+          }
+        ],
+        "default": "body",
+        "label": "t:sections.main-product.blocks.inventory.settings.text_style.label"
+      },
+      {
+        "type": "select",
+        "id": "cart_text_align_2",
+        "options": [
+          {
+            "value": "left",
+            "label": "t:settings_schema.lumin-freeshipping-bar.settings.text_align.options__1.label"
+          },
+          {
+            "value": "center",
+            "label": "t:settings_schema.lumin-freeshipping-bar.settings.text_align.options__2.label"
+          },
+          {
+            "value": "right",
+            "label": "t:settings_schema.lumin-freeshipping-bar.settings.text_align.options__3.label"
+          }
+        ],
+        "default": "center",
+        "label": "t:settings_schema.lumin-freeshipping-bar.settings.text_align.label"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_message_below",
+        "label": "页眉下方显示",
+        "default": false
+      },
+      {
+        "type": "range",
+        "id": "cart_head_text_size",
+        "min": 6,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "label": "t:settings_schema.lumin-freeshipping-bar.settings.range.label",
+        "default": 12
+      },
+      {
+        "type": "color",
+        "id": "cart_message_bg",
+        "label": "购物车提示背景颜色",
+        "default": "#f2f2f2"
+      },
+      {
+        "type": "color",
+        "id": "cart_message_text",
+        "label": "购物车提示文字颜色",
+        "default": "#212121"
+      },
+      {
+        "type": "text",
+        "id": "cart_title",
+        "default": "Your Cart – [x]",
+        "label": "购物车标题",
+        "info": "t:settings_schema.lumin-freeshipping-bar.settings.inline_richtext.info_2"
+      },
+      {
+        "type": "range",
+        "id": "header_size",
+        "min": 8,
+        "max": 40,
+        "step": 1,
+        "unit": "px",
+        "label": "标题字号",
+        "default": 20
+      },
+      {
+        "type": "select",
+        "id": "header_alignment",
+        "options": [
+          {
+            "value": "left",
+            "label": "左"
+          },
+          {
+            "value": "center",
+            "label": "居中"
+          }
+        ],
+        "default": "left",
+        "label": "标题对齐"
+      },
+      {
+        "type": "header",
+        "content": "购物车进度条"
+      },
+      {
+        "type": "paragraph",
+        "content": "在主题设置 > 购物车进度条 或 [此处](/editor?context=theme&category=购物车进度条) 编辑购物车进度条。"
+      },
+      {
+        "type": "header",
+        "content": "空购物车"
+      },
+      {
+        "type": "url",
+        "id": "cart_drawer_link",
+        "label": "继续购物链接",
+        "info": "t:settings_schema.cart.settings.cart_drawer.collection.info"
+      },
+      {
+        "type": "collection",
+        "id": "cart_drawer_collection",
+        "label": "t:settings_schema.cart.settings.cart_drawer.collection.label",
+        "info": "t:settings_schema.cart.settings.cart_drawer.collection.info"
+      },
+      {
+        "type": "header",
+        "content": "购物车主体"
+      },
+      {
+        "type": "color_scheme",
+        "id": "cart_color_scheme",
+        "label": "t:sections.all.colors.label",
+        "default": "background-1"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_vendor_drawer",
+        "label": "t:settings_schema.cart.settings.show_vendor.label",
+        "default": false
+      },
+      {
+        "type": "paragraph",
+        "content": "在主题设置 > 购物车追加销售 或 [此处](/editor?context=theme&category=购物车追加销售) 编辑追加商品。"
+      },
+      {
+        "type": "header",
+        "content": "购物车底部"
+      },
+      {
+        "type": "color_scheme",
+        "id": "cart_color_scheme_footer",
+        "label": "购物车底部配色方案",
+        "default": "background-1"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_line_separator",
+        "default": true,
+        "label": "t:sections.header.settings.show_line_separator.label"
+      },
+      {
+        "type": "paragraph",
+        "content": "在主题设置 > 购物车勾选追加销售 或 [此处](/editor?context=theme&category=购物车勾选追加销售) 编辑勾选追加商品。"
+      },
+      {
+        "type": "range",
+        "id": "tax_drawer_size",
+        "min": 6,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "label": "税费与配送字号",
+        "default": 10
+      },
+      {
+        "type": "checkbox",
+        "id": "hide_tax_drawer",
+        "default": false,
+        "label": "隐藏税与配送信息"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_cart_button",
+        "label": "显示查看购物车按钮",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_full_button",
+        "default": false,
+        "label": "显示大尺寸按钮",
+        "info": "取消勾选时，按钮将单行显示以节省空间。"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_checkout_price",
+        "label": "在结账按钮中显示价格",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "view_cart_text",
+        "default": "View Cart",
+        "label": "购物车按钮文字"
+      },
+      {
+        "type": "header",
+        "content": "追加销售商品复选框",
+        "info": "在 [主题设置](/editor?context=theme&category=购物车勾选追加销售) 中启用并编辑购物车追加销售复选框。"
+      },
+      {
+        "type": "header",
+        "content": "购物车备注"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_cart_note_drawer",
+        "label": "t:settings_schema.cart.settings.show_cart_note.label",
+        "default": false
+      },
+      {
+        "type": "color",
+        "id": "note_bg_color_drawer",
+        "label": "购物车备注背景颜色",
+        "default": "#f2f2f2"
+      },
+      {
+        "type": "range",
+        "id": "cart_note_radius_drawer",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "info": "购物车备注圆角",
+        "label": "t:settings_schema.global.settings.corner_radius.label",
+        "default": 0
+      },
+      {
+        "type": "header",
+        "content": "支付图标"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_payment_icons",
+        "label": "显示支付图标",
+        "default": false
+      },
+      {
+        "type": "select",
+        "id": "original",
+        "options": [
+          {
+            "value": "original",
+            "label": "原始"
+          },
+          {
+            "value": "custom",
+            "label": "自定义"
+          }
+        ],
+        "default": "custom",
+        "label": "图标样式"
+      },
+      {
+        "type": "textarea",
+        "id": "payment_icon",
+        "label": "支付方式",
+        "default": "visa,master,paypal,apple_pay,shopify-pay,google-pay",
+        "info": "用英文逗号 (,) 分隔支付方式 key（如 visa,master,paypal,apple_pay）。[点这里](https://lumintheme.com/pages/payment-method-list) 查看全部支付方式。"
+      },
+      {
+        "type": "select",
+        "id": "payment_content_alignment",
+        "options": [
+          {
+            "value": "left",
+            "label": "左"
+          },
+          {
+            "value": "center",
+            "label": "居中"
+          },
+          {
+            "value": "right",
+            "label": "右"
+          }
+        ],
+        "default": "center",
+        "label": "图标对齐"
+      },
+      {
+        "type": "header",
+        "content": "图片"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_drawer_image",
+        "label": "显示底部图片",
+        "default": false
+      },
+      {
+        "type": "image_picker",
+        "id": "image_drawer",
+        "label": "图片"
+      },
+      {
+        "type": "range",
+        "id": "image_size",
+        "label": "特色图片尺寸",
+        "min": 20,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "default": 100
+      },
+      {
+        "type": "range",
+        "id": "image_border",
+        "label": "图片圆角",
+        "min": 0,
+        "max": 40,
+        "step": 1,
+        "unit": "px",
+        "default": 0
+      },
+      {
+        "type": "select",
+        "id": "img_position",
+        "options": [
+          {
+            "value": "left",
+            "label": "左"
+          },
+          {
+            "value": "center",
+            "label": "居中"
+          },
+          {
+            "value": "right",
+            "label": "右"
+          }
+        ],
+        "default": "center",
+        "label": "图片位置"
+      },
+      {
+        "type": "range",
+        "id": "padding_top_image",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_image",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 16
+      }
+    ]
+  },
+  {
+    "name": "购物车进度条",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "[查看教程](https://help.lumintheme.com/lumin-theme-documentation/cart-progress-bar-on-lumin-themes)"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_cart_progress_bar",
+        "label": "启用购物车进度条",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_progress_bar_icons",
+        "label": "显示进度条图标",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "use_items_subtotal",
+        "label": "用商品小计计算进度条",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "目标 1"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_goal_1",
+        "label": "启用目标 1",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "cart_progress_goal_threshold_1",
+        "label": "目标 1",
+        "default": "60"
+      },
+      {
+        "type": "text",
+        "id": "goal_1_pre_goal_message",
+        "label": "目标 1 达成前信息",
+        "default": "You're only [x] away from <strong>FREE SHIPPING</strong>",
+        "info": "用 [x] 插入动态剩余金额。"
+      },
+      {
+        "type": "text",
+        "id": "goal_1_post_goal_message",
+        "label": "目标 1 达成后信息",
+        "default": "🎉 Congrats! You've unlocked <strong>FREE SHIPPING</strong>",
+        "info": "达到目标 1 后显示的信息。"
+      },
+      {
+        "type": "text",
+        "id": "goal_1_description",
+        "label": "目标 1 描述",
+        "default": "Free Shipping",
+        "info": "目标 1 图标下方显示的文字。用 [goal] 作为占位符显示目标金额。"
+      },
+      {
+        "type": "image_picker",
+        "id": "goal_1_icon",
+        "label": "目标 1 图标"
+      },
+      {
+        "type": "image_picker",
+        "id": "goal_1_icon_reached",
+        "label": "目标 1 达成图标"
+      },
+      {
+        "type": "header",
+        "content": "目标 2"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_goal_2",
+        "label": "启用目标 2",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "cart_progress_goal_threshold_2",
+        "label": "目标 2",
+        "default": "120"
+      },
+      {
+        "type": "text",
+        "id": "goal_2_pre_goal_message",
+        "label": "目标 2 达成前信息",
+        "default": "You're only [x] away from a <strong>20% Off</strong>",
+        "info": "用 [x] 插入动态剩余金额。"
+      },
+      {
+        "type": "text",
+        "id": "goal_2_post_goal_message",
+        "label": "目标 2 达成后信息",
+        "default": "🎉 Congrats! You've unlocked your <strong>20% Off</strong>",
+        "info": "达到目标 2 后显示的信息。"
+      },
+      {
+        "type": "text",
+        "id": "goal_2_description",
+        "label": "目标 2 描述",
+        "default": "20% Off",
+        "info": "目标 2 图标下方显示的文字。用 [goal] 作为占位符显示目标金额。"
+      },
+      {
+        "type": "image_picker",
+        "id": "goal_2_icon",
+        "label": "目标 2 图标"
+      },
+      {
+        "type": "image_picker",
+        "id": "goal_2_icon_reached",
+        "label": "目标 2 达成图标"
+      },
+      {
+        "type": "header",
+        "content": "目标 3"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_goal_3",
+        "label": "启用目标 3",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "cart_progress_goal_threshold_3",
+        "label": "目标 3",
+        "default": "180"
+      },
+      {
+        "type": "text",
+        "id": "goal_3_pre_goal_message",
+        "label": "目标 3 达成前信息",
+        "default": "You're only [x] away from <strong>30% OFF</strong>",
+        "info": "用 [x] 插入动态剩余金额。"
+      },
+      {
+        "type": "text",
+        "id": "goal_3_post_goal_message",
+        "label": "目标 3 达成后信息",
+        "default": "🎉 Congrats! You've unlocked <strong>30% OFF</strong>",
+        "info": "达到目标 3 后显示的信息。"
+      },
+      {
+        "type": "text",
+        "id": "goal_3_description",
+        "label": "目标 3 描述",
+        "default": "30% OFF",
+        "info": "目标 3 图标下方显示的文字。用 [goal] 作为占位符显示目标金额。"
+      },
+      {
+        "type": "image_picker",
+        "id": "goal_3_icon",
+        "label": "目标 3 图标"
+      },
+      {
+        "type": "image_picker",
+        "id": "goal_3_icon_reached",
+        "label": "目标 3 达成图标"
+      },
+      {
+        "type": "header",
+        "content": "格式选项"
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.lumin-freeshipping-bar.settings.header.content"
+      },
+      {
+        "type": "select",
+        "id": "cart_goal_text_style",
+        "options": [
+          {
+            "value": "body",
+            "label": "t:sections.main-product.blocks.inventory.settings.text_style.options__1.label"
+          },
+          {
+            "value": "subtitle",
+            "label": "t:sections.main-product.blocks.inventory.settings.text_style.options__2.label"
+          },
+          {
+            "value": "uppercase",
+            "label": "t:sections.main-product.blocks.inventory.settings.text_style.options__3.label"
+          }
+        ],
+        "default": "body",
+        "label": "t:sections.main-product.blocks.inventory.settings.text_style.label"
+      },
+      {
+        "type": "select",
+        "id": "cart_text_align",
+        "options": [
+          {
+            "value": "left",
+            "label": "t:settings_schema.lumin-freeshipping-bar.settings.text_align.options__1.label"
+          },
+          {
+            "value": "center",
+            "label": "t:settings_schema.lumin-freeshipping-bar.settings.text_align.options__2.label"
+          },
+          {
+            "value": "right",
+            "label": "t:settings_schema.lumin-freeshipping-bar.settings.text_align.options__3.label"
+          }
+        ],
+        "default": "center",
+        "label": "t:settings_schema.lumin-freeshipping-bar.settings.text_align.label"
+      },
+      {
+        "type": "range",
+        "id": "cart_goal_text_size",
+        "min": 6,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "label": "t:settings_schema.lumin-freeshipping-bar.settings.range.label",
+        "default": 12
+      },
+      {
+        "type": "range",
+        "id": "cart_goal_desc_text",
+        "min": 6,
+        "max": 14,
+        "step": 1,
+        "unit": "px",
+        "label": "目标描述",
+        "default": 10
+      },
+      {
+        "type": "color",
+        "id": "cart_bar_color_container",
+        "label": "t:settings_schema.lumin-freeshipping-bar.settings.colors.label__1",
+        "default": "#f6f6f6"
+      },
+      {
+        "type": "color",
+        "id": "cart_progress_bar_background_color",
+        "label": "t:settings_schema.lumin-freeshipping-bar.settings.colors.label__2",
+        "default": "#f2f2f2"
+      },
+      {
+        "type": "color",
+        "id": "cart_progress_bar_color",
+        "label": "t:settings_schema.lumin-freeshipping-bar.settings.colors.label__3",
+        "default": "#212121"
+      },
+      {
+        "type": "color",
+        "id": "cart_progress_bar_full_color",
+        "label": "t:settings_schema.lumin-freeshipping-bar.settings.colors.label__4",
+        "default": "#10B030"
+      },
+      {
+        "type": "color",
+        "id": "cart_progress_bar_text_color",
+        "label": "t:settings_schema.lumin-freeshipping-bar.settings.colors.label__5",
+        "default": "#212121"
+      },
+      {
+        "type": "range",
+        "id": "cart_bar_height",
+        "min": 1,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "label": "t:settings_schema.lumin-freeshipping-bar.settings.colors.option__1",
+        "default": 5
+      },
+      {
+        "type": "range",
+        "id": "cart_bar_radius",
+        "min": 0,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "label": "t:settings_schema.lumin-freeshipping-bar.settings.colors.option__2",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "cart_goal_icon_size",
+        "min": 0,
+        "max": 40,
+        "step": 1,
+        "unit": "px",
+        "label": "目标图标大小",
+        "default": 30
+      }
+    ]
+  },
+  {
+    "name": "购物车追加销售",
+    "settings": [
+      {
+        "type": "header",
+        "content": "购物车追加销售",
+        "info": "仅在购物车抽屉中可见。"
+      },
+      {
+        "type": "collection",
+        "id": "collection",
+        "label": "商品系列"
+      },
+      {
+        "type": "range",
+        "id": "limit",
+        "label": "限制商品数",
+        "min": 2,
+        "max": 24,
+        "default": 4
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "标题",
+        "default": "You might like..."
+      },
+      {
+        "type": "text_alignment",
+        "id": "title_text_align",
+        "label": "标题对齐",
+        "default": "left"
+      },
+      {
+        "type": "text_alignment",
+        "id": "product_text_align",
+        "label": "内容对齐",
+        "default": "center"
+      },
+      {
+        "type": "select",
+        "id": "list_style_cart_drawer",
+        "label": "购物车抽屉列表样式",
+        "options": [
+          {
+            "value": "scroll",
+            "label": "滚动"
+          },
+          {
+            "value": "stack",
+            "label": "堆叠"
+          }
+        ],
+        "default": "stack"
+      },
+      {
+        "type": "select",
+        "id": "upsell_product_per_page",
+        "label": "每页商品数",
+        "options": [
+          {
+            "value": "one",
+            "label": "一个"
+          },
+          {
+            "value": "two",
+            "label": "两个"
+          },
+          {
+            "value": "three",
+            "label": "三个"
+          }
+        ],
+        "default": "two"
+      },
+      {
+        "type": "select",
+        "id": "upsell_btn_style",
+        "label": "按钮样式",
+        "options": [
+          {
+            "value": "primary",
+            "label": "主色"
+          },
+          {
+            "value": "secondary",
+            "label": "次要"
+          }
+        ],
+        "default": "primary"
+      },
+      {
+        "type": "text",
+        "id": "upsell_btn_text",
+        "label": "购物车按钮文字",
+        "default": "+ Add",
+        "info": "留空显示默认。"
+      },
+      {
+        "type": "checkbox",
+        "id": "upsell_border",
+        "default": true,
+        "label": "显示边框"
+      },
+      {
+        "type": "range",
+        "id": "upsell_border_radius",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.corner_radius.label",
+        "default": 8
+      },
+      {
+        "type": "range",
+        "id": "upsell_border_width",
+        "min": 0,
+        "max": 12,
+        "step": 1,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.thickness.label",
+        "default": 1
+      },
+      {
+        "type": "color",
+        "id": "Upsell_border_color",
+        "default": "#eee",
+        "label": "边框颜色"
+      },
+      {
+        "type": "color_scheme",
+        "id": "upsell_main_color_scheme",
+        "label": "t:sections.all.colors.label",
+        "default": "background-1"
+      },
+      {
+        "type": "color_scheme",
+        "id": "upsell_color_scheme",
+        "label": "t:sections.all.colors.label",
+        "default": "background-1",
+        "info": "商品卡颜色"
+      }
+    ]
+  },
+  {
+    "name": "购物车勾选追加销售",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_cart_upsell",
+        "label": "启用购物车追加销售",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "default_upsell_enabled_in_cart",
+        "label": "追加商品默认加入购物车",
+        "default": true
+      },
+      {
+        "type": "product",
+        "id": "cart_upsell_product_2",
+        "label": "购物车追加商品",
+        "info": "注：默认为所选商品的第一个规格。"
+      },
+      {
+        "type": "image_picker",
+        "id": "cart_gift_icon",
+        "label": "追加销售图片"
+      },
+      {
+        "type": "range",
+        "id": "cart_gift_icon_width",
+        "label": "追加销售图片尺寸",
+        "min": 20,
+        "max": 100,
+        "default": 40
+      },
+      {
+        "type": "range",
+        "id": "cart_gift_icon_radius",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.corner_radius.label",
+        "default": 0
+      },
+      {
+        "type": "text",
+        "id": "cart_upsell_text",
+        "label": "购物车追加销售文字",
+        "default": "Add Gift Wrap"
+      },
+      {
+        "type": "range",
+        "id": "cart_upsell_font_size",
+        "label": "字号",
+        "min": 10,
+        "max": 20,
+        "default": 14
+      },
+      {
+        "type": "select",
+        "id": "cart_upsell_font_weight",
+        "label": "字重",
+        "options": [
+          {
+            "value": "400",
+            "label": "常规"
+          },
+          {
+            "value": "600",
+            "label": "粗体"
+          }
+        ],
+        "default": "400"
+      },
+      {
+        "type": "text",
+        "id": "cart_upsell_subtext",
+        "label": "购物车追加销售描述",
+        "default": "Description here"
+      },
+      {
+        "type": "range",
+        "id": "cart_upsell_subtext_size",
+        "label": "字号",
+        "min": 10,
+        "max": 20,
+        "default": 13
+      },
+      {
+        "type": "select",
+        "id": "cart_upsell_sub_weight",
+        "label": "字重",
+        "options": [
+          {
+            "value": "400",
+            "label": "常规"
+          },
+          {
+            "value": "600",
+            "label": "粗体"
+          }
+        ],
+        "default": "400"
+      },
+      {
+        "type": "color",
+        "id": "cart_upsell_toggle_color",
+        "label": "追加销售开关颜色",
+        "default": "#4CAF50"
+      },
+      {
+        "type": "color",
+        "id": "gift_price_color",
+        "label": "价格颜色",
+        "default": "#212121"
+      },
+      {
+        "type": "header",
+        "content": "容器设置"
+      },
+      {
+        "type": "color",
+        "id": "gift_bg_color",
+        "label": "背景颜色",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "gift_border_color",
+        "label": "边框颜色",
+        "default": "#fff"
+      },
+      {
+        "type": "range",
+        "id": "gift_wrap_radius",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.corner_radius.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "gift_wrap_padding",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "容器内边距",
+        "default": 10
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.color_swatch.name",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "t:settings_schema.color_swatch.settings.paragraph.content"
+      },
+      {
+        "type": "paragraph",
+        "content": "[查看教程](https://help.lumintheme.com/lumin-theme-documentation/lumintheme-exclusive/custom-color-and-image-swatches)"
+      },
+      {
+        "type": "text",
+        "id": "optionName",
+        "label": "t:settings_schema.color_swatch.settings.text.label",
+        "default": "Color",
+        "info": "t:settings_schema.color_swatch.settings.text.info"
+      },
+      {
+        "type": "paragraph",
+        "content": "t:settings_schema.color_swatch.settings.paragraph.content__2"
+      },
+      {
+        "type": "select",
+        "id": "swatchType",
+        "label": "t:settings_schema.color_swatch.settings.swatchType.label",
+        "options": [
+          {
+            "value": "color",
+            "label": "t:settings_schema.color_swatch.settings.swatchType.options__1.label"
+          },
+          {
+            "value": "variantImage",
+            "label": "t:settings_schema.color_swatch.settings.swatchType.options__2.label"
+          }
+        ],
+        "default": "color"
+      },
+      {
+        "type": "textarea",
+        "id": "swatchColors",
+        "label": "t:settings_schema.color_swatch.settings.text.label__2",
+        "placeholder": "t:settings_schema.color_swatch.settings.text.placeholder",
+        "default": "t:settings_schema.color_swatch.settings.text.default",
+        "info": "t:settings_schema.color_swatch.settings.text.info__2"
+      },
+      {
+        "type": "paragraph",
+        "content": "t:settings_schema.color_swatch.settings.paragraph.content__3"
+      },
+      {
+        "type": "paragraph",
+        "content": "t:settings_schema.color_swatch.settings.paragraph.content__4"
+      },
+      {
+        "type": "checkbox",
+        "id": "dark",
+        "label": "t:settings_schema.color_swatch.settings.checkbox.label",
+        "default": false,
+        "info": "t:settings_schema.color_swatch.settings.checkbox.info"
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.logo.name",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "t:settings_schema.logo.settings.logo_image.label"
+      },
+      {
+        "type": "range",
+        "id": "logo_width",
+        "min": 50,
+        "max": 300,
+        "step": 10,
+        "default": 100,
+        "unit": "px",
+        "label": "t:settings_schema.logo.settings.logo_width.label"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo_light",
+        "label": "浅色 Logo",
+        "info": "用于透明页眉。"
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "t:settings_schema.logo.settings.favicon.label",
+        "info": "t:settings_schema.logo.settings.favicon.info"
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.colors.name",
+    "settings": [
+      {
+        "type": "color_scheme_group",
+        "id": "color_schemes",
+        "definition": [
+          {
+            "type": "color",
+            "id": "background",
+            "label": "t:settings_schema.colors.settings.background.label",
+            "default": "#FFFFFF"
+          },
+          {
+            "type": "color_background",
+            "id": "background_gradient",
+            "label": "t:settings_schema.colors.settings.background_gradient.label",
+            "info": "t:settings_schema.colors.settings.background_gradient.info"
+          },
+          {
+            "type": "color",
+            "id": "text",
+            "label": "t:settings_schema.colors.settings.text.label",
+            "default": "#121212"
+          },
+          {
+            "type": "color",
+            "id": "button",
+            "label": "t:settings_schema.colors.settings.button_background.label",
+            "default": "#121212"
+          },
+          {
+            "type": "color",
+            "id": "button_label",
+            "label": "t:settings_schema.colors.settings.button_label.label",
+            "default": "#FFFFFF"
+          },
+          {
+            "type": "color",
+            "id": "secondary_button_label",
+            "label": "t:settings_schema.colors.settings.secondary_button_label.label",
+            "default": "#121212"
+          },
+          {
+            "type": "color",
+            "id": "shadow",
+            "label": "t:settings_schema.colors.settings.shadow.label",
+            "default": "#121212"
+          }
+        ],
+        "role": {
+          "text": "text",
+          "background": {
+            "solid": "background",
+            "gradient": "background_gradient"
+          },
+          "links": "secondary_button_label",
+          "icons": "text",
+          "primary_button": "button",
+          "on_primary_button": "button_label",
+          "primary_button_border": "button",
+          "secondary_button": "background",
+          "on_secondary_button": "secondary_button_label",
+          "secondary_button_border": "secondary_button_label"
+        }
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.typography.name",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:settings_schema.typography.settings.header__1.content"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_header_font",
+        "default": "assistant_n4",
+        "label": "t:settings_schema.typography.settings.type_header_font.label",
+        "info": "t:settings_schema.typography.settings.type_header_font.info"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_header_italic_font",
+        "default": "assistant_n4",
+        "label": "标题斜体字体",
+        "info": "t:settings_schema.typography.settings.type_header_font.info"
+      },
+      {
+        "type": "range",
+        "id": "heading_spacing",
+        "min": -1,
+        "max": 3,
+        "step": 0.1,
+        "unit": "px",
+        "label": "字距",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "heading_line_height",
+        "min": 0.1,
+        "max": 3,
+        "step": 0.1,
+        "label": "行高",
+        "default": 1.4
+      },
+      {
+        "type": "range",
+        "id": "heading_scale",
+        "min": 80,
+        "max": 150,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings_schema.typography.settings.heading_scale.label",
+        "default": 100
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.typography.settings.header__2.content"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_body_font",
+        "default": "assistant_n4",
+        "label": "t:settings_schema.typography.settings.type_body_font.label",
+        "info": "t:settings_schema.typography.settings.type_body_font.info"
+      },
+      {
+        "type": "range",
+        "id": "body_spacing",
+        "min": -1,
+        "max": 3,
+        "step": 0.1,
+        "unit": "px",
+        "label": "字距",
+        "default": 0.5
+      },
+      {
+        "type": "range",
+        "id": "body_line_height",
+        "min": -1,
+        "max": 3,
+        "step": 0.1,
+        "label": "行高",
+        "default": 1.4
+      },
+      {
+        "type": "range",
+        "id": "body_scale",
+        "min": 70,
+        "max": 130,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings_schema.typography.settings.body_scale.label",
+        "default": 100
+      },
+      {
+        "type": "header",
+        "content": "页眉菜单字体"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_menu_font",
+        "default": "assistant_n4",
+        "label": "页眉菜单字体",
+        "info": "t:settings_schema.typography.settings.type_body_font.info"
+      },
+      {
+        "type": "range",
+        "id": "header_menu_size",
+        "min": 8,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "label": "菜单字号",
+        "default": 14
+      },
+      {
+        "type": "range",
+        "id": "header_spacing",
+        "min": -1,
+        "max": 3,
+        "step": 0.5,
+        "unit": "px",
+        "label": "字距",
+        "default": 0
+      },
+      {
+        "type": "select",
+        "id": "header_menu_transform",
+        "options": [
+          {
+            "value": "none",
+            "label": "无"
+          },
+          {
+            "value": "uppercase",
+            "label": "大写"
+          },
+          {
+            "value": "lowercase",
+            "label": "小写"
+          }
+        ],
+        "default": "none",
+        "label": "文字转换"
+      },
+      {
+        "type": "header",
+        "content": "可折叠标题"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_collapsible_font",
+        "default": "assistant_n4",
+        "label": "可折叠标题字体",
+        "info": "t:settings_schema.typography.settings.type_body_font.info"
+      },
+      {
+        "type": "range",
+        "id": "collapsible_size",
+        "min": 0,
+        "max": 30,
+        "step": 1,
+        "unit": "px",
+        "label": "可折叠标题字号",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "collapsible_spacing",
+        "min": -1,
+        "max": 3,
+        "step": 0.1,
+        "unit": "px",
+        "label": "可折叠标题间距",
+        "default": 0
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.layout.name",
+    "settings": [
+      {
+        "type": "range",
+        "id": "page_width",
+        "min": 1000,
+        "max": 1600,
+        "step": 100,
+        "default": 1200,
+        "unit": "px",
+        "label": "t:settings_schema.layout.settings.page_width.label"
+      },
+      {
+        "type": "range",
+        "id": "spacing_sections",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:settings_schema.layout.settings.spacing_sections.label",
+        "default": 0
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.layout.settings.header__grid.content"
+      },
+      {
+        "type": "paragraph",
+        "content": "t:settings_schema.layout.settings.paragraph__grid.content"
+      },
+      {
+        "type": "range",
+        "id": "spacing_grid_horizontal",
+        "min": 4,
+        "max": 40,
+        "step": 4,
+        "default": 8,
+        "unit": "px",
+        "label": "t:settings_schema.layout.settings.spacing_grid_horizontal.label"
+      },
+      {
+        "type": "range",
+        "id": "spacing_grid_vertical",
+        "min": 4,
+        "max": 40,
+        "step": 4,
+        "default": 8,
+        "unit": "px",
+        "label": "t:settings_schema.layout.settings.spacing_grid_vertical.label"
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.animations.name",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "animations_reveal_on_scroll",
+        "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "animations_hover_elements",
+        "options": [
+          {
+            "value": "default",
+            "label": "t:settings_schema.animations.settings.animations_hover_elements.options__1.label"
+          },
+          {
+            "value": "vertical-lift",
+            "label": "t:settings_schema.animations.settings.animations_hover_elements.options__2.label"
+          },
+          {
+            "value": "3d-lift",
+            "label": "t:settings_schema.animations.settings.animations_hover_elements.options__3.label"
+          }
+        ],
+        "default": "default",
+        "label": "t:settings_schema.animations.settings.animations_hover_elements.label",
+        "info": "t:settings_schema.animations.settings.animations_hover_elements.info"
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.buttons.name",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:settings_schema.global.settings.header__border.content"
+      },
+      {
+        "type": "header",
+        "content": "按钮字体"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_button_font",
+        "default": "assistant_n4",
+        "label": "按钮字体",
+        "info": "t:settings_schema.typography.settings.type_body_font.info"
+      },
+      {
+        "type": "select",
+        "id": "btn_transformation",
+        "options": [
+          {
+            "value": "uppercase",
+            "label": "大写"
+          },
+          {
+            "value": "none",
+            "label": "无"
+          }
+        ],
+        "default": "none",
+        "label": "文字样式"
+      },
+      {
+        "type": "range",
+        "id": "btn_text_size",
+        "min": 10,
+        "max": 40,
+        "step": 1,
+        "unit": "px",
+        "label": "按钮字号",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "btn_text_size_mobile",
+        "min": 10,
+        "max": 40,
+        "step": 1,
+        "unit": "px",
+        "label": "按钮字号（移动端）",
+        "default": 14
+      },
+      {
+        "type": "range",
+        "id": "btn_text_spacing",
+        "min": -1,
+        "max": 3,
+        "step": 0.5,
+        "unit": "px",
+        "label": "按钮字距",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "buttons_border_thickness",
+        "min": 0,
+        "max": 12,
+        "step": 1,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.thickness.label",
+        "default": 1
+      },
+      {
+        "type": "range",
+        "id": "buttons_border_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings_schema.global.settings.opacity.label",
+        "default": 100
+      },
+      {
+        "type": "range",
+        "id": "buttons_radius",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.corner_radius.label",
+        "default": 0
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.global.settings.header__shadow.content"
+      },
+      {
+        "type": "range",
+        "id": "buttons_shadow_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings_schema.global.settings.opacity.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "buttons_shadow_horizontal_offset",
+        "min": -12,
+        "max": 12,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.horizontal_offset.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "buttons_shadow_vertical_offset",
+        "min": -12,
+        "max": 12,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.vertical_offset.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "buttons_shadow_blur",
+        "min": 0,
+        "max": 20,
+        "step": 5,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.blur.label",
+        "default": 0
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.variant_pills.name",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "t:settings_schema.variant_pills.paragraph"
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.global.settings.header__border.content"
+      },
+      {
+        "type": "range",
+        "id": "variant_pills_border_thickness",
+        "min": 0,
+        "max": 12,
+        "step": 1,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.thickness.label",
+        "default": 1
+      },
+      {
+        "type": "range",
+        "id": "variant_pills_border_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings_schema.global.settings.opacity.label",
+        "default": 55
+      },
+      {
+        "type": "range",
+        "id": "variant_pills_radius",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.corner_radius.label",
+        "default": 40
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.global.settings.header__shadow.content"
+      },
+      {
+        "type": "range",
+        "id": "variant_pills_shadow_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings_schema.global.settings.opacity.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "variant_pills_shadow_horizontal_offset",
+        "min": -12,
+        "max": 12,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.horizontal_offset.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "variant_pills_shadow_vertical_offset",
+        "min": -12,
+        "max": 12,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.vertical_offset.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "variant_pills_shadow_blur",
+        "min": 0,
+        "max": 20,
+        "step": 5,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.blur.label",
+        "default": 0
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.inputs.name",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:settings_schema.global.settings.header__border.content"
+      },
+      {
+        "type": "range",
+        "id": "inputs_border_thickness",
+        "min": 0,
+        "max": 12,
+        "step": 1,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.thickness.label",
+        "default": 1
+      },
+      {
+        "type": "range",
+        "id": "inputs_border_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings_schema.global.settings.opacity.label",
+        "default": 55
+      },
+      {
+        "type": "range",
+        "id": "inputs_radius",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.corner_radius.label",
+        "default": 0
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.global.settings.header__shadow.content"
+      },
+      {
+        "type": "range",
+        "id": "inputs_shadow_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings_schema.global.settings.opacity.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "inputs_shadow_horizontal_offset",
+        "min": -12,
+        "max": 12,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.horizontal_offset.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "inputs_shadow_vertical_offset",
+        "min": -12,
+        "max": 12,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.vertical_offset.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "inputs_shadow_blur",
+        "min": 0,
+        "max": 20,
+        "step": 5,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.blur.label",
+        "default": 0
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.cards.name",
+    "settings": [
+      {
+        "type": "select",
+        "id": "card_style",
+        "options": [
+          {
+            "value": "standard",
+            "label": "t:settings_schema.cards.settings.style.options__1.label"
+          },
+          {
+            "value": "card",
+            "label": "t:settings_schema.cards.settings.style.options__2.label"
+          }
+        ],
+        "default": "standard",
+        "label": "t:settings_schema.cards.settings.style.label"
+      },
+      {
+        "type": "range",
+        "id": "card_image_padding",
+        "min": 0,
+        "max": 20,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.image_padding.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "card_title_size",
+        "min": 8,
+        "max": 40,
+        "step": 1,
+        "unit": "px",
+        "label": "标题字号",
+        "default": 18
+      },
+      {
+        "type": "range",
+        "id": "card_price_size",
+        "min": 8,
+        "max": 40,
+        "step": 1,
+        "unit": "px",
+        "label": "价格字号",
+        "default": 18
+      },
+      {
+        "type": "checkbox",
+        "id": "bold_font",
+        "default": true,
+        "label": "粗体字体"
+      },
+      {
+        "type": "checkbox",
+        "id": "fill_space",
+        "default": true,
+        "label": "填满可用空间",
+        "info": "卡片信息将等高显示。"
+      },
+      {
+        "type": "select",
+        "id": "card_text_alignment",
+        "options": [
+          {
+            "value": "left",
+            "label": "t:settings_schema.global.settings.text_alignment.options__1.label"
+          },
+          {
+            "value": "center",
+            "label": "t:settings_schema.global.settings.text_alignment.options__2.label"
+          },
+          {
+            "value": "right",
+            "label": "t:settings_schema.global.settings.text_alignment.options__3.label"
+          }
+        ],
+        "default": "left",
+        "label": "t:settings_schema.global.settings.text_alignment.label"
+      },
+      {
+        "type": "color_scheme",
+        "id": "card_color_scheme",
+        "label": "t:sections.all.colors.label",
+        "default": "background-2"
+      },
+      {
+        "type": "header",
+        "content": "颜色色板"
+      },
+      {
+        "type": "paragraph",
+        "content": "[查看教程](https://help.lumintheme.com/lumin-theme-documentation/lumintheme-exclusive/custom-color-and-image-swatches)"
+      },
+      {
+        "type": "checkbox",
+        "id": "swatch_show",
+        "default": true,
+        "label": "显示颜色色板"
+      },
+      {
+        "type": "select",
+        "id": "swatch_position",
+        "label": "色板位置",
+        "options": [
+          {
+            "value": "top",
+            "label": "媒体上"
+          },
+          {
+            "value": "bottom",
+            "label": "标题上方"
+          }
+        ],
+        "default": "top",
+        "info": "颜色色板位置"
+      },
+      {
+        "type": "select",
+        "id": "swatchStyleCard",
+        "label": "色板样式",
+        "options": [
+          {
+            "value": "round",
+            "label": "圆形"
+          },
+          {
+            "value": "square",
+            "label": "方形"
+          },
+          {
+            "value": "square-round-corners",
+            "label": "方形圆角"
+          },
+          {
+            "value": "portrait",
+            "label": "竖屏"
+          }
+        ],
+        "default": "round",
+        "info": "竖屏模式仅对规格图片类型可用。"
+      },
+      {
+        "type": "range",
+        "id": "swatchSizeCard",
+        "min": 10,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "色板大小",
+        "default": 20
+      },
+      {
+        "type": "header",
+        "content": "滚动标签",
+        "info": "调整商品卡上方滚动商品标签的颜色、速度和字体。参考 [本指南](https://help.lumintheme.com/lumin-theme-documentation/how-to-setup-product-cards-scrolling-tags-and-custom-badges) 添加商品标签。"
+      },
+      {
+        "type": "range",
+        "id": "tag_speed",
+        "min": 0,
+        "max": 60,
+        "step": 1,
+        "unit": "sec",
+        "label": "标签滚动速度",
+        "default": 20
+      },
+      {
+        "type": "color_scheme",
+        "id": "tag_color_scheme",
+        "label": "t:sections.all.colors.label",
+        "default": "background-1"
+      },
+      {
+        "type": "range",
+        "id": "card_tag_font",
+        "min": 8,
+        "max": 24,
+        "step": 2,
+        "unit": "px",
+        "label": "标签字号",
+        "default": 14
+      },
+      {
+        "type": "select",
+        "id": "tag_transformation",
+        "options": [
+          {
+            "value": "uppercase",
+            "label": "大写"
+          },
+          {
+            "value": "none",
+            "label": "无"
+          }
+        ],
+        "default": "none",
+        "label": "文字样式"
+      },
+      {
+        "type": "select",
+        "id": "tag_weight",
+        "options": [
+          {
+            "value": "normal",
+            "label": "常规"
+          },
+          {
+            "value": "bold",
+            "label": "粗体"
+          }
+        ],
+        "default": "normal",
+        "label": "字体样式"
+      },
+      {
+        "type": "range",
+        "id": "tag_text_spacing",
+        "min": -1,
+        "max": 3,
+        "step": 0.5,
+        "unit": "px",
+        "label": "标签字距",
+        "default": 0
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.global.settings.header__border.content"
+      },
+      {
+        "type": "range",
+        "id": "card_border_thickness",
+        "min": 0,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.thickness.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "card_border_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings_schema.global.settings.opacity.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "card_corner_radius",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.corner_radius.label",
+        "default": 0
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.global.settings.header__shadow.content"
+      },
+      {
+        "type": "range",
+        "id": "card_shadow_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings_schema.global.settings.opacity.label",
+        "default": 10
+      },
+      {
+        "type": "range",
+        "id": "card_shadow_horizontal_offset",
+        "min": -40,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.horizontal_offset.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "card_shadow_vertical_offset",
+        "min": -40,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.vertical_offset.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "card_shadow_blur",
+        "min": 0,
+        "max": 40,
+        "step": 5,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.blur.label",
+        "default": 0
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.collection_cards.name",
+    "settings": [
+      {
+        "type": "select",
+        "id": "collection_card_style",
+        "options": [
+          {
+            "value": "standard",
+            "label": "t:settings_schema.collection_cards.settings.style.options__1.label"
+          },
+          {
+            "value": "card",
+            "label": "t:settings_schema.collection_cards.settings.style.options__2.label"
+          }
+        ],
+        "default": "standard",
+        "label": "t:settings_schema.collection_cards.settings.style.label"
+      },
+      {
+        "type": "range",
+        "id": "collection_card_image_padding",
+        "min": 0,
+        "max": 20,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.image_padding.label",
+        "default": 0
+      },
+      {
+        "type": "select",
+        "id": "collection_card_text_alignment",
+        "options": [
+          {
+            "value": "left",
+            "label": "t:settings_schema.global.settings.text_alignment.options__1.label"
+          },
+          {
+            "value": "center",
+            "label": "t:settings_schema.global.settings.text_alignment.options__2.label"
+          },
+          {
+            "value": "right",
+            "label": "t:settings_schema.global.settings.text_alignment.options__3.label"
+          }
+        ],
+        "default": "left",
+        "label": "t:settings_schema.global.settings.text_alignment.label"
+      },
+      {
+        "type": "color_scheme",
+        "id": "collection_card_color_scheme",
+        "label": "t:sections.all.colors.label",
+        "default": "background-2"
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.global.settings.header__border.content"
+      },
+      {
+        "type": "range",
+        "id": "collection_card_border_thickness",
+        "min": 0,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.thickness.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "collection_card_border_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings_schema.global.settings.opacity.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "collection_card_corner_radius",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.corner_radius.label",
+        "default": 0
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.global.settings.header__shadow.content"
+      },
+      {
+        "type": "range",
+        "id": "collection_card_shadow_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings_schema.global.settings.opacity.label",
+        "default": 10
+      },
+      {
+        "type": "range",
+        "id": "collection_card_shadow_horizontal_offset",
+        "min": -40,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.horizontal_offset.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "collection_card_shadow_vertical_offset",
+        "min": -40,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.vertical_offset.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "collection_card_shadow_blur",
+        "min": 0,
+        "max": 40,
+        "step": 5,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.blur.label",
+        "default": 0
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.blog_cards.name",
+    "settings": [
+      {
+        "type": "select",
+        "id": "blog_card_style",
+        "options": [
+          {
+            "value": "standard",
+            "label": "t:settings_schema.blog_cards.settings.style.options__1.label"
+          },
+          {
+            "value": "card",
+            "label": "t:settings_schema.blog_cards.settings.style.options__2.label"
+          }
+        ],
+        "default": "standard",
+        "label": "t:settings_schema.blog_cards.settings.style.label"
+      },
+      {
+        "type": "range",
+        "id": "blog_card_image_padding",
+        "min": 0,
+        "max": 20,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.image_padding.label",
+        "default": 0
+      },
+      {
+        "type": "select",
+        "id": "blog_card_text_alignment",
+        "options": [
+          {
+            "value": "left",
+            "label": "t:settings_schema.global.settings.text_alignment.options__1.label"
+          },
+          {
+            "value": "center",
+            "label": "t:settings_schema.global.settings.text_alignment.options__2.label"
+          },
+          {
+            "value": "right",
+            "label": "t:settings_schema.global.settings.text_alignment.options__3.label"
+          }
+        ],
+        "default": "left",
+        "label": "t:settings_schema.global.settings.text_alignment.label"
+      },
+      {
+        "type": "color_scheme",
+        "id": "blog_card_color_scheme",
+        "label": "t:sections.all.colors.label",
+        "default": "background-2"
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.global.settings.header__border.content"
+      },
+      {
+        "type": "range",
+        "id": "blog_card_border_thickness",
+        "min": 0,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.thickness.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "blog_card_border_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings_schema.global.settings.opacity.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "blog_card_corner_radius",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.corner_radius.label",
+        "default": 0
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.global.settings.header__shadow.content"
+      },
+      {
+        "type": "range",
+        "id": "blog_card_shadow_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings_schema.global.settings.opacity.label",
+        "default": 10
+      },
+      {
+        "type": "range",
+        "id": "blog_card_shadow_horizontal_offset",
+        "min": -40,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.horizontal_offset.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "blog_card_shadow_vertical_offset",
+        "min": -40,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.vertical_offset.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "blog_card_shadow_blur",
+        "min": 0,
+        "max": 40,
+        "step": 5,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.blur.label",
+        "default": 0
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.content_containers.name",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:settings_schema.global.settings.header__border.content"
+      },
+      {
+        "type": "range",
+        "id": "text_boxes_border_thickness",
+        "min": 0,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.thickness.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "text_boxes_border_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings_schema.global.settings.opacity.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "text_boxes_radius",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.corner_radius.label",
+        "default": 0
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.global.settings.header__shadow.content"
+      },
+      {
+        "type": "range",
+        "id": "text_boxes_shadow_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings_schema.global.settings.opacity.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "text_boxes_shadow_horizontal_offset",
+        "min": -40,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.horizontal_offset.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "text_boxes_shadow_vertical_offset",
+        "min": -40,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.vertical_offset.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "text_boxes_shadow_blur",
+        "min": 0,
+        "max": 40,
+        "step": 5,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.blur.label",
+        "default": 0
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.media.name",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:settings_schema.global.settings.header__border.content"
+      },
+      {
+        "type": "range",
+        "id": "media_border_thickness",
+        "min": 0,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.thickness.label",
+        "default": 1
+      },
+      {
+        "type": "range",
+        "id": "media_border_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings_schema.global.settings.opacity.label",
+        "default": 5
+      },
+      {
+        "type": "range",
+        "id": "media_radius",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.corner_radius.label",
+        "default": 0
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.global.settings.header__shadow.content"
+      },
+      {
+        "type": "range",
+        "id": "media_shadow_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings_schema.global.settings.opacity.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "media_shadow_horizontal_offset",
+        "min": -40,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.horizontal_offset.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "media_shadow_vertical_offset",
+        "min": -40,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.vertical_offset.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "media_shadow_blur",
+        "min": 0,
+        "max": 40,
+        "step": 5,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.blur.label",
+        "default": 0
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.popups.name",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "t:settings_schema.popups.paragraph"
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.global.settings.header__border.content"
+      },
+      {
+        "type": "range",
+        "id": "popup_border_thickness",
+        "min": 0,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.thickness.label",
+        "default": 1
+      },
+      {
+        "type": "range",
+        "id": "popup_border_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings_schema.global.settings.opacity.label",
+        "default": 10
+      },
+      {
+        "type": "range",
+        "id": "popup_corner_radius",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.corner_radius.label",
+        "default": 0
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.global.settings.header__shadow.content"
+      },
+      {
+        "type": "range",
+        "id": "popup_shadow_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings_schema.global.settings.opacity.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "popup_shadow_horizontal_offset",
+        "min": -40,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.horizontal_offset.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "popup_shadow_vertical_offset",
+        "min": -40,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.vertical_offset.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "popup_shadow_blur",
+        "min": 0,
+        "max": 40,
+        "step": 5,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.blur.label",
+        "default": 0
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.drawers.name",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:settings_schema.global.settings.header__border.content"
+      },
+      {
+        "type": "range",
+        "id": "drawer_border_thickness",
+        "min": 0,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.thickness.label",
+        "default": 1
+      },
+      {
+        "type": "range",
+        "id": "drawer_border_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings_schema.global.settings.opacity.label",
+        "default": 10
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.global.settings.header__shadow.content"
+      },
+      {
+        "type": "range",
+        "id": "drawer_shadow_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings_schema.global.settings.opacity.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "drawer_shadow_horizontal_offset",
+        "min": -40,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.horizontal_offset.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "drawer_shadow_vertical_offset",
+        "min": -40,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.vertical_offset.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "drawer_shadow_blur",
+        "min": 0,
+        "max": 40,
+        "step": 5,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.blur.label",
+        "default": 0
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.badges.name",
+    "settings": [
+      {
+        "type": "select",
+        "id": "badge_icon",
+        "options": [
+          {
+            "value": "tag",
+            "label": "标签"
+          },
+          {
+            "value": "splash",
+            "label": "星级"
+          },
+          {
+            "value": "none",
+            "label": "无"
+          }
+        ],
+        "default": "splash",
+        "label": "徽标图标"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "sale_message",
+        "label": "徽标文字",
+        "default": "Save [%]",
+        "info": "用 [$] 显示「折扣金额」，[%] 显示「折扣百分比」。留空显示默认。"
+      },
+      {
+        "type": "range",
+        "id": "badge_size",
+        "min": 0.5,
+        "max": 2,
+        "step": 0.1,
+        "label": "徽标大小",
+        "default": 1
+      },
+      {
+        "type": "select",
+        "id": "badge_position",
+        "options": [
+          {
+            "value": "bottom left",
+            "label": "t:settings_schema.badges.settings.position.options__1.label"
+          },
+          {
+            "value": "bottom right",
+            "label": "t:settings_schema.badges.settings.position.options__2.label"
+          },
+          {
+            "value": "top left",
+            "label": "t:settings_schema.badges.settings.position.options__3.label"
+          },
+          {
+            "value": "top right",
+            "label": "t:settings_schema.badges.settings.position.options__4.label"
+          },
+          {
+            "value": "none",
+            "label": "无"
+          }
+        ],
+        "default": "bottom left",
+        "label": "t:settings_schema.badges.settings.position.label"
+      },
+      {
+        "type": "select",
+        "id": "layout",
+        "options": [
+          {
+            "value": "horizontal",
+            "label": "t:sections.main-product.blocks.icon_with_text.settings.layout.options__1.label"
+          },
+          {
+            "value": "vertical",
+            "label": "t:sections.main-product.blocks.icon_with_text.settings.layout.options__2.label"
+          }
+        ],
+        "default": "horizontal",
+        "label": "t:sections.main-product.blocks.icon_with_text.settings.layout.label"
+      },
+      {
+        "type": "color_scheme",
+        "id": "sale_badge_color_scheme",
+        "label": "t:settings_schema.badges.settings.sale_badge_color_scheme.label",
+        "default": "accent-2"
+      },
+      {
+        "type": "color_scheme",
+        "id": "sold_out_badge_color_scheme",
+        "label": "t:settings_schema.badges.settings.sold_out_badge_color_scheme.label",
+        "default": "inverse"
+      },
+      {
+        "type": "header",
+        "content": "徽标边框"
+      },
+      {
+        "type": "range",
+        "id": "badge_border_thickness",
+        "min": 0,
+        "max": 12,
+        "step": 1,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.thickness.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "badge_corner_radius",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.corner_radius.label",
+        "default": 40
+      },
+      {
+        "type": "header",
+        "content": "徽标颜色"
+      },
+      {
+        "type": "color",
+        "id": "badge_border_color",
+        "label": "边框颜色",
+        "default": "transparent"
+      },
+      {
+        "type": "header",
+        "content": "自定义徽标颜色",
+        "info": "调整商品卡上自定义徽标的颜色。参考 [本指南](https://help.lumintheme.com/lumin-theme-documentation/how-to-setup-product-cards-scrolling-tags-and-custom-badges) 添加徽标；在商品标签中按格式 'Badge1:你的文字'、'Badge2:你的文字'、'Badge3:你的文字' 添加。"
+      },
+      {
+        "type": "color",
+        "id": "badge_1_color_bg",
+        "label": "徽标 1 背景颜色",
+        "default": "#ff0000"
+      },
+      {
+        "type": "color",
+        "id": "badge_1_color_text",
+        "label": "徽标 1 颜色",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "badge_1_color_border",
+        "label": "徽标 1 边框",
+        "default": "#000"
+      },
+      {
+        "type": "color",
+        "id": "badge_2_color_bg",
+        "label": "徽标 2 背景颜色",
+        "default": "#ff9f00"
+      },
+      {
+        "type": "color",
+        "id": "badge_2_color_text",
+        "label": "徽标 2 颜色",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "badge_2_color_border",
+        "label": "徽标 2 边框",
+        "default": "#000"
+      },
+      {
+        "type": "color",
+        "id": "badge_3_color_bg",
+        "label": "徽标 3 背景颜色",
+        "default": "#2196f3"
+      },
+      {
+        "type": "color",
+        "id": "badge_3_color_text",
+        "label": "徽标 3 颜色",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "badge_3_color_border",
+        "label": "徽标 3 边框",
+        "default": "#000"
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.brand_information.name",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "t:settings_schema.brand_information.settings.paragraph.content"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "brand_headline",
+        "label": "t:settings_schema.brand_information.settings.brand_headline.label"
+      },
+      {
+        "type": "richtext",
+        "id": "brand_description",
+        "label": "t:settings_schema.brand_information.settings.brand_description.label"
+      },
+      {
+        "type": "image_picker",
+        "id": "brand_image",
+        "label": "t:settings_schema.brand_information.settings.brand_image.label"
+      },
+      {
+        "type": "range",
+        "id": "brand_image_width",
+        "min": 50,
+        "max": 550,
+        "step": 5,
+        "default": 100,
+        "unit": "px",
+        "label": "t:settings_schema.brand_information.settings.brand_image_width.label"
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.social-media.name",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:settings_schema.social-media.settings.header.content"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": "t:settings_schema.social-media.settings.social_facebook_link.label",
+        "placeholder": "t:settings_schema.social-media.settings.social_facebook_link.info"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": "t:settings_schema.social-media.settings.social_instagram_link.label",
+        "placeholder": "t:settings_schema.social-media.settings.social_instagram_link.info"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube_link",
+        "label": "t:settings_schema.social-media.settings.social_youtube_link.label",
+        "placeholder": "t:settings_schema.social-media.settings.social_youtube_link.info"
+      },
+      {
+        "type": "text",
+        "id": "social_tiktok_link",
+        "label": "t:settings_schema.social-media.settings.social_tiktok_link.label",
+        "placeholder": "t:settings_schema.social-media.settings.social_tiktok_link.info"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter_link",
+        "label": "t:settings_schema.social-media.settings.social_twitter_link.label",
+        "placeholder": "t:settings_schema.social-media.settings.social_twitter_link.info"
+      },
+      {
+        "type": "text",
+        "id": "social_snapchat_link",
+        "label": "t:settings_schema.social-media.settings.social_snapchat_link.label",
+        "placeholder": "t:settings_schema.social-media.settings.social_snapchat_link.info"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest_link",
+        "label": "t:settings_schema.social-media.settings.social_pinterest_link.label",
+        "placeholder": "t:settings_schema.social-media.settings.social_pinterest_link.info"
+      },
+      {
+        "type": "text",
+        "id": "social_tumblr_link",
+        "label": "t:settings_schema.social-media.settings.social_tumblr_link.label",
+        "placeholder": "t:settings_schema.social-media.settings.social_tumblr_link.info"
+      },
+      {
+        "type": "text",
+        "id": "social_vimeo_link",
+        "label": "t:settings_schema.social-media.settings.social_vimeo_link.label",
+        "placeholder": "t:settings_schema.social-media.settings.social_vimeo_link.info"
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.search_input.name",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:settings_schema.search_input.settings.header.content"
+      },
+      {
+        "type": "checkbox",
+        "id": "predictive_search_enabled",
+        "default": true,
+        "label": "t:settings_schema.search_input.settings.predictive_search_enabled.label"
+      },
+      {
+        "type": "checkbox",
+        "id": "predictive_search_show_vendor",
+        "default": false,
+        "label": "t:settings_schema.search_input.settings.predictive_search_show_vendor.label",
+        "info": "t:settings_schema.search_input.settings.predictive_search_show_vendor.info"
+      },
+      {
+        "type": "checkbox",
+        "id": "predictive_search_show_price",
+        "default": false,
+        "label": "t:settings_schema.search_input.settings.predictive_search_show_price.label",
+        "info": "t:settings_schema.search_input.settings.predictive_search_show_price.info"
+      },
+      {
+        "type": "checkbox",
+        "id": "search_products_only",
+        "default": true,
+        "label": "t:settings_schema.search_input.settings.search_products_only.label",
+        "info": "t:settings_schema.search_input.settings.search_products_only.info"
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.currency_format.name",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:settings_schema.currency_format.settings.content"
+      },
+      {
+        "type": "paragraph",
+        "content": "t:settings_schema.currency_format.settings.paragraph"
+      },
+      {
+        "type": "checkbox",
+        "id": "currency_code_enabled",
+        "label": "t:settings_schema.currency_format.settings.currency_code_enabled.label",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "currency_without_zero",
+        "label": "货币去除末尾零",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.currency_format.settings.sup_enabled.label"
+      },
+      {
+        "type": "paragraph",
+        "content": "t:settings_schema.currency_format.settings.sup_enabled.paragraph"
+      },
+      {
+        "type": "checkbox",
+        "id": "sup_enabled",
+        "label": "t:settings_schema.currency_format.settings.sup_enabled.label",
+        "default": false
+      }
+    ]
+  }
+]

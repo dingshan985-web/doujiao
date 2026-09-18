@@ -1,0 +1,509 @@
+{{ 'component-accordion.css' | asset_url | stylesheet_tag }}
+{{ 'collapsible-content.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="collapsible-content collapsible-{{ section.settings.layout }}-layout isolate{% if section.settings.layout == 'section' %} page-width{% elsif section.settings.layout == 'none' %} content-container content-container--full-width{% endif %}">
+    <div class="collapsible-content__wrapper section-{{ section.id }}-padding{% if section.settings.layout == 'section' %} content-container color-{{ section.settings.container_color_scheme }} gradient{% endif %}">
+      <div class="{% if section.settings.image == blank %}collapsible-content-wrapper-narrow{% else %}page-width{% endif %}">
+        <div
+          class="collapsible-content__header{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          style="text-align: {{ section.settings.heading_alignment }};"
+        >
+          {%- if section.settings.caption != blank -%}
+            <p class="caption-with-letter-spacing">
+              {{ section.settings.caption | escape }}
+            </p>
+          {% endif %}
+          {%- if section.settings.heading != blank -%}
+            <h2 class="collapsible-content__heading inline-richtext {{ section.settings.heading_size }}">
+              {{ section.settings.heading | replace: '[', '<span class="lumin-text__fancy1">' | replace: ']', '</span>' | replace: '((', '<span class="lumin-text__fancy2">' | replace: '))', '</span>' }}
+            </h2>
+          {%- else -%}
+            <h2 class="visually-hidden">{{ 'accessibility.collapsible_content_title' | t }}</h2>
+          {% endif %}
+        </div>
+        <div class="grid grid--1-col grid--2-col-tablet collapsible-content__grid{% if section.settings.desktop_layout == 'image_second' %} collapsible-content__grid--reverse{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+          {%- if section.settings.image != blank -%}
+            <div class="grid__item collapsible-content__grid-item">
+              <div
+                class="collapsible-content__media collapsible-content__media--{{ section.settings.image_ratio }} media global-media-settings gradient"
+                {% if section.settings.image_ratio == 'adapt' %}
+                  style="padding-bottom: {{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;"
+                {% endif %}
+              >
+                {%- liquid
+                  assign padding_multiplier = 1
+                  if section.settings.layout == 'section'
+                    assign padding_multiplier = 2
+                  endif
+                  assign desktop_tablet_padding = 100 | times: padding_multiplier | append: 'px'
+                  assign mobile_padding = 30 | times: padding_multiplier | append: 'px'
+                -%}
+                {%- capture sizes -%}
+                  (min-width: {{ settings.page_width }}px) calc(({{ settings.page_width }}px - {{ desktop_tablet_padding }}) / 2),
+                  (min-width: 750px) calc((100vw - {{ desktop_tablet_padding }}) / 2),
+                  calc(100vw - {{ mobile_padding }})
+                {%- endcapture -%}
+                {{
+                  section.settings.image
+                  | image_url: width: 3200
+                  | image_tag:
+                    sizes: sizes,
+                    widths: '50, 75, 100, 150, 200, 300, 400, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3200'
+                }}
+              </div>
+            </div>
+          {% endif %}
+          <div class="grid__item">
+            {%- for block in section.blocks -%}
+              <div
+                class="accordion{% if section.settings.layout == 'row' %} content-container color-{{ section.settings.container_color_scheme }} gradient{% endif %}"
+                {{ block.shopify_attributes }}
+              >
+                <details
+                  id="Details-{{ block.id }}-{{ section.id }}"
+                  {% if section.settings.open_first_collapsible_row and forloop.first %}
+                    open
+                  {% endif %}
+                >
+                  <summary id="Summary-{{ block.id }}-{{ section.id }}">
+                    {% render 'icon-accordion', icon: block.settings.icon %}
+                    <h3 class="accordion__title inline-richtext">
+                      {{ block.settings.heading | default: block.settings.page.title | replace: '[', '<span class="lumin-text__fancy1">' | replace: ']', '</span>' | replace: '((', '<span class="lumin-text__fancy2">' | replace: '))', '</span>' }}
+                    </h3>
+                    {% render 'icon-caret' %}
+                  </summary>
+                  <div
+                    class="accordion__content rte"
+                    id="CollapsibleAccordion-{{ block.id }}-{{ section.id }}"
+                    role="region"
+                    aria-labelledby="Summary-{{ block.id }}-{{ section.id }}"
+                  >
+                    {{ block.settings.row_content | replace: '[', '<span class="lumin-text__fancy1">' | replace: ']', '</span>' | replace: '((', '<span class="lumin-text__fancy2">' | replace: '))', '</span>' }}
+                    {{ block.settings.page.content }}
+                  </div>
+                </details>
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "可折叠内容",
+  "tag": "section",
+  "class": "section",
+   "disabled_on": {
+  "groups": ["header", "footer", "custom.popup"]
+   },
+  "settings": [
+    {
+      "type": "text",
+      "id": "caption",
+      "label": "字幕"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "标题",
+      "default": "Collapsible content"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "小"
+        },
+        {
+          "value": "h1",
+          "label": "中"
+        },
+        {
+          "value": "h0",
+          "label": "大"
+        }
+      ],
+      "default": "h1",
+      "label": "标题大小"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "标题对齐方式",
+      "options": [
+        {
+          "value": "left",
+          "label": "左"
+        },
+        {
+          "value": "center",
+          "label": "居中"
+        },
+        {
+          "value": "right",
+          "label": "右"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "布局",
+      "options": [
+        {
+          "value": "none",
+          "label": "无容器"
+        },
+        {
+          "value": "row",
+          "label": "行容器"
+        },
+        {
+          "value": "section",
+          "label": "分区容器"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "配色方案",
+      "default": "background-1"
+    },
+    {
+      "type": "color_scheme",
+      "id": "container_color_scheme",
+      "label": "容器配色方案",
+      "info": "在将“布局”设置为“行”或“分区”容器时可见。",
+      "default": "background-2"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_first_collapsible_row",
+      "default": false,
+      "label": "打开第一个可折叠行"
+    },
+    {
+      "type": "header",
+      "content": "图片布局"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "图片"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "适应图片"
+        },
+        {
+          "value": "small",
+          "label": "小"
+        },
+        {
+          "value": "large",
+          "label": "大"
+        }
+      ],
+      "default": "adapt",
+      "label": "图片比"
+    },
+    {
+      "type": "select",
+      "id": "desktop_layout",
+      "options": [
+        {
+          "value": "image_first",
+          "label": "图片优先"
+        },
+        {
+          "value": "image_second",
+          "label": "第二张图片"
+        }
+      ],
+      "default": "image_second",
+      "label": "桌面布局",
+      "info": "移动设备上总是图片优先。"
+    },
+    
+    {
+      "type": "header",
+      "content": "分区填充"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "顶部填充",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "底部填充",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collapsible_row",
+      "name": "可折叠行",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Collapsible row",
+          "label": "标题",
+          "info": "包含可解释相关内容的标题。"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "options": [
+            {
+              "value": "none",
+              "label": "无"
+            },
+            {
+              "value": "apple",
+              "label": "苹果"
+            },
+            {
+              "value": "banana",
+              "label": "香蕉"
+            },
+            {
+              "value": "bottle",
+              "label": "瓶子"
+            },
+            {
+              "value": "box",
+              "label": "箱子"
+            },
+            {
+              "value": "carrot",
+              "label": "胡萝卜"
+            },
+            {
+              "value": "chat_bubble",
+              "label": "聊天泡泡"
+            },
+            {
+              "value": "check_mark",
+              "label": "复选标记"
+            },
+            {
+              "value": "clipboard",
+              "label": "剪贴板"
+            },
+            {
+              "value": "dairy",
+              "label": "乳制品"
+            },
+            {
+              "value": "dairy_free",
+              "label": "不食乳制品"
+            },
+            {
+              "value": "dryer",
+              "label": "吹风机"
+            },
+            {
+              "value": "eye",
+              "label": "眼睛"
+            },
+            {
+              "value": "fire",
+              "label": "火"
+            },
+            {
+              "value": "gluten_free",
+              "label": "无麸质"
+            },
+            {
+              "value": "heart",
+              "label": "心形"
+            },
+            {
+              "value": "iron",
+              "label": "铁"
+            },
+            {
+              "value": "leaf",
+              "label": "树叶"
+            },
+            {
+              "value": "leather",
+              "label": "皮革"
+            },
+            {
+              "value": "lightning_bolt",
+              "label": "闪电束"
+            },
+            {
+              "value": "lipstick",
+              "label": "口红"
+            },
+            {
+              "value": "lock",
+              "label": "锁"
+            },
+            {
+              "value": "map_pin",
+              "label": "图钉"
+            },
+            {
+              "value": "nut_free",
+              "label": "不含坚果"
+            },
+            {
+              "value": "pants",
+              "label": "裤装"
+            },
+            {
+              "value": "paw_print",
+              "label": "爪印"
+            },
+            {
+              "value": "pepper",
+              "label": "胡椒粉"
+            },
+            {
+              "value": "perfume",
+              "label": "香水"
+            },
+            {
+              "value": "plane",
+              "label": "飞机"
+            },
+            {
+              "value": "plant",
+              "label": "绿植"
+            },
+            {
+              "value": "price_tag",
+              "label": "价格标签"
+            },
+            {
+              "value": "question_mark",
+              "label": "问号"
+            },
+            {
+              "value": "recycle",
+              "label": "回收利用"
+            },
+            {
+              "value": "return",
+              "label": "退货"
+            },
+            {
+              "value": "ruler",
+              "label": "直尺"
+            },
+            {
+              "value": "serving_dish",
+              "label": "餐盘"
+            },
+            {
+              "value": "shirt",
+              "label": "衬衫"
+            },
+            {
+              "value": "shoe",
+              "label": "鞋"
+            },
+            {
+              "value": "silhouette",
+              "label": "剪影"
+            },
+            {
+              "value": "snowflake",
+              "label": "雪花"
+            },
+            {
+              "value": "star",
+              "label": "星星"
+            },
+            {
+              "value": "stopwatch",
+              "label": "秒表"
+            },
+            {
+              "value": "truck",
+              "label": "卡车"
+            },
+            {
+              "value": "washing",
+              "label": "洗涤剂"
+            }
+          ],
+          "default": "check_mark",
+          "label": "图标"
+        },
+        {
+          "type": "richtext",
+          "id": "row_content",
+          "label": "行内容"
+        },
+        {
+          "type": "page",
+          "id": "page",
+          "label": "页面中的行内容"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "可折叠内容",
+      "blocks": [
+        {
+          "type": "collapsible_row"
+        },
+        {
+          "type": "collapsible_row"
+        },
+        {
+          "type": "collapsible_row"
+        },
+        {
+          "type": "collapsible_row"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

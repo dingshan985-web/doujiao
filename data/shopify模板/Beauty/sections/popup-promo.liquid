@@ -1,0 +1,327 @@
+{%- unless section.settings.mode == 'disabled' -%}
+  {%- liquid
+    assign show_promo_popup_p = true
+
+    if section.settings.mode == 'disabled'
+      assign show_promo_popup_p = false
+    endif
+
+    if section.settings.only_homepage and request.page_type != 'index'
+      assign show_promo_popup_p = false
+    endif
+
+    if section.settings.only_visitor and customer
+      assign show_promo_popup_p = false
+    endif
+
+  -%}
+
+  {%- if show_promo_popup_p -%}
+    {%- style -%}
+      #shopify-section-{{ section.id }} .popup-p {
+        --popup-p-width: {{ section.settings.width }}px;
+        --popup-p-padding: {{ section.settings.padding }}px;
+        --color-background: {{ section.settings.colors_background.red }}, {{ section.settings.colors_background.green }}, {{ section.settings.colors_background.blue }};
+        --color-foreground: {{ section.settings.colors_text.red }}, {{ section.settings.colors_text.green }}, {{ section.settings.colors_text.blue }};
+        --color-link: var(--color-foreground);
+        --color-heading: var(--color-foreground);
+      }
+      #shopify-section-{{ section.id }} .popup-p-close {
+         --color-background: {{ section.settings.colors_background.red }}, {{ section.settings.colors_background.green }}, {{ section.settings.colors_background.blue }};
+        --color-foreground: {{ section.settings.colors_text.red }}, {{ section.settings.colors_text.green }}, {{ section.settings.colors_text.blue }};
+      }
+    {%- endstyle -%}
+
+    <link rel="stylesheet" href="{{ 'section-promo-popup.css' | asset_url }}" media="print" onload="this.media='all'">
+    <noscript>{{ 'section-promo-popup.css' | asset_url | stylesheet_tag }}</noscript>
+
+    <promo-popup-p
+      data-section-id="{{ section.id }}"
+      class="hidden"
+      data-delay="{{ section.settings.delay }}"
+      data-expiry="{{ section.settings.expiry }}"
+      data-test-mode="{% if section.settings.mode == 'testing' or section.settings.mode == 'success_testing' %}true{% else %}false{% endif %}"
+    >
+      <div
+        class="promo-popup-p{% if section.settings.mode == 'testing' %} is-active{% endif %}"
+        data-position="{{ section.settings.text_box_position }}"
+      >
+        {%- if section.settings.text_box_position == 'center' -%}
+          <div class="popup-p-overlay"></div>
+        {%- endif -%}
+        <div class="popup-p-wrapper">
+          <button class="popup-p-close" type="button" aria-label="{{ 'accessibility.close' | t }}">
+            <span class="icon icon-plus-alt"></span>
+          </button>
+          <div class="popup-p {{ section.settings.text_alignment }}">
+            <div class="popup-p__content-wrapper">
+              <div class="popup-p__content">
+                <div class="rte remove-space">
+                  {%- unless section.settings.heading == blank
+                    and section.settings.heading_prefix == blank
+                    and section.settings.heading_suffix == blank
+                  -%}
+                    <h2 class="popup-p-modal__title">
+                      {%- unless section.settings.heading_prefix == blank -%}
+                        <span class="popup-p-modal__title__prefix">
+                          {{
+                            section.settings.heading_prefix
+                            | replace: '[', '<span class="lumin-text__fancy1">'
+                            | replace: ']', '</span>'
+                            | replace: '((', '<span class="lumin-text__fancy2">'
+                            | replace: '))', '</span>'
+                          }}
+                        </span>
+                      {%- endunless -%}
+                      {%- unless section.settings.heading == blank -%}
+                        <span class="title {{ section.settings.heading_size }}">
+                          {{
+                            section.settings.heading
+                            | replace: '[', '<span class="lumin-text__fancy1">'
+                            | replace: ']', '</span>'
+                            | replace: '((', '<span class="lumin-text__fancy2">'
+                            | replace: '))', '</span>'
+                          }}
+                        </span>
+                      {%- endunless -%}
+                      {%- unless section.settings.heading_suffix == blank -%}
+                        <span class="popup-p-modal__title__suffix">
+                          {{
+                            section.settings.heading_suffix
+                            | replace: '[', '<span class="lumin-text__fancy1">'
+                            | replace: ']', '</span>'
+                            | replace: '((', '<span class="lumin-text__fancy2">'
+                            | replace: '))', '</span>'
+                          }}
+                        </span>
+                      {%- endunless -%}
+                    </h2>
+                  {%- endunless -%}
+                  {%- unless section.settings.text == blank -%}
+                    <div class="popup-p-modal__text remove-space">
+                      {{
+                        section.settings.text
+                        | replace: '[', '<span class="lumin-text__fancy1">'
+                        | replace: ']', '</span>'
+                        | replace: '((', '<span class="lumin-text__fancy2">'
+                        | replace: '))', '</span>'
+                      }}
+                    </div>
+                  {%- endunless -%}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </promo-popup-p>
+
+    {%- unless request.design_mode -%}
+      <script src="{{ 'popup-p-news.js' | asset_url }}" defer="defer"></script>
+    {%- endunless -%}
+  {%- endif -%}
+
+  {%- if request.design_mode -%}
+    <script src="{{ 'popup-p-news.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
+{% endunless %}
+
+{% schema %}
+{
+  "name": "促销弹窗",
+   "enabled_on": {
+    "groups": ["custom.popup"]
+  },
+  "settings": [
+    {
+      "type": "select",
+      "id": "mode",
+      "options": [
+        {
+          "value": "enabled",
+          "label": "开"
+        },
+        {
+          "value": "disabled",
+          "label": "关"
+        },
+        {
+          "value": "testing",
+          "label": "测试"
+        }
+      ],
+      "default": "disabled",
+      "label": "显示模式",
+      "info": "在「测试」模式下，弹窗会始终显示（忽略相关设置或关闭操作），方便你随时查看。满意后切换到「开」。"
+    },
+    {
+      "type": "checkbox",
+      "id": "only_homepage",
+      "label": "仅在首页显示",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "only_visitor",
+      "label": "仅对访客显示",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "delay",
+      "max": 60,
+      "min": 2,
+      "step": 1,
+      "unit": "t:sections.popup.settings.delay.unit",
+      "label": "延迟",
+      "info": "为保证可见性，延迟在主题编辑器中已禁用。",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "expiry",
+      "max": 30,
+      "min": 1,
+      "step": 1,
+      "unit": "t:sections.popup.settings.expiry.unit",
+      "label": "频率",
+      "info": "弹窗被关闭后再次出现的天数。",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "width",
+      "max": 1000,
+      "min": 300,
+      "step": 10,
+      "unit": "t:sections.popup.settings.width.unit",
+      "label": "弹窗宽度",
+      "default": 370
+    },
+    {
+      "type": "range",
+      "id": "padding",
+      "max": 80,
+      "min": 20,
+      "step": 4,
+      "unit": "t:sections.popup.settings.padding.unit",
+      "label": "内容内边距",
+      "default": 28
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "左"
+        },
+        {
+          "value": "center",
+          "label": "居中"
+        },
+        {
+          "value": "right",
+          "label": "右"
+        }
+      ],
+      "default": "left",
+      "label": "内容对齐"
+    },
+    {
+      "type": "select",
+      "id": "text_box_position",
+      "options": [
+        {
+          "value": "center",
+          "label": "居中"
+        },
+        {
+          "value": "bottom-left",
+          "label": "左下"
+        },
+        {
+          "value": "bottom-right",
+          "label": "右下"
+        }
+      ],
+      "default": "bottom-right",
+      "label": "内容位置"
+    },
+     {
+            "type": "header",
+            "content": "内容"
+        },
+        {
+            "type": "text",
+            "id": "heading_prefix",
+            "label": "标题前缀"
+        },
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "标题",
+            "default": "Popup"
+        },
+        {
+            "type": "select",
+            "id": "heading_size",
+            "options": [
+                {
+                    "value": "h3",
+                    "label": "超小"
+                },
+                {
+                    "value": "h2",
+                    "label": "小"
+                },
+                {
+                    "value": "h1",
+                    "label": "中"
+                },
+                {
+                    "value": "h0",
+                    "label": "大"
+                }
+            ],
+            "default": "h1",
+            "label": "标题大小"
+        },
+        {
+            "type": "text",
+            "id": "heading_suffix",
+            "label": "标题后缀"
+        },
+        {
+            "type": "richtext",
+            "id": "text",
+            "label": "描述",
+            "default": "<p>Share information about your brand with your customers.</p>"
+        },
+    {
+      "type": "header",
+      "content": "颜色"
+    },
+    {
+      "type": "color",
+      "id": "colors_background",
+      "label": "背景",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "colors_text",
+      "label": "文本",
+      "default": "#1a1b18"
+    }
+  ],
+   "presets": [
+    {
+      "name": "促销弹窗"
+    }
+  ]
+}
+{% endschema %}
+
+

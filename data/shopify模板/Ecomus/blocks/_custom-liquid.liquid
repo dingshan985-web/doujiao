@@ -1,0 +1,21 @@
+<!-- blocks / custom-liquid.liquid -->
+{{ block.settings.liquid }}
+{% schema %}
+  {
+    "name": "自定义 Liquid",
+    "tag": null,
+    "settings": [
+      {
+        "type": "liquid",
+        "id": "liquid",
+        "label": "Liquid",
+        "info": "添加应用代码片段或其他 Liquid 代码以创建高级自定义。"
+      }
+    ],
+    "presets": [
+      {
+        "name": "自定义 Liquid"
+      }
+    ]
+  }
+{% endschema %}

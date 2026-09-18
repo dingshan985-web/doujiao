@@ -1,0 +1,1146 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    {% if section.settings.fade %}
+    -webkit-mask-box-image: linear-gradient(to right, hsl(0 0% 0% / 0), hsl(0 0% 0% / 1) 20%, hsl(0 0% 0% / 1) 80%, hsl(0 0% 0% / 0));
+    mask-image: linear-gradient(to right, hsl(0 0% 0% / 0), hsl(0 0% 0% / 1) 20%, hsl(0 0% 0% / 1) 80%, hsl(0 0% 0% / 0));
+ {% endif %}
+      }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<div class="section-{{ section.id }}-padding">
+  <div
+    class="announcement-bar--inner-{{ section.id }} {% if section.settings.reverse %} direction-right{% else %} direction-left{% endif %} color-{{ section.settings.color_scheme }} gradient"
+    style="--marquee-speed: {{ section.settings.scroll_speed }}s"
+  >
+     <div style="display: flex;">
+      <div style="display: flex;">
+        {%- for block in section.blocks -%}
+          {% case block.type %}
+            {% when 'image' %}
+              <style>
+                            .announcement-bar-{{ block.id }} img {
+                  width: {{block.settings.logo_image_width}}px;
+                  height:auto;
+                }
+                             .announcement-bar-{{ block.id }} svg {
+                  width: {{block.settings.logo_image_width}}px;
+                  height:auto;
+                }
+              </style>
+              <div
+                class="announcement-bar-{{ section.id }} announcement-bar-{{ block.id }}"
+                role="region"
+                aria-label="Announcement"
+                {{ block.shopify_attributes }}
+              >
+                {% if block.settings.logo_image != blank %}
+                  {{ block.settings.logo_image | image_url: width: 200 | image_tag: loading: 'lazy' }}
+                {%- else -%}
+                  <p style="font-size: 40px;margin: 0;">Brand</p>
+                {%- endif -%}
+              </div>
+
+            {% when 'announcement' %}
+              <style>
+                  .lumin-text-{{ block.id }} p {
+                    color: {{ block.settings.announcement_color }};
+                    font-size: {{ block.settings.announcement_size }}px;
+                    letter-spacing: {{ block.settings.text_spacing }}px;
+                    text-transform: {{ block.settings.text_transform }};
+                    margin:0;
+                  }
+                @media screen and (max-width: 749px) {
+                   .lumin-text-{{ block.id }} p {
+                    font-size: {{ block.settings.announcement_size_m }}px;
+                  }
+                }
+                   .lumin-text-{{ block.id }} svg{
+                    width:calc({{ block.settings.announcement_size }}px + 2px);
+                    height:calc({{ block.settings.announcement_size }}px + 2px);
+                  }
+                 @media screen and (max-width: 749px) {
+                  .lumin-text-{{ block.id }} svg{
+                    width:{{ block.settings.announcement_size_m }}px;
+                    height:{{ block.settings.announcement_size_m }}px;
+                  }
+                }
+              </style>
+              <div
+                class="lumin-text-{{ block.id }} announcement-bar-{{ section.id }}"
+                role="region"
+                aria-label="Announcement"
+                {{ block.shopify_attributes }}
+              >
+                <span class="scroll rte">
+                  {% render 'icon-accordion', icon: block.settings.icon %}
+                  {{ block.settings.Announcement | replace: '[', '<span class="lumin-text__fancy1">' | replace: ']', '</span>' | replace: '((', '<span class="lumin-text__fancy2">' | replace: '))', '</span>' }}
+                </span>
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div> 
+       <div style="display: flex;">
+      <div style="display: flex;">
+        {%- for block in section.blocks -%}
+          {% case block.type %}
+            {% when 'image' %}
+              <style>
+                            .announcement-bar-{{ block.id }} img {
+                  width: {{block.settings.logo_image_width}}px;
+                  height:auto;
+                }
+                             .announcement-bar-{{ block.id }} svg {
+                  width: {{block.settings.logo_image_width}}px;
+                  height:auto;
+                }
+              </style>
+              <div
+                class="announcement-bar-{{ section.id }} announcement-bar-{{ block.id }}"
+                role="region"
+                aria-label="Announcement"
+                {{ block.shopify_attributes }}
+              >
+                {% if block.settings.logo_image != blank %}
+                  {{ block.settings.logo_image | image_url: width: 200 | image_tag: loading: 'lazy' }}
+                {%- else -%}
+                  <p style="font-size: 40px;margin: 0;">Brand</p>
+                {%- endif -%}
+              </div>
+
+            {% when 'announcement' %}
+              <style>
+                  .lumin-text-{{ block.id }} p {
+                    color: {{ block.settings.announcement_color }};
+                    font-size: {{ block.settings.announcement_size }}px;
+                    letter-spacing: {{ block.settings.text_spacing }}px;
+                    text-transform: {{ block.settings.text_transform }};
+                    margin:0;
+                  }
+                @media screen and (max-width: 749px) {
+                   .lumin-text-{{ block.id }} p {
+                    font-size: {{ block.settings.announcement_size_m }}px;
+                  }
+                }
+                   .lumin-text-{{ block.id }} svg{
+                    width:calc({{ block.settings.announcement_size }}px + 2px);
+                    height:calc({{ block.settings.announcement_size }}px + 2px);
+                  }
+                 @media screen and (max-width: 749px) {
+                  .lumin-text-{{ block.id }} svg{
+                    width:{{ block.settings.announcement_size_m }}px;
+                    height:{{ block.settings.announcement_size_m }}px;
+                  }
+                }
+              </style>
+              <div
+                class="lumin-text-{{ block.id }} announcement-bar-{{ section.id }}"
+                role="region"
+                aria-label="Announcement"
+                {{ block.shopify_attributes }}
+              >
+                <span class="scroll rte">
+                  {% render 'icon-accordion', icon: block.settings.icon %}
+                  {{ block.settings.Announcement | replace: '[', '<span class="lumin-text__fancy1">' | replace: ']', '</span>' | replace: '(', '<span class="lumin-text__fancy2">' | replace: ')', '</span>'}}
+                </span>
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+       <div style="display: flex;">
+      <div style="display: flex;">
+        {%- for block in section.blocks -%}
+          {% case block.type %}
+            {% when 'image' %}
+              <style>
+                            .announcement-bar-{{ block.id }} img {
+                  width: {{block.settings.logo_image_width}}px;
+                  height:auto;
+                }
+                             .announcement-bar-{{ block.id }} svg {
+                  width: {{block.settings.logo_image_width}}px;
+                  height:auto;
+                }
+              </style>
+              <div
+                class="announcement-bar-{{ section.id }} announcement-bar-{{ block.id }}"
+                role="region"
+                aria-label="Announcement"
+                {{ block.shopify_attributes }}
+              >
+                {% if block.settings.logo_image != blank %}
+                  {{ block.settings.logo_image | image_url: width: 200 | image_tag: loading: 'lazy' }}
+                {%- else -%}
+                  <p style="font-size: 40px;margin: 0;">Brand</p>
+                {%- endif -%}
+              </div>
+
+            {% when 'announcement' %}
+              <style>
+                  .lumin-text-{{ block.id }} p {
+                    color: {{ block.settings.announcement_color }};
+                    font-size: {{ block.settings.announcement_size }}px;
+                    letter-spacing: {{ block.settings.text_spacing }}px;
+                    text-transform: {{ block.settings.text_transform }};
+                    margin:0;
+                  }
+                @media screen and (max-width: 749px) {
+                   .lumin-text-{{ block.id }} p {
+                    font-size: {{ block.settings.announcement_size_m }}px;
+                  }
+                }
+                   .lumin-text-{{ block.id }} svg{
+                    width:calc({{ block.settings.announcement_size }}px + 2px);
+                    height:calc({{ block.settings.announcement_size }}px + 2px);
+                  }
+                 @media screen and (max-width: 749px) {
+                  .lumin-text-{{ block.id }} svg{
+                    width:{{ block.settings.announcement_size_m }}px;
+                    height:{{ block.settings.announcement_size_m }}px;
+                  }
+                }
+              </style>
+              <div
+                class="lumin-text-{{ block.id }} announcement-bar-{{ section.id }}"
+                role="region"
+                aria-label="Announcement"
+                {{ block.shopify_attributes }}
+              >
+                <span class="scroll rte">
+                  {% render 'icon-accordion', icon: block.settings.icon %}
+                  {{ block.settings.Announcement | replace: '[', '<span class="lumin-text__fancy1">' | replace: ']', '</span>' | replace: '((', '<span class="lumin-text__fancy2">' | replace: '))', '</span>' }}
+                </span>
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+       <div style="display: flex;">
+      <div style="display: flex;">
+        {%- for block in section.blocks -%}
+          {% case block.type %}
+            {% when 'image' %}
+              <style>
+                            .announcement-bar-{{ block.id }} img {
+                  width: {{block.settings.logo_image_width}}px;
+                  height:auto;
+                }
+                             .announcement-bar-{{ block.id }} svg {
+                  width: {{block.settings.logo_image_width}}px;
+                  height:auto;
+                }
+              </style>
+              <div
+                class="announcement-bar-{{ section.id }} announcement-bar-{{ block.id }}"
+                role="region"
+                aria-label="Announcement"
+                {{ block.shopify_attributes }}
+              >
+                {% if block.settings.logo_image != blank %}
+                  {{ block.settings.logo_image | image_url: width: 200 | image_tag: loading: 'lazy' }}
+                {%- else -%}
+                  <p style="font-size: 40px;margin: 0;">Brand</p>
+                {%- endif -%}
+              </div>
+
+            {% when 'announcement' %}
+              <style>
+                  .lumin-text-{{ block.id }} p {
+                    color: {{ block.settings.announcement_color }};
+                    font-size: {{ block.settings.announcement_size }}px;
+                    letter-spacing: {{ block.settings.text_spacing }}px;
+                    text-transform: {{ block.settings.text_transform }};
+                    margin:0;
+                  }
+                @media screen and (max-width: 749px) {
+                   .lumin-text-{{ block.id }} p {
+                    font-size: {{ block.settings.announcement_size_m }}px;
+                  }
+                }
+                   .lumin-text-{{ block.id }} svg{
+                    width:calc({{ block.settings.announcement_size }}px + 2px);
+                    height:calc({{ block.settings.announcement_size }}px + 2px);
+                  }
+                 @media screen and (max-width: 749px) {
+                  .lumin-text-{{ block.id }} svg{
+                    width:{{ block.settings.announcement_size_m }}px;
+                    height:{{ block.settings.announcement_size_m }}px;
+                  }
+                }
+              </style>
+              <div
+                class="lumin-text-{{ block.id }} announcement-bar-{{ section.id }}"
+                role="region"
+                aria-label="Announcement"
+                {{ block.shopify_attributes }}
+              >
+                <span class="scroll rte">
+                  {% render 'icon-accordion', icon: block.settings.icon %}
+                  {{ block.settings.Announcement | replace: '[', '<span class="lumin-text__fancy1">' | replace: ']', '</span>' | replace: '((', '<span class="lumin-text__fancy2">' | replace: '))', '</span>' }}
+                </span>
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+       <div style="display: flex;">
+      <div style="display: flex;">
+        {%- for block in section.blocks -%}
+          {% case block.type %}
+            {% when 'image' %}
+              <style>
+                            .announcement-bar-{{ block.id }} img {
+                  width: {{block.settings.logo_image_width}}px;
+                  height:auto;
+                }
+                             .announcement-bar-{{ block.id }} svg {
+                  width: {{block.settings.logo_image_width}}px;
+                  height:auto;
+                }
+              </style>
+              <div
+                class="announcement-bar-{{ section.id }} announcement-bar-{{ block.id }}"
+                role="region"
+                aria-label="Announcement"
+                {{ block.shopify_attributes }}
+              >
+                {% if block.settings.logo_image != blank %}
+                  {{ block.settings.logo_image | image_url: width: 200 | image_tag: loading: 'lazy' }}
+                {%- else -%}
+                  <p style="font-size: 40px;margin: 0;">Brand</p>
+                {%- endif -%}
+              </div>
+
+            {% when 'announcement' %}
+              <style>
+                  .lumin-text-{{ block.id }} p {
+                    color: {{ block.settings.announcement_color }};
+                    font-size: {{ block.settings.announcement_size }}px;
+                    letter-spacing: {{ block.settings.text_spacing }}px;
+                    text-transform: {{ block.settings.text_transform }};
+                    margin:0;
+                  }
+                @media screen and (max-width: 749px) {
+                   .lumin-text-{{ block.id }} p {
+                    font-size: {{ block.settings.announcement_size_m }}px;
+                  }
+                }
+                   .lumin-text-{{ block.id }} svg{
+                    width:calc({{ block.settings.announcement_size }}px + 2px);
+                    height:calc({{ block.settings.announcement_size }}px + 2px);
+                  }
+                 @media screen and (max-width: 749px) {
+                  .lumin-text-{{ block.id }} svg{
+                    width:{{ block.settings.announcement_size_m }}px;
+                    height:{{ block.settings.announcement_size_m }}px;
+                  }
+                }
+              </style>
+              <div
+                class="lumin-text-{{ block.id }} announcement-bar-{{ section.id }}"
+                role="region"
+                aria-label="Announcement"
+                {{ block.shopify_attributes }}
+              >
+                <span class="scroll rte">
+                  {% render 'icon-accordion', icon: block.settings.icon %}
+                  {{ block.settings.Announcement | replace: '[', '<span class="lumin-text__fancy1">' | replace: ']', '</span>' | replace: '((', '<span class="lumin-text__fancy2">' | replace: '))', '</span>' }}
+                </span>
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+       <div style="display: flex;">
+      <div style="display: flex;">
+        {%- for block in section.blocks -%}
+          {% case block.type %}
+            {% when 'image' %}
+              <style>
+                            .announcement-bar-{{ block.id }} img {
+                  width: {{block.settings.logo_image_width}}px;
+                  height:auto;
+                }
+                             .announcement-bar-{{ block.id }} svg {
+                  width: {{block.settings.logo_image_width}}px;
+                  height:auto;
+                }
+              </style>
+              <div
+                class="announcement-bar-{{ section.id }} announcement-bar-{{ block.id }}"
+                role="region"
+                aria-label="Announcement"
+                {{ block.shopify_attributes }}
+              >
+                {% if block.settings.logo_image != blank %}
+                  {{ block.settings.logo_image | image_url: width: 200 | image_tag: loading: 'lazy' }}
+                {%- else -%}
+                  <p style="font-size: 40px;margin: 0;">Brand</p>
+                {%- endif -%}
+              </div>
+
+            {% when 'announcement' %}
+              <style>
+                  .lumin-text-{{ block.id }} p {
+                    color: {{ block.settings.announcement_color }};
+                    font-size: {{ block.settings.announcement_size }}px;
+                    letter-spacing: {{ block.settings.text_spacing }}px;
+                    text-transform: {{ block.settings.text_transform }};
+                    margin:0;
+                  }
+                @media screen and (max-width: 749px) {
+                   .lumin-text-{{ block.id }} p {
+                    font-size: {{ block.settings.announcement_size_m }}px;
+                  }
+                }
+                   .lumin-text-{{ block.id }} svg{
+                    width:calc({{ block.settings.announcement_size }}px + 2px);
+                    height:calc({{ block.settings.announcement_size }}px + 2px);
+                  }
+                 @media screen and (max-width: 749px) {
+                  .lumin-text-{{ block.id }} svg{
+                    width:{{ block.settings.announcement_size_m }}px;
+                    height:{{ block.settings.announcement_size_m }}px;
+                  }
+                }
+              </style>
+              <div
+                class="lumin-text-{{ block.id }} announcement-bar-{{ section.id }}"
+                role="region"
+                aria-label="Announcement"
+                {{ block.shopify_attributes }}
+              >
+                <span class="scroll rte">
+                  {% render 'icon-accordion', icon: block.settings.icon %}
+                  {{ block.settings.Announcement | replace: '[', '<span class="lumin-text__fancy1">' | replace: ']', '</span>' | replace: '((', '<span class="lumin-text__fancy2">' | replace: '))', '</span>' }}
+                </span>
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+       <div style="display: flex;">
+      <div style="display: flex;">
+        {%- for block in section.blocks -%}
+          {% case block.type %}
+            {% when 'image' %}
+              <style>
+                            .announcement-bar-{{ block.id }} img {
+                  width: {{block.settings.logo_image_width}}px;
+                  height:auto;
+                }
+                             .announcement-bar-{{ block.id }} svg {
+                  width: {{block.settings.logo_image_width}}px;
+                  height:auto;
+                }
+              </style>
+              <div
+                class="announcement-bar-{{ section.id }} announcement-bar-{{ block.id }}"
+                role="region"
+                aria-label="Announcement"
+                {{ block.shopify_attributes }}
+              >
+                {% if block.settings.logo_image != blank %}
+                  {{ block.settings.logo_image | image_url: width: 200 | image_tag: loading: 'lazy' }}
+                {%- else -%}
+                  <p style="font-size: 40px;margin: 0;">Brand</p>
+                {%- endif -%}
+              </div>
+
+            {% when 'announcement' %}
+              <style>
+                  .lumin-text-{{ block.id }} p {
+                    color: {{ block.settings.announcement_color }};
+                    font-size: {{ block.settings.announcement_size }}px;
+                    letter-spacing: {{ block.settings.text_spacing }}px;
+                    text-transform: {{ block.settings.text_transform }};
+                    margin:0;
+                  }
+                @media screen and (max-width: 749px) {
+                   .lumin-text-{{ block.id }} p {
+                    font-size: {{ block.settings.announcement_size_m }}px;
+                  }
+                }
+                   .lumin-text-{{ block.id }} svg{
+                    width:calc({{ block.settings.announcement_size }}px + 2px);
+                    height:calc({{ block.settings.announcement_size }}px + 2px);
+                  }
+                 @media screen and (max-width: 749px) {
+                  .lumin-text-{{ block.id }} svg{
+                    width:{{ block.settings.announcement_size_m }}px;
+                    height:{{ block.settings.announcement_size_m }}px;
+                  }
+                }
+              </style>
+              <div
+                class="lumin-text-{{ block.id }} announcement-bar-{{ section.id }}"
+                role="region"
+                aria-label="Announcement"
+                {{ block.shopify_attributes }}
+              >
+                <span class="scroll rte">
+                  {% render 'icon-accordion', icon: block.settings.icon %}
+                  {{ block.settings.Announcement | replace: '[', '<span class="lumin-text__fancy1">' | replace: ']', '</span>' | replace: '((', '<span class="lumin-text__fancy2">' | replace: '))', '</span>' }}
+                </span>
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+       <div style="display: flex;">
+      <div style="display: flex;">
+        {%- for block in section.blocks -%}
+          {% case block.type %}
+            {% when 'image' %}
+              <style>
+                            .announcement-bar-{{ block.id }} img {
+                  width: {{block.settings.logo_image_width}}px;
+                  height:auto;
+                }
+                             .announcement-bar-{{ block.id }} svg {
+                  width: {{block.settings.logo_image_width}}px;
+                  height:auto;
+                }
+              </style>
+              <div
+                class="announcement-bar-{{ section.id }} announcement-bar-{{ block.id }}"
+                role="region"
+                aria-label="Announcement"
+                {{ block.shopify_attributes }}
+              >
+                {% if block.settings.logo_image != blank %}
+                  {{ block.settings.logo_image | image_url: width: 200 | image_tag: loading: 'lazy' }}
+                {%- else -%}
+                  <p style="font-size: 40px;margin: 0;">Brand</p>
+                {%- endif -%}
+              </div>
+
+            {% when 'announcement' %}
+              <style>
+                  .lumin-text-{{ block.id }} p {
+                    color: {{ block.settings.announcement_color }};
+                    font-size: {{ block.settings.announcement_size }}px;
+                    letter-spacing: {{ block.settings.text_spacing }}px;
+                    text-transform: {{ block.settings.text_transform }};
+                    margin:0;
+                  }
+                @media screen and (max-width: 749px) {
+                   .lumin-text-{{ block.id }} p {
+                    font-size: {{ block.settings.announcement_size_m }}px;
+                  }
+                }
+                   .lumin-text-{{ block.id }} svg{
+                    width:calc({{ block.settings.announcement_size }}px + 2px);
+                    height:calc({{ block.settings.announcement_size }}px + 2px);
+                  }
+                 @media screen and (max-width: 749px) {
+                  .lumin-text-{{ block.id }} svg{
+                    width:{{ block.settings.announcement_size_m }}px;
+                    height:{{ block.settings.announcement_size_m }}px;
+                  }
+                }
+              </style>
+              <div
+                class="lumin-text-{{ block.id }} announcement-bar-{{ section.id }}"
+                role="region"
+                aria-label="Announcement"
+                {{ block.shopify_attributes }}
+              >
+                <span class="scroll rte">
+                  {% render 'icon-accordion', icon: block.settings.icon %}
+                  {{ block.settings.Announcement | replace: '[', '<span class="lumin-text__fancy1">' | replace: ']', '</span>' | replace: '((', '<span class="lumin-text__fancy2">' | replace: '))', '</span>' }}
+                </span>
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+       <div style="display: flex;">
+      <div style="display: flex;">
+        {%- for block in section.blocks -%}
+          {% case block.type %}
+            {% when 'image' %}
+              <style>
+                            .announcement-bar-{{ block.id }} img {
+                  width: {{block.settings.logo_image_width}}px;
+                  height:auto;
+                }
+                             .announcement-bar-{{ block.id }} svg {
+                  width: {{block.settings.logo_image_width}}px;
+                  height:auto;
+                }
+              </style>
+              <div
+                class="announcement-bar-{{ section.id }} announcement-bar-{{ block.id }}"
+                role="region"
+                aria-label="Announcement"
+                {{ block.shopify_attributes }}
+              >
+                {% if block.settings.logo_image != blank %}
+                  {{ block.settings.logo_image | image_url: width: 200 | image_tag: loading: 'lazy' }}
+                {%- else -%}
+                  <p style="font-size: 40px;margin: 0;">Brand</p>
+                {%- endif -%}
+              </div>
+
+            {% when 'announcement' %}
+              <style>
+                  .lumin-text-{{ block.id }} p {
+                    color: {{ block.settings.announcement_color }};
+                    font-size: {{ block.settings.announcement_size }}px;
+                    letter-spacing: {{ block.settings.text_spacing }}px;
+                    text-transform: {{ block.settings.text_transform }};
+                    margin:0;
+                  }
+                @media screen and (max-width: 749px) {
+                   .lumin-text-{{ block.id }} p {
+                    font-size: {{ block.settings.announcement_size_m }}px;
+                  }
+                }
+                   .lumin-text-{{ block.id }} svg{
+                    width:calc({{ block.settings.announcement_size }}px + 2px);
+                    height:calc({{ block.settings.announcement_size }}px + 2px);
+                  }
+                 @media screen and (max-width: 749px) {
+                  .lumin-text-{{ block.id }} svg{
+                    width:{{ block.settings.announcement_size_m }}px;
+                    height:{{ block.settings.announcement_size_m }}px;
+                  }
+                }
+              </style>
+              <div
+                class="lumin-text-{{ block.id }} announcement-bar-{{ section.id }}"
+                role="region"
+                aria-label="Announcement"
+                {{ block.shopify_attributes }}
+              >
+                <span class="scroll rte">
+                  {% render 'icon-accordion', icon: block.settings.icon %}
+                  {{ block.settings.Announcement | replace: '[', '<span class="lumin-text__fancy1">' | replace: ']', '</span>' | replace: '((', '<span class="lumin-text__fancy2">' | replace: '))', '</span>' }}
+                </span>
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+<style data-shopify>
+  .scroll {
+    display: flex;
+    width: 100%;
+    text-decoration: none;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+         .announcement-bar--inner-{{ section.id }}{
+    max-width:1440px;
+    margin-left:auto;
+    margin-right:auto;
+    z-index: -1;
+    position: relative;
+}
+  @media only screen and (min-width: 768px){
+    .announcement-bar--inner-{{ section.id }}{
+      padding: {{section.settings.padding_desktop}}px 20px;
+    }
+  }
+            @media only screen and (max-width: 767px){
+    .announcement-bar--inner-{{ section.id }}{
+      padding: {{section.settings.padding_mobile}}px 20px;
+    }
+  }
+  .announcement-bar-section{
+    position:relative;
+    z-index:4
+  }
+  .announcement-bar--wrap{
+    line-height:1;
+  }
+  .announcement-bar--inner-{{ section.id }}{
+    height:100%;
+    display:flex;
+    align-items:center;
+    max-width:none;
+    white-space:nowrap;
+    overflow:hidden;
+  }
+  .announcement-bar--inner-{{ section.id }}.direction-left>div{
+    animation:marquee-left var(--marquee-speed) linear infinite;
+  }
+  .announcement-bar--inner-{{ section.id }}.direction-right>div{
+    animation:marquee-right var(--marquee-speed) linear infinite;
+  }
+  .announcement-bar--inner-{{ section.id }}>div{
+    display:flex;
+    align-items:center;
+    flex-shrink:0;
+    will-change:transform;
+  }
+  .announcement-bar--inner-{{ section.id }}:hover>div{
+    animation-play-state:paused;
+  }
+  .announcement-bar-{{ section.id }}{
+    display:inline-flex;
+    align-items:center;
+    padding:0 {{section.settings.padding_item_desktop}}px;
+  }
+             @media only screen and (max-width: 767px){
+    .announcement-bar{
+    padding:0 {{section.settings.padding_item_mobile}}px;
+  }
+             }
+  .announcement-bar-{{ section.id }} p{
+    margin:0;
+  }
+           .announcement-bar__message {
+      min-height: 1.8rem;
+  }
+  .announcement-bar-{{ section.id }} svg{
+    margin-right:12px;
+    fill:rgb(var(--color-foreground));
+  }
+  .announcement-bar-{{ section.id }} p{
+    padding:0;
+  }
+
+  .announcement-bar-{{ section.id }} .announcement-bar-{{ section.id }}__link{
+    color:rgb(var(--color-foreground));
+    display: flex;
+    padding: 0;
+  }
+  .announcement-bar-{{ section.id }}--item:empty{
+    display:none
+  }
+          @keyframes marquee-left{
+    0%{
+      transform:translate(0)
+    }
+    to{
+      transform:translate(-100%)
+    }
+  }
+  @keyframes marquee-right {
+    0%{
+      transform:translate(-100%)
+    }
+    to{
+      transform:translate(0)
+    }
+  }
+
+  .announcement-bar-static{
+    display: block;
+  }
+  .announcement-bar-static>div{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "自动滚动促销",
+   "disabled_on": {
+    "groups": ["custom.popup", "header"]
+   },
+  "settings": [
+    {
+      "type": "range",
+      "id": "scroll_speed",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "unit": "s",
+      "label": "滚动速度",
+      "default": 15
+    },
+     {
+            "type": "checkbox",
+            "id": "reverse",
+            "label": "反向",
+            "default": false
+          },
+    {
+            "type": "checkbox",
+            "id": "fade",
+            "label": "边缘淡出",
+            "default": false
+          },
+    {
+    "type": "color_scheme",
+    "id": "color_scheme",
+    "label": "配色方案",
+    "default": "background-1"
+  },
+     {
+    "type": "range",
+    "id": "padding_desktop",
+    "min": 0,
+    "max": 100,
+    "step": 4,
+    "unit": "px",
+    "label": "条形高度",
+    "default": 16
+  },
+  {
+    "type": "range",
+    "id": "padding_mobile",
+    "min": 0,
+    "max": 100,
+    "step": 4,
+    "unit": "px",
+    "label": "条形高度（移动端）",
+    "default": 8
+  },
+    {
+    "type": "range",
+    "id": "padding_item_desktop",
+    "min": 0,
+    "max": 100,
+    "step": 4,
+    "unit": "px",
+    "label": "项目间距",
+    "default": 16
+  },
+  {
+    "type": "range",
+    "id": "padding_item_mobile",
+    "min": 0,
+    "max": 100,
+    "step": 4,
+    "unit": "px",
+    "label": "项目间距（移动端）",
+    "default": 8
+  },
+
+    {
+    "type": "range",
+    "id": "padding_top",
+    "min": 0,
+    "max": 100,
+    "step": 4,
+    "unit": "px",
+    "label": "顶部填充",
+    "default": 0
+  },
+  {
+    "type": "range",
+    "id": "padding_bottom",
+    "min": 0,
+    "max": 100,
+    "step": 4,
+    "unit": "px",
+    "label": "底部填充",
+    "default": 0
+  }
+  ],
+  "blocks": [
+    {
+    "type": "image",
+    "name": "图片",
+    "settings": [
+      {
+    "type": "image_picker",
+    "id": "logo_image",
+    "label": "图片"
+     },
+       {
+    "type": "range",
+    "id": "logo_image_width",
+    "min": 20,
+    "max": 200,
+    "step": 2,
+    "unit": "px",
+    "label": "图片高度",
+    "default": 34
+  }
+    ]
+    },
+    {
+    "type": "announcement",
+    "name": "公告",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "Announcement",
+        "default": "<p>Take 20% Off With Code SAVE20</p>",
+        "label": "公告 - ✨ 花式效果",
+        "info": "你的公告文本"
+      },
+       {
+          "type": "range",
+          "id": "announcement_size",
+          "min": 10,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "公告大小",
+          "default": 18
+        },
+        {
+          "type": "range",
+          "id": "announcement_size_m",
+          "min": 8,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "公告大小（移动端）",
+          "default": 16
+        },
+         {
+            "type": "range",
+            "id": "text_spacing",
+            "min": -1,
+            "max": 3,
+            "step": 0.5,
+            "unit": "px",
+            "label": "字间距",
+            "default": 0
+          },
+          {
+              "type": "select",
+              "id": "text_transform",
+              "options": [
+                {
+                  "value": "none",
+                  "label": "无"
+                },
+                {
+                  "value": "uppercase",
+                  "label": "大写"
+                },
+                {
+                  "value": "lowercase",
+                  "label": "小写"
+                }
+              ],
+              "default": "none",
+              "label": "文本转换"
+          },
+        {
+          "type": "color",
+          "id": "announcement_color",
+          "label": "公告颜色",
+          "default": "#212121"
+        },
+       {
+        "type": "select",
+        "id": "icon",
+        "options": [
+          {
+            "value": "none",
+            "label": "无"
+          },
+          {
+            "value": "apple",
+            "label": "苹果"
+          },
+          {
+            "value": "banana",
+            "label": "香蕉"
+          },
+          {
+            "value": "bottle",
+            "label": "瓶子"
+          },
+          {
+            "value": "box",
+            "label": "箱子"
+          },
+          {
+            "value": "carrot",
+            "label": "胡萝卜"
+          },
+          {
+            "value": "chat_bubble",
+            "label": "聊天泡泡"
+          },
+          {
+            "value": "check_mark",
+            "label": "复选标记"
+          },
+          {
+            "value": "clipboard",
+            "label": "剪贴板"
+          },
+          {
+            "value": "dairy",
+            "label": "乳制品"
+          },
+          {
+            "value": "dairy_free",
+            "label": "不食乳制品"
+          },
+          {
+            "value": "dryer",
+            "label": "吹风机"
+          },
+          {
+            "value": "eye",
+            "label": "眼睛"
+          },
+          {
+            "value": "fire",
+            "label": "火"
+          },
+          {
+            "value": "gluten_free",
+            "label": "无麸质"
+          },
+          {
+            "value": "heart",
+            "label": "心形"
+          },
+          {
+            "value": "iron",
+            "label": "铁"
+          },
+          {
+            "value": "leaf",
+            "label": "树叶"
+          },
+          {
+            "value": "leather",
+            "label": "皮革"
+          },
+          {
+            "value": "lightning_bolt",
+            "label": "闪电束"
+          },
+          {
+            "value": "lipstick",
+            "label": "口红"
+          },
+          {
+            "value": "lock",
+            "label": "锁"
+          },
+          {
+            "value": "map_pin",
+            "label": "图钉"
+          },
+          {
+            "value": "nut_free",
+            "label": "不含坚果"
+          },
+          {
+            "value": "pants",
+            "label": "裤装"
+          },
+          {
+            "value": "paw_print",
+            "label": "爪印"
+          },
+          {
+            "value": "pepper",
+            "label": "胡椒粉"
+          },
+          {
+            "value": "perfume",
+            "label": "香水"
+          },
+          {
+            "value": "plane",
+            "label": "飞机"
+          },
+          {
+            "value": "plant",
+            "label": "绿植"
+          },
+          {
+            "value": "price_tag",
+            "label": "价格标签"
+          },
+          {
+            "value": "question_mark",
+            "label": "问号"
+          },
+          {
+            "value": "recycle",
+            "label": "回收利用"
+          },
+          {
+            "value": "return",
+            "label": "退货"
+          },
+          {
+            "value": "ruler",
+            "label": "直尺"
+          },
+          {
+            "value": "serving_dish",
+            "label": "餐盘"
+          },
+          {
+            "value": "shirt",
+            "label": "衬衫"
+          },
+          {
+            "value": "shoe",
+            "label": "鞋"
+          },
+          {
+            "value": "silhouette",
+            "label": "剪影"
+          },
+          {
+            "value": "snowflake",
+            "label": "雪花"
+          },
+          {
+            "value": "star",
+            "label": "星星"
+          },
+          {
+            "value": "stopwatch",
+            "label": "秒表"
+          },
+          {
+            "value": "truck",
+            "label": "卡车"
+          },
+          {
+            "value": "washing",
+            "label": "洗涤剂"
+          }
+        ],
+        "default": "check_mark",
+        "label": "选择图标"
+      },
+     {
+        "type": "url",
+        "id": "text_link",
+        "label": "链接"
+      }
+  ]
+    }
+  ],
+    "presets": [
+  {
+  "name": "自动滚动促销",
+  "category": "Lumin Section",
+  "settings": {
+  },
+  "blocks": [
+    {
+      "type": "announcement"
+    },
+    {
+      "type": "announcement"
+    }
+  ]
+}
+]
+}
+{% endschema %}

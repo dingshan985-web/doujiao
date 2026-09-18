@@ -1,0 +1,24 @@
+{%- liquid
+  assign t = template | split: '.' | first
+-%}
+<script src="{{ 'tingle.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'theme.js' | asset_url }}"  defer="defer" type="module"></script>
+<script src="{{ 'product-subtotal.js' | asset_url }}" defer="defer"></script>
+{%- case t -%}
+  {%- when 'collection' -%}
+    {%- if collection.handle -%}
+      <script src="{{ 'collection.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+  {%- when 'product' -%}
+    <script src="{{ 'main-product.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'js-cloudimage-360-view.min.js' | asset_url }}" defer="defer"></script>
+  {%- when 'search' -%}
+    <script src="{{ 'collection.js' | asset_url }}" defer="defer"></script>
+{%- endcase -%}
+<script defer="defer">
+  var glozin_app = {
+  shop: '{{ shop.permanent_domain }}',
+  domain: '{{ shop.domain }}',
+  mode: '{%- if request.design_mode -%}admin{% else %}front{%- endif -%}',
+  };
+</script>

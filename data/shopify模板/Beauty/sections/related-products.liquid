@@ -1,0 +1,261 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'section-related-products.css' | asset_url | stylesheet_tag }}
+
+{% if section.settings.image_shape == 'blob' %}
+  {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient no-js-hidden" style="--quick-description-size: {{ section.settings.quick_desc_size }}px;">
+  <product-recommendations
+    class="related-products page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+    data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.products_to_show }}"
+  >
+    {% if recommendations.performed and recommendations.products_count > 0 %}
+      <h2 class="related-products__heading {{ section.settings.collection_text_alignment }} inline-richtext {{ section.settings.heading_size }}">
+        {{ section.settings.heading | replace: '[', '<span class="lumin-text__fancy1">' | replace: ']', '</span>' | replace: '((', '<span class="lumin-text__fancy2">' | replace: '))', '</span>' }}
+      </h2>
+      <ul
+        class="grid lumin-grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
+        role="list"
+      >
+        {% for recommendation in recommendations.products %}
+          <li class="grid__item">
+            {% render 'card-product',
+              card_product: recommendation,
+              media_aspect_ratio: section.settings.image_ratio,
+              media_no_crop: section.settings.image_no_crop,
+              image_shape: section.settings.image_shape,
+              show_secondary_image: section.settings.show_secondary_image,
+              show_vendor: section.settings.show_vendor,
+              show_rating: section.settings.show_rating,
+              show_quick_desc: section.settings.enable_quick_desc
+            %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </product-recommendations>
+  {% if section.settings.image_shape == 'arch' %}
+    {% render 'mask-arch' %}
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "相关产品",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "动态推荐使用订单和产品信息来随着时间而变化和改进。[详细了解](https://help.shopify.com/themes/development/recommended-products)"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "You may also like",
+      "label": "标题"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "小"
+        },
+        {
+          "value": "h1",
+          "label": "中"
+        },
+        {
+          "value": "h0",
+          "label": "大"
+        }
+      ],
+      "default": "h1",
+      "label": "标题大小"
+    },
+    {
+        "type": "select",
+        "id": "collection_text_alignment",
+        "options": [
+          {
+            "value": "left",
+            "label": "左"
+          },
+          {
+            "value": "center",
+            "label": "居中"
+          },
+          {
+            "value": "right",
+            "label": "右"
+          }
+        ],
+        "default": "left",
+        "label": "文本对齐方式"
+      },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "default": 4,
+      "label": "要显示的最大产品数"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 4,
+      "label": "台式设备上的列数"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "配色方案",
+      "info": "若要更改卡配色方案，请更新您的模板设置。",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "产品卡"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "适应图片"
+        },
+        {
+          "value": "portrait",
+          "label": "纵向"
+        },
+        {
+          "value": "square",
+          "label": "方形"
+        }
+      ],
+      "default": "adapt",
+      "label": "图片比"
+    },
+      {
+      "type": "checkbox",
+      "id": "image_no_crop",
+      "default": true,
+      "label": "显示不裁剪的图片"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": false,
+      "label": "在悬停时显示第二张图片"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": false,
+      "label": "显示厂商"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": false,
+      "label": "显示产品评分",
+      "info": "若要显示评分，请添加产品评分应用。[详细了解](https://help.shopify.com/manual/online-store/themes/theme-structure/page-types#product-recommendations-section-settings)"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_quick_desc",
+      "default": false,
+      "label": "显示描述",
+      "info": "最多 90 个字符"
+    },
+    {
+        "type": "range",
+        "id": "quick_desc_legth",
+        "min": 30,
+        "max": 300,
+        "step": 10,
+        "unit": "n",
+        "label": "描述字符数",
+        "default": 90
+      },
+     {
+        "type": "range",
+        "id": "quick_desc_size",
+        "min": 8,
+        "max": 40,
+        "step": 1,
+        "unit": "px",
+        "label": "描述大小",
+        "default": 14
+      },
+    {
+      "type": "header",
+      "content": "移动设备布局"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "default": "2",
+      "label": "移动设备上的列数",
+      "options": [
+        {
+          "value": "1",
+          "label": "1 列"
+        },
+        {
+          "value": "2",
+          "label": "2 列"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "分区填充"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "顶部填充",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "底部填充",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}

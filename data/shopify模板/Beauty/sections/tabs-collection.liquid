@@ -1,0 +1,580 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  
+{%- endstyle -%}
+{{ 'lumin-tab.css' | asset_url | stylesheet_tag }}
+{%- if section.settings.enable_quick_add -%}
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+<style>
+  ul.lumin-tab-{{ section.id }} {
+             justify-content: {{ section.settings.tab_font_align }};
+    {% if section.settings.show_border %} border-bottom: .1rem solid rgba(var(--color-foreground), .08);{% endif %}
+        }
+
+  .lumin-tab-{{ section.id }} h4 {
+    font-size: {{section.settings.tab_font}}px;
+  }
+
+  .lumin-tab-content-{{ section.id }} {
+              text-align: {{ section.settings.tab_content_align }};
+        }
+
+@media only screen and (max-width: 576px){
+   .lumin-tab-{{ section.id }} h4 {
+    font-size: {{section.settings.tab_font_mb}}px;
+  }
+   ul.lumin-tab-{{ section.id }} {
+  justify-content: {{ section.settings.tab_font_mb_align }};
+  }
+ .lumin-tab-content-{{ section.id }} {
+   text-align: {{ section.settings.tab_content_align_mb }};
+    }
+  }
+</style>
+{% if section.settings.show_scroll_tags %}
+   <style>
+         
+         /*.lumin-card-slide> .card-wrapper> #scroll-container {
+             height: calc( 100% + 20px + var(--tag-fonts));
+         }*/
+
+     /* ul.lumin-grid {
+                row-gap: calc({{ settings.card_tag_font }}px + 20px + var(--grid-desktop-vertical-spacing));
+                margin-top: 4rem;
+              }*/
+             {% if settings.card_style == 'card' and section.settings.show_scroll_tags %}
+          .card--card.gradient, .card__inner.gradient {
+            padding-top: 0;
+            z-index:1;
+        }
+          .card-wrapper-{{section.id}} {
+            padding-top: calc({{ settings.card_tag_font }}px + 20px);
+            z-index:1;
+          }
+                           @media screen and (max-width: 989px) {
+            #scroll-container {
+             height: calc( 20px + var(--tag-fonts));
+         }
+                            
+          {% elsif settings.card_style == 'standard' and section.settings.show_scroll_tags %}
+            .card-wrapper-{{section.id}} {
+            padding-top: calc({{ settings.card_tag_font }}px + 20px);
+             z-index:1;
+          }
+          {% endif %}
+               </style>
+        {% endif %}
+
+<div class="section-{{ section.id }}-padding gradient color-{{ section.settings.tabs_color_scheme }}" style="--quick-description-size: {{ section.settings.quick_desc_size }}px;">
+  <ul class="custom--tabs page-width lumin-tab-{{ section.id }}">
+    {% for block in section.blocks %}
+      {% assign collection = collections[block.settings.collection] %}
+      {% if block.type == 'tab' %}
+        <li class="tab__list {% if forloop.first %}active{% endif %}" {{ block.shopify_attributes }}>
+          <h4
+            class="lumin-custom-tab custom-tab {% if forloop.first %}active{% endif %}"
+            data-content-id="content--{{ block.id }}--{{ section.id }}"
+          >
+            {% if block.settings.heading == blank -%}
+              {{- collection.title -}}
+            {%- else -%}
+              {{- block.settings.heading | replace: '[', '<span class="lumin-text__fancy1">' | replace: ']', '</span>' | replace: '((', '<span class="lumin-text__fancy2">' | replace: '))', '</span>' }}
+            {%- endif %}
+          </h4>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+  {% for block in section.blocks %}
+    {% if block.type == 'tab' %}
+      {%- liquid
+        assign products_to_display = block.settings.collection.all_products_count
+
+        if block.settings.collection.all_products_count > section.settings.products_to_show
+          assign products_to_display = section.settings.products_to_show
+          assign more_in_collection = true
+        endif
+      -%}
+      <div
+        id="content--{{ block.id }}--{{ section.id }}"
+        class="custom__tab-content lumin-custom__tab-content page-width {% if forloop.first %}active{% endif %}" {{ block.shopify_attributes }}
+      >
+          {%- if block.settings.description != blank
+        or block.settings.show_description
+        and block.settings.collection.description != empty
+      -%}
+        <div class="collection__description {{ block.settings.collection_text_alignment }} {{ block.settings.description_style }} rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+             style="{% if settings.tag_show %}padding-bottom:4rem;{% else %}padding-bottom: 2rem;{% endif %}padding-top: 1rem;">
+          {%- if block.settings.show_description -%}
+            {{ block.settings.collection.description }}
+          {%- else -%}
+            {{ block.settings.description | replace: '[', '<span class="lumin-text__fancy1">' | replace: ']', '</span>' | replace: '((', '<span class="lumin-text__fancy2">' | replace: '))', '</span>' }}
+          {%- endif %}
+        </div>
+      {%- endif -%}
+        <ul
+          id="Slider-{{ section.id }}"
+          class="grid product-grid contains-card contains-card--product{% if settings.card_style == 'standard' %} contains-card--standard{% endif %} grid--{{ section.settings.columns_desktop }}-col-desktop{% if block.settings.collection == blank %} grid--2-col-tablet-down{% else %} grid--{{ section.settings.columns_mobile }}-col-tablet-down{% endif %}"
+          role="list"
+          aria-label="{{ 'general.slider.name' | t }}"
+        >
+          {%- for product in block.settings.collection.products limit: section.settings.products_to_show -%}
+            <li
+              id="Slide-{{ section.id }}-{{ forloop.index }}"
+              class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+              {% if settings.animations_reveal_on_scroll %}
+                data-cascade
+                style="--animation-order: {{ forloop.index }};"
+              {% endif %}
+            >
+              {% render 'card-product',
+                card_product: product,
+                media_aspect_ratio: section.settings.image_ratio,
+                media_no_crop: section.settings.image_no_crop,
+                image_shape: section.settings.image_shape,
+                show_secondary_image: section.settings.show_secondary_image,
+                show_vendor: section.settings.show_vendor,
+                show_rating: section.settings.show_rating,
+                show_quick_desc: section.settings.enable_quick_desc,
+                show_quick_add: section.settings.enable_quick_add,
+                show_secondary_add: section.settings.show_secondary_add,
+                show_scroll_tags: section.settings.show_scroll_tags,
+                section_id: section.id
+              %}
+            </li>
+          {%- else -%}
+            {%- for i in (1..4) -%}
+              <li
+                class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                {% if settings.animations_reveal_on_scroll %}
+                  data-cascade
+                  style="--animation-order: {{ forloop.index }};"
+                {% endif %}
+              >
+                {%- assign placeholder_image = 'product-' | append: forloop.rindex -%}
+                {% render 'card-product',
+                  show_vendor: section.settings.show_vendor,
+                  placeholder_image: placeholder_image
+                %}
+              </li>
+            {%- endfor -%}
+          {%- endfor -%}
+        </ul>
+        {%- if section.settings.show_view_all and more_in_collection -%}
+          <div class="center collection__view-all{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+            <a
+              href="{{ block.settings.collection.url }}"
+              class="{% if section.settings.view_all_style == 'link' %}link underlined-link{% elsif section.settings.view_all_style == 'solid' %}button{% else %}button button--secondary{% endif %}"
+              aria-label="{{ 'sections.featured_collection.view_all_label' | t: collection_name: block.settings.collection.title }}"
+            >
+              {{ 'sections.featured_collection.view_all' | t }}
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+<script>
+
+  function initializeTabs() {
+  const tabs = document.querySelectorAll('.lumin-custom-tab');
+  const tabContents = document.querySelectorAll('.lumin-custom__tab-content');
+
+  tabs.forEach(function(tab) {
+      tab.addEventListener('click', function() {
+          const contentId = this.dataset.contentId;
+          const content = document.getElementById(contentId);
+
+          tabContents.forEach(function(content) {
+              content.classList.remove('active');
+          });
+
+          tabs.forEach(function(tab) {
+              tab.classList.remove('active');
+          });
+
+          this.classList.add('active');
+          content.classList.add('active');
+      });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  initializeTabs();
+});
+
+function onContentUpdated() {
+  initializeTabs();
+}
+
+// Use MutationObserver to detect changes to the DOM and reinitialize tabs
+const observer = new MutationObserver(onContentUpdated);
+observer.observe(document.body, {
+  childList: true,
+  subtree: true
+});
+
+
+</script>
+
+{% schema %}
+{
+  "name": "标签集合",
+  "limit": 1,
+  "disabled_on": {
+  "groups": ["header", "custom.popup", "footer"]
+  },
+  "settings": [
+      {
+        "type": "color_scheme",
+        "id": "tabs_color_scheme",
+        "label": "配色方案",
+        "default": "background-1"
+      },
+     {
+      "type": "range",
+      "id": "tab_font",
+      "min": 8,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "标签标题字体（桌面端）",
+      "default": 16
+    },
+     {
+        "type": "text_alignment",
+        "id": "tab_font_align",
+        "label": "标题对齐",
+        "default": "center"
+     },
+    {
+      "type": "range",
+      "id": "tab_font_mb",
+      "min": 8,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "标签标题字体（移动端）",
+      "default": 14
+    },
+    {
+        "type": "text_alignment",
+        "id": "tab_font_mb_align",
+        "label": "标题对齐（移动端）",
+        "default": "center"
+     },
+    {
+      "type": "checkbox",
+      "id": "show_border",
+      "label": "显示下边框",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 25,
+      "step": 1,
+      "default": 4,
+      "label": "要显示的最大产品数"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 4,
+      "label": "桌面上的列数"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "使产品全宽显示",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "default": true,
+      "label": "如果产品系列中的产品未全部显示，请启用“查看全部”"
+    },
+    {
+      "type": "select",
+      "id": "view_all_style",
+      "label": "“查看全部”样式",
+      "options": [
+        {
+          "value": "link",
+          "label": "链接"
+        },
+        {
+          "value": "outline",
+          "label": "轮廓按钮"
+        },
+        {
+          "value": "solid",
+          "label": "实心按钮"
+        }
+      ],
+      "default": "solid"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "配色方案",
+      "info": "若要更改卡配色方案，请更新您的模板设置。",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "产品卡"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "适应图片"
+        },
+        {
+          "value": "portrait",
+          "label": "纵向"
+        },
+        {
+          "value": "square",
+          "label": "方形"
+        }
+      ],
+      "default": "adapt",
+      "label": "图片比"
+    },
+      {
+      "type": "checkbox",
+      "id": "image_no_crop",
+      "default": true,
+      "label": "显示不裁剪的图片"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": false,
+      "label": "在悬停时显示第二张图片"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": false,
+      "label": "显示厂商"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": false,
+      "label": "显示产品评分",
+      "info": "若要显示评分，请添加产品评分应用。[详细了解](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#featured-collection-show-product-rating)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_scroll_tags",
+      "default": false,
+      "label": "显示滚动标签",
+      "info": "你可以在「主题设置 > 产品卡片」下调整颜色、速度或字体样式。使用[此指南](https://help.lumintheme.com/lumin-theme-documentation/how-to-setup-product-cards-scrolling-tags-and-custom-badges)添加产品标签。"
+     },
+    {
+      "type": "checkbox",
+      "id": "enable_quick_desc",
+      "default": false,
+      "label": "显示描述"
+    },
+     {
+        "type": "range",
+        "id": "quick_desc_legth",
+        "min": 30,
+        "max": 300,
+        "step": 10,
+        "unit": "n",
+        "label": "描述字符数",
+        "default": 90
+      },
+     {
+        "type": "range",
+        "id": "quick_desc_size",
+        "min": 8,
+        "max": 40,
+        "step": 1,
+        "unit": "px",
+        "label": "描述大小",
+        "default": 14
+      },
+    {
+      "type": "checkbox",
+      "id": "enable_quick_add",
+      "default": false,
+      "label": "启用快速添加按钮"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_add",
+      "default": false,
+      "label": "显示轮廓按钮"
+    },
+    {
+      "type": "header",
+      "content": "移动设备布局"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "default": "2",
+      "label": "移动设备上的列数",
+      "options": [
+        {
+          "value": "1",
+          "label": "1 列"
+        },
+        {
+          "value": "2",
+          "label": "2 列"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "分区填充"
+    },
+      {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "顶部填充",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "底部填充",
+      "default": 36
+    }
+  ],
+  "blocks": [
+  {
+    "type": "tab",
+    "name": "标签",
+    "limit": 10,
+
+  "settings": [
+     {
+          "type": "text",
+          "id": "heading",
+          "label": "标题",
+          "default": "Heading",
+          "info": "添加一个说明该标签的标题。留空则显示原始集合标题"
+        },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "集合"
+    },
+     {
+      "type": "richtext",
+      "id": "description",
+      "label": "描述"
+    },
+   {
+        "type": "select",
+        "id": "collection_text_alignment",
+        "options": [
+          {
+            "value": "left",
+            "label": "左"
+          },
+          {
+            "value": "center",
+            "label": "居中"
+          },
+          {
+            "value": "right",
+            "label": "右"
+          }
+        ],
+        "default": "left",
+        "label": "文本对齐方式"
+      },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "从后台显示产品系列描述",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "description_style",
+      "label": "描述类型",
+      "options": [
+        {
+          "value": "body",
+          "label": "正文"
+        },
+        {
+          "value": "subtitle",
+          "label": "副标题"
+        },
+        {
+          "value": "uppercase",
+          "label": "大写"
+        }
+      ],
+      "default": "body"
+    }
+  ]
+
+  }
+],
+   "presets": [
+    {
+      "name": "标签集合",
+      "blocks": [
+        {
+          "type": "tab"
+        },
+        {
+          "type": "tab"
+        },
+        {
+          "type": "tab"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

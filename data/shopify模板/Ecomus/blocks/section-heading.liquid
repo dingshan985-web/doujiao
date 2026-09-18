@@ -1,0 +1,52 @@
+<!-- blocks/section-heading.liquid -->
+<div class="hdt-text-{{ block.settings.alignment }} hdt-sections-heading hdt-flex-col" style="--row-gap: {{ block.settings.row_gap }}px;--margin-bottom: {{ block.settings.margin_bottom }}px;">
+  {%- content_for 'blocks' -%}
+</div>
+
+{% schema %}
+{
+  "name": "区块标题",
+  "tag": null,
+  "blocks": [
+
+    {
+      "type": "heading"
+    },
+    {
+      "type": "text"
+    },
+  ],  
+  "settings": [
+    {
+      "type": "text_alignment",
+      "id": "alignment",
+      "label": "t:settings_schema.global.settings.text_alignment.label",
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "间距"
+    },
+    {
+      "type": "range",
+      "id": "row_gap",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "项目间距",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "底部外边距",
+      "default": 30
+    },
+  ]
+}
+{% endschema %}

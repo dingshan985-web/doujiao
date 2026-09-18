@@ -1,0 +1,109 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_banner_eJfeeD": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_U4DxMR": {
+          "type": "heading",
+          "settings": {
+            "heading": "Need Help?",
+            "heading_size": "h0"
+          }
+        },
+        "text_mTa9cV": {
+          "type": "text",
+          "settings": {
+            "text": "Conact Us",
+            "text_style": "subtitle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_U4DxMR",
+        "text_mTa9cV"
+      ],
+      "settings": {
+        "image_overlay_opacity": 20,
+        "image_height": "xsmall",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "inverse",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false
+      }
+    },
+    "contact_form_ikVfzk": {
+      "type": "contact-form",
+      "blocks": {
+        "name_xpy9qX": {
+          "type": "name",
+          "settings": {}
+        },
+        "email_kNDD6i": {
+          "type": "email",
+          "settings": {}
+        },
+        "tel_kqjman": {
+          "type": "tel",
+          "settings": {}
+        },
+        "textarea_N9xEPT": {
+          "type": "textarea",
+          "settings": {}
+        },
+        "text_6XGwdQ": {
+          "type": "text",
+          "settings": {
+            "text_label": "Write something",
+            "text": "Text"
+          }
+        }
+      },
+      "block_order": [
+        "name_xpy9qX",
+        "email_kNDD6i",
+        "tel_kqjman",
+        "textarea_N9xEPT",
+        "text_6XGwdQ"
+      ],
+      "settings": {
+        "heading": "Get in touch",
+        "heading_size": "h1",
+        "heading_align": "left",
+        "heading_align_mobile": "left",
+        "sub_heading": "<p>We’d love to hear from you! If you have any questions, need support, or just want to say hello, feel free to get in touch with us through the details below.</p><p><strong>Email Us</strong><br/><a>support@example.com</a></p><p><strong>Call Us</strong><br/>+1 (800) 123-4567</p><p><strong>Visit Us</strong><br/>1234 Example Street<br/>Suite 5678<br/>Example City, EX 12345</p><p><strong>Business Hours</strong><br/>Monday - Friday: 9:00 AM - 6:00 PM<br/>Saturday: 10:00 AM - 4:00 PM<br/>Sunday: Closed</p><p>Alternatively, you can fill out the contact form below, and we’ll get back to you as soon as possible.</p>",
+        "sub_heading_align": "left",
+        "sub_heading_align_mobile": "left",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_eJfeeD",
+    "contact_form_ikVfzk"
+  ]
+}
