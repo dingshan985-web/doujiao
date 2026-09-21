@@ -17,6 +17,36 @@
     {"mid":35633981784338,"option":1,"value":1},{"mid":35633981817106,"option":1,"value":1}
   ]
 {%- endcomment -%}
+{%- liquid
+  assign color_list = 'products.theme_settings.color' | t | downcase | strip | replace: ' ,', ',' | replace: ', ', ',' | split: ',' | uniq
+  assign size_list = 'products.theme_settings.size' | t | downcase | strip | replace: ' ,', ',' | replace: ', ', ',' | split: ',' | uniq
+  assign use_size_chart_page = false
+  assign use_size_chart_image = false
+  assign show_dialog_size_chart = false
+  assign size_chart_page_obj = false
+  if block.settings.size_chart_source == 'page' and block.settings.size_chart_page != blank
+    assign use_size_chart_page = true
+    assign size_chart_page_obj = block.settings.size_chart_page
+    if size_chart_page_obj.content == blank
+      assign size_chart_page_obj = pages[block.settings.size_chart_page]
+    endif
+  elsif block.settings.size_chart_source == 'image' and block.settings.size_chart_image != blank
+    assign use_size_chart_image = true
+    assign image_size_chart = block.settings.size_chart_image
+  endif
+  if use_size_chart_page or use_size_chart_image
+    assign show_dialog_size_chart = true
+  endif
+  assign has_size_option = false
+  for option in product.options_with_values
+    assign name_downcase_check = option.name | downcase
+    if size_list contains name_downcase_check
+      assign has_size_option = true
+      break
+    endif
+  endfor
+  assign choose_an_option = 'products.product.choose_an_option' | t
+-%}
 {%- unless product.has_only_default_variant -%}
   {%- liquid
     #assign selected_variant = product.selected_or_first_available_variant
@@ -190,5 +220,22 @@
     </hdt-modal>
   {%- endif -%}
 {%- else -%}
+  {%- if show_dialog_size_chart -%}
+    <div class="hdt-product-form__size-chart-header hdt-flex hdt-justify-end hdt-mb-12">
+      {%- if use_size_chart_page -%}
+        <button class="hdt-s-text hdt-font-semibold" aria-controls="modal-{{ block.id }}" aria-expanded="false">{{ 'products.product.size_chart_button' | t }}</button>
+      {%- elsif use_size_chart_image -%}
+        <wrapp-open-pswp-btn class="hdt-contents" data-obj-img='{ "src": "{{ image_size_chart | image_url: width: image_size_chart.width }}", "width": "{{ image_size_chart.width }}", "height": "{{ image_size_chart.height }}", "alt": "{{ image_size_chart.alt }}" }'><button class="hdt-s-text hdt-font-semibold">{{ 'products.product.size_chart_button' | t }}</button></wrapp-open-pswp-btn>
+      {%- endif -%}
+    </div>
+    {%- if use_size_chart_page -%}
+      <hdt-modal effect="slide" color-scheme="{{ settings.color_scheme_dialog }}">
+        <dialog id="modal-{{ block.id }}" class="hdt-dialog hdt-dialog-modal hdt-product__modal hdt-modal__size-chart" scroll-lock>
+        <div class="hdt-dialog-modal__header"><h3 class="hdt-product__modal-title">{{ size_chart_page_obj.title }}</h3><button class="hdt-s-text" aria-controls="modal-{{ block.id }}" aria-label="{{ 'accessibility.close' | t | escape }}">{%- render 'icon' with 'close' -%}</button></div>
+        <div class="hdt-dialog-modal__inner hdt-current-scrollbar hdt-rte">{{ size_chart_page_obj.content }}</div>
+        </dialog>
+      </hdt-modal>
+    {%- endif -%}
+  {%- endif -%}
   <script type="application/json" data-variants-json="{{ product.variants.first.id }}">{% if hide_sold_out %}{{ product.variants | where: 'available' | json }}{% else %}{{ product.variants | json }}{% endif %}</script>
 {%- endunless -%}
