@@ -1,6 +1,6 @@
 {
   "version": "1.8.2",
-  "download_url": "https://dingshan985-web.github.io/doujiao/%E8%B1%86%E8%84%9AAlteraExcel%E5%B7%A5%E5%85%B7-%E5%AE%89%E8%A3%85%E5%8C%85.exe",
-  "green_download_url": "https://dingshan985-web.github.io/doujiao/update.zip",
+  "download_url": "https://github.com/dingshan985-web/doujiao/releases/download/v1.8.2/update.zip",
+  "green_download_url": "https://github.com/dingshan985-web/doujiao/releases/download/v1.8.2/update.zip",
   "release_notes": "v1.8.2 更新 Glozin 模板，并增加启动后自动检查更新功能。发现新版本时会提示用户，确认后下载并自动重启更新。"
 }
