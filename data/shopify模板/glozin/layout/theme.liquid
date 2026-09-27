@@ -189,6 +189,7 @@
     {%- comment %} === [Intercart] 开始 - 加载 Intercart 工具函数 === {% endcomment -%}
     <script src="https://cdn.jsdelivr.net/npm/sa-sdk-javascript@1.27.11/sensorsdata.min.js" defer="defer"></script>
     <script src="{{ 'utils-intercart.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'quantity-total.js' | asset_url }}" defer="defer"></script>
     <script>
       window.money_format = {
         "amount": "{{ 10000000000 | money }}",

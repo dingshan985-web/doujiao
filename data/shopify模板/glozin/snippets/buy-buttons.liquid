@@ -16,6 +16,11 @@
     assign compare = pages.compare
     assign action_when_click_added_wishlist = theme_st.action_when_click_added_wishlist
     assign show_quantity = settings.show_quantity_input
+    assign quantity_total_price = product.selected_or_first_available_variant.price | default: 0
+    assign quantity_total_money = quantity_total_price | money
+    if settings.currency_code_enabled
+      assign quantity_total_money = quantity_total_price | money_with_currency
+    endif
   -%}
   {% if settings.enable_catalog_mode == false %}
     <div class="product__submit-form buy-btn-js d-flex flex-wrap btn-large">
@@ -73,7 +78,7 @@
                       {{ 'general.cart.headings.quantity' | t }}
                     </label>
                     <input
-                      class="quantity-input bg-unset text-center appearance-none p-0-important w-custom"
+                      class="quantity-input quantity__input bg-unset text-center appearance-none p-0-important w-custom"
                       type="number"
                       name="quantity"
                       style="--input-padding: 0;--inputs-border-width: 0;--input-height: 4.8rem;--custom-width: 3.8rem;--input-border-radius: 0;--input-bg: transparent"
@@ -98,6 +103,18 @@
                       {% render 'icon-plus' %}
                     </button>
                   </quantity-input>
+                </div>
+                <div
+                  class="product-quantity-total w-full mt-10"
+                  data-unit-price="{{ product.selected_or_first_available_variant.price | default: 0 }}"
+                  aria-live="polite"
+                >
+                  <span class="product-quantity-total__label">
+                    Subtotal:
+                  </span>
+                  <span class="product-quantity-total__value">
+                    {{ quantity_total_money }}
+                  </span>
                 </div>
               {% endif %}
               <div class="button_buy-now grow-1 skeleton-loading">
@@ -132,22 +149,6 @@
                 </button>
               </div>
             </div>
-            {%- if show_quantity == true -%}
-              <div
-                class="product-form__subtotal w-full mt-12 mb-5 pt-10 border-top"
-                data-product-subtotal
-                style="--color-border: var(--color-grey);"
-              >
-                <span class="subtotal__label heading-color">{{ 'general.cart.subtotal' | t }}:&nbsp;</span>
-                <span
-                  class="subtotal__price heading-color"
-                  data-subtotal-price
-                  data-variant-price="{{ product.selected_or_first_available_variant.price }}"
-                >
-                  {{- product.selected_or_first_available_variant.price | money -}}
-                </span>
-              </div>
-            {%- endif -%}
             {% if show_wishlist == true %}
               {% if wishlist == empty %}
                 {% assign action_when_click_added_wishlist = 'remove' %}
@@ -192,6 +193,52 @@
               </button-compare>
             {% endif %}
             {%- if show_dynamic_checkout -%}
+              {%- if settings.show_checkbox_in_product_page and type == 'single' or type == 'main_product' -%}
+                <terms-conditions
+                  class="w-full terms-conditions flex mt-12 mb-10 skeleton-loading"
+                  data-custom-class="term-and-condition"
+                >
+                  <div class="checkbox-group relative">
+                    <input
+                      class="input w-20 h-20 m-0 opacity-0 absolute inset-0 pointer conditions_form_product"
+                      type="checkbox"
+                      name="conditions"
+                      id="conditions_form_product-{{ product_form_id }}"
+                    >
+                    <span class="checkmark relative me-10  pointer-none pointer inline-flex"></span>
+                  </div>
+                  <label
+                    class="label pointer rich__text-m0"
+                    for="conditions_form_product-{{ product_form_id }}"
+                    style="--color-link: var(--color-heading);"
+                  >
+                    {{ settings.text_terms_conditions }}
+                  </label>
+                </terms-conditions>
+              {%- endif -%}
+              {%- if settings.show_check_box_in_quick_view and type == 'quickview' -%}
+                <terms-conditions
+                  class="w-full terms-conditions flex mt-12 mb-10"
+                  data-custom-class="term-and-condition"
+                >
+                  <div class="checkbox-group relative">
+                    <input
+                      class="input w-20 h-20 m-0 opacity-0 absolute inset-0 pointer conditions_form_product"
+                      type="checkbox"
+                      name="conditions"
+                      id="conditions_form_product-{{ product_form_id }}"
+                    >
+                    <span class="checkmark relative me-10  pointer-none pointer inline-flex"></span>
+                  </div>
+                  <label
+                    class="label pointer rich__text-m0"
+                    for="conditions_form_product-{{ product_form_id }}"
+                    style="--color-link: var(--color-heading);"
+                  >
+                    {{ settings.text_terms_conditions }}
+                  </label>
+                </terms-conditions>
+              {%- endif -%}
               {%- comment %} intercart update begin - 注释掉原生 payment_button {%- endcomment %}
               {%- comment %}
                 <div class="btn-checkout-dynamic w-full  {% if settings.show_check_box_in_quick_view and type == 'quickview' %} disabled {% elsif  settings.show_checkbox_in_product_page  and type == 'single' or type == 'main_product' %}    disabled{% endif %}">

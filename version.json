@@ -1,6 +1,6 @@
 {
-  "version": "1.8.1",
+  "version": "1.8.2",
   "download_url": "https://dingshan985-web.github.io/doujiao/%E8%B1%86%E8%84%9AAlteraExcel%E5%B7%A5%E5%85%B7-%E5%AE%89%E8%A3%85%E5%8C%85.exe",
   "green_download_url": "https://dingshan985-web.github.io/doujiao/update.zip",
-  "release_notes": "v1.8.1 更新：Ecomus 主题同步 debug5 修复版 —— 1) 尺码表（Size Chart）相关逻辑提到外层作用域，无变体（单一款式）产品现在也能正常显示尺码表按钮与弹窗；2) 首页新增 featured-collection-grid 区块（含「加载更多」子块），调整幻灯片文案与字号、重排 section 顺序；3) 主题设置补齐 h0~h6 响应式字号，微调 h3/h5 字号。"
+  "release_notes": "v1.8.2 更新 Glozin 模板，并增加启动后自动检查更新功能。发现新版本时会提示用户，确认后下载并自动重启更新。"
 }

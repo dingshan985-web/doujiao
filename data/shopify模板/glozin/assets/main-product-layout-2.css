@@ -46,6 +46,19 @@
   transition: width .6s cubic-bezier(.7,0,.3,1) .1s;
 }
 
+.product-quantity-total {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: .4rem;
+  color: var(--color-heading);
+  font-size: 1.4rem;
+}
+
+.product-quantity-total__value {
+  font-weight: var(--heading-weight);
+}
+
 /* Media gallery */
 .thumbnail-slide :where(.swiper-actions:not(.show-arrow) .swiper-arrow),
 .thumbnail-slide
