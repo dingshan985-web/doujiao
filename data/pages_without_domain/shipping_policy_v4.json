@@ -6,7 +6,7 @@
       "heading": "<h2>Fast, Free, Reliable Shipping</h2>",
       "paragraphs": [
         "<p>When you shop at {brand}, you get more than just great products at fair prices — you also get shipping that's fast, free, and reliable. We consider excellent shipping to be an essential part of the customer experience, not an optional extra. That's why we invest in reliable carriers, efficient fulfillment processes, and careful packaging to make sure your order arrives safely and on time, every time.</p>",
-        "<p>Our standard shipping is free for all orders, with no minimum purchase required. Orders are processed within 1-3 business days and delivered within 6-12 business days. All prices are listed in USD and include delivery to your door. Simple, transparent, and dependable — that's the {brand} shipping promise.</p>"
+        "<p>Our standard shipping is free for all orders, with no minimum purchase required. Orders are processed within 1-3 business days and delivered within 1-7 business days. All prices are listed in USD and include delivery to your door. Simple, transparent, and dependable — that's the {brand} shipping promise.</p>"
       ]
     },
     {
@@ -26,7 +26,7 @@
     {
       "heading": "<h2>Estimated Delivery Schedule</h2>",
       "paragraphs": [
-        "<p>Once your order leaves our warehouse, it typically takes 6-12 business days to arrive. The exact day your package shows up at your door depends on several factors, including your location, the efficiency of your local delivery network, and whether any customs processing is required for international orders. Most orders fall somewhere in the middle of this range.</p>",
+        "<p>Once your order leaves our warehouse, it typically takes 1-7 business days to arrive. The exact day your package shows up at your door depends on several factors, including your location, the efficiency of your local delivery network, and whether any customs processing is required for international orders. Most orders fall somewhere in the middle of this range.</p>",
         "<p>To give you a better idea of what to expect: orders to nearby destinations often arrive in 6-8 business days, while orders traveling longer distances or going through more complex customs procedures may take 10-12 days. Rest assured that regardless of how long it takes, we're monitoring your shipment and are here to help if anything goes wrong. We'll also send you tracking information so you can follow your order's progress yourself.</p>"
       ]
     },

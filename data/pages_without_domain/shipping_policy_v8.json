@@ -6,7 +6,7 @@
       "heading": "<h2>How We Ship</h2>",
       "paragraphs": [
         "<p>At {brand}, we take the shipping experience seriously. We know that fast, reliable delivery is an important part of online shopping, which is why we've built our shipping process to be efficient, transparent, and dependable. From the moment you place your order to the day it arrives at your door, we've thought through every step to make it as smooth as possible.</p>",
-        "<p>Our shipping promise is straightforward: every order gets free standard shipping, every order is processed within 1-3 business days, and every order is delivered within 6-12 business days. All prices are displayed in USD and include the cost of shipping. No surprises, no hidden fees, no complicated conditions — just honest, dependable shipping that you can count on.</p>"
+        "<p>Our shipping promise is straightforward: every order gets free standard shipping, every order is processed within 1-3 business days, and every order is delivered within 1-7 business days. All prices are displayed in USD and include the cost of shipping. No surprises, no hidden fees, no complicated conditions — just honest, dependable shipping that you can count on.</p>"
       ]
     },
     {
@@ -26,7 +26,7 @@
     {
       "heading": "<h2>Delivery Expectations</h2>",
       "paragraphs": [
-        "<p>After your order leaves our warehouse, it typically takes 6-12 business days to reach you. This is our standard international delivery window. The exact duration depends on several factors: how far you are from our fulfillment center, how efficient your local delivery service is, and whether there are any customs or import procedures in your country that add time to the process.</p>",
+        "<p>After your order leaves our warehouse, it typically takes 1-7 business days to reach you. This is our standard international delivery window. The exact duration depends on several factors: how far you are from our fulfillment center, how efficient your local delivery service is, and whether there are any customs or import procedures in your country that add time to the process.</p>",
         "<p>We know it can be hard to wait for something you're excited about. That's why we do everything we can to keep delivery times as short as possible. We work with reliable carriers, optimize our packaging for quick processing, and continually look for ways to improve our logistics. While we can't control every aspect of international shipping, we can promise that we're doing our best to get your order to you quickly and safely.</p>"
       ]
     },
