@@ -1,6 +1,6 @@
 {
-  "version": "1.8.2",
-  "download_url": "https://github.com/dingshan985-web/doujiao/releases/download/v1.8.2/update.zip",
-  "green_download_url": "https://github.com/dingshan985-web/doujiao/releases/download/v1.8.2/update.zip",
-  "release_notes": "v1.8.2 更新 Glozin 模板，并增加启动后自动检查更新功能。发现新版本时会提示用户，确认后下载并自动重启更新。"
+  "version": "1.8.3",
+  "download_url": "https://github.com/dingshan985-web/doujiao/releases/download/v1.8.3/update.zip",
+  "green_download_url": "https://github.com/dingshan985-web/doujiao/releases/download/v1.8.3/update.zip",
+  "release_notes": "v1.8.3 把全部条款模板（Shipping Policy / Terms of Purchase / About Us）的配送时效统一改为 1-7 天送达。"
 }
