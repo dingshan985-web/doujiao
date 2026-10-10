@@ -1,0 +1,81 @@
+{%- style -%}
+  #hdt-snow_ef {
+    --snow_eff-speed: {{ section.settings.speed }}s;
+    --snow_eff-op: {{ section.settings.opacity | divided_by: 100.0 }};
+    display: block;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background-color: rgba(0, 0, 0, var(--snow_eff-op));
+    background-image: url({{ 'snow.png' | asset_url }}), url({{ 'snow1.png' | asset_url }}), url({{ 'snow2.png' | asset_url }});
+    background-repeat: repeat;
+    z-index: 100000;
+    pointer-events: none;
+    -moz-animation: snow_ef_t4 var(--snow_eff-speed) linear infinite;
+    -webkit-animation: snow_ef_t4 var(--snow_eff-speed) linear infinite;
+    animation: snow_ef_t4 var(--snow_eff-speed) linear infinite;
+  }
+  @-moz-keyframes snow_ef_t4 {
+    0% {
+      background-position: 0 0, 0 0, 0 0;
+    }
+    100% {
+      background-position: 500px 3000px, 0 400px, 0 300px;
+    }
+  }
+  @-webkit-keyframes snow_ef_t4 {
+    0% {
+      background-position: 0 0, 0 0, 0 0;
+    }
+    100% {
+      background-position: 500px 3000px, 0 400px, 0 300px;
+    }
+  }
+  @keyframes snow_ef_t4 {
+    0% {
+      background-position: 0 0, 0 0, 0 0;
+    }
+    100% {
+      background-position: 500px 3000px, 0 400px, 0 300px;
+    }
+  }
+{%- endstyle -%}
+<div id="hdt-snow_ef" class="hdt-hidden"></div>
+{% schema %}
+  {
+    "name": "Snow Effect",
+    "class": "hdt-section",
+    "limit": 1,
+    "enabled_on": {
+      "groups": ["custom.system"]
+    },
+    "settings": [
+      {
+        "type": "range",
+        "id": "speed",
+        "min": 1,
+        "max": 50,
+        "step": 0.5,
+        "unit": "sec",
+        "label": "Speed falling snow (in seconds)",
+        "default": 10
+      },
+      {
+        "type": "range",
+        "id": "opacity",
+        "min": 1,
+        "max": 50,
+        "step": 0.5,
+        "label": "Opacity overlay",
+        "default": 1
+      }
+    ],
+    "presets": [
+      {
+        "name": "Snow Effect"
+      }
+    ]
+  }
+{% endschema %}

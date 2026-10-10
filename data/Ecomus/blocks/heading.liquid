@@ -1,0 +1,422 @@
+{% liquid
+  assign effect = 'hdt-reveal="slide-in" timeline'
+  if section.id contains 'slideshow'
+    assign effect = 'reval'
+  endif
+  assign custom_color_style = ''
+  if block.settings.use_custom_color and block.settings.custom_text_color != blank
+    assign custom_color_alpha = block.settings.custom_color_opacity | divided_by: 100.0
+    assign custom_color_value = block.settings.custom_text_color | color_modify: 'alpha', custom_color_alpha
+    assign custom_color_style = 'color: ' | append: custom_color_value | append: ';'
+  endif
+%}
+<div {{ effect }} id="block-{{ block.id }}" class="hdt-heading hdt-text-warry hdt-rte {{ block.settings.text_color }}{% if block.settings.hidden_br_mobile %} hdt-br-hidden{% endif %}{% if block.settings.hidden_on_mobile %} hdt-hide-mobile{% endif %} {{ block.settings.line_height }} hdt-{{ block.settings.heading_size }} hdt-font-{{ block.settings.font_weight }}"{% if custom_color_style != blank %} style="{{ custom_color_style }}"{% endif %} {{ block.shopify_attributes }}>{{ block.settings.heading }}</div>
+{%- if block.settings.heading_size == "h_custom" -%}
+  {%- style -%}
+    #block-{{ block.id }} {
+      --heading-fs-lg: {{ block.settings.font_size_heading_lg }}px; --heading-fs-md: {{ block.settings.font_size_heading_md }}px; --heading-fs-mb: {{ block.settings.font_size_heading }}px; --heading-fw: {{ block.settings.font_weight_heading }}; --heading-ls: {{ block.settings.letter_spacing_heading }}px; --heading-lh: {{ block.settings.line_height }};
+    }
+  {%- endstyle -%}
+{%- endif -%}
+{%- if block.settings.enable_advanced_options -%}
+  {%- style -%}
+    #block-{{ block.id }} {
+      font-family: {% if block.settings.advanced_font_family != blank %}var({{ block.settings.advanced_font_family }}){% else %}inherit{% endif %};
+      font-size: {{ block.settings.advanced_font_size_mb }}px;
+      font-style: {{ block.settings.advanced_font_style }};
+      font-weight: {{ block.settings.advanced_font_weight }};
+      letter-spacing: {{ block.settings.advanced_letter_spacing }}px;
+      line-height: {{ block.settings.advanced_line_height }};
+      max-width: {% if block.settings.advanced_max_width_mb > 0 %}{{ block.settings.advanced_max_width_mb }}px{% else %}none{% endif %};
+      margin-top: {{ block.settings.advanced_margin_top_mb }}px;
+      margin-bottom: {{ block.settings.advanced_margin_bottom_mb }}px;
+      text-align: {% if block.settings.advanced_alignment_mb == 'inherit' %}inherit{% else %}{{ block.settings.advanced_alignment_mb }}{% endif %};
+      text-transform: {{ block.settings.advanced_text_transform }};
+      {% case block.settings.advanced_alignment_mb %}
+        {% when 'left' %}margin-left: 0; margin-right: auto;
+        {% when 'center' %}margin-left: auto; margin-right: auto;
+        {% when 'right' %}margin-left: auto; margin-right: 0;
+        {% else %}margin-left: 0; margin-right: 0;
+      {% endcase %}
+    }
+    #block-{{ block.id }} > * {
+      color: inherit;
+      font: inherit;
+      letter-spacing: inherit;
+      line-height: inherit;
+      margin-top: 0;
+      margin-bottom: 0;
+      text-align: inherit;
+      text-transform: inherit;
+    }
+    @media (min-width: 768px) {
+      #block-{{ block.id }} { font-size: {{ block.settings.advanced_font_size_md }}px; }
+    }
+    @media (min-width: 1150px) {
+      #block-{{ block.id }} {
+        font-size: {{ block.settings.advanced_font_size_lg }}px;
+        max-width: {% if block.settings.advanced_max_width_lg > 0 %}{{ block.settings.advanced_max_width_lg }}px{% else %}none{% endif %};
+        margin-top: {{ block.settings.advanced_margin_top_lg }}px;
+        margin-bottom: {{ block.settings.advanced_margin_bottom_lg }}px;
+        text-align: {% if block.settings.advanced_alignment_lg == 'inherit' %}inherit{% else %}{{ block.settings.advanced_alignment_lg }}{% endif %};
+        {% case block.settings.advanced_alignment_lg %}
+          {% when 'left' %}margin-left: 0; margin-right: auto;
+          {% when 'center' %}margin-left: auto; margin-right: auto;
+          {% when 'right' %}margin-left: auto; margin-right: 0;
+          {% else %}margin-left: 0; margin-right: 0;
+        {% endcase %}
+      }
+    }
+  {%- endstyle -%}
+{%- endif -%}
+{% schema %}
+{
+  "name": "t:blocks.heading.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "t:blocks.text.settings.content.label",
+      "default": "<p>Heading</p>",
+      "info": "t:blocks.text.settings.content.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "hidden_br_mobile",
+      "label": "t:blocks.text.settings.hidden_br_mobile",
+      "default": false,
+      "visible_if": "{{ block.settings.heading != blank }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "hidden_on_mobile",
+      "label": "t:blocks.text.settings.hidden_on_mobile",
+      "default": false,
+      "visible_if": "{{ block.settings.heading != blank }}"
+    },
+    {
+      "type": "select",
+      "id": "line_height",
+      "label": "t:settings_schema.typography.settings.line_height.label",
+      "options": [
+        {
+          "value": "",
+          "label": "t:default"
+        },
+        {
+          "value": "hdt-lh-sm",
+          "label": "t:settings_schema.typography.settings.line_height.hdt-lh-1-2"
+        },
+        {
+          "value": "hdt-lh-1",
+          "label": "t:settings_schema.typography.settings.line_height.hdt-lh-1"
+        }
+      ],
+      "default": ""
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "t:settings_schema.heading.settings.label",
+      "options": [
+        {
+          "value": "base",
+          "label": "t:settings_schema.heading.settings.base_size"
+        },
+        {
+          "value": "h6",
+          "label": "t:settings_schema.heading.settings.h6_size"
+        },
+        {
+          "value": "h5",
+          "label": "t:settings_schema.heading.settings.h5_size"
+        },
+        {
+          "value": "h4",
+          "label": "t:settings_schema.heading.settings.h4_size"
+        },
+        {
+          "value": "h3",
+          "label": "t:settings_schema.heading.settings.h3_size"
+        },
+        {
+          "value": "h2",
+          "label": "t:settings_schema.heading.settings.h2_size"
+        },
+        {
+          "value": "h1",
+          "label": "t:settings_schema.heading.settings.h1_size"
+        },
+        {
+          "value": "h0",
+          "label": "t:settings_schema.heading.settings.h0_size"
+        },
+        {
+          "value": "h_custom",
+          "label": "t:settings_schema.typography.settings.font_size.custom"
+        }
+      ],
+      "default": "h2",
+      "visible_if": "{{ block.settings.heading != blank }}"
+    },
+    {
+      "type": "select",
+      "id": "font_weight",
+      "label": "t:settings_schema.typography.settings.font_weight.label",
+      "options": [
+        {
+          "value": "",
+          "label": "t:default"
+        },
+        {
+          "value": "light",
+          "label": "t:settings_schema.typography.settings.font_weight.light"
+        },
+        {
+          "value": "normal",
+          "label": "t:settings_schema.typography.settings.font_weight.normal"
+        },
+        {
+          "value": "medium",
+          "label": "t:settings_schema.typography.settings.font_weight.medium"
+        },
+        {
+          "value": "semibold",
+          "label": "t:settings_schema.typography.settings.font_weight.semibold"
+        },
+        {
+          "value": "bold",
+          "label": "t:settings_schema.typography.settings.font_weight.bold"
+        },
+      ],
+      "default": "",
+      "visible_if": "{{ block.settings.heading != blank }}"
+    },
+    {
+      "type": "select",
+      "id": "text_color",
+      "options": [
+        {
+          "value": "hdt-s-text",
+          "label": "t:default"
+        },
+        {
+          "value": "hdt-text-secondary",
+          "label": "t:settings_schema.colors.secondary"
+        },
+        {
+          "value": "hdt-text-body-tertiary",
+          "label": "t:settings_schema.colors.tertiary"
+        },
+        {
+          "value": "hdt-text-primary",
+          "label": "t:settings_schema.colors.accent"
+        }
+      ],
+      "label": "t:blocks.text.text_color.label",
+      "default": "hdt-s-text",
+      "visible_if": "{{ block.settings.heading != blank }}"
+    },
+    {
+      "type": "header",
+      "content": "自定义颜色",
+      "visible_if": "{{ block.settings.heading != blank }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_custom_color",
+      "label": "启用自定义标题颜色",
+      "default": false,
+      "info": "启用后覆盖上方的主题颜色角色。",
+      "visible_if": "{{ block.settings.heading != blank }}"
+    },
+    {
+      "type": "color",
+      "id": "custom_text_color",
+      "label": "标题颜色",
+      "default": "#000000",
+      "visible_if": "{{ block.settings.use_custom_color and block.settings.heading != blank }}"
+    },
+    {
+      "type": "range",
+      "id": "custom_color_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "颜色不透明度",
+      "default": 100,
+      "visible_if": "{{ block.settings.use_custom_color and block.settings.heading != blank }}"
+    },
+    {
+      "type": "header",
+      "content": "t:blocks.text.custom_size_options.label",
+      "visible_if": "{{ block.settings.heading_size == 'h_custom' and block.settings.heading != blank }}"
+    },
+    {
+      "type": "range",
+      "id": "font_size_heading_lg",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:settings_schema.typography.settings.font_size.label",
+      "default": 50,
+      "visible_if": "{{ block.settings.heading_size == 'h_custom' and block.settings.heading != blank }}"
+    },
+    {
+      "type": "range",
+      "id": "font_size_heading_md",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:settings_schema.typography.settings.font_size.tablet_font_size",
+      "default": 30,
+      "visible_if": "{{ block.settings.heading_size == 'h_custom' and block.settings.heading != blank }}"
+    },
+    {
+      "type": "range",
+      "id": "font_size_heading",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:settings_schema.typography.settings.font_size.mobile_font_size",
+      "default": 24,
+      "visible_if": "{{ block.settings.heading_size == 'h_custom' and block.settings.heading != blank }}"
+    },
+    {
+      "type": "range",
+      "id": "font_weight_heading",
+      "min": 100,
+      "max": 900,
+      "step": 100,
+      "label": "t:settings_schema.typography.settings.font_weight.label",
+      "default": 600,
+      "visible_if": "{{ block.settings.heading_size == 'h_custom' and block.settings.heading != blank }}"
+    },
+    {
+      "type": "range",
+      "id": "letter_spacing_heading",
+      "min": -10,
+      "max": 10,
+      "step": 0.2,
+      "label": "t:settings_schema.typography.settings.letter_spacing",
+      "unit": "px",
+      "default": 0,
+      "visible_if": "{{ block.settings.heading_size == 'h_custom' and block.settings.heading != blank }}"
+    },
+    {
+      "type": "header",
+      "content": "高级排版与布局",
+      "visible_if": "{{ block.settings.heading != blank }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_advanced_options",
+      "label": "启用高级排版与布局",
+      "default": false,
+      "info": "启用后覆盖上方的字号、粗细和行高设置；默认关闭，不影响现有标题。",
+      "visible_if": "{{ block.settings.heading != blank }}"
+    },
+    {
+      "type": "select",
+      "id": "advanced_font_family",
+      "label": "字体系列",
+      "options": [
+        { "value": "", "label": "继承主题" },
+        { "value": "--f_family_1", "label": "字体 1" },
+        { "value": "--f_family_2", "label": "字体 2" },
+        { "value": "--f_family_3", "label": "字体 3" },
+        { "value": "--f_family_4", "label": "字体 4" },
+        { "value": "--f_family_5", "label": "字体 5" }
+      ],
+      "default": "",
+      "visible_if": "{{ block.settings.enable_advanced_options and block.settings.heading != blank }}"
+    },
+    {
+      "type": "range", "id": "advanced_font_size_lg", "min": 10, "max": 100, "step": 1, "unit": "px", "label": "桌面字号", "default": 50,
+      "visible_if": "{{ block.settings.enable_advanced_options and block.settings.heading != blank }}"
+    },
+    {
+      "type": "range", "id": "advanced_font_size_md", "min": 10, "max": 100, "step": 1, "unit": "px", "label": "平板字号", "default": 30,
+      "visible_if": "{{ block.settings.enable_advanced_options and block.settings.heading != blank }}"
+    },
+    {
+      "type": "range", "id": "advanced_font_size_mb", "min": 10, "max": 100, "step": 1, "unit": "px", "label": "移动端字号", "default": 24,
+      "visible_if": "{{ block.settings.enable_advanced_options and block.settings.heading != blank }}"
+    },
+    {
+      "type": "range", "id": "advanced_font_weight", "min": 100, "max": 900, "step": 100, "label": "字体粗细", "default": 600,
+      "visible_if": "{{ block.settings.enable_advanced_options and block.settings.heading != blank }}"
+    },
+    {
+      "type": "range", "id": "advanced_line_height", "min": 0.8, "max": 2, "step": 0.1, "label": "行高", "default": 1.2,
+      "visible_if": "{{ block.settings.enable_advanced_options and block.settings.heading != blank }}"
+    },
+    {
+      "type": "range", "id": "advanced_letter_spacing", "min": -5, "max": 10, "step": 0.2, "unit": "px", "label": "字间距", "default": 0,
+      "visible_if": "{{ block.settings.enable_advanced_options and block.settings.heading != blank }}"
+    },
+    {
+      "type": "select", "id": "advanced_font_style", "label": "字体样式",
+      "options": [{ "value": "normal", "label": "正常" }, { "value": "italic", "label": "斜体" }], "default": "normal",
+      "visible_if": "{{ block.settings.enable_advanced_options and block.settings.heading != blank }}"
+    },
+    {
+      "type": "select", "id": "advanced_text_transform", "label": "字母大小写",
+      "options": [{ "value": "none", "label": "保持原样" }, { "value": "uppercase", "label": "全部大写" }, { "value": "lowercase", "label": "全部小写" }, { "value": "capitalize", "label": "单词首字母大写" }], "default": "none",
+      "visible_if": "{{ block.settings.enable_advanced_options and block.settings.heading != blank }}"
+    },
+    {
+      "type": "header", "content": "桌面布局",
+      "visible_if": "{{ block.settings.enable_advanced_options and block.settings.heading != blank }}"
+    },
+    {
+      "type": "select", "id": "advanced_alignment_lg", "label": "桌面对齐",
+      "options": [{ "value": "inherit", "label": "继承父级" }, { "value": "left", "label": "左对齐" }, { "value": "center", "label": "居中" }, { "value": "right", "label": "右对齐" }], "default": "inherit",
+      "visible_if": "{{ block.settings.enable_advanced_options and block.settings.heading != blank }}"
+    },
+    {
+      "type": "range", "id": "advanced_max_width_lg", "min": 0, "max": 1200, "step": 20, "unit": "px", "label": "桌面最大宽度", "default": 0, "info": "0 表示不限制。",
+      "visible_if": "{{ block.settings.enable_advanced_options and block.settings.heading != blank }}"
+    },
+    {
+      "type": "range", "id": "advanced_margin_top_lg", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "桌面上间距", "default": 0,
+      "visible_if": "{{ block.settings.enable_advanced_options and block.settings.heading != blank }}"
+    },
+    {
+      "type": "range", "id": "advanced_margin_bottom_lg", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "桌面下间距", "default": 0,
+      "visible_if": "{{ block.settings.enable_advanced_options and block.settings.heading != blank }}"
+    },
+    {
+      "type": "header", "content": "移动端布局",
+      "visible_if": "{{ block.settings.enable_advanced_options and block.settings.heading != blank }}"
+    },
+    {
+      "type": "select", "id": "advanced_alignment_mb", "label": "移动端对齐",
+      "options": [{ "value": "inherit", "label": "继承父级" }, { "value": "left", "label": "左对齐" }, { "value": "center", "label": "居中" }, { "value": "right", "label": "右对齐" }], "default": "inherit",
+      "visible_if": "{{ block.settings.enable_advanced_options and block.settings.heading != blank }}"
+    },
+    {
+      "type": "range", "id": "advanced_max_width_mb", "min": 0, "max": 800, "step": 20, "unit": "px", "label": "移动端最大宽度", "default": 0, "info": "0 表示不限制。",
+      "visible_if": "{{ block.settings.enable_advanced_options and block.settings.heading != blank }}"
+    },
+    {
+      "type": "range", "id": "advanced_margin_top_mb", "min": 0, "max": 80, "step": 1, "unit": "px", "label": "移动端上间距", "default": 0,
+      "visible_if": "{{ block.settings.enable_advanced_options and block.settings.heading != blank }}"
+    },
+    {
+      "type": "range", "id": "advanced_margin_bottom_mb", "min": 0, "max": 80, "step": 1, "unit": "px", "label": "移动端下间距", "default": 0,
+      "visible_if": "{{ block.settings.enable_advanced_options and block.settings.heading != blank }}"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:blocks.heading.name",
+    }
+  ]
+}
+{% endschema %}
