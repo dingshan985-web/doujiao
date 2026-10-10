@@ -108,7 +108,7 @@
             "dotUI": true,
             "spacing_dot": 30,
             "Content_align": "start",
-            "image_ratio": "-square",
+            "image_ratio": "-adapt_image",
             "image_size": "cover",
             "padding_top": 80,
             "padding_bottom": 30,

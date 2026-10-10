@@ -62,16 +62,6 @@
 {%- render 'search-form' -%}
 {%- render 'hdt_customer_form_popup' -%}
 {%- if settings.show_quick_view or settings.show_quick_add %}<hdt-tmp-quick hidden></hdt-tmp-quick>{% endif -%}
-{%- comment %} === [Intercart] 开始 - 加载 Intercart 工具函数 === {% endcomment -%}
-<script src="https://cdn.jsdelivr.net/npm/sa-sdk-javascript@1.27.11/sensorsdata.min.js" defer="defer"></script>
-<script src="{{ 'utils.js' | asset_url }}" defer="defer"></script>
-<script>
-    window.money_format = {
-        "amount": "{{ 10000000000 | money }}",
-        "amount_with_comma_separator": "{{ 10000000000 | money_with_currency }}",
-    }
-</script>
-{%- comment %} === [Intercart] 结束 === {% endcomment -%}
 <script type="module" src="{{ 'global.min.js' | asset_url }}" fetchpriority="high"></script>
 <script type="module" src="{{ 'custom.js' | asset_url }}"></script>
 {%- assign arr_page_type = 'collection, search, blog, list-collections' | split: ', ' -%}

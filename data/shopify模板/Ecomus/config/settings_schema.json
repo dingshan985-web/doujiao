@@ -983,6 +983,10 @@
           {
             "value": "2",
             "label": "t:settings_schema.products.settings.price_varies_style.options__2"
+          },
+          {
+            "value": "3",
+            "label": "t:settings_schema.products.settings.price_varies_style.options__3"
           }
         ],
         "label": "t:settings_schema.products.settings.price_varies_style.label",

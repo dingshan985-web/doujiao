@@ -15,7 +15,7 @@
 {%- endcomment -%}
 {%- if product != blank -%}
   {%- liquid
-    # assign selected_variant = product.selected_or_first_available_variant
+    #assign selected_variant = product.selected_or_first_available_variant
     if selected_variant.inventory_management == 'shopify' and selected_variant.inventory_quantity <= 0 and selected_variant.available
       assign is_pre_order = true
     else
@@ -41,85 +41,31 @@
     assign variant_picker_block = section.blocks | where: 'type', 'variant_picker' | first
   -%}
   <wrapp-hdt-pr-frm class="hdt-contents">
-    {%- form 'product',
-      product,
-      id: product_form_id,
-      class: 'hdt-product-form',
-      data-gift-card-recipient: gift_card_recipient_feature_active,
-      data-type: 'add-to-cart-form'
-    -%}
-      <input
-        type="hidden"
-        name="id"
-        value="{{ selected_variant.id }}"
-        {% if variant_picker_block != blank and product.has_only_default_variant == false %}
-          disabled
-        {% endif %}
-      >
+    {%- form 'product', product, id: product_form_id, class: 'hdt-product-form', data-gift-card-recipient: gift_card_recipient_feature_active -%}
+      <input type="hidden" name="id" value="{{ selected_variant.id }}"{% if variant_picker_block != blank and product.has_only_default_variant == false %} disabled{% endif %}>
       {%- if gift_card_recipient_feature_active -%}
-        {%- render 'gift-card-recipient-form',
-          product: product,
-          form: form,
-          section: section,
-          form_id: product_form_id
-        -%}
+        {%- render 'gift-card-recipient-form', product: product, form: form, section: section, form_id: product_form_id -%}
       {%- endif -%}
-      <div class="hdt-form__message-wrapper hdt-form__message--error" ref="addToCartTextError" role="alert" hidden>
-        {% render 'icon' with 'error' %}
-        <span class="hdt-error-message"></span>
-      </div>
+      <div class="hdt-form__message-wrapper hdt-form__message--error" ref="addToCartTextError" role="alert" hidden>{% render 'icon' with 'error' %} <span class="hdt-error-message"></span></div>
       <hdt-buy-buttons class="hdt-product-form__buttons" form="{{ product_form_id }}">
-        <button
-          ref="addToCartButton"
-          type="submit"
-          name="add"
-          class="hdt-product-form__submit"
-          {% if selected_variant.available == false or quantity_rule_soldout or un_no_pick == false %}
-            disabled
-          {% endif %}
-        >
-          <span>
-            {%- if un_no_pick == false -%}
-              {{- 'products.product.choose_options' | t -}}
-            {%- elsif is_pre_order -%}
-              {{- 'products.product.pre_order' | t -}}
-            {%- elsif selected_variant.available == false or quantity_rule_soldout -%}
-              {{- 'products.product.sold_out' | t -}}
-            {%- else -%}
-              {{- 'products.product.add_to_cart' | t -}}
-            {%- endif -%}
-          </span>
+        <button ref="addToCartButton" type="submit" name="add" class="hdt-product-form__submit"{% if selected_variant.available == false or quantity_rule_soldout or un_no_pick == false %} disabled{% endif %}>
+          <span>{% if un_no_pick == false %}{{ 'products.product.choose_options' | t }}{% elsif is_pre_order %}{{ 'products.product.pre_order' | t }}{% elsif selected_variant.available == false or quantity_rule_soldout %}{{ 'products.product.sold_out' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}</span>
         </button>
-        {% comment %} {%- if show_dynamic_checkout and product.available -%} {% endcomment %}
-        {% comment %} {{ form | payment_button }} {% endcomment %}
-        {%- comment -%}
+        {%- if show_dynamic_checkout and product.available -%}
+          {{ form | payment_button }}
+          {%- comment -%}
           {%- unless selected_variant.available -%}
             <style>#shopify-section-{{ section.id }} .shopify-payment-button {display: none; }</style>
           {%- endunless -%}
-        {%- endcomment -%}
-        {% comment %} {%- endif -%} {% endcomment %}
-        {%- comment %} === [Intercart] 开始 - 添加产品页面快速结账按钮 === {%- endcomment %}
-        {% comment %} {%- if product.available -%} {% endcomment %}
-        <button
-          type="button"
-          class="hdt-product-form__submit hdt-btn hdt-btn-solid button-checkout-quick"
-          data-type="my_product_checkout"
-          onclick="window.my_product_checkout(event)"
-          style="margin-top: 8px;"
-        >
-          <span>{{ 'products.product.buy_it_now' | t }}</span>
-        </button>
-        {% comment %} {%- endif -%} {% endcomment %}
-        {%- comment %} === [Intercart] 结束 === {%- endcomment %}
+          {%- endcomment -%}
+        {%- endif -%}
       </hdt-buy-buttons>
     {%- endform -%}
   </wrapp-hdt-pr-frm>
 {%- else -%}
   <div class="hdt-product-form">
     <div class="hdt-product-form__buttons form">
-      <button type="submit" name="add" class="hdt-product-form__submit hdt-btn hdt-btn-solid" disabled>
-        {{ 'products.product.sold_out' | t }}
-      </button>
+      <button type="submit" name="add" class="hdt-product-form__submit hdt-btn hdt-btn-solid" disabled>{{ 'products.product.sold_out' | t }}</button>
     </div>
   </div>
 {%- endif -%}

@@ -146,11 +146,12 @@
       }
     }
   </style>
-  {% assign first_column_results_size = 0 %}  <div class="ecom-predictive-search">
+  {% assign first_column_results_size = 0 %}
+  <div class="ecom-predictive-search">
   {%- if predictive_search.resources.products.size > 0 -%}
     <div class="ecom-predictive-search-wrapper">
   {% endif %}
-    {%- if false -%}
+    {%- if first_column_results_size > 0 -%}
       <div class="ecom-predictive-search-group">
     {% endif %}
       {%- if false -%}
@@ -203,7 +204,7 @@
           </ul>
         </div>
       {%- endif -%}
-    {%- if false -%}
+    {%- if first_column_results_size > 0 -%}
       </div>
     {% endif %}
     {%- if predictive_search.resources.products.size > 0 -%}

@@ -11,7 +11,7 @@
 
 {% schema %}
 {
-  "name": "组合",
+  "name": "Group",
   "tag": null,
   "blocks": [
     {
@@ -60,20 +60,20 @@
   "settings": [
     {
       "type": "header",
-      "content": "布局",
+      "content": "Layout",
     },
     {
       "type": "select",
       "id": "content_direction",
-      "label": "方向",
+      "label": "Direction",
       "options": [
         {
           "value": "column",
-          "label": "垂直"
+          "label": "Vertical"
         },
         {
           "value": "row",
-          "label": "水平"
+          "label": "Horizontal"
         }
       ],
       "default": "column"
@@ -81,30 +81,30 @@
     {
       "type": "checkbox",
       "id": "vertical_on_mobile",
-      "label": "移动端垂直排列",
+      "label": "Vertical on mobile",
       "default": false,
       "visible_if": "{{ block.settings.content_direction == 'row' }}"
     },
     {
       "type": "select",
       "id": "horizontal_alignment",
-      "label": "对齐方式",
+      "label": "Alignment",
       "options": [
         {
           "value": "flex-start",
-          "label": "左"
+          "label": "Left"
         },
         {
           "value": "center",
-          "label": "居中"
+          "label": "Center"
         },
         {
           "value": "flex-end",
-          "label": "右"
+          "label": "Right"
         },
         {
           "value": "space-between",
-          "label": "两端对齐"
+          "label": "Space between"
         }
       ],
       "default": "flex-start",
@@ -113,19 +113,19 @@
     {
       "type": "select",
       "id": "vertical_alignment",
-      "label": "位置",
+      "label": "Position",
       "options": [
         {
           "value": "flex-start",
-          "label": "顶部"
+          "label": "Top"
         },
         {
           "value": "center",
-          "label": "居中"
+          "label": "Center"
         },
         {
           "value": "flex-end",
-          "label": "底部"
+          "label": "Bottom"
         }
       ],
       "default": "center",
@@ -134,19 +134,19 @@
     {
       "type": "select",
       "id": "horizontal_alignment_flex_direction_column",
-      "label": "对齐方式",
+      "label": "Alignment",
       "options": [
         {
           "value": "flex-start",
-          "label": "左"
+          "label": "Left"
         },
         {
           "value": "center",
-          "label": "居中"
+          "label": "Center"
         },
         {
           "value": "flex-end",
-          "label": "右"
+          "label": "Right"
         }
       ],
       "default": "flex-start",
@@ -155,23 +155,23 @@
     {
       "type": "select",
       "id": "vertical_alignment_flex_direction_column",
-      "label": "位置",
+      "label": "Position",
       "options": [
         {
           "value": "flex-start",
-          "label": "顶部"
+          "label": "Top"
         },
         {
           "value": "center",
-          "label": "居中"
+          "label": "Center"
         },
         {
           "value": "flex-end",
-          "label": "底部"
+          "label": "Bottom"
         },
         {
           "value": "space-between",
-          "label": "两端对齐"
+          "label": "Space between"
         }
       ],
       "default": "center",
@@ -184,29 +184,29 @@
       "max": 100,
       "step": 1,
       "unit": "px",
-      "label": "间隙",
+      "label": "Gap",
       "default": 0
     },
     {
       "type": "header",
-      "content": "尺寸"
+      "content": "Size"
     },
     {
       "type": "select",
       "id": "width",
-      "label": "宽度",
+      "label": "Width",
       "options": [
         {
           "value": "fit-content",
-          "label": "适应"
+          "label": "Fit"
         },
         {
           "value": "fill",
-          "label": "填充"
+          "label": "Fill"
         },
         {
           "value": "custom",
-          "label": "自定义"
+          "label": "Custom"
         }
       ],
       "default": "fit-content"
@@ -218,26 +218,26 @@
       "max": 100,
       "step": 1,
       "unit": "%",
-      "label": "宽度",
+      "label": "Width",
       "default": 100,
       "visible_if": "{{ block.settings.width == 'custom' }}"
     },
     {
       "type": "select",
       "id": "width_mobile",
-      "label": "移动端宽度",
+      "label": "Mobile width",
       "options": [
         {
           "value": "fit-content",
-          "label": "适应"
+          "label": "Fit"
         },
         {
           "value": "fill",
-          "label": "填充"
+          "label": "Fill"
         },
         {
           "value": "custom",
-          "label": "自定义"
+          "label": "Custom"
         }
       ],
       "default": "fit-content"
@@ -249,26 +249,26 @@
       "max": 100,
       "step": 1,
         "unit": "%",
-      "label": "移动端宽度",
+      "label": "Width on mobile",
       "default": 100,
       "visible_if": "{{ block.settings.width_mobile == 'custom' }}"
     },
     /*{
       "type": "select",
       "id": "height",
-      "label": "高度",
+      "label": "Height",
       "options": [
         {
           "value": "fit",
-          "label": "适应"
+          "label": "Fit"
         },
         {
           "value": "fill",
-          "label": "填充"
+          "label": "Fill"
         },
         {
           "value": "custom",
-          "label": "自定义"
+          "label": "Custom"
         }
       ],
       "default": "fit"
@@ -280,7 +280,7 @@
       "max": 100,
       "step": 1,
       "unit": "%",
-      "label": "高度",
+      "label": "Height",
       "default": 100,
       "visible_if": "{{ block.settings.height == 'custom' }}"
     },*/
@@ -291,20 +291,20 @@
     {
       "type": "checkbox",
       "id": "colors_by_block",
-      "label": "按区块显示颜色",
+      "label": "Display color by blocks",
       "default": false
     },
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "配色方案",
+      "label": "Color scheme",
       "default": "scheme-1",
       "visible_if": "{{ block.settings.colors_by_block }}"
     },
     {
       "type": "select",
       "id": "group_rounded",
-      "label": "圆角",
+      "label": "Rounded",
       "options": [
         {
           "value": "",
@@ -312,7 +312,7 @@
         },
         {
           "value": "hdt-radius-2xs",
-          "label": "最小"
+          "label": "Smallest"
         },
         {
           "value": "hdt-radius-xs",
@@ -332,14 +332,14 @@
         },
         {
           "value": "hdt-radius-full",
-          "label": "胶囊"
+          "label": "Pill"
         }
       ],
       "default": ""
     },
     {
       "type": "header",
-      "content": "间距"
+      "content": "Spacing"
     },
     {
       "type": "range",
@@ -348,7 +348,7 @@
       "max": 100,
       "step": 1,
       "unit": "px",
-      "label": "顶部内边距",
+      "label": "Padding top",
       "default": 0
     },
     {
@@ -358,7 +358,7 @@
       "max": 100,
       "step": 1,
       "unit": "px",
-      "label": "底部内边距",
+      "label": "Padding bottom",
       "default": 0
     },
     {
@@ -368,7 +368,7 @@
       "max": 100,
       "step": 1,
       "unit": "px",
-      "label": "左侧内边距",
+      "label": "Padding left",
       "default": 0
     },
     {
@@ -378,7 +378,7 @@
       "max": 100,
       "step": 1,
       "unit": "px",
-      "label": "右侧内边距",
+      "label": "Padding right",
       "default": 0
     },
     {
@@ -388,13 +388,13 @@
       "max": 100,
       "step": 1,
       "unit": "%",
-      "label": "移动端内边距比例",
+      "label": "Padding rate mobile",
       "default": 0
     },
   ],
   "presets": [
     {
-      "name": "组合"
+      "name": "Group"
     }
   ]
 }

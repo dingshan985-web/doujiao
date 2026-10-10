@@ -16,7 +16,7 @@
   {%- render 'product-variant-options', product: product, option: option, block: block -%}
 {%- endcomment -%}
 {%- liquid
-  assign color_picker_type = color_picker_type | default: block.settings.color_picker_type
+  assign color_picker_type = block.settings.color_picker_type
   if option_type == 'color' or option_type == 'color_rounded'
     assign color_white = 'products.theme_settings.color_white' | t | downcase | strip
     if color_picker_type contains 'color' or color_picker_type == 'image' or color_picker_type == 'image_rounded'
@@ -71,19 +71,15 @@
           if color_obj.imageName != blank and featured_image == blank
             assign featured_image = images[color_obj.imageName]
           endif
-          assign has_color_visual = false
-          if featured_image != blank or value.swatch.color != blank or value.swatch.image != blank or color_obj.colorsCSS != blank
-            assign has_color_visual = true
-          endif
         endif
       -%}
       {%- capture color_style -%}
         {%- if value.swatch.color -%}
           --hdt-bg-color: {{ value.swatch.color }};
         {%- endif -%}
-        {%- if featured_image != null and color_picker_type contains 'image' or featured_image != null and color_picker_type == 'color_rounded' -%}
+        {%- if featured_image != null and color_picker_type contains 'image' -%}
           --hdt-bg-image: url('{{ featured_image | image_url: width: 80 }}');
-        {%- elsif value.swatch.image != blank and color_picker_type contains 'image' or value.swatch.image != blank and color_picker_type == 'color_rounded' -%}
+        {%- elsif value.swatch.image != blank and color_picker_type contains 'image' -%}
           --hdt-bg-image: url('{{ value.swatch.image | image_url: width: 80 }}');
         {%- elsif color_obj.imageName != blank and color_picker_type contains 'color' -%}
           --hdt-bg-image: url('{{ images[color_obj.imageName] | image_url: width: 80 }}');
@@ -98,24 +94,24 @@
           <hdt-tooltip inner>
             <span class="hdt-form-color-pattern {% if color_white == color_downcase %} hdt-bg-color-white{% endif %}" style="{{ color_style }}"></span>
             {%- if option_soldout %}<span class="sr-only">{{ 'products.product.variant_sold_out' | t }}</span>{% endif -%}
-            <span tt-title class="hdt-form-color-name{% unless has_color_visual %} hdt-form-color-name--visible{% else %} sr-only{% endunless %}">{{- value | escape -}}</span>
+            <span tt-title class="hdt-form-color-name sr-only">{{- value | escape -}}</span>
           </hdt-tooltip>
         </label>
       {%- elsif color_picker_type == 'image' or color_picker_type == 'image_rounded' -%}
         <input autocomplete="off" is-value type="radio" id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" name="{{ option.name | escape }}" value="{{ value | escape }}" form="{{ product_form_id }}"{% if value_selected %} checked{% endif %} class="sr-only {% if option_unavailable %}is-unavailable{% elsif option_soldout %}is-disabled{% endif %}" data-value-id="{{ value.id }}">
-        {%- if featured_image != blank -%}
+        {%- if variant_image != blank -%}
           {%- if color_white == color_downcase -%}
             {%- assign class="hdt-bg-color-white" -%}
           {%- endif -%}
           <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" class="hdt-product-form_value hdt-product-form_value_has-image is-type-color">
             <hdt-tooltip inner placement="top">
-              {{ featured_image | image_url: width: 160 | image_tag: widths: '50, 100, 160', loading: 'lazy', class: class }}
+              {{ image | image_url: width: 160 | image_tag: widths: '50, 100, 160', loading: 'lazy', class: class }}
               {%- if forloop.first -%}
                 <style>
                   #variant-picker-{{ section.id }} .hdt-product-form_value.is-type-color hdt-tooltip:before {
                     content: '';
                     display: block;
-                    padding-bottom: calc(1 / {{ featured_image.aspect_ratio }} * 100%);
+                    padding-bottom: calc(1 / {{ image.aspect_ratio }} * 100%);
                   }
                   #variant-picker-{{ section.id }}:not(.hdt-color-mode__image_rounded) .is-type-color hdt-tooltip {
                     height: auto;
@@ -152,9 +148,7 @@
         </div>
       {%- elsif color_picker_type contains 'dropdown' -%}
         <button type="button" role="option" value="{{ value | escape }}" aria-selected="{% if value_selected %}true{% else %}false{% endif %}" class="hdt-product-form_value is-type-{{ color_picker_type }} {% if option_unavailable %}is-unavailable{% elsif option_soldout %}is-disabled{% endif %}" data-value-id="{{ value.id }}">
-          {%- if color_picker_type == 'dropdown_with_color' -%}
-            <span class="hdt-block-swatch__color{% if color_white == color_downcase %} hdt-bg-color-white{% endif %}" style="{{ color_style }}"></span>
-          {%- endif -%}
+          <span class="hdt-block-swatch__color{% if color_white == color_downcase %} hdt-bg-color-white{% endif %}" style="{{ color_style }}"></span>
           <span class="hdt-form-color-name">{{- value | escape -}}</span>
         </button>
       {%- else -%}

@@ -30,17 +30,26 @@
   assign price = target.price | default: 1999
   assign price_min = product.price_min
   assign price_max = product.price_max
+  assign compare_at_price_min = product.compare_at_price_min
+  assign compare_at_price_max = product.compare_at_price_max
+  if compare_at_price_min == 0 and compare_at_price_max > 0
+    assign compare_at_price_min = compare_at_price_max
+  endif
   assign available = target.available | default: false
   if settings.currency_code_enabled
     assign money_price = price | money_with_currency
     assign money_compare_at_price = compare_at_price | money_with_currency
     assign money_price_min = price_min | money_with_currency
     assign money_price_max = price_max | money_with_currency
+    assign money_compare_at_price_min = compare_at_price_min | money_with_currency
+    assign money_compare_at_price_max = compare_at_price_max | money_with_currency
   else
     assign money_price = price | money
     assign money_compare_at_price = compare_at_price | money
     assign money_price_min = price_min | money
     assign money_price_max = price_max | money
+    assign money_compare_at_price_min = compare_at_price_min | money
+    assign money_compare_at_price_max = compare_at_price_max | money
   endif
   if compare_at_price > price
     assign on_sale = true
@@ -48,10 +57,20 @@
     assign on_sale = false
   endif
   assign price_varies_item = ''
+  assign show_range_compare = false
+  if target == product and product.price_varies and settings.price_varies_style == "3" and compare_at_price_max > price_min
+    assign show_range_compare = true
+  endif
+  assign money_compare_at_price_range = money_compare_at_price_min
+  if compare_at_price_min != compare_at_price_max
+    assign money_compare_at_price_range = 'products.product.volume_pricing.price_range_html' | t: minimum: money_compare_at_price_min, maximum: money_compare_at_price_max
+  endif
   if target == product and product.price_varies
     assign price_varies_item = ' hdt-price-item--range'
     if settings.price_varies_style == "1"
       assign money_price = 'products.product.volume_pricing.price_range_html' | t: minimum: money_price_min, maximum: money_price_max
+    elsif settings.price_varies_style == "3"
+      assign money_price = 'products.product.price.from_price_html' | t: price: money_price_min
     else
       assign money_price = 'products.product.price.from_price_html' | t: price: money_price_min
     endif
@@ -61,26 +80,46 @@
 <div class="hdt-price-wrapp {{ price_class }}{% if show_badges %} hdt-price--show-badge{% endif %}">
   <div class="hdt-price__list">
     {%- if product.quantity_price_breaks_configured? -%}
-      {%- if show_compare_at_price and compare_at_price -%}
-        {%- unless product.price_varies == false and product.compare_at_price_varies -%}
+      {%- if show_compare_at_price -%}
+        {%- if show_range_compare -%}
           <hdt-compare-at-price class="hdt-compare-at-price">
             <span class="sr-only sr-only--inline">{{ 'products.product.price.regular_price' | t }}</span>
-            <span class="hdt-money">{{ money_compare_at_price }}</span>
+            {%- if compare_at_price_min != compare_at_price_max -%}
+              {{- money_compare_at_price_range -}}
+            {%- else -%}
+              <span class="hdt-money">{{ money_compare_at_price_range }}</span>
+            {%- endif -%}
           </hdt-compare-at-price>
-        {%- endunless -%}
+        {%- elsif compare_at_price -%}
+          {%- unless product.price_varies == false and product.compare_at_price_varies -%}
+            <hdt-compare-at-price class="hdt-compare-at-price">
+              <span class="sr-only sr-only--inline">{{ 'products.product.price.regular_price' | t }}</span>
+              <span class="hdt-money">{{ money_compare_at_price }}</span>
+            </hdt-compare-at-price>
+          {%- endunless -%}
+        {%- endif -%}
       {%- endif -%}
       <span class="hdt-price hdt-price-item--range">
         <span class="sr-only sr-only--inline">{{ 'products.product.price.regular_price' | t }}</span>
         {{- 'products.product.volume_pricing.price_range_html' | t: minimum: money_price_min, maximum: money_price_max -}}
       </span>
     {%- else -%}
-        {%- if compare_at_price and on_sale and show_compare_at_price -%}
-          {%- unless product.price_varies -%}
-          <hdt-compare-at-price class="hdt-compare-at-price">
-            <span class="sr-only sr-only--inline">{{ 'products.product.price.regular_price' | t }}</span>
-            <span class="hdt-money">{{ money_compare_at_price }}</span>
-          </hdt-compare-at-price>
-          {%- endunless -%}
+        {%- if show_compare_at_price -%}
+          {%- if show_range_compare -%}
+            <hdt-compare-at-price class="hdt-compare-at-price">
+              <span class="sr-only sr-only--inline">{{ 'products.product.price.regular_price' | t }}</span>
+              {%- if compare_at_price_min != compare_at_price_max -%}
+                {{- money_compare_at_price_range -}}
+              {%- else -%}
+                <span class="hdt-money">{{ money_compare_at_price_range }}</span>
+              {%- endif -%}
+            </hdt-compare-at-price>
+          {%- elsif compare_at_price and on_sale and product.price_varies == false -%}
+            <hdt-compare-at-price class="hdt-compare-at-price">
+              <span class="sr-only sr-only--inline">{{ 'products.product.price.regular_price' | t }}</span>
+              <span class="hdt-money">{{ money_compare_at_price }}</span>
+            </hdt-compare-at-price>
+          {%- endif -%}
         {%- endif -%}
         <hdt-price class="hdt-price{{ price_varies_item }}">
           <span class="sr-only sr-only--inline">{{ 'products.product.price.sale_price' | t }}</span>

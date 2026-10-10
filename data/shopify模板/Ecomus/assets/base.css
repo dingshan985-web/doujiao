@@ -2471,7 +2471,7 @@ h1.hdt-header__logo-wrapper {
   font-size: 1.3rem;
 }
 
-.hdt-compare-at-price:not([hidden])+.hdt-price:not(.hdt-price-item--range) {
+.hdt-compare-at-price:not([hidden])+.hdt-price {
   color: rgb(var(--color-pr-sale-price));
 }
 

@@ -4,7 +4,7 @@
 </div>
 {% schema %}
   {
-    "name": "区块标题",
+    "name": "Section Heading",
     "class": "hdt-collection-heading",
     "blocks": [
       {
@@ -21,21 +21,21 @@
       {
         "type": "checkbox",
         "id": "one_line",
-        "label": "行布局",
+        "label": "Row layout",
         "default": false,
-       /* "info": "仅在桌面端生效"*/
+       /* "info": "Only work on desktop"*/
       },
       {
         "type": "text_alignment",
         "id": "alignment",
         "label": "t:settings_schema.global.settings.text_alignment.label",
         "default": "center",
-        "info": "行布局下不生效",
+        "info": "Not work for row layout",
         "visible_if": "{{ block.settings.one_line == false }}"
       },
       {
         "type": "header",
-        "content": "间距"
+        "content": "Spacing"
       },
       {
         "type": "range",
@@ -44,7 +44,7 @@
         "max": 50,
         "step": 1,
         "unit": "px",
-        "label": "项目间距",
+        "label": "Spacing between items",
         "default": 15
       },
       {
@@ -54,7 +54,7 @@
         "max": 100,
         "step": 1,
         "unit": "px",
-        "label": "底部外边距",
+        "label": "Margin bottom",
         "default": 30
       },
     ],

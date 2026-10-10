@@ -463,7 +463,7 @@
     },
     {
       "type": "header",
-      "content": "轮播设置",
+      "content": "Slider configs",
       "visible_if": "{{ section.settings.collection != blank or section.settings.product_list != blank }}"
     },
     {
@@ -471,7 +471,7 @@
       "id": "navUI",
       "label": "t:sections.all.slider.navUI",
       "default": false,
-      "info": "仅在桌面端生效",
+      "info": "Option only works on desktop",
       "visible_if": "{{ section.settings.collection != blank or section.settings.product_list != blank }}"
     },
     {
@@ -569,7 +569,7 @@
         },
         {
           "value": "middle_out",
-          "label": "内容外部"
+          "label": "Outside content"
         },
         {
           "value": "on_border",
@@ -582,15 +582,15 @@
     {
       "type": "select",
       "id": "nav_icon",
-      "label": "导航图标",
+      "label": "Navigation icon",
       "options": [
         {
           "value": "chrvon",
-          "label": "切换箭头"
+          "label": "Chevron"
         },
         {
           "value": "arrow_right",
-          "label": "箭头"
+          "label": "Arrow"
         }
       ],
       "default": "chrvon",
@@ -622,7 +622,7 @@
         },
         {
           "value": "dashed",
-          "label": "虚线"
+          "label": "Dashed"
         }
       ],
       "default": "default",
@@ -663,7 +663,7 @@
       "max": 100,
       "step": 1,
       "unit": "px",
-      "label": "圆点距离",
+      "label": "Dot distance",
       "default": 30,
       "visible_if": "{{ section.settings.dotUI and section.settings.collection != blank or section.settings.product_list != blank }}"
     },

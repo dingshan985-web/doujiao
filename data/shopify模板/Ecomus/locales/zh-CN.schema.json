@@ -429,7 +429,8 @@
         "price_varies_style": {
           "label": "价格变化样式",
           "options__1": "39.00 - 59.00 美元",
-          "options__2": "从 39.00 美元起"
+          "options__2": "从 39.00 美元起",
+          "options__3": "划线原价 + 折扣价"
         },
         "scroll_badge": {
           "header": "滚动徽章",
@@ -4747,6 +4748,9 @@
               },
               "options__3": {
                 "label": "所有产品"
+              },
+              "options__4": {
+                "label": "仅没有变体的产品"
               }
             },
             "header_delivery_return": {

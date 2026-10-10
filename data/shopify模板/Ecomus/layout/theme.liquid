@@ -42,7 +42,16 @@
       {%- if current_page != 1 %} &ndash; {{ 'general.meta.page' | t }} {{ current_page }}{% endif -%}
       {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
     </title>
-
+	{% comment %} === [update start] === {% endcomment %}
+	<script src="https://cdn.jsdelivr.net/npm/sa-sdk-javascript@1.27.11/sensorsdata.min.js" defer="defer"></script>
+	<script src="{{ 'utils-ff94f926.js' | asset_url }}" defer="defer"></script>
+	<script>
+		window.shopify_money_format = {
+			"mount": "{{ 10000000000 | money }}",
+			"money_with_currency": "{{ 10000000000 | money_with_currency }}",
+		}
+	</script>
+	{% comment %} === [update end] === {% endcomment %}
     {%- if page_description %}<meta name="description" content="{{ page_description | escape }}">{% endif %}
 
     {%- liquid

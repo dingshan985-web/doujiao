@@ -3,7 +3,7 @@
 {%- endif -%}
 {% schema %}
 {
-  "name": "自定义链接",
+  "name": "Link custom",
   "tag": null,
   "settings": [
     {
@@ -14,20 +14,20 @@
     {
       "type": "url",
       "id": "url",
-      "label": "链接",
+      "label": "Link",
       "visible_if": "{{ block.settings.label != blank }}"
     },
     {
       "type": "checkbox",
       "id": "open_in_new_tab",
-      "label": "在新标签页打开此链接",
+      "label": "Open this link in a new tab",
       "default": false,
       "visible_if": "{{ block.settings.url != blank }}"
     }
   ],
   "presets": [
     { 
-      "name": "自定义链接" 
+      "name": "Link custom" 
     }
   ]
 }

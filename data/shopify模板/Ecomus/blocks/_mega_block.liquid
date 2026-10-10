@@ -199,7 +199,7 @@
 </li>
 {% schema %}
   {
-    "name": "大型菜单区块",
+    "name": "Mega Block",
     "tag": null,
     "settings": [
       {
@@ -261,7 +261,7 @@
       {
         "type": "select",
         "id": "mega_presets",
-        "label": "大型菜单预设",
+        "label": "Mega Menu Presets",
         "default": "html",
         "options": [
           {
@@ -269,19 +269,19 @@
             "value": "html"
           },
           {
-            "label": "产品",
+            "label": "Product",
             "value": "mega_product"
           },
           {
-            "label": "商店",
+            "label": "Shop",
             "value": "mega_shop"
           },
           {
-            "label": "页面",
+            "label": "Page",
             "value": "mega_page"
           },
           {
-            "label": "下拉菜单",
+            "label": "Dropdown",
             "value": "mega_dropdown"
           }
         ]
@@ -373,14 +373,14 @@
       {
         "type": "link_list",
         "id": "child_menu",
-        "label": "子菜单",
+        "label": "Child menu",
         "info": "Only visible if mega menu presets is dropdown.",
         "visible_if": "{{ block.settings.mega_presets == 'mega_dropdown' }}"
       }
     ],
     "presets": [
       {
-        "name": "大型菜单区块"
+        "name": "Mega Block"
       }
     ]
   }

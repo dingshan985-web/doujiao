@@ -1,7 +1,7 @@
 {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
 {%- if predictive_search.performed -%}
-  {% if predictive_search.resources.products.size > 0 or predictive_search.resources.collections.size > 0 or predictive_search.resources.articles.size > 0 or predictive_search.resources.pages.size > 0 or predictive_search.resources.queries.size > 0 %}
-    {%- if predictive_search.resources.queries.size > 0 -%}
+  {% if predictive_search.resources.products.size > 0 %}
+    {%- if false -%}
       <div class="hdt-search-queries">
         <h6 class="hdt-search-top-title hdt-font-medium">
           {{- 'templates.search.suggestions' | t -}}
@@ -31,7 +31,7 @@
         </div>
       </div>
     {%- endif -%}
-    {%- if predictive_search.resources.collections.size > 0 -%}
+    {%- if false -%}
       <div class="hdt-search-collections">
         <h6 class="hdt-search-top-title hdt-font-medium">
           {{- 'templates.search.collection' | t -}}
@@ -43,7 +43,7 @@
         </div>
       </div>
     {%- endif -%}
-    {%- if predictive_search.resources.articles.size > 0 -%}
+    {%- if false -%}
       <div class="hdt-search-articles">
         <h6 class="hdt-search-top-title hdt-font-medium">
           {{- 'templates.search.article' | t -}}
@@ -55,7 +55,7 @@
         </div>
       </div>
     {%- endif -%}
-    {%- if predictive_search.resources.pages.size > 0 -%}
+    {%- if false -%}
       <div class="hdt-search-pages">
         <h6 class="hdt-search-top-title hdt-font-medium">
           {{- 'templates.search.pages' | t -}}

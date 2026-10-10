@@ -600,7 +600,7 @@ class PredictiveSearch extends Drawer {
     this.updateSearchForTerm(this.searchTerm, newSearchTerm);
 
     this.searchTerm = newSearchTerm;
-    this.btn_viewall?.setAttribute("href", this.href.replace(/\/search\?q=.*/g, "/search?q=" + this.searchTerm));
+    this.btn_viewall?.setAttribute("href", this.href ? `${this.href.split('?')[0]}?type=product&q=${encodeURIComponent(this.searchTerm)}` : `/search?type=product&q=${encodeURIComponent(this.searchTerm)}`);
 
     if (!this.searchTerm.length) {
       this.close(true);
@@ -677,7 +677,7 @@ class PredictiveSearch extends Drawer {
       return;
     }
 
-    fetch(`${themeHDN.routes.predictive_search_url}?q=${encodeURIComponent(searchTerm)}&${this.params}section_id=${this.sectionIdResults}`, {
+    fetch(`${themeHDN.routes.predictive_search_url}?q=${encodeURIComponent(searchTerm)}&type=product&resources[type]=product&${this.params}section_id=${this.sectionIdResults}`, {
       signal: this.abortController2.signal,
     })
       .then((response) => {
@@ -1852,12 +1852,7 @@ class QuickOrderList extends HTMLElement {
       });
     }
 
-    // [Intercart] 包装 cart/add fetch 调用以触发广告像素事件
-    const fetchPromise = action === this.actions.add
-      ? handleAddToCartPixel(fetch(`${routeUrl}`, { ...this.fetchConfig(fetchConfigType), ...{ body } }))
-      : fetch(`${routeUrl}`, { ...this.fetchConfig(fetchConfigType), ...{ body } });
-
-    fetchPromise
+    fetch(`${routeUrl}`, { ...this.fetchConfig(fetchConfigType), ...{ body } })
     .then((response) => {
       return response.text();
     })

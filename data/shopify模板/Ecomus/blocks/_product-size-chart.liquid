@@ -22,10 +22,12 @@
         break
       endif
     endfor
+  elsif block.settings.size_chart == '4'
+    assign show_dialog_size_chart = product.has_only_default_variant
   endif
 -%}
 {%- if block.settings.size_chart_source == 'page' and block.settings.size_chart_page != blank and show_dialog_size_chart -%}
-  <button class="hdt-s-text hdt-text-base hdt-font-semibold" aria-controls="modal-{{ block.id }}" aria-expanded="false">{{ 'products.product.size_chart_button' | t }}</button>
+  <button class="hdt-s-text hdt-text-base hdt-font-semibold" style="text-decoration: underline;" aria-controls="modal-{{ block.id }}" aria-expanded="false">{{ 'products.product.size_chart_button' | t }}</button>
   <hdt-modal effect="slide" color-scheme="{{ settings.color_scheme_dialog }}">
     <dialog id="modal-{{ block.id }}" class="hdt-dialog hdt-dialog-modal hdt-product__modal hdt-modal__size-chart" scroll-lock>
     <div class="hdt-dialog-modal__header"><h3 class="hdt-product__modal-title">{{ block.settings.size_chart_page.title }}</h3><button class="hdt-s-text" aria-controls="modal-{{ block.id }}" aria-label="{{ 'accessibility.close' | t | escape }}">{%- render 'icon' with 'close' -%}</button></div>
@@ -33,11 +35,11 @@
     </dialog>
   </hdt-modal>
 {%- elsif block.settings.size_chart_source == 'image' and image_size_chart != blank and show_dialog_size_chart -%}
-  <wrapp-open-pswp-btn data-obj-img='{ "src": "{{ image_size_chart | image_url: width: image_size_chart.width }}", "width": "{{ image_size_chart.width }}", "height": "{{ image_size_chart.height }}", "alt": "{{ image_size_chart.alt }}" }'><button class="hdt-s-text hdt-text-base hdt-font-semibold">{{ 'products.product.size_chart_button' | t }}</button></wrapp-open-pswp-btn>
+  <wrapp-open-pswp-btn data-obj-img='{ "src": "{{ image_size_chart | image_url: width: image_size_chart.width }}", "width": "{{ image_size_chart.width }}", "height": "{{ image_size_chart.height }}", "alt": "{{ image_size_chart.alt }}" }'><button class="hdt-s-text hdt-text-base hdt-font-semibold" style="text-decoration: underline;">{{ 'products.product.size_chart_button' | t }}</button></wrapp-open-pswp-btn>
 {%- endif -%}
 {% schema %}
 {
-  "name": "Size chart",
+  "name": "尺码表",
   "tag": null,
   "settings": [
     {
@@ -53,6 +55,10 @@
         {
           "value": "3",
           "label": "t:sections.main-product.blocks.extra_link.settings.size_chart.options__3.label"
+        },
+        {
+          "value": "4",
+          "label": "t:sections.main-product.blocks.extra_link.settings.size_chart.options__4.label"
         }
       ]
     },
@@ -88,7 +94,7 @@
   ],
   "presets": [
     { 
-      "name": "Size chart",
+      "name": "尺码表",
     }
   ]
 }

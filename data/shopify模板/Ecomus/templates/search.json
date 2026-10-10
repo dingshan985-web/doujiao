@@ -43,8 +43,8 @@
       "settings": {
         "spacing_hd": 10,
         "color_scheme": "",
-        "padding_top": 23,
-        "padding_bottom": 23,
+        "padding_top": 33,
+        "padding_bottom": 33,
         "padding_rate": 75
       }
     },
@@ -52,7 +52,7 @@
       "type": "main-search",
       "settings": {
         "product_des": "1",
-        "image_ratio": "square",
+        "image_ratio": "adapt_image",
         "image_size": true,
         "show_vendor": false,
         "pr_border": "none",

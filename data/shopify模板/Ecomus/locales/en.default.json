@@ -227,7 +227,6 @@
       "quick_view": "Quick view",
       "pre_order": "Pre-order",
       "add_to_cart": "Add to cart",
-      "buy_it_now": "Buy it now",
       "add_selected_to_cart": "Add selected to cart",
       "choose_options": "Choose options",
       "choose_product_options": "Choose options for {{ product_name }}",

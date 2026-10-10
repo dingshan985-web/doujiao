@@ -1,6 +1,6 @@
 {
-  "version": "1.8.3",
-  "download_url": "https://github.com/dingshan985-web/doujiao/releases/download/v1.8.3/update.zip",
-  "green_download_url": "https://github.com/dingshan985-web/doujiao/releases/download/v1.8.3/update.zip",
-  "release_notes": "v1.8.3 把全部条款模板（Shipping Policy / Terms of Purchase / About Us）的配送时效统一改为 1-7 天送达。"
+  "version": "1.8.4",
+  "download_url": "https://github.com/dingshan985-web/doujiao/releases/download/v1.8.4/update.zip",
+  "green_download_url": "https://github.com/dingshan985-web/doujiao/releases/download/v1.8.4/update.zip",
+  "release_notes": "v1.8.4：Ecomus 模板升级到 debug5（元字段选项卡块类型改为 tab_metafield，已适配「根据产品文件生成元字段」）；发布包精简为仅内置 Ecomus 模板。"
 }

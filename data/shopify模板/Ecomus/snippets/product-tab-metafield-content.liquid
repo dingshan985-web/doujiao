@@ -1,0 +1,32 @@
+{%- liquid
+  assign metafield_source = block.settings.metafield | default: blank
+  assign metafield_mode = block.settings.content_source | default: 'dynamic'
+  if metafield_source == blank and block.settings.metafield_key != blank
+    assign metafield_source = block.settings.metafield_key
+    assign metafield_mode = 'manual'
+  endif
+  assign metafield_value = blank
+  if metafield_mode == 'manual'
+    assign raw_key = metafield_source | strip_html | strip
+    if raw_key contains '.'
+      assign key_parts = raw_key | split: '.'
+      assign metafield_value = product.metafields[key_parts[0]][key_parts[1]]
+    else
+      assign metafield_value = product.metafields.custom[raw_key] | default: product.metafields.c_f[raw_key]
+    endif
+  else
+    assign metafield_value = metafield_source
+  endif
+-%}
+{%- if metafield_value != blank -%}
+  {%- if metafield_value.type == 'rich_text_field' or metafield_value.type == 'multi_line_text_field' or metafield_value.type == 'single_line_text_field' -%}
+    {%- assign html_value = metafield_value.value | default: metafield_value -%}
+    {%- assign html_value = html_value | replace: '&amp;', '&' | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" -%}
+    {{- html_value -}}
+  {%- elsif metafield_value.value != blank -%}
+    {{- metafield_value | metafield_tag -}}
+  {%- else -%}
+    {%- assign html_value = metafield_value | replace: '&amp;', '&' | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" -%}
+    {{- html_value -}}
+  {%- endif -%}
+{%- endif -%}

@@ -66,21 +66,21 @@
 {%- endif -%}
 {% schema %}
   {
-    "name": "媒体",
+    "name": "Media",
     "tag": null,
     "settings": [
       {
         "type": "select",
         "id": "source",
-        "label": "使用来源",
+        "label": "Use source",
         "options": [
           {
             "value": "image",
-            "label": "图片"
+            "label": "Image"
           },
           {
             "value": "video",
-            "label": "视频"
+            "label": "Video"
           }
         ],
         "default": "image"
@@ -88,13 +88,13 @@
       {
         "type": "image_picker",
         "id": "image",
-        "label": "图片",
+        "label": "Image",
         "visible_if": "{{ block.settings.source == 'image' }}"
       },
       {
         "type": "image_picker",
         "id": "image_mb",
-        "label": "移动端图片",
+        "label": "Image Mobile",
         "visible_if": "{{ block.settings.source == 'image' and block.settings.image != blank }}"
       },
       {
@@ -118,7 +118,7 @@
     ],
     "presets": [
       {
-        "name": "媒体"
+        "name": "Media"
       }
     ]
   }

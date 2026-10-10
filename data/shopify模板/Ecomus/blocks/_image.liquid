@@ -23,18 +23,18 @@
 </a>
 {% schema %}
 {
-  "name": "图片",
+  "name": "Image",
   "tag": null,
   "settings": [
     {
       "type": "image_picker",
       "id": "image",
-      "label": "图片"
+      "label": "Image"
     },
     {
       "type": "image_picker",
       "id": "image_mb",
-      "label": "移动端图片",
+      "label": "Image Mobile",
       "visible_if": "{{ block.settings.image != blank }}"
     },
     {
@@ -121,7 +121,7 @@
   ],
   "presets": [
     {
-      "name": "图片"
+      "name": "Image"
     }
   ]
 }

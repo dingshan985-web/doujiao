@@ -1,6 +1,6 @@
 {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
 {%- if predictive_search.performed -%}
-  {%- if predictive_search.resources.products.size > 0 or predictive_search.resources.collections.size > 0 or predictive_search.resources.articles.size > 0 or predictive_search.resources.pages.size > 0 or predictive_search.resources.queries.size > 0 -%}
+  {%- if predictive_search.resources.products.size > 0 -%}
     {%- if settings.search_fullwidth -%}
       <div class="hdt-row-grid hdt-row-grid--modify hdt-justify-center lg:hdt-grid-cols-4 hdt-grid-cols-1 hdt-text-start {{ section.id }}">
         {%- if predictive_search.resources.products.size > 0 -%}
@@ -21,7 +21,7 @@
             </div>
           </div>
         {%- endif -%}
-        {%- if predictive_search.resources.collections.size > 0 -%}
+        {%- if false -%}
           <div class="hdt-search-results-part">
             <h6 class="hdt-search-content-title hdt-font-medium hdt-text-2xl">{{- 'templates.search.collection' | t -}}</h6>
             <div class="hdt-search-results-list hdt-search-list-collections hdt-row-grid hdt-grid-cols-1 hdt-current-scrollbar hdt-current-scrollbar">
@@ -32,7 +32,7 @@
             </div>
           </div>
         {%- endif -%}
-        {%- if predictive_search.resources.articles.size > 0 -%}
+        {%- if false -%}
           <div class="hdt-search-results-part">
             <h6 class="hdt-search-content-title hdt-font-medium hdt-text-2xl">{{- 'templates.search.article' | t -}}</h6>
             <div class="hdt-search-results-list hdt-search-list-article hdt-row-grid hdt-grid-cols-1 hdt-current-scrollbar hdt-current-scrollbar">
@@ -42,9 +42,9 @@
             </div>
           </div>
         {%- endif -%}
-        {%- if predictive_search.resources.queries.size > 0 or predictive_search.resources.pages.size > 0 -%}
+        {%- if false -%}
           <div class="hdt-search-results-part">
-            {%- if predictive_search.resources.queries.size > 0 -%}
+            {%- if false -%}
               <div class="hdt-search-queries">
                 <h6 id="predictive-search-queries" class="hdt-search-content-title hdt-font-medium hdt-text-2xl">
                   {{- 'templates.search.suggestions' | t -}}
@@ -62,7 +62,7 @@
                 </ul>
               </div>
             {%- endif -%}
-            {%- if predictive_search.resources.pages.size > 0 -%}
+            {%- if false -%}
               <div class="hdt-search-pages">
                 <h6 id="predictive-search-pages-desktop hdt-current-scrollbar" class="hdt-search-content-title hdt-font-medium hdt-text-2xl">
                   {{- 'templates.search.pages' | t -}}
@@ -90,11 +90,11 @@
             echo 'templates.search.no_results' | t: terms: predictive_search.terms
           else
             echo 'templates.search.results_with_count' | t: count: total_results | append: ': '
-            if predictive_search.resources.queries.size > 0
+            if false
               assign count = predictive_search.resources.queries.size | plus: predictive_search.resources.collections.size
               echo 'templates.search.results_suggestions_with_count' | t: count: count | append: ', '
             endif
-            if predictive_search.resources.pages.size > 0
+            if false
               assign count = predictive_search.resources.pages.size | plus: predictive_search.resources.articles.size
               echo 'templates.search.results_pages_with_count' | t: count: count | append: ', '
             endif
@@ -105,7 +105,7 @@
         %}
       </span>
     {%- else -%}
-      {%- if predictive_search.resources.queries.size > 0 -%}
+      {%- if false -%}
         <div class="hdt-search-queries">
           <h6 class="hdt-search-top-title hdt-font-medium">
             {{- 'templates.search.suggestions' | t -}}
@@ -129,13 +129,13 @@
         {%- if predictive_search.resources.products.size > 0 -%}
           <button aria-current="{% if index == 0 and active == false %}true{% assign index = 1 %}{% assign active = true %}{% else %}false{% endif %}" class="hdt-relative hdt-text-2xl hdt-font-medium">{{- 'templates.search.products' | t -}}</button>
         {% endif %}
-        {%- if predictive_search.resources.collections.size > 0 -%}
+        {%- if false -%}
           <button aria-current="{% if index == 0 and active == false %}true{% assign index = 1 %}{% assign active = true %}{% else %}false{% endif %}" class="hdt-relative hdt-text-2xl hdt-font-medium">{{- 'templates.search.collection' | t -}}</button>
         {% endif %}
-        {%- if predictive_search.resources.articles.size > 0 -%}
+        {%- if false -%}
           <button aria-current="{% if index == 0 and active == false %}true{% assign index = 1 %}{% assign active = true %}{% else %}false{% endif %}" class="hdt-relative hdt-text-2xl hdt-font-medium">{{- 'templates.search.article' | t -}}</button>
         {% endif %}
-        {%- if predictive_search.resources.pages.size > 0 -%}
+        {%- if false -%}
           <button aria-current="{% if index == 0 and active == false %}true{% assign index = 1 %}{% assign active = true %}{% else %}false{% endif %}" class="hdt-relative hdt-text-2xl hdt-font-medium">{{- 'templates.search.pages' | t -}}</button>
         {% endif %}
       </hdt-tab>
@@ -152,7 +152,7 @@
             <style>.hdt-search-hidden .hdt-search-bottom {display: flex !important;opacity: 1;visibility: visible;}</style>
           </div>
         {%- endif -%}
-        {%- if predictive_search.resources.collections.size > 0 -%}
+        {%- if false -%}
           <div class="hdt-tab-item hdt-search-results-part" tab-item {% if index == 0 and active == false %}tab-selected{% assign index = 1 %}{% assign active = true %}{% endif %}>
             <div class="hdt-search-results-list hdt-search-list-collections hdt-row-grid hdt-grid-cols-1 hdt-current-scrollbar hdt-current-scrollbar">
               {%- for collection in predictive_search.resources.collections -%}
@@ -161,7 +161,7 @@
             </div>
           </div>
         {%- endif -%}
-        {%- if predictive_search.resources.articles.size > 0 -%}
+        {%- if false -%}
           <div class="hdt-tab-item hdt-search-results-part" tab-item {% if index == 0 and active == false %}tab-selected{% assign index = 1 %}{% assign active = true %}{% endif %}>
             <div class="hdt-search-results-list hdt-search-list-article hdt-row-grid hdt-grid-cols-1 hdt-current-scrollbar hdt-current-scrollbar">
               {%- for article in predictive_search.resources.articles -%}
@@ -170,7 +170,7 @@
             </div>
           </div>
         {%- endif -%}
-        {%- if predictive_search.resources.pages.size > 0 -%}
+        {%- if false -%}
           <div class="hdt-tab-item hdt-search-results-part" tab-item {% if index == 0 and active == false %}tab-selected{% assign index = 1 %}{% assign active = true %}{% endif %}>
             <ul id="predictive-search-results-pages-list-desktop hdt-current-scrollbar" class="hdt-search-results-list hdt-text-base hdt-font-normal predictive-search__results-list list-unstyled" role="group" aria-labelledby="predictive-search-pages-desktop">
               {%- for page in predictive_search.resources.pages -%}

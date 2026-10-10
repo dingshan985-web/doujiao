@@ -64,7 +64,7 @@
             "blog": "",
             "show_blog_title": "blog_current",
             "limit_post": 3,
-            "image_ratio": "-square",
+            "image_ratio": "-adapt_image",
             "image_size": "cover"
           }
         },

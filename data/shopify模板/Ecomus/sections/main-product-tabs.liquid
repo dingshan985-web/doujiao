@@ -33,23 +33,15 @@
                       if bk_title == blank or block.settings.content == blank and block.settings.page.content == blank
                         continue
                       endif
-                    when 'tab_liquid'
-                      if block.settings.title == blank or block.settings.custom_liquid == blank
+                    when 'tab_metafield'
+                      capture metafield_content
+                        render 'product-tab-metafield-content', block: block
+                      endcapture
+                      if block.settings.title == blank or metafield_content == blank
                         continue
                       endif
-                    when 'product_metafield'
-                      assign mf_raw = block.settings.product_tab_key_metafield
-                      assign mf_key = mf_raw | strip_html | strip
-                      assign meta_ref = blank
-                      if block.settings.product_custom_source == 'dynamic'
-                        assign meta_ref = mf_raw
-                      elsif mf_key contains '.'
-                        assign mf_parts = mf_key | split: '.'
-                        assign meta_ref = product.metafields[mf_parts[0]][mf_parts[1]]
-                      else
-                        assign meta_ref = product.metafields.c_f[mf_key] | default: product.metafields.custom[mf_key]
-                      endif
-                      if block.settings.title == blank or meta_ref == blank
+                    when 'tab_liquid'
+                      if block.settings.title == blank or block.settings.custom_liquid == blank
                         continue
                       endif
                   endcase
@@ -95,26 +87,14 @@
                       {{ block.settings.page.content }}
                     </div>
                     {%- assign is_first = false -%}
+                  {%- when 'tab_metafield' -%}
+                    {%- capture metafield_content -%}{%- render 'product-tab-metafield-content', block: block -%}{%- endcapture -%}
+                    {%- if block.settings.title == blank or metafield_content == blank -%}{% continue %}{%- endif -%}
+                    <div class="hdt-tab-item hdt-rte" tab-item{% if is_first %} tab-selected{% endif %} data-type={{ block.type }}>{{ metafield_content }}</div>
+                    {%- assign is_first = false -%}
                   {%- when 'tab_liquid' -%}
                     {%- if block.settings.title == blank or block.settings.custom_liquid == blank -%}{% continue %}{%- endif -%}
                     <div class="hdt-tab-item" tab-item{% if is_first %} tab-selected{% endif %} data-type={{ block.type }}>{{ block.settings.custom_liquid }}</div>
-                    {%- assign is_first = false -%}
-                  {%- when 'product_metafield' -%}
-                    {%- liquid
-                      assign mf_raw = block.settings.product_tab_key_metafield
-                      assign mf_key = mf_raw | strip_html | strip
-                      assign meta_ref = blank
-                      if block.settings.product_custom_source == 'dynamic'
-                        assign meta_ref = mf_raw
-                      elsif mf_key contains '.'
-                        assign mf_parts = mf_key | split: '.'
-                        assign meta_ref = product.metafields[mf_parts[0]][mf_parts[1]]
-                      else
-                        assign meta_ref = product.metafields.c_f[mf_key] | default: product.metafields.custom[mf_key]
-                      endif
-                    -%}
-                    {%- if block.settings.title == blank or meta_ref == blank -%}{% continue %}{%- endif -%}
-                    <div class="hdt-tab-item hdt-rte" tab-item{% if is_first %} tab-selected{% endif %} data-type={{ block.type }} {{ block.shopify_attributes }}>{{ meta_ref }}</div>
                     {%- assign is_first = false -%}
                 {%- endcase -%}
               {%- endfor -%}
@@ -186,6 +166,18 @@
                       </div>
                     </details>
                   </hdt-accordion>
+                {%- when 'tab_metafield' -%}
+                  {%- capture metafield_content -%}{%- render 'product-tab-metafield-content', block: block -%}{%- endcapture -%}
+                  {%- if block.settings.title == blank or metafield_content == blank -%}{% continue %}{%- endif -%}
+                  <hdt-accordion class="hdt-contents">
+                    <details class="hdt-product-accordion__item" {% if forloop.first and section.settings.enable_first_tab %}open {% endif %} {{ block.shopify_attributes }}>
+                      <summary aria-expanded="{% if forloop.first and section.settings.enable_first_tab %}true{% else %}false{% endif %}">
+                        <span class="hdt-product-accordion__text hdt-s-text hdt-font-semibold">{{ block.settings.title }}</span>
+                        <span class="hdt-product-accordion__icon"></span>
+                      </summary>
+                      <div class="hdt-product-accordion__content hdt-rte">{{ metafield_content }}</div>
+                    </details>
+                  </hdt-accordion>
                 {%- when 'tab_liquid' -%}
                   {%- if block.settings.title == blank or block.settings.custom_liquid == blank -%}{% continue %}{%- endif -%}
                   <hdt-accordion class="hdt-contents">
@@ -195,30 +187,6 @@
                         <span class="hdt-product-accordion__icon"></span>
                       </summary>
                       <div class="hdt-product-accordion__content">{{ block.settings.custom_liquid }}</div>
-                    </details>
-                  </hdt-accordion>
-                {%- when 'product_metafield' -%}
-                  {%- liquid
-                    assign mf_raw = block.settings.product_tab_key_metafield
-                    assign mf_key = mf_raw | strip_html | strip
-                    assign meta_ref = blank
-                    if block.settings.product_custom_source == 'dynamic'
-                      assign meta_ref = mf_raw
-                    elsif mf_key contains '.'
-                      assign mf_parts = mf_key | split: '.'
-                      assign meta_ref = product.metafields[mf_parts[0]][mf_parts[1]]
-                    else
-                      assign meta_ref = product.metafields.c_f[mf_key] | default: product.metafields.custom[mf_key]
-                    endif
-                  -%}
-                  {%- if block.settings.title == blank or meta_ref == blank -%}{% continue %}{%- endif -%}
-                  <hdt-accordion class="hdt-contents">
-                    <details class="hdt-product-accordion__item" {% if block.settings.open %}open{% endif %} {{ block.shopify_attributes }}>
-                      <summary aria-expanded="{% if block.settings.open %}true{% else %}false{% endif %}">
-                        <span class="hdt-product-accordion__text hdt-s-text hdt-font-semibold">{{ block.settings.title }}</span>
-                        <span class="hdt-product-accordion__icon"></span>
-                      </summary>
-                      <div class="hdt-product-accordion__content hdt-rte">{{ meta_ref }}</div>
                     </details>
                   </hdt-accordion>
               {%- endcase -%}
@@ -269,30 +237,18 @@
                       {{ block.settings.page.content }}
                     </div>
                   </div>
+                {%- when 'tab_metafield' -%}
+                  {%- capture metafield_content -%}{%- render 'product-tab-metafield-content', block: block -%}{%- endcapture -%}
+                  {%- if block.settings.title == blank or metafield_content == blank -%}{% continue %}{%- endif -%}
+                  <div class="hdt-product-tab__item">
+                    <div class="hdt-product-tab__item-title hdt-s-text hdt-font-semibold">{{ block.settings.title }}</div>
+                    <div class="hdt-product-tab__item-content hdt-rte">{{ metafield_content }}</div>
+                  </div>
                 {%- when 'tab_liquid' -%}
                   {%- if block.settings.title == blank or block.settings.custom_liquid == blank -%}{% continue %}{%- endif -%}
                   <div class="hdt-product-tab__item">
                     <div class="hdt-product-tab__item-title hdt-s-text hdt-font-semibold">{{ block.settings.title }}</div>
                     <div class="hdt-product-tab__item-content">{{ block.settings.custom_liquid }}</div>
-                  </div>
-                {%- when 'product_metafield' -%}
-                  {%- liquid
-                    assign mf_raw = block.settings.product_tab_key_metafield
-                    assign mf_key = mf_raw | strip_html | strip
-                    assign meta_ref = blank
-                    if block.settings.product_custom_source == 'dynamic'
-                      assign meta_ref = mf_raw
-                    elsif mf_key contains '.'
-                      assign mf_parts = mf_key | split: '.'
-                      assign meta_ref = product.metafields[mf_parts[0]][mf_parts[1]]
-                    else
-                      assign meta_ref = product.metafields.c_f[mf_key] | default: product.metafields.custom[mf_key]
-                    endif
-                  -%}
-                  {%- if block.settings.title == blank or meta_ref == blank -%}{% continue %}{%- endif -%}
-                  <div class="hdt-product-tab__item" {{ block.shopify_attributes }}>
-                    <div class="hdt-product-tab__item-title hdt-s-text hdt-font-semibold">{{ block.settings.title }}</div>
-                    <div class="hdt-product-tab__item-content hdt-rte">{{ meta_ref }}</div>
                   </div>
               {%- endcase -%}   
             {%- endfor -%}
@@ -446,6 +402,41 @@
       ]
     },
     {
+      "type": "tab_metafield",
+      "name": "产品元字段",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "标题",
+          "default": "产品详情"
+        },
+        {
+          "type": "select",
+          "id": "content_source",
+          "label": "内容来源",
+          "options": [
+            {
+              "value": "dynamic",
+              "label": "动态源"
+            },
+            {
+              "value": "manual",
+              "label": "手动填写 key"
+            }
+          ],
+          "default": "dynamic"
+        },
+        {
+          "type": "richtext",
+          "id": "metafield",
+          "label": "元字段",
+          "info": "动态源模式下选择与产品绑定的元字段；手动填写模式下输入 key，例如 c_f.description 填写 description。",
+          "default": "<p></p>"
+        }
+      ]
+    },
+    {
       "type": "tab_liquid",
       "name": "t:sections.main-product-tabs.blocks.tab_liquid.name",
       "settings": [
@@ -460,70 +451,6 @@
           "id": "custom_liquid",
           "label": "t:sections.main-product-tabs.blocks.tab_liquid.settings.custom_liquid.label",
           "info": "t:sections.main-product-tabs.blocks.tab_liquid.settings.custom_liquid.info"
-        }
-      ]
-    },
-    {
-      "type": "product_metafield",
-      "name": "产品元字段",
-      "settings": [
-        {
-          "type": "header",
-          "content": "元字段内容"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "标题",
-          "default": "产品元字段"
-        },
-        {
-          "type": "select",
-          "id": "product_custom_source",
-          "label": "内容来源",
-          "options": [
-            { "label": "动态源", "value": "dynamic" },
-            { "label": "手动填写 key", "value": "key_text" }
-          ],
-          "default": "dynamic"
-        },
-        {
-          "type": "richtext",
-          "id": "product_tab_key_metafield",
-          "label": "元字段",
-          "info": "动态源模式下选择与产品绑定的元字段；手动填写模式下输入 key，例如 custom.description就填description"
-        },
-        {
-          "type": "header",
-          "content": "折叠样式"
-        },
-        {
-          "type": "checkbox",
-          "id": "open",
-          "label": "默认展开",
-          "default": true
-        },
-        {
-          "type": "checkbox",
-          "id": "display_top_border",
-          "label": "显示上下边框线",
-          "default": true
-        },
-        {
-          "type": "select",
-          "id": "icon",
-          "label": "图标",
-          "default": "check_mark",
-          "options": [
-            { "label": "无", "value": "none" },
-            { "label": "勾选", "value": "check_mark" },
-            { "label": "问号", "value": "question_mark" },
-            { "label": "星标", "value": "star" },
-            { "label": "心形", "value": "heart" },
-            { "label": "价签", "value": "price_tag" },
-            { "label": "卡车", "value": "truck" },
-            { "label": "树叶", "value": "leaf" }
-          ]
         }
       ]
     }

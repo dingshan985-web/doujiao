@@ -18,7 +18,7 @@
 </div>
 {% schema %}
   {
-    "name": "图片列",
+    "name": "Column image",
     "tag": null,
     "blocks": [
       {
@@ -33,13 +33,13 @@
         "max": 100,
         "step": 1,
         "unit": "%",
-        "label": "图片最大高度",
+        "label": "Max height image",
         "default": 100
       },
       {
         "type": "select",
         "id": "image_position",
-        "label": "移动端图片位置",
+        "label": "Image position on mobile",
         "options": [
           {
             "value": "",
@@ -47,11 +47,11 @@
           },
           {
             "value": "md:hdt-order-last",
-            "label": "图片在后"
+            "label": "Image last"
           },
           {
             "value": "md:hdt-order-first",
-            "label": "图片在前"
+            "label": "Image first"
           }
         ],
         "default": ""
@@ -59,7 +59,7 @@
     ],
     "presets": [
       {
-        "name": "图片列"
+        "name": "Column image"
       }
     ]
   }

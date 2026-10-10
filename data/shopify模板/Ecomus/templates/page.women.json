@@ -1725,9 +1725,9 @@
         "image_xp9Jjn"
       ],
       "settings": {
-        "image_height": "square_first",
+        "image_height": "adapt_image_first",
         "fixed_height": 860,
-        "image_height_mb": "square_first",
+        "image_height_mb": "adapt_image_first",
         "fixed_height_mb": 300,
         "use_bg_content": false,
         "color_scheme": "",

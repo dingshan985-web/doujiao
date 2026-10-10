@@ -19,7 +19,7 @@
 </div>
 {% schema %}
   {
-    "name": "列",
+    "name": "Column",
     "tag": null,
     "blocks": [
       {
@@ -78,16 +78,16 @@
     "settings": [
       {
         "type": "header",
-        "content": "布局"
+        "content": "Layout"
       },
       {
         "type": "select",
         "id": "column_dk",
-        "label": "桌面端列数",
+        "label": "Column desktop",
         "options": [
           {
             "value": "0",
-            "label": "隐藏"
+            "label": "Hidden"
           },
           {
             "value": "1",
@@ -135,11 +135,11 @@
       {
         "type": "select",
         "id": "column_tb",
-        "label": "平板端列数",
+        "label": "Column tablet",
         "options": [
           {
             "value": "0",
-            "label": "隐藏"
+            "label": "Hidden"
           },
           {
             "value": "1",
@@ -187,11 +187,11 @@
       {
         "type": "select",
         "id": "column_mb",
-        "label": "移动端列数",
+        "label": "Column mobile",
         "options": [
           {
             "value": "0",
-            "label": "隐藏"
+            "label": "Hidden"
           },
           /*{
             "value": "1",
@@ -238,7 +238,7 @@
       },
       {
         "type": "header",
-        "content": "间距"
+        "content": "Spacing"
       },
       {
         "type": "range",
@@ -307,15 +307,15 @@
       {
         "type": "select",
         "id": "content_width",
-        "label": "内容宽度",
+        "label": "Content width",
         "options": [
           {
             "value": "auto",
-            "label": "自动"
+            "label": "Auto"
           },
           {
             "value": "full",
-            "label": "完整"
+            "label": "Full"
           }
         ],
         "default": "auto"
@@ -323,7 +323,7 @@
       {
         "type": "select",
         "id": "content_position",
-        "label": "内容位置",
+        "label": "Content position",
         "options": [
           {
             "value": "start",
@@ -367,7 +367,7 @@
       {
         "type": "select",
         "id": "content_position_mb",
-        "label": "移动端内容位置",
+        "label": "Content position mobile",
         "options": [
           {
             "value": "start",
@@ -417,24 +417,24 @@
       {
         "type": "text_alignment",
         "id": "alignment_mb",
-        "label": "移动端文本对齐",
+        "label": "Text alignment mobile",
         "default": "center"
       },
       {
         "type": "image_picker",
         "id": "background_image",
-        "label": "背景图片"
+        "label": "Background image"
       },
       {
         "type": "color",
         "id": "background_color",
-        "label": "背景颜色",
+        "label": "Background color",
         "default": "#fff"
       },
       {
         "type": "select",
         "id": "rounded",
-        "label": "圆角",
+        "label": "Rounded",
         "options": [
           {
             "value": "none",
@@ -458,7 +458,7 @@
           },
           {
             "value": "hdt-radius-full",
-            "label": "完整"
+            "label": "Full"
           }
         ],
         "default": "none"
@@ -467,7 +467,7 @@
     ],
     "presets": [
       {
-        "name": "列",
+        "name": "Column",
         "blocks": [
           {
             "type": "heading"

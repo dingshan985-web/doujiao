@@ -19,13 +19,13 @@
 </div>
 {% schema %}
   {
-    "name": "图片瀑布流",
+    "name": "Image masonry",
     "tag": null,
     "settings": [
       {
         "type": "image_picker",
         "id": "image",
-        "label": "图片"
+        "label": "Image"
       },
       {
         "type": "range",
@@ -33,7 +33,7 @@
         "min": 1,
         "max": 13,
         "step": 1,
-        "label": "列开始",
+        "label": "Column start",
         "default": 1
       },
       {
@@ -42,7 +42,7 @@
         "min": 1,
         "max": 13,
         "step": 1,
-        "label": "列结束",
+        "label": "Column end",
         "default": 13
       },
       {
@@ -51,7 +51,7 @@
         "min": 1,
         "max": 13,
         "step": 1,
-        "label": "行开始",
+        "label": "Row start",
         "default": 1
       },
       {
@@ -60,7 +60,7 @@
         "min": 1,
         "max": 13,
         "step": 1,
-        "label": "行结束",
+        "label": "Row end",
         "default": 13
       },
       {
@@ -139,7 +139,7 @@
       {
         "type": "select",
         "id": "rounded",
-        "label": "圆角",
+        "label": "Rounded",
         "options": [
           {
             "value": "none",
@@ -163,7 +163,7 @@
           },
           {
             "value": "hdt-radius-full",
-            "label": "完整"
+            "label": "Full"
           }
         ],
         "default": "none"
@@ -171,7 +171,7 @@
     ],
     "presets": [
       {
-        "name": "图片瀑布流"
+        "name": "Image masonry"
       }
     ]
   }

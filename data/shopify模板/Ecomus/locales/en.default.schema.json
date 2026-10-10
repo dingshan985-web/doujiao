@@ -399,7 +399,8 @@
         "price_varies_style": {
           "label": "Price varies style",
           "options__1": "$39.00 – $59.00",
-          "options__2": "From $39.00"
+          "options__2": "From $39.00",
+          "options__3": "Strikethrough original + sale price"
         },
         "scroll_badge": {
           "header": "Scroll badge",
@@ -4750,6 +4751,9 @@
               },
               "options__3": {
                 "label": "All product"
+              },
+              "options__4": {
+                "label": "Only products without variants"
               }
             },
             "header_delivery_return": {

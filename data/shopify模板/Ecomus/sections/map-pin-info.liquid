@@ -57,7 +57,7 @@
 </div>
 {% schema %}
 {
-  "name": "地图标记信息",
+  "name": "Map pin info",
   "tag": "section",
   "class": "hdt-section hdt-map-pin-info",
   "disabled_on": {
@@ -78,14 +78,14 @@
     {
       "type": "checkbox",
       "id": "use_map",
-      "label": "使用地图",
+      "label": "Use map",
       "default": true
     },
     {
       "type": "liquid",
       "id": "map",
       "label": "t:sections.contact.map_with_text.map.label",
-      "info": "[可在此获取地图](https://www.google.com/maps)，需要使用 iframe",
+      "info": "[You can get the map at here](https://www.google.com/maps), need to use iframes",
       "visible_if": "{{ section.settings.use_map }}"
     },
     {
@@ -95,7 +95,7 @@
       "max": 100,
       "step": 1,
       "unit": "%",
-      "label": "地图灰度滤镜",
+      "label": "Filter gray scale source map",
       "default": 0,
       "visible_if": "{{ section.settings.use_map }}"
     },
@@ -112,19 +112,19 @@
     {
       "type": "number",
       "id": "custom_h_dk",
-      "label": "自定义高度",
+      "label": "Custom height",
       "default": 600,
     },
     {
       "type": "number",
       "id": "custom_h_tb",
-      "label": "自定义高度（平板端）",
+      "label": "Custom height (tablet)",
       "default": 450,
     },
     {
       "type": "number",
       "id": "custom_h_mb",
-      "label": "自定义高度（移动端）",
+      "label": "Custom height (mobile)",
       "default": 300,
     },
     {
@@ -222,7 +222,7 @@
   ],
   "presets": [
     {
-      "name": "地图标记信息",
+      "name": "Map pin info",
       "category": "t:sections_categories.05_section.name",
       "blocks": [
         {

@@ -397,7 +397,7 @@
         "collection": "baby",
         "product_list": [],
         "product_des": "3",
-        "image_ratio": "square",
+        "image_ratio": "adapt_image",
         "image_size": true,
         "show_vendor": false,
         "products_count": 8,
@@ -853,7 +853,7 @@
         "collection": "baby",
         "product_list": [],
         "product_des": "1",
-        "image_ratio": "square",
+        "image_ratio": "adapt_image",
         "image_size": true,
         "show_vendor": false,
         "pr_border": "none",
@@ -1184,7 +1184,7 @@
         ".hdt-slider__viewport {border-radius: 10px;}"
       ],
       "settings": {
-        "image_ratio": "square",
+        "image_ratio": "adapt_image",
         "item_show": "1",
         "color_scheme": "",
         "auto_play": 0,

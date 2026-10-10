@@ -57,19 +57,19 @@
 
 {% schema %}
 {
-  "name": "品牌图片",
+  "name": "Brand image",
   "tag": "section",
   "class": "hdt-brand-image-block",
   "settings": [
     {
       "type": "header",
-      "content": "品牌图片设置"
+      "content": "Brand Image Settings"
     },
     {
       "type": "image_picker",
       "id": "brand_image",
-      "label": "品牌 Logo 图片",
-      "info": "上传品牌 Logo 图片"
+      "label": "Brand logo image",
+      "info": "Upload brand logo image"
     },
     {
       "type": "range",
@@ -78,25 +78,25 @@
       "max": 300,
       "step": 10,
       "unit": "px",
-      "label": "Logo 宽度",
+      "label": "Logo width",
       "default": 120
     },
     {
       "type": "select",
       "id": "image_fit",
-      "label": "图片适应方式",
+      "label": "Image fit",
       "options": [
         {
           "value": "contain",
-          "label": "包含"
+          "label": "Contain"
         },
         {
           "value": "cover",
-          "label": "覆盖"
+          "label": "Cover"
         },
         {
           "value": "fill",
-          "label": "填充"
+          "label": "Fill"
         }
       ],
       "default": "contain"
@@ -104,7 +104,7 @@
   ],
   "presets": [
     {
-      "name": "品牌图片",
+      "name": "Brand image",
       "settings": {
         "image_width": 120
       }

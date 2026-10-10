@@ -119,8 +119,9 @@
             <div class=" hdt-footer-copyright hdt-flex hdt-flex-col {% if section.settings.text_copR != blank and section.settings.svg != blank or section.settings.text_copR != blank and section.settings.image-svg_list != blank %} md:hdt-align-start hdt-align-center hdt-align-start {% else %} hdt-justify-center hdt-align-center {% endif %} hdt-s-text2 {{ section.settings.text_size }}">
               <div class =" hdt-list-toleft hdt-flex hdt-flex-col hdt-text-center md:hdt-text-start">
                 {%- assign now_y = 'now' | date: '%Y' -%}
+                {%- assign shop_name = shop.name | escape -%}
                 <div class="hdt-coppy-right"> 
-                    {{- section.settings.text_copR | replace: "[year]", now_y | replace: "[shop.name]", shop.name -}}
+                    {{- section.settings.text_copR | replace: "[year]", now_y | replace: "[shop.name]", shop_name | replace: "[shop_name]", shop_name -}}
                 </div>
                 {%- if section.settings.show_policy == true -%}
                   <ul class="hdt-policies hdt-row-flex md:hdt-justify-start hdt-justify-center">
@@ -371,7 +372,7 @@
       "type": "textarea",
       "id": "svg",
       "label": "t:sections.footer.settings.svg.label",
-      "default": "visa,master,american_express,apple_pay,discover,shopify_pay",
+      "default": "amazon_payments,american_express,apple_pay,bitcoin",
       "info": "t:sections.footer.settings.svg.info"
     },
     {

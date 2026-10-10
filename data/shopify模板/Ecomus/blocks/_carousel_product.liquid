@@ -177,7 +177,7 @@
 </div>
 {% schema %}
   {
-    "name": "产品轮播",
+    "name": "Product carousel",
     "tag": null,
     "settings": [
       {
@@ -432,7 +432,7 @@
       },  */
       {
         "type": "header",
-        "content": "轮播设置",
+        "content": "Slider configs",
         "visible_if": "{{ block.settings.collection != blank or block.settings.product_list != blank }}"
       },
       {
@@ -440,7 +440,7 @@
         "id": "navUI",
         "label": "t:sections.all.slider.navUI",
         "default": false,
-        "info": "仅在桌面端生效",
+        "info": "Option only works on desktop",
         "visible_if": "{{ block.settings.collection != blank or block.settings.product_list != blank }}"
       },
       {
@@ -538,7 +538,7 @@
           },
           {
             "value": "middle_out",
-            "label": "内容外部"
+            "label": "Outside content"
           },
           {
             "value": "on_border",
@@ -551,15 +551,15 @@
       {
         "type": "select",
         "id": "nav_icon",
-        "label": "导航图标",
+        "label": "Navigation icon",
         "options": [
           {
             "value": "chrvon",
-            "label": "切换箭头"
+            "label": "Chevron"
           },
           {
             "value": "arrow_right",
-            "label": "箭头"
+            "label": "Arrow"
           }
         ],
         "default": "chrvon",
@@ -591,7 +591,7 @@
           },
           {
             "value": "dashed",
-            "label": "虚线"
+            "label": "Dashed"
           }
         ],
         "default": "default",
@@ -632,7 +632,7 @@
         "max": 100,
         "step": 1,
         "unit": "px",
-        "label": "圆点距离",
+        "label": "Dot distance",
         "default": 30,
         "visible_if": "{{ block.settings.dotUI and block.settings.collection != blank or block.settings.product_list != blank }}"
       },
@@ -643,7 +643,7 @@
       {
         "type": "checkbox",
         "id": "pagination_type",
-        "label": "分页类型",
+        "label": "Pagination type",
         "default": false,
       },
       {
@@ -715,31 +715,31 @@
       {
         "type": "select",
         "id": "size",
-        "label": "尺寸",
+        "label": "Size",
         "options": [
           {
             "value": "xs",
-            "label": "超小"
+            "label": "Extra small"
           },
           {
             "value": "s",
-            "label": "小"
+            "label": "Small"
           },
           {
             "value": "m",
-            "label": "中"
+            "label": "Medium"
           },
           {
             "value": "l",
-            "label": "大"
+            "label": "Large"
           },
           {
             "value": "xl",
-            "label": "超大"
+            "label": "Extra Large"
           },
           {
             "value": "custom hdt-btn--size-custom-1",
-            "label": "自定义默认尺寸"
+            "label": "Custom size default"
           }
         ],
         "default": "m",
@@ -777,7 +777,7 @@
     ],
     "presets": [
       {
-        "name": "产品轮播"
+        "name": "Product carousel"
       }
     ]
   }
