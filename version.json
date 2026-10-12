@@ -1,6 +1,6 @@
 {
-  "version": "1.8.4",
-  "download_url": "https://github.com/dingshan985-web/doujiao/releases/download/v1.8.4/update.zip",
-  "green_download_url": "https://github.com/dingshan985-web/doujiao/releases/download/v1.8.4/update.zip",
-  "release_notes": "v1.8.4：Ecomus 模板升级到 debug5（元字段选项卡块类型改为 tab_metafield，已适配「根据产品文件生成元字段」）；发布包精简为仅内置 Ecomus 模板。"
+  "version": "1.8.5",
+  "download_url": "https://github.com/dingshan985-web/doujiao/releases/download/v1.8.5/update.zip",
+  "green_download_url": "https://github.com/dingshan985-web/doujiao/releases/download/v1.8.5/update.zip",
+  "release_notes": "v1.8.5：内置 Ecomus 模板升级到 debug6（修复页脚移动端折叠异常、修正折叠容器类名与展开高度、折叠默认改为开启）；修复 Ecomus debug5 主题 sections/*.json 带 /* */ 自动生成注释头导致标准 json.load 崩溃的生成报错；同步清理发布包 data 下误留的游离 Ecomus 副本。"
 }

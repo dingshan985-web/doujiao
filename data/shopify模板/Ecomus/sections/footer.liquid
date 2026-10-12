@@ -20,7 +20,7 @@
             -%}
             {%- case  block.type -%}
               {%- when 'menu' -%}
-                <div id=" hdt-{{ block.id }}" class= "hdt-footer-menu hdt-border-column-{{ block.settings.border-column }} hdt-col-block hdt-col hdt-relative" style="--cus-width:{{ block.settings.custom_w_dk }}%;--pd-top: {{ pd_item[0] | default: 0 }};--pd-right: {{ pd_item[1] | default: 0 }};--pd-bottom: {{ pd_item[2] | default: 0 }};--pd-left: {{ pd_item[3] | default: 0 }};">
+                <div id="hdt-{{ block.id }}" class= "hdt-footer-menu hdt-border-column-{{ block.settings.border-column }} hdt-col-block hdt-col hdt-relative" style="--cus-width:{{ block.settings.custom_w_dk }}%;--pd-top: {{ pd_item[0] | default: 0 }};--pd-right: {{ pd_item[1] | default: 0 }};--pd-bottom: {{ pd_item[2] | default: 0 }};--pd-left: {{ pd_item[3] | default: 0 }};">
                   {%- if block.settings.heading_menu != blank -%}
                     <div class="hdt-heading-f collapsible hdt-flex hdt-align-center hdt-justify-between">
                       <h6 class=" {{ section.settings.heading_fs }} hdt-s-text {{ section.settings.text_weight }}"> {{ block.settings.heading_menu }}</h6>
@@ -41,16 +41,17 @@
                   {%- if block.settings.heading_sm != blank -%}
                     <div class="hdt-heading-f collapsible {% if block.settings.image_sm != blank %} hdt-overwrite-heading {% endif %} hdt-flex hdt-align-center hdt-justify-between hdt-relative">
                       <h6 class=" {{ section.settings.heading_fs }} hdt-s-text {{ section.settings.text_weight }}{% if block.settings.image_sm != blank %} hdt-hidden {% endif %}"> {{ block.settings.heading_sm }}</h6>
+                      <span class="hdt-collapse-icon hdt-relative"></span>
                     </div>
                   {%- endif -%}
-                  <div class="hdt-collapse-contents">
+                  <div class="hdt-collapse-content">
                     {%- if block.settings.image_sm != blank -%}
                       <a href="{{ block.settings.link_img | default: routes.root_url }}">
                         <img src="{{ block.settings.image_sm | image_url }}" alt="{{ block.settings.image_sm.alt | escape }}" class="hdt-image-sm" loading="lazy" width="{{ block.settings.image_sm.width }}" height="{{ block.settings.image_sm.height }}" data-sizes="auto" style="--image-w:{{ block.settings.image_w }}px;">
                       </a>
                     {%- endif -%}
                     {%- if block.settings.html_content != blank -%}
-                        <div class=" hdt-raw-html hdt-s-text2 {{ section.settings.text_size }} {% if block.settings.adding_border %} hdt-rte{% else %} hdt-tag-list{% endif %}" >{{ block.settings.html_content }}</div>
+                      <div class=" hdt-raw-html hdt-s-text2 {{ section.settings.text_size }} {% if block.settings.adding_border %} hdt-rte{% else %} hdt-tag-list{% endif %}" >{{ block.settings.html_content }}</div>
                       {%- endif -%}
                     {%- if block.settings.btn_label != blank -%}
                       <div class="hdt-footer-button">
@@ -114,7 +115,7 @@
   <div class='hdt-footer-bottom'>
     <div class="hdt-container {%- if section.settings.section_fullwidth -%}-full hdt-px-15{%- endif -%}">
       <div class="hdt-footer-content-bottom">
-        <div class="hdt-row-grid {% if section.settings.text_copR != blank and section.settings.svg != blank or section.settings.text_copR != blank and section.settings.image-svg_list != blank  %}md:hdt-grid-cols-2 hdt-grid-cols-1 {% else %}  hdt-grid-cols-1 {% endif %} hdt-align-center hdt-footer-bt-bar">
+        <div class="hdt-row-grid {% if section.settings.text_copR != blank and section.settings.svg != blank or section.settings.text_copR != blank and section.settings.image-svg_list != blank  %}md:hdt-grid-cols-2 hdt-grid-cols-1 {% else %}  hdt-grid-cols-1 {% endif %} hdt-align-center hdt-footer-bt-bar">
           {%- if section.settings.text_copR != blank -%}
             <div class=" hdt-footer-copyright hdt-flex hdt-flex-col {% if section.settings.text_copR != blank and section.settings.svg != blank or section.settings.text_copR != blank and section.settings.image-svg_list != blank %} md:hdt-align-start hdt-align-center hdt-align-start {% else %} hdt-justify-center hdt-align-center {% endif %} hdt-s-text2 {{ section.settings.text_size }}">
               <div class =" hdt-list-toleft hdt-flex hdt-flex-col hdt-text-center md:hdt-text-start">
@@ -201,7 +202,21 @@
 {%- if use_social -%}
   {{ 'hdt-icon-social.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
-{%- style -%}#shopify-section-{{section.id}}{--section-pt:{{section.settings.padding_top}}px;--section-pb:{{section.settings.padding_bottom}}px;--section-prate:{{section.settings.padding_rate}}}.hdt-footer .hdt-heading-f{--mg-bt-heading:{{section.settings.spacing_bt_heading}}px}@media(max-width:1150px){.hdt-list-toleft{flex-direction:column}.hdt-list-toleft .hdt-policies li{margin:0}}@media only screen and (max-width :767px){.hdt-footer-collapse-true .hdt-heading-f{cursor:pointer}.hdt-footer-collapse-true .hdt-collapse-icon{margin-inline-end:1rem}.hdt-footer-collapse-true .hdt-heading-f .hdt-collapse-icon:after,.hdt-footer-collapse-true .hdt-heading-f .hdt-collapse-icon:before{position:absolute;content:"";background-color:rgb(var(--color-foreground));transform:translate(-50%,-50%) rotate(-90deg);top:50%;left:50%;transition:transform .25s ease-in-out,opacity .25s ease-in-out,-webkit-transform .25s ease-in-out}.hdt-footer-collapse-true .hdt-heading-f .hdt-collapse-icon:after{width:1px;height:12px}.hdt-footer-collapse-true .hdt-heading-f .hdt-collapse-icon:before{width:12px;height:1px}.hdt-footer-collapse-true .open .hdt-heading-f .hdt-collapse-icon:after{transform:translate(-50%,-50%) rotate(90deg)}.hdt-footer-collapse-true .open .hdt-heading-f .hdt-collapse-icon:before{opacity:0}.hdt-footer-collapse-true .hdt-col-block .hdt-collapse-content{height:0;overflow:hidden;transition:height 0.25s ease-out}.hdt-footer-collapse-true .hdt-col-block.open .hdt-collapse-content{max-height:auto;transition:height 0.25s ease-in-out 0s!important}}@media(min-width:1150px){.hdt-custom_width .hdt-col{flex:0 0 auto;max-width:100%;width:var(--cus-width)}}.hdt-footer-section .hdt-policies{gap:10px} .hdt-footer-payments img{width:var(--width-image_list);}{%- endstyle -%}
+{%- style -%}#shopify-section-{{section.id}}{--section-pt:{{section.settings.padding_top}}px;--section-pb:{{section.settings.padding_bottom}}px;--section-prate:{{section.settings.padding_rate}}}.hdt-footer .hdt-heading-f{--mg-bt-heading:{{section.settings.spacing_bt_heading}}px}@media(max-width:1150px){.hdt-list-toleft{flex-direction:column}.hdt-list-toleft .hdt-policies li{margin:0}}@media only screen and (max-width :767px){.hdt-footer-collapse-true .hdt-heading-f{cursor:pointer}.hdt-footer-collapse-true .hdt-collapse-icon{margin-inline-end:1rem}.hdt-footer-collapse-true .hdt-heading-f .hdt-collapse-icon:after,.hdt-footer-collapse-true .hdt-heading-f .hdt-collapse-icon:before{position:absolute;content:"";background-color:rgb(var(--color-foreground));transform:translate(-50%,-50%) rotate(-90deg);top:50%;left:50%;transition:transform .25s ease-in-out,opacity .25s ease-in-out,-webkit-transform .25s ease-in-out}.hdt-footer-collapse-true .hdt-heading-f .hdt-collapse-icon:after{width:1px;height:12px}.hdt-footer-collapse-true .hdt-heading-f .hdt-collapse-icon:before{width:12px;height:1px}.hdt-footer-collapse-true .open .hdt-heading-f .hdt-collapse-icon:after{transform:translate(-50%,-50%) rotate(90deg)}.hdt-footer-collapse-true .open .hdt-heading-f .hdt-collapse-icon:before{opacity:0}.hdt-footer-collapse-true .hdt-col-block .hdt-collapse-content{height:0;overflow:hidden;transition:height 0.25s ease-out}.hdt-footer-collapse-true .hdt-col-block.open .hdt-collapse-content{height:auto;transition:height 0.25s ease-in-out 0s!important}}@media(min-width:1150px){.hdt-custom_width .hdt-col{flex:0 0 auto;max-width:100%;width:var(--cus-width)}}.hdt-footer-section .hdt-policies{gap:10px} .hdt-footer-payments img{width:var(--width-image_list);}{%- endstyle -%}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var headings = document.querySelectorAll('.hdt-footer-collapse-true .hdt-heading-f.collapsible');
+    headings.forEach(function(heading) {
+      heading.addEventListener('click', function(e) {
+        if (window.innerWidth > 767) return;
+        var colBlock = this.closest('.hdt-col-block');
+        if (colBlock) {
+          colBlock.classList.toggle('open');
+        }
+      });
+    });
+  });
+</script>
 {% schema %}
 {
   "name": "t:sections.footer.name",
@@ -217,7 +232,7 @@
       "type": "checkbox",
       "id": "collapse",
       "label": "t:sections.footer.settings.collapse.label",
-      "default": false
+      "default": true
     },
     {
       "type": "header",
