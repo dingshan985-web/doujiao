@@ -26,7 +26,7 @@
     {
       "heading": "<h2>Our Promise to You</h2>",
       "paragraphs": [
-        "<p>We make a simple promise to every customer: if you're not happy, we're not happy. That promise isn't just words on a page — it's the foundation of our business. It means we offer free shipping on every order, with no minimum purchase required. It means we process all orders within 1-3 business days and deliver them within 1-7 business days, worldwide. It means you have 60 full days to try your purchase and return it for a full refund if you're not completely satisfied, with zero return shipping costs.</p>",
+        "<p>We make a simple promise to every customer: if you're not happy, we're not happy. That promise isn't just words on a page — it's the foundation of our business. It means we offer free shipping on every order, with no minimum purchase required. It means we process all orders within 1-3 business days and deliver them within {delivery_time}, worldwide. It means you have 60 full days to try your purchase and return it for a full refund if you're not completely satisfied, with zero return shipping costs.</p>",
         "<p>Our promise also means that when you contact customer service, you'll talk to a real person who has the authority and the desire to help. We don't believe in endless phone menus or scripted responses. If you have a question, we'll give you a straight answer. If you have a problem, we'll fix it. Simple as that. We measure our success not by how many sales we make, but by how many customers come back — and we work hard every day to earn your loyalty.</p>"
       ]
     },

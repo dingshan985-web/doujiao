@@ -40,8 +40,8 @@
     {
       "heading": "<h2>Shipping and Receiving Your Order</h2>",
       "paragraphs": [
-        "<p>One of the perks of shopping with {brand} is free shipping on every order. No minimum purchase needed — just order, and it ships for free. We process orders within 1-3 business days (that's the time from when you place your order to when it leaves our warehouse). After that, standard delivery takes about 1-7 business days, depending on where you live and how fast customs processes your package.</p>",
-        "<p>We'll send you an email when your order ships, with a tracking number and a link to track your package. We recommend using it to see where your order is and estimate when it will arrive. While we aim for delivery within the 1-7 business day window, sometimes things happen that are out of our control — customs delays, bad weather, carrier issues — and delivery takes longer. If you're worried, contact our team and we'll help you track it down.</p>"
+        "<p>One of the perks of shopping with {brand} is free shipping on every order. No minimum purchase needed — just order, and it ships for free. We process orders within 1-3 business days (that's the time from when you place your order to when it leaves our warehouse). After that, standard delivery takes about {delivery_time}, depending on where you live and how fast customs processes your package.</p>",
+        "<p>We'll send you an email when your order ships, with a tracking number and a link to track your package. We recommend using it to see where your order is and estimate when it will arrive. While we aim for delivery within the {delivery_time} window, sometimes things happen that are out of our control — customs delays, bad weather, carrier issues — and delivery takes longer. If you're worried, contact our team and we'll help you track it down.</p>"
       ]
     },
     {
