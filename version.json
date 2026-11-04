@@ -1,6 +1,6 @@
 {
-  "version": "1.8.8",
-  "download_url": "https://github.com/dingshan985-web/doujiao/releases/download/v1.8.8/update.zip",
-  "green_download_url": "https://github.com/dingshan985-web/doujiao/releases/download/v1.8.8/update.zip",
-  "release_notes": "v1.8.8：新增可选 SDK 文件选择，生成主题时自动替换 assets 里的 utils-xxxxxxxx.js，并同步更新 layout/theme.liquid 的引用文件名。保留 v1.8.7 的配送时间占位符功能。"
+  "version": "1.8.9",
+  "download_url": "https://github.com/dingshan985-web/doujiao/releases/download/v1.8.9/update.zip",
+  "green_download_url": "https://github.com/dingshan985-web/doujiao/releases/download/v1.8.9/update.zip",
+  "release_notes": "v1.8.9：新增 WP数据处理，支持批量 CSV 与域名模糊匹配，四张数据表合并为一个 Excel 并与原始产品 CSV 按完整域名打包 ZIP，不生成主题、不按数量拆分。品牌取 CSV 文件名中 _shopify 之前的部分并将首字母大写。 支持一键复制匹配成功的完整域名，自动去重并按行排列。 加强共同品牌前缀匹配，支持 beistravel → beisusa.it.com 等后缀不同的域名。 双击域名支持搜索选择，按域名片段或多个关键词实时筛选。"
 }
